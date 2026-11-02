@@ -193,6 +193,280 @@
     .nav-link:hover{background:transparent;color:var(--blue);box-shadow:none}
     .nav-link.active,.nav-link[aria-current="page"]{background:transparent;color:var(--ink);border-bottom-color:var(--blue);border-radius:0;box-shadow:none;font-weight:500}
     .nav-link:active{transform:none}
+
+    /* SMMQuality panel palette and responsive refinements. */
+    :root{--ink:#142b48;--muted:#536b86;--line:#cbd6e3;--soft:#eaf0f6;--blue:#176bb4;--button:#243f59;--panel-navy:#172f48;--panel-bg:#e9eef4}
+    body{background:var(--panel-bg);color:var(--ink)}
+    .card{background:#fff;border-color:var(--line);box-shadow:0 2px 8px #17324c05}
+    .topbar{background:var(--panel-navy);border-color:#264660;box-shadow:0 2px 8px #102a4220}
+    .brand,.topbar .plain-button,.topbar .nav-link,.topbar .nav-link.active,.topbar .nav-link[aria-current="page"]{color:#f5f8fc}
+    .topbar .nav-link:hover{color:#a8d2ff;background:none}.topbar .nav-link.active{border-bottom-color:#8ac3ff}
+    .topbar .balance-chip{background:#27435e;color:#fff}.avatar{background:#36536f;color:#fff;box-shadow:none}
+    .topbar .mobile-toggle{background:#29455f;border-color:#54708b;color:#fff}.topbar .badge{background:#466381;color:white}
+    .topbar .dropdown-menu{background:white}.topbar .dropdown-menu :is(a,button){color:var(--ink)}
+    .primary,.help-action.ticket,.secondary-action{background:var(--button);border-color:var(--button);box-shadow:none;color:#fff}
+    .primary:hover,.help-action.ticket:hover,.secondary-action:hover{background:#315572;border-color:#315572;box-shadow:none}
+    :is(.help-action,.view-ticket,.view-transaction,.view-refill,.reorder-button,.service-view,.contact-api,.api-doc-link){border-color:#9db3ca;color:#224e77;background:#fff;box-shadow:none}
+    :is(.help-action,.view-ticket,.view-transaction,.view-refill,.reorder-button,.service-view,.contact-api,.api-doc-link):hover{background:#edf3f8;border-color:#648aaf;box-shadow:none}
+    :is(.control,.support-input,.settings-input,.input-group,.search-box,.transaction-search,.order-search,.catalog-search,.ticket-search,.refill-search,.copy-field,.date-trigger,.charge-input){border-color:#b8c9da;background:#fff}
+    :is(.filter-select select,.order-filter select,.catalog-select select,.payment-select select){border-color:#b8c9da}
+    input::placeholder,textarea::placeholder{color:#617790;opacity:1}
+    :is(.orders-table,.services-table,.refill-table,.transaction-table,.tickets-table,.api-table) th{background:#e6edf5;color:#203f5d}
+    :is(.orders-table,.services-table,.refill-table,.transaction-table,.tickets-table,.api-table) td{color:#415c78;border-color:#d7e0ea}
+    .transaction-table tbody tr:nth-child(even){background:#f4f7fa}
+    .status-tab{background:#edf2f7;border-color:#cbd7e4;color:#294b6c}.status-tab.active{background:#294e71;border-color:#294e71;box-shadow:none}.status-tab.active:after{background:#294e71}
+    .category-heading{background:#e2ebf5;border-radius:6px;padding-left:16px}.category-heading:hover{background:#d8e5f2}.category-heading h2{color:#173a5c}
+    .catalog-filters{border-top:0;background:#f7f9fc}.category-select select{background:#294e71;border-color:#294e71;color:#fff}
+    .wallet-art,.settings-icon,.intro-icon,.history-icon,.refill-icon,.orders-icon,.code-icon{background:#e6edf5;color:#203f5d}
+    .update,.steps,.information-list,.info-table{border-color:#cbd7e4}.contact-action{background:#eaf0f6;color:#244766}.contact-action:hover{background:#dfe9f3}
+    .whatsapp-support{margin-top:12px;border:1px solid #a9bfc7;background:#edf5f1;color:#1c654a}.whatsapp-support:hover{background:#e0efe7}
+    .funds{gap:20px}.funds-actions{display:flex;align-items:center;justify-content:flex-end;gap:12px;flex-shrink:0}.funds-actions .currency-dropdown{display:block}.funds-actions .plain-button{min-height:44px;padding:10px 12px;border:1px solid #b8c9da;border-radius:8px;color:#294767;background:white;font-size:12px}.funds-actions .dropdown-menu{z-index:20}
+    .description{grid-template-columns:28px minmax(0,1fr);gap:16px;padding:20px;background:#edf2f7;border:1px solid #cedae6;border-radius:8px;margin:0 0 20px;min-height:0;align-items:start}
+    .description>i{font-size:24px;line-height:1.4;padding-top:0;color:#294c70}.description h2{margin:0 0 10px;font-size:16px;line-height:1.5}.description p{font-size:13px;line-height:1.75;margin:0 0 4px;color:#425f7d}.description .check-line{align-items:flex-start;gap:9px;margin:10px 0 0;padding-top:10px;border-top:1px solid #cdd9e6}.description .check-line i{font-size:17px;line-height:1.7;color:#294e71}
+    .orders-card{margin-top:0}.status-tabs{margin-top:0}.catalog-top{margin-bottom:20px}
+    .payment-upi{margin:0 0 20px;padding:17px;background:#edf2f7;border:1px solid #c2d2e1;border-radius:8px}.payment-upi .side-heading{font-size:17px;margin-bottom:12px}.payment-upi .side-heading i{font-size:21px}.payment-upi .copy-field{background:white}.payment-upi label{margin-left:0;margin-bottom:7px}.payment-upi .copy-field span{font-size:12px}
+    .qr-area{background:#f3f6f9;border:1px solid #e0e7ee;padding:14px;margin-bottom:20px}.payment-art{aspect-ratio:367/350}.payment-art img{top:-84.286%}
+    .unified-payment-help{display:block;padding:0;overflow:hidden}.unified-payment-help>.side-card{background:none;border:0;box-shadow:none;border-radius:0;margin:0}.unified-payment-help>.side-card+.side-card{border-top:1px solid var(--line)}
+    .funding-layout{align-items:start}.funding-card{padding-top:24px}.funding-sidebar{grid-template-columns:1fr}.info-row{grid-template-columns:100px minmax(0,1fr)}
+    .dialog-tag{display:none}.dialog-head{margin-bottom:14px}.code-block{background:#eef2f6}
+    @media(max-width:1279px){.topbar .nav{background:var(--panel-navy);border-color:#36536d}.nav-link{min-height:44px}.topbar .nav-link:hover{background:#243f59}}
+    @media(max-width:1120px){.funds{flex-wrap:wrap}.funds-actions{width:100%;justify-content:flex-end}.funds-actions .add-funds{width:auto}.funds-copy{min-width:0}.funding-layout{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)}}
+    @media(max-width:850px){.funding-layout,.support-layout,.settings-layout{grid-template-columns:minmax(0,1fr)}.funding-sidebar,.support-sidebar{grid-template-columns:minmax(0,1fr)}.funds-actions{justify-content:flex-start}.info-row{grid-template-columns:90px minmax(0,1fr)}.payment-art{width:min(100%,330px)}}
+    @media(max-width:767px){
+      .page{padding:18px 14px 24px;max-width:100%;width:100%}.card{max-width:100%}.dashboard,.funding-layout,.support-layout,.settings-layout{grid-template-columns:minmax(0,1fr)}
+      :is(.view-ticket,.view-transaction,.view-refill,.reorder-button,.service-view,.copy-code,.copy-key,.copy-button,.visibility-button,.close-dialog,.mobile-toggle){min-height:44px;min-width:44px}
+      :is(.orders-pagination,.catalog-pagination,.transaction-pagination,.refill-pagination,.pagination) button{width:40px;height:44px;min-width:40px}
+      input,select,textarea,.control,.select-wrap select,.settings-input input,.settings-input select,.support-input input,.support-input select,.input-group input{font-size:16px!important}
+      .funds{padding:18px;gap:15px}.funds-actions{width:100%;display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px}.funds-actions .add-funds{width:100%;min-height:44px}.funds-actions .plain-button{min-height:44px}.funds-copy small{font-size:12px}.funds-value{font-size:28px}
+      .description{padding:16px;gap:12px;grid-template-columns:24px minmax(0,1fr)}.description p{font-size:13px}.description h2{font-size:15px}.description>i{font-size:22px}
+      .funding-card{padding:16px}.payment-upi{padding:14px}.payment-upi .copy-field{padding-left:10px}.payment-upi .copy-field span{font-size:11px}.qr-area{padding:10px}.info-row{font-size:12px}
+      .category-heading h2{font-size:14px}.category-heading{padding-left:14px}.category-count{font-size:11px}
+      :is(.orders-table-scroll,.services-scroll,.refill-table-scroll,.transaction-table-scroll,.table-scroll){overflow:visible;border:0}
+      :is(.orders-table,.services-table,.refill-table,.transaction-table,.tickets-table){display:block;min-width:0;width:100%;table-layout:auto;white-space:normal}
+      :is(.orders-table,.services-table,.refill-table,.transaction-table,.tickets-table) thead{display:none}
+      :is(.orders-table,.services-table,.refill-table,.transaction-table,.tickets-table) tbody{display:grid;gap:14px;width:100%}
+      :is(.orders-table,.services-table,.refill-table,.transaction-table,.tickets-table) tbody tr{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border:1px solid #c8d6e5;border-radius:8px;overflow:hidden;background:white;padding:8px}
+      :is(.orders-table,.services-table,.refill-table,.transaction-table,.tickets-table) td{display:block;min-width:0;border:0!important;padding:9px 8px;font-size:12px;white-space:normal;overflow-wrap:anywhere;background:none!important}
+      :is(.orders-table,.services-table,.refill-table,.transaction-table,.tickets-table) td:before{content:attr(data-label);display:block;font-weight:500;font-size:11px;color:#60748d;margin-bottom:5px}
+      .orders-table td:nth-child(4),.orders-table td:nth-child(8),.orders-table td:last-child,.services-table td:nth-child(2),.services-table td:last-child,.refill-table td:nth-child(4),.refill-table td:nth-child(5),.refill-table td:last-child,.transaction-table td:nth-child(5){grid-column:1/-1}
+      .orders-table-scroll{padding:12px}.services-scroll{padding:6px}.refill-link,.order-video{max-width:100%}.service-time{white-space:normal}.order-actions{justify-content:flex-start}.service-view,.view-refill,.reorder-button{min-height:44px}.orders-table td:first-child{display:none}
+      .orders-footer,.catalog-footer,.refill-footer,.table-footer{flex-wrap:wrap;gap:14px}.orders-pagination{flex-wrap:wrap;justify-content:center}.catalog-pagination{flex-wrap:wrap}.orders-summary,.refill-summary{font-size:12px}.orders-table .service-description{font-size:12px!important}.service-meta{font-size:12px}.order-status,.refill-status,.transaction-type{font-size:12px}
+      .catalog-search input,.order-search input,.transaction-search input,.ticket-search input,.refill-search input{font-size:14px!important}.category-select select,.catalog-select select,.order-filter select,.filter-select select{font-size:13px!important}
+    }
+
+
+    /* Brand background with the original white working surfaces. */
+    :root{--panel-bg:#2B3E50}
+    body{background:#2B3E50}
+
+    /* Shared custom selects: native controls retain their values and validation. */
+    .custom-native-select{position:absolute!important;width:1px!important;height:1px!important;min-height:0!important;clip-path:inset(50%);overflow:hidden!important;opacity:0!important;padding:0!important;border:0!important;pointer-events:none}
+    .custom-select{position:relative;min-width:0;width:100%}
+    .custom-select-trigger{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-width:0;min-height:44px;padding:11px 14px;background:#fff;border:1px solid #b8c9da;border-radius:8px;color:#294767;font-family:var(--font-ui);font-size:13px;line-height:1.5;text-align:left;font-weight:400;box-shadow:none}
+    .custom-select-trigger:hover{border-color:#7296b9;background:#fbfdff}.custom-select-trigger[aria-expanded="true"]{border-color:#518bbd;box-shadow:0 0 0 3px #83b5ec20}.custom-select-trigger:disabled{opacity:.55;cursor:not-allowed}
+    .custom-select-label{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1}.custom-select-trigger>i{flex:0 0 12px;font-size:11px;text-align:center;transition:transform .18s}.custom-select-trigger[aria-expanded="true"]>i{transform:rotate(180deg)}
+    :is(.select-wrap,.payment-select,.filter-select,.order-filter,.catalog-select,.settings-input,.support-input):has(>.custom-native-select)>i{display:none!important}
+    :is(.settings-input,.support-input):has(>.custom-native-select){overflow:visible}.settings-input .custom-select-trigger,.support-input .custom-select-trigger{border:0;border-radius:0 8px 8px 0;min-height:42px}.settings-input .custom-select,.support-input .custom-select{flex:1}
+    .payment-select .custom-select-trigger{padding-left:58px;min-height:46px}.payment-select .upi-mark{z-index:1;top:8px}
+    .catalog-select.category-select .custom-select-trigger{background:#294e71;color:white;border-color:#294e71}
+    .catalog-select .custom-select-trigger{padding-left:38px}.catalog-select>i:not(.fa-chevron-down){display:block!important;z-index:1;top:15px}.category-select>i{color:white}
+    .order-date .custom-select-trigger{padding-left:36px}.order-date>.fa-calendar-days{display:block!important;z-index:1;top:14px}
+    .funds-actions .custom-select-trigger{min-height:46px;font-size:13px;min-width:105px}
+    .custom-select-popup{position:fixed;z-index:1000;display:flex;flex-direction:column;background:#fff;border:1px solid #bed0e1;box-shadow:0 12px 36px #17324c26;border-radius:9px;padding:6px;color:#294767;max-width:calc(100vw - 24px);box-sizing:border-box}
+    .custom-select-search{width:100%;min-height:40px;padding:9px 11px;font:inherit;font-size:13px;border:1px solid #d2dfeb;border-radius:6px;color:#294767;background:#f8fbfe;margin:0 0 6px;flex-shrink:0}
+    .custom-select-options{overflow-y:auto;overscroll-behavior:contain;min-height:0;scrollbar-width:thin}
+    .custom-select-option{display:flex;align-items:center;gap:12px;justify-content:space-between;width:100%;padding:10px 11px;min-height:42px;font-family:var(--font-ui);font-size:13px;line-height:1.5;color:#294767;background:white;border:0;border-radius:5px;text-align:left;font-weight:400;white-space:normal;overflow-wrap:anywhere;cursor:pointer}
+    .custom-select-option[aria-selected="true"]{background:#e8f1fb;color:#1a5687;font-weight:500}.custom-select-option.active,.custom-select-option:hover{background:#edf4fc}.custom-select-option[aria-disabled="true"]{opacity:.45;cursor:not-allowed}.custom-select-option i{font-size:12px;flex-shrink:0}.custom-select-empty{padding:15px 11px;color:#62778d;font-size:13px}
+    @media(max-width:767px){.custom-select-trigger{min-height:48px;font-size:14px;padding:12px}.custom-select-option{min-height:46px;font-size:14px;padding:12px}.custom-select-search{font-size:16px;min-height:44px}.settings-input .custom-select-trigger,.support-input .custom-select-trigger{min-height:46px}.payment-select .custom-select-trigger{padding-left:53px}.custom-select-popup{max-width:calc(100vw - 20px)}}
+
+
+    /* Shared type, 8px rhythm, numeric alignment, and interaction states. */
+    :root{--weight-body:400;--weight-label:500;--weight-heading:600;--space-1:8px;--space-2:16px;--space-3:24px;--space-4:32px;--space-card:24px;--space-field:16px;--space-section:24px}
+    body{font-weight:var(--weight-body)}
+    :is(h1,h2,h3,.section-intro h1,.settings-intro h1,.history-heading h1,.refill-heading h1,.api-title h1,.funding-intro h1,.section-intro h2,.settings-intro h2,.side-heading,.side-intro h2,.help-heading h2,.help-inline h2,.tickets-heading h2,.updates-heading h1,.category-heading h2,.aside-heading,.endpoint h2,.overview-card h2,.description h2,.description-content h2,.update h2,.steps h3,.information-item h3,.help-copy h2){font-weight:var(--weight-heading)}
+    :is(p,small,td,dd,.service-description,.section-intro p,.settings-intro p,.help-inline p,.side-intro p,.update p){font-weight:var(--weight-body)}
+    :is(label,.field label,.field-label,.ticket-field>label,.settings-field>label,.payment-field label,.description-facts dt,.drip-copy label,.eyebrow){font-weight:var(--weight-label)}
+    :is(button,.primary,.help-action,.secondary-action,.view-ticket,.view-transaction,.view-refill,.reorder-button,.service-view,.contact-api,.contact-action,.api-doc-link,.nav-link.active){font-weight:var(--weight-label)}
+    :is(.dashboard,.funding-layout,.support-layout,.settings-layout){gap:24px}
+    :is(.left-column,.funding-sidebar,.support-sidebar,.service-groups,.api-main,.api-sidebar){gap:24px}
+    :is(.field-row,.ticket-field,.settings-field,.payment-field,.payment-field.utr-field){margin-bottom:16px}
+    :is(.field label,.field-label,.ticket-field>label,.settings-field>label,.payment-field label){margin-bottom:8px}
+    :is(.section-intro,.settings-intro,.funding-intro,.side-intro,.updates-heading){gap:16px;margin-bottom:24px}
+    :is(.ticket-form-card,.settings-card,.funding-card,.updates,.side-card,.information-card,.quick-card,.settings-help,.refill-card,.overview-card){padding:24px}
+    :is(.history-heading,.catalog-title,.api-title){padding:24px;gap:16px}
+    :is(.order-filters,.catalog-filters){padding:24px;gap:16px}
+    :is(.history-body,.tickets-card){padding:24px}
+    :is(.catalog-footer,.orders-footer){padding:16px 24px}
+    :is(.catalog-top,.description,.order-card .description,.refill-heading){margin-bottom:24px}
+    :is(.catalog-footer,.tickets-card,.payment-support,.help-card,.support){margin-top:24px}
+    .payment-support .help-card{margin:0;padding:24px}
+    .description-content{padding:16px}.description-facts{gap:8px;margin-bottom:16px}.description h2{margin-bottom:16px}.description .check-line{margin-top:16px;padding-top:16px;gap:8px}
+    .update-list{gap:16px}.update{padding:16px}.update-title{margin-bottom:8px}.update p{line-height:1.7}
+    .order-card .drip-fields{padding:16px;gap:16px;margin-bottom:16px}
+    .order-card .drip-control{gap:16px}.drip-copy label{margin-bottom:8px}
+    :is(.field-hint,.message-hint,.qr-caption,.local-note,.preview-note,.date-filter-note,.dialog-caption,.catalog-note,.order-preview-note){font-size:12px;line-height:1.65;color:#536b83}
+    :is(.orders-table,.services-table,.refill-table,.transaction-table,.tickets-table,.api-table) th{font-weight:var(--weight-heading)}
+    .money-column{text-align:right!important;font-variant-numeric:tabular-nums lining-nums;font-feature-settings:'tnum' 1;white-space:nowrap}
+    :is(.funds-value,.balance-chip,.charge-input input,.service-price,.amount,.charge-cell,.refill-date,.order-date-cell,.orders-summary,.result-summary,.refill-summary){font-variant-numeric:tabular-nums lining-nums;font-feature-settings:'tnum' 1}
+    .charge-input input{text-align:right}
+    :is(.view-ticket,.view-transaction,.view-refill,.reorder-button,.service-view,.copy-code,.copy-key,.copy-button,.visibility-button,.close-dialog,.mobile-toggle){min-height:44px;min-width:44px}
+    :is(.orders-pagination,.catalog-pagination,.transaction-pagination,.refill-pagination,.pagination){gap:8px}
+    :is(.orders-pagination,.catalog-pagination,.transaction-pagination,.refill-pagination,.pagination) button{height:44px;min-width:44px;width:44px}
+    .text-button{min-height:44px;padding:8px}.nav-link{min-height:44px}
+    :is(button,a,input,select,textarea,[tabindex]):focus-visible{outline:3px solid #1877bf;outline-offset:3px}
+    .topbar :is(button,a,[tabindex]):focus-visible{outline-color:#b9ddff}
+    :is(input,select,textarea)[aria-invalid="true"],.custom-select-trigger[aria-invalid="true"]{border-color:#b84242;box-shadow:0 0 0 3px #c2484818}
+    .custom-select-trigger:focus-visible{outline:3px solid #1877bf;outline-offset:3px}.custom-select-option{min-height:44px}
+    .ui-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+    form[aria-busy="true"] button[type="submit"]{cursor:wait;opacity:.8}
+    .submission-spinner{width:15px;height:15px;display:inline-block;flex-shrink:0;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:submit-spin .7s linear infinite}
+    @keyframes submit-spin{to{transform:rotate(360deg)}}
+    :is(.copy-button,.copy-key,.copy-code).is-copied{display:inline-flex;align-items:center;justify-content:center;gap:6px;width:auto;min-width:88px;flex-basis:88px;padding:8px;color:#245c42;background:#e8f5ed;font-size:12px;line-height:1.5;white-space:nowrap}
+    .copy-feedback{font-family:var(--font-ui);font-size:12px;font-weight:500}.code-block pre{padding-right:56px}.code-block:has(.is-copied) pre{padding-right:104px}
+    @media(max-width:1024px){.orders-pagination{flex-wrap:wrap;justify-content:center}.table-footer,.orders-footer{flex-wrap:wrap;row-gap:16px}}
+    @media(max-width:767px){
+      :root{--space-card:16px;--space-section:24px}.page{padding:16px 12px 24px}
+      :is(.dashboard,.funding-layout,.support-layout,.settings-layout,.left-column,.funding-sidebar,.support-sidebar,.service-groups,.api-main,.api-sidebar){gap:24px}
+      :is(.order-card,.ticket-form-card,.settings-card,.funding-card,.updates,.side-card,.information-card,.quick-card,.settings-help,.refill-card,.overview-card){padding:16px}
+      :is(.history-heading,.catalog-title,.api-title,.history-body,.tickets-card,.order-filters,.catalog-filters){padding:16px;gap:16px}
+      :is(.catalog-footer,.orders-footer){padding:16px}
+      :is(.section-intro,.settings-intro,.side-intro,.updates-heading){gap:16px;margin-bottom:16px}
+      .order-card .field-row,.quantity-line .field-row{margin-bottom:16px}.order-card .description{margin-bottom:24px}.description-content{padding:16px}.order-card .drip-control{padding:16px 0;margin-bottom:16px;gap:8px}.drip-copy label{margin-bottom:8px}
+      :is(.field-hint,.message-hint,.local-note,.preview-note,.date-filter-note){font-size:12px}.update p,.description .description-note,.description .check-line{font-size:13px;line-height:1.7}
+      :is(.orders-table,.services-table,.refill-table,.transaction-table,.tickets-table) td.money-column{text-align:left!important}
+      :is(.orders-pagination,.catalog-pagination,.transaction-pagination,.refill-pagination,.pagination) button{width:40px;min-width:40px;height:44px}
+      .orders-pagination,.catalog-pagination{flex-wrap:wrap}.orders-footer,.catalog-footer{gap:16px}.payment-support .help-card{padding:16px;gap:16px}
+    }
+    @media(prefers-reduced-motion:reduce){.submission-spinner{animation:none;border-right-color:currentColor;opacity:.6}}
+
+
+    /* Uncluttered support fields and information rows. */
+    .ticket-form-card .support-input{display:block}
+    .ticket-form-card .support-input .custom-select-trigger{border:0;border-radius:8px}
+    .ticket-form-card .support-input input,.ticket-form-card .support-input textarea{padding-left:14px}
+    .ticket-form-card .field-hint{margin-left:0}
+    .information-item{display:block;padding-left:8px;padding-right:8px}
+    .quick-card .side-intro{margin-left:0;margin-right:0}
+    @media(max-width:600px){.information-item{padding-left:0;padding-right:0}.ticket-form-card .support-input input,.ticket-form-card .support-input textarea{padding-left:12px}}
+
+    /* Readable data tables with a consistent 14px type scale. */
+    :root{--text-table:14px}
+    :is(.orders-table,.services-table,.refill-table,.transaction-table,.tickets-table,.api-table){font-size:14px;line-height:1.65}
+    :is(.orders-table,.services-table,.refill-table,.transaction-table,.tickets-table,.api-table) :is(th,td){font-size:14px!important;line-height:1.65!important;padding-top:14px;padding-bottom:14px}
+    :is(.orders-table,.services-table,.refill-table,.transaction-table,.tickets-table,.api-table) :is(.order-date-cell,.refill-date,.service-description,.service-time,.service-meta,.service-meta strong,.server-tag,.service-price,.amount,.charge-cell,.order-id,.refill-order,.subject-link,.order-detail-link,.order-video span,.refill-link span,.order-status,.transaction-type,.refill-status,.status-pill,.view-ticket,.view-transaction,.view-refill,.reorder-button,.service-view,.sort-orders,.api-key){font-size:14px!important;line-height:1.6!important}
+    .services-table .service-time{white-space:normal}.services-table .service-view{white-space:normal}
+    .order-actions{flex-wrap:wrap}.orders-table .reorder-button{padding-left:9px;padding-right:9px}
+    .orders-table th:nth-child(11){width:12%}.orders-table th:nth-child(8){width:16%}
+    @media(min-width:768px){.orders-table{min-width:1400px}.services-table{min-width:1250px}.refill-table{min-width:1180px}.transaction-table{min-width:1050px}.tickets-table{min-width:740px}}
+    @media(max-width:767px){
+      :is(.orders-table,.services-table,.refill-table,.transaction-table,.tickets-table){min-width:0}
+      :is(.orders-table,.services-table,.refill-table,.transaction-table,.tickets-table) td{padding:12px 8px;font-size:14px!important;line-height:1.65!important}
+      :is(.orders-table,.services-table,.refill-table,.transaction-table,.tickets-table) td:before{font-size:12px;font-weight:500;line-height:1.5;margin-bottom:8px}
+      .service-meta{gap:8px}.service-description{margin-top:8px}.api-table :is(th,td){padding:12px 8px}
+    }
+
+    /* Readable forms and supporting interface text. */
+    :root{--text-body:14px;--text-small:14px}
+    body{font-size:14px}
+    :is(.field label,.field-label,.ticket-field>label,.settings-field>label,.payment-field label,.description>h2,.order-card .description>h2,.drip-copy label,.date-popover label){font-size:14px;line-height:1.6}
+    :is(input,select,textarea,.control,.select-wrap select,.payment-select select,.filter-select select,.order-filter select,.catalog-select select,.support-input input,.support-input select,.support-input textarea,.settings-input input,.settings-input select,.input-group input,.search-box input,.transaction-search input,.order-search input,.catalog-search input,.ticket-search input,.refill-search input,.charge-input input,.custom-select-trigger,.custom-select-option,.custom-select-search){font-size:14px!important;line-height:1.6}
+    :is(.field-hint,.message-hint,.drip-copy small,.funds-copy small,.section-intro p,.settings-intro p,.side-intro p,.help-inline p,.information-item p,.steps p,.help-copy p,.api-title p,.help-panel p,.update p,.preview-feedback,.twofa-notice,.security-list li,.twofa-help .security-list li,.bonus-preview,.date-filter-note,.local-note,.preview-note,.dialog-caption){font-size:14px;line-height:1.7}
+    :is(.primary,.help-action,.secondary-action,.reset-filters,.order-reset,.contact-api,.contact-action,.api-doc-link,.service-order-link,.refill-preview-link,.clear-date,.text-button,.whatsapp-save,.funds-actions .plain-button){font-size:14px}
+    :is(.copy-field span,.payment-upi .copy-field span,.info-row,.info-row strong,.quick-links>a,.quick-links>button,.link-wrap-control,.result-summary,.orders-summary,.refill-summary,.catalog-summary,.support){font-size:14px;line-height:1.65}
+    .custom-select-trigger{min-height:46px}.custom-select-option{min-height:44px}
+    .custom-select-label{line-height:1.6}.custom-select-trigger>i{font-size:11px}
+    :is(.support-input,.settings-input,.input-group,.search-box,.transaction-search,.order-search,.catalog-search,.ticket-search,.refill-search){min-height:46px}
+    .control{height:46px;min-height:46px}.charge-input{min-height:46px}
+    .info-row>span{overflow-wrap:anywhere}.quick-links>a,.quick-links>button{line-height:1.6}
+    dialog p,dialog dl,.toast{font-size:14px;line-height:1.7}
+    @media(max-width:767px){
+      :is(input,select,textarea,.control,.settings-input input,.settings-input select,.support-input input,.support-input select,.support-input textarea,.input-group input,.search-box input,.transaction-search input,.order-search input,.catalog-search input,.ticket-search input,.refill-search input,.charge-input input,.custom-select-search,.order-card input,.order-card select){font-size:16px!important}
+      :is(.custom-select-trigger,.custom-select-option){font-size:14px!important}
+      :is(.field label,.ticket-field>label,.settings-field>label,.payment-field label,.order-card .field label,.order-card .description>h2,.field-hint,.message-hint,.section-intro p,.settings-intro p,.side-intro p,.help-inline p,.information-item p,.steps p,.help-copy p,.drip-copy small,.funds-copy small,.preview-feedback,.twofa-notice,.security-list li,.twofa-help .security-list li){font-size:14px;line-height:1.7}
+      .funds-actions .add-funds,.order-card .place-order,.settings-submit,.pay-button,.submit-ticket,.whatsapp-save{font-size:14px}
+      .info-row{grid-template-columns:minmax(0,1fr);gap:8px}.info-row>span{text-align:left}.info-row strong{font-size:14px}
+      .orders-footer,.catalog-footer,.refill-footer,.table-footer{flex-wrap:wrap}.result-summary,.orders-summary,.refill-summary,.catalog-summary{font-size:14px;max-width:none}.support{font-size:14px}
+    }
+  </style>
+<style id="ui-consistency">
+
+    /* Authoritative shared presentation layer. Keep this block identical on all pages. */
+    :root{--font-ui:'Poppins',Arial,sans-serif;--text-body:14px;--text-table:14px;--text-small:14px;--text-title:24px;--text-section:18px;--space-card:24px;--space-section:24px;--space-field:16px;--control-height:48px;--button-height:44px}
+    body{font-family:var(--font-ui);font-size:14px;line-height:1.7;font-weight:400;color:#203b55}
+    .page{padding:24px clamp(16px,3vw,40px) 32px;width:100%;min-width:0}
+    .card{min-width:0}.card :is(h1,h2,h3){font-weight:600;line-height:1.4;letter-spacing:-.3px}
+    .card :is(.section-intro h1,.settings-intro h1,.history-heading h1,.refill-heading h1,.api-title h1,.funding-intro h1){font-size:24px}
+    .card :is(.settings-intro h2,.side-heading,.side-intro h2,.help-heading h2,.help-inline h2,.tickets-heading h2,.updates-heading h1,.category-heading h2,.aside-heading){font-size:18px}
+    .card :is(.endpoint h2,.overview-card h2,.help-copy h2){font-size:16px}
+    .card :is(.update h2,.steps h3,.information-item h3){font-size:14px}
+    .card :is(p,small,dd,.section-intro p,.settings-intro p,.side-intro p,.help-inline p,.help-copy p,.information-item p,.steps p,.api-title p,.help-panel p,.security-list li,.twofa-help .security-list li,.twofa-notice,.preview-feedback,.bonus-preview){font-size:14px;line-height:1.7;font-weight:400}
+    .card :is(label,.field label,.field-label,.ticket-field>label,.settings-field>label,.payment-field label,.drip-copy label,.date-popover label){font-size:14px;font-weight:500;line-height:1.6;letter-spacing:0}
+    .card :is(.field-hint,.message-hint,.drip-copy small,.funds-copy small,.local-note,.date-filter-note,.preview-note,.qr-caption){font-size:14px;line-height:1.7;color:#506980}
+    :is(.dashboard,.funding-layout,.support-layout,.settings-layout,.left-column,.funding-sidebar,.support-sidebar,.service-groups,.api-main,.api-sidebar){gap:24px}
+    :is(.order-card,.ticket-form-card,.settings-card,.funding-card,.updates,.side-card,.information-card,.quick-card,.settings-help,.refill-card,.overview-card){padding:24px}
+    :is(.history-body,.tickets-card,.order-filters,.catalog-filters){padding:24px;gap:16px}
+    :is(.field-row,.ticket-field,.settings-field,.payment-field,.payment-field.utr-field,.quantity-line .field-row){margin-bottom:16px}
+    :is(.field label,.field-label,.ticket-field>label,.settings-field>label,.payment-field label){margin-bottom:8px}
+    :is(.section-intro,.settings-intro,.side-intro,.updates-heading){gap:16px;margin-bottom:24px}
+    .funds{padding:24px;gap:24px}.funds-value{line-height:1.25;letter-spacing:-.6px}.card .eyebrow{font-size:12px;font-weight:500;margin-bottom:8px;line-height:1.5}
+    .card .funds-value{font-size:32px;font-weight:500;line-height:1.25;margin:0}.funds-actions{gap:16px}
+    .card :is(.primary,.help-action,.secondary-action,.reset-filters,.order-reset,.contact-api,.contact-action,.api-doc-link,.service-order-link,.refill-preview-link,.clear-date,.text-button){font-size:14px;font-weight:500;line-height:1.5;min-height:44px}
+    :is(.copy-button,.copy-key,.copy-code,.visibility-button,.close-dialog,.mobile-toggle){min-height:44px;min-width:44px}
+    :is(.control,.custom-select-trigger,.support-input,.settings-input,.input-group,.search-box,.transaction-search,.order-search,.catalog-search,.ticket-search,.refill-search,.copy-field,.date-trigger,.charge-input){min-height:48px}
+    .control{height:48px}.custom-select-trigger{font-size:14px!important;line-height:1.6;padding-top:12px;padding-bottom:12px}
+    :is(.settings-input,.support-input) .custom-select-trigger{min-height:46px}
+    .card :is(.control,input:not([type="checkbox"]),select,textarea){font-size:14px!important;line-height:1.6}
+    .custom-select-option{font-size:14px;min-height:44px;padding:12px;line-height:1.6}.custom-select-popup{padding:8px}
+    .order-card .description{margin:0 0 24px}.order-card .description>h2{font-size:14px;line-height:1.6;font-weight:500;margin:0 0 8px}
+    .description-content{padding:16px!important}.order-card #descriptionText,.order-card #descriptionText :is(p,li,div),.order-card .description .check-line{font-size:14px;line-height:1.8}
+    .order-card .description .check-line{margin-top:16px;gap:8px}.order-card .drip-control{gap:16px}.order-card .drip-fields{margin-bottom:16px;padding:16px;gap:16px}
+    .update-list{gap:16px}.update{padding:16px}.update-title{gap:8px 16px;margin-bottom:8px}.update time{font-size:13px;color:#5b728a;line-height:1.6}
+    :is(.info-row,.info-row strong,.info-row>span,.quick-links>a,.quick-links>button,.copy-field span,.payment-upi .copy-field span,.result-summary,.orders-summary,.refill-summary,.catalog-summary){font-size:14px;line-height:1.65}
+    .quick-links>a,.quick-links>button{min-height:44px}.info-row{padding:16px;gap:16px}.steps li,.information-item{padding-top:24px;padding-bottom:24px}
+    .support{font-size:14px;line-height:1.7;padding:16px 24px;margin-top:24px}.payment-support .help-card{padding:24px;margin:0;gap:24px}
+    .catalog-footer,.orders-footer{padding:16px 24px;gap:16px}.refill-footer,.table-footer{gap:16px;padding-top:24px}.refill-footer{margin-top:24px}
+    :is(.orders-table,.services-table,.refill-table,.transaction-table,.tickets-table,.api-table) :is(th,td){font-size:14px!important;line-height:1.65!important;padding-top:16px;padding-bottom:16px}
+    :is(.orders-table,.services-table,.refill-table,.transaction-table,.tickets-table,.api-table) th{font-weight:600}
+    .money-column{font-weight:500;font-variant-numeric:tabular-nums;text-align:right!important}
+    .service-meta{gap:8px;margin-bottom:8px}.server-tag{padding:2px 8px}.status-tab{font-size:14px;min-height:44px;gap:8px;padding:12px 16px}.status-tab span{font-size:12px}
+    .api-nav a{font-size:14px;min-height:44px;line-height:1.6}.endpoint{gap:16px;padding:24px 16px}.example{margin-top:16px}.example h3{font-size:14px;font-weight:500;line-height:1.6;margin-bottom:8px}
+    .code-block pre,.code-block code{font-size:13px;line-height:1.75}.code-block pre{padding:16px 64px 16px 16px}.code-block:has(.is-copied) pre{padding-right:112px}
+    .api-title h1{margin-bottom:0}.help-panel p{margin-left:0}.contact-api{margin-left:0}.quick-links-panel .aside-heading,.help-panel .aside-heading{margin-bottom:16px}
+    dialog{padding:24px;max-width:calc(100vw - 24px);max-height:calc(100dvh - 32px);overflow-y:auto}.dialog-head h2{font-size:20px;line-height:1.4;font-weight:600}dialog p,dialog dl{font-size:14px;line-height:1.7}dialog dl{gap:16px}.toast{font-size:14px;line-height:1.7}
+    .topbar .nav-link{font-size:13px;line-height:1.5;min-height:44px}.topbar .plain-button{font-size:13px}.topbar .balance-chip{font-size:14px;font-variant-numeric:tabular-nums}.brand{line-height:1.2}
+    @media(min-width:1280px) and (max-width:1499px){.header-inner{gap:16px;padding-left:24px;padding-right:24px}.topbar .nav-link{padding-left:6px;padding-right:6px}.header-tools{gap:12px}}
+    @media(max-width:1024px){.orders-pagination,.catalog-pagination{flex-wrap:wrap}.table-footer,.orders-footer{flex-wrap:wrap}.search-box>span{display:none}}
+    @media(max-width:767px){
+      :root{--space-card:16px;--text-title:20px}.page{padding:16px 12px 24px}
+      :is(.order-card,.ticket-form-card,.settings-card,.funding-card,.updates,.side-card,.information-card,.quick-card,.settings-help,.refill-card,.overview-card,.history-body,.tickets-card,.order-filters,.catalog-filters){padding:16px}
+      .card :is(.section-intro h1,.settings-intro h1,.refill-heading h1,.api-title h1){font-size:20px}
+      .card :is(.side-intro h2,.settings-intro h2,.tickets-heading h2,.updates-heading h1,.help-heading h2,.help-inline h2){font-size:18px}
+      :is(.section-intro,.settings-intro,.side-intro,.updates-heading){margin-bottom:16px;gap:16px}
+      .card :is(input:not([type="checkbox"]),select,textarea,.control){font-size:16px!important}
+      .custom-select-trigger,.custom-select-option{font-size:14px!important}.custom-select-search{font-size:16px!important}
+      .funds{padding:16px;gap:16px}.funds-actions{gap:16px}.card .funds-value{font-size:28px}.card .eyebrow{font-size:12px}
+      .order-card .drip-control{gap:8px}.order-card .drip-fields{gap:16px}.drip-copy small{white-space:normal}
+      .category-heading{padding-left:12px}.category-heading h2{font-size:16px}.category-count{font-size:13px}.update-title{flex-wrap:wrap}
+      .card .payment-upi .copy-field span{font-size:14px;overflow-wrap:anywhere}.copy-field{gap:8px}.copy-button{flex-shrink:0}
+      .info-row{grid-template-columns:minmax(0,1fr);gap:8px}.info-row>span{text-align:left}
+      .payment-support .help-card{padding:16px;gap:16px}.support{padding:16px}
+      .catalog-footer,.orders-footer{padding:16px}.refill-footer,.table-footer{padding-top:16px}.refill-footer{margin-top:16px}
+      :is(.orders-table,.services-table,.refill-table,.transaction-table,.tickets-table) td{padding:12px 8px}.money-column{text-align:left!important}
+      .code-block pre,.code-block code{font-size:13px}.endpoint{padding:16px 12px;gap:12px}.api-nav a{font-size:14px;padding:12px;white-space:nowrap}
+      dialog{padding:20px}dialog dl{grid-template-columns:88px minmax(0,1fr);gap:12px}dialog dd{min-width:0;overflow-wrap:anywhere}
+      .topbar .balance-chip{font-size:11px}.topbar .nav-link{font-size:13px}.header-inner{gap:9px}.brand{font-size:18px}
+    }
+    @media(max-width:359px){.topbar .balance-chip{font-size:10px}.brand{font-size:16px}.header-inner{gap:7px}.card .funds-value{font-size:25px}.funds-actions{gap:8px}}
+
+  </style>
+
+  <style id="navigation-spacing">
+    @media(min-width:1280px){
+      .topbar .nav{gap:8px}
+      .topbar .nav-link{padding-left:8px;padding-right:8px}
+      .header-inner{gap:16px}
+    }
+    @media(min-width:1500px){.topbar .nav{gap:12px}.topbar .nav-link{padding-left:10px;padding-right:10px}.header-inner{gap:24px}}
   </style>
 </head>
 <body>
@@ -210,7 +484,7 @@
         <a href="transactions.html" class="nav-link">Transactions</a>
       </nav>
       <div class="header-tools">
-        <div class="dropdown currency-dropdown"><button class="plain-button" id="currencyButton" aria-expanded="false" aria-controls="currencyMenu"><i class="fa-solid fa-indian-rupee-sign" aria-hidden="true"></i> INR <i class="fa-solid fa-caret-down chevron" aria-hidden="true"></i></button><div class="dropdown-menu" id="currencyMenu" hidden><button type="button" id="inrOption">₹ INR · Indian Rupee ✓</button></div></div>
+        
         <div class="balance-chip" aria-label="Balance: 3588.439 rupees"><i class="fa-solid fa-wallet" aria-hidden="true"></i><span>₹ 3588.439</span></div>
         <div class="dropdown"><button class="plain-button" id="accountButton" aria-label="Account menu for vdii7" aria-expanded="false" aria-controls="accountMenu"><span class="avatar"><i class="fa-solid fa-user" aria-hidden="true"></i></span><span class="user-name">vdii7</span><i class="fa-solid fa-caret-down chevron user-chevron" aria-hidden="true"></i></button><div class="dropdown-menu" id="accountMenu" hidden><a href="account.html"><i class="fa-regular fa-user" aria-hidden="true"></i> Account settings</a><button data-preview="Sign Out"><i class="fa-solid fa-arrow-right-from-bracket" aria-hidden="true"></i> Sign out</button></div></div>
       </div>
@@ -222,36 +496,36 @@
     <div class="support-layout">
       <section class="card ticket-form-card" aria-labelledby="formTitle"><div class="section-intro"><div class="intro-icon"><i class="fa-solid fa-headset" aria-hidden="true"></i></div><div><h1 id="formTitle">Create Support Ticket</h1><p>Need help? Submit a ticket and our team will assist you.</p></div></div>
         <form id="ticketForm">
-          <div class="ticket-field"><label for="subject">Select Subject <span class="required">*</span></label><div class="support-input"><span class="input-icon"><i class="fa-regular fa-file-lines" aria-hidden="true"></i></span><select id="subject" required><option value="Order">Order</option><option value="Payment">Payment</option><option value="Account">Account</option><option value="Other">Other</option></select><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></div></div>
-          <div class="ticket-field" id="referenceField"><label for="reference" id="referenceLabel">Order ID</label><div class="support-input"><span class="input-icon"><i class="fa-solid fa-hashtag" aria-hidden="true"></i></span><input id="reference" type="text" inputmode="numeric" pattern="[0-9]+" maxlength="30" placeholder="Enter order ID (optional)" aria-describedby="referenceHint"></div><small class="field-hint" id="referenceHint">Add your order ID if your query is related to a specific order.</small></div>
-          <div class="ticket-field" id="requestField"><label for="request">Request <span class="required">*</span></label><div class="support-input"><span class="input-icon"><i class="fa-regular fa-comment-dots" aria-hidden="true"></i></span><select id="request" required><option value="Refill">Refill</option><option value="Order status">Order status</option><option value="Cancellation">Cancellation</option><option value="Other">Other</option></select><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></div></div>
-          <div class="ticket-field message-field"><label for="message">Your Message <span class="required">*</span></label><div class="support-input message-input"><span class="input-icon"><i class="fa-solid fa-pencil" aria-hidden="true"></i></span><textarea id="message" placeholder="Type your message here..." required maxlength="5000" aria-describedby="messageHint"></textarea></div><p class="message-hint" id="messageHint"><i class="fa-solid fa-circle-info" aria-hidden="true"></i><span>Please provide detailed information so we can assist you faster.</span></p></div>
+          <div class="ticket-field"><label for="subject">Select Subject <span class="required">*</span></label><div class="support-input"><select id="subject" required><option value="Order">Order</option><option value="Payment">Payment</option><option value="Account">Account</option><option value="Other">Other</option></select><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></div></div>
+          <div class="ticket-field" id="referenceField"><label for="reference" id="referenceLabel">Order ID</label><div class="support-input"><input id="reference" type="text" inputmode="numeric" pattern="[0-9]+" maxlength="30" placeholder="Enter order ID (optional)" aria-describedby="referenceHint"></div><small class="field-hint" id="referenceHint">Add your order ID if your query is related to a specific order.</small></div>
+          <div class="ticket-field" id="requestField"><label for="request">Request <span class="required">*</span></label><div class="support-input"><select id="request" required><option value="Refill">Refill</option><option value="Order status">Order status</option><option value="Cancellation">Cancellation</option><option value="Other">Other</option></select><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></div></div>
+          <div class="ticket-field message-field"><label for="message">Your Message <span class="required">*</span></label><div class="support-input message-input"><textarea id="message" placeholder="Type your message here..." required maxlength="5000" aria-describedby="messageHint"></textarea></div><p class="message-hint" id="messageHint"><i class="fa-solid fa-circle-info" aria-hidden="true"></i><span>Please provide detailed information so we can assist you faster.</span></p></div>
           <button type="submit" class="primary submit-ticket">Submit Ticket</button>
         </form>
       </section>
       <aside class="support-sidebar" aria-label="Support help">
-        <section class="card information-card"><div class="side-intro"><i class="fa-regular fa-file-lines" aria-hidden="true"></i><div><h2>Support Information</h2><p>Get quick help and support from our team.</p></div></div><div class="information-list"><div class="information-item"><i class="fa-regular fa-clock" aria-hidden="true"></i><div><h3>Working Hours</h3><p>We are available 24/7 to assist you.</p></div></div><div class="information-item"><i class="fa-solid fa-bolt" aria-hidden="true"></i><div><h3>Average Response Time</h3><p>We usually respond within a few hours.</p></div></div><div class="information-item"><i class="fa-regular fa-file-lines" aria-hidden="true"></i><div><h3>What to Include</h3><p>Please share order ID, service name and detailed description of your issue.</p></div></div></div></section>
-        <section class="card quick-card"><div class="side-intro"><i class="fa-solid fa-headset" aria-hidden="true"></i><div><h2>Quick Support</h2><p>Need immediate help? You can also reach us directly.</p></div></div><button class="contact-action" type="button" id="contactSupport"><i class="fa-regular fa-envelope" aria-hidden="true"></i>Contact Us<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button></section>
+        <section class="card information-card"><div class="side-intro"><i class="fa-regular fa-file-lines" aria-hidden="true"></i><div><h2>Support Information</h2><p>Get quick help and support from our team.</p></div></div><div class="information-list"><div class="information-item"><div><h3>Working Hours</h3><p>We are available 24/7 to assist you.</p></div></div><div class="information-item"><div><h3>Average Response Time</h3><p>We usually respond within a few hours.</p></div></div><div class="information-item"><div><h3>What to Include</h3><p>Please share order ID, service name and detailed description of your issue.</p></div></div></div></section>
+        <section class="card quick-card"><div class="side-intro"><div><h2>Quick Support</h2><p>Need immediate help? You can also reach us directly.</p></div></div><button class="contact-action" type="button" id="contactSupport"><i class="fa-regular fa-envelope" aria-hidden="true"></i>Contact Us<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button><a class="contact-action whatsapp-support" href="https://wa.me/917200485444" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i>WhatsApp Support<i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></section>
       </aside>
     </div>
     <section class="card tickets-card" aria-labelledby="ticketsTitle"><div class="tickets-heading"><h2 id="ticketsTitle"><i class="fa-solid fa-ticket" aria-hidden="true"></i>Your Support Tickets</h2><div class="ticket-search"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><input type="search" id="ticketSearch" placeholder="Search tickets..." aria-label="Search support tickets"></div></div><div class="table-scroll"><table class="tickets-table"><thead><tr><th scope="col">#</th><th scope="col">Subject</th><th scope="col">Status</th><th scope="col">Last Update</th><th scope="col">Actions</th></tr></thead><tbody id="ticketRows"></tbody></table><div class="empty-tickets" id="emptyTickets" role="status" hidden><i class="fa-regular fa-folder-open" aria-hidden="true"></i>No tickets match your search.</div></div><nav class="pagination" aria-label="Ticket pages"><button id="previousPage" aria-label="Previous page" disabled>«</button><button class="current" id="currentPage" aria-current="page" aria-label="Page 1">1</button><button id="nextPage" aria-label="Next page" disabled>»</button></nav><p class="local-note" id="localNote" hidden>Preview tickets stay in this tab until you refresh. They are not sent to support.</p></section>
   </main>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <dialog id="previewDialog" aria-labelledby="dialogTitle"><span class="dialog-tag">DESIGN PREVIEW</span><div class="dialog-head"><h2 id="dialogTitle">Ticket preview</h2><button class="close-dialog" id="closeDialog" aria-label="Close preview"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button></div><p id="dialogMessage"></p><dl id="ticketSummary" hidden></dl><div class="ticket-message" id="ticketMessage" hidden></div><button class="primary" id="dialogDone">Got it</button></dialog>
+  <dialog id="previewDialog" aria-labelledby="dialogTitle"><div class="dialog-head"><h2 id="dialogTitle">Ticket preview</h2><button class="close-dialog" id="closeDialog" aria-label="Close preview"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button></div><p id="dialogMessage"></p><dl id="ticketSummary" hidden></dl><div class="ticket-message" id="ticketMessage" hidden></div><button class="primary" id="dialogDone">Got it</button></dialog>
   <script>
 
     'use strict';
     const $=id=>document.getElementById(id);
     let toastTimer;
     function notify(message){$('toast').textContent=message;$('toast').classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').classList.remove('show'),3500)}
-    const menus=[['currencyButton','currencyMenu'],['accountButton','accountMenu']];
+    const menus=[['currencyButton','currencyMenu'],['accountButton','accountMenu']].filter(([button,menu])=>$(button)&&$(menu));
     function closeMenus(){menus.forEach(([button,menu])=>{$(menu).hidden=true;$(button).setAttribute('aria-expanded','false')})}
     menus.forEach(([button,menu])=>$(button).addEventListener('click',()=>{const open=$(menu).hidden;closeMenus();$(menu).hidden=!open;$(button).setAttribute('aria-expanded',String(open))}));
     function closeNavigation(){$('navigation').classList.remove('open');$('menuToggle').setAttribute('aria-expanded','false');$('menuToggle').setAttribute('aria-label','Open navigation');$('menuToggle').innerHTML='<i class="fa-solid fa-bars" aria-hidden="true"></i>'}
     $('menuToggle').addEventListener('click',()=>{const open=$('navigation').classList.toggle('open');$('menuToggle').setAttribute('aria-expanded',String(open));$('menuToggle').setAttribute('aria-label',open?'Close navigation':'Open navigation');$('menuToggle').innerHTML='<i class="fa-solid '+(open?'fa-xmark':'fa-bars')+'" aria-hidden="true"></i>'});
     document.addEventListener('click',event=>{if(!event.target.closest('.dropdown'))closeMenus();if(!event.target.closest('.topbar'))closeNavigation()});
     document.addEventListener('keydown',event=>{if(event.key==='Escape'){const trigger=menus.find(([button])=>$(button).getAttribute('aria-expanded')==='true');closeMenus();if(trigger)$(trigger[0]).focus();closeNavigation()}});
-    $('inrOption').addEventListener('click',()=>{closeMenus();notify('Prices are displayed in Indian Rupees (INR).')});
+    $('inrOption')?.addEventListener('click',()=>{closeMenus();notify('Prices are displayed in Indian Rupees (INR).')});
     function openDialog(title,message){closeMenus();$('dialogTitle').textContent=title;$('dialogMessage').textContent=message;$('ticketSummary').hidden=true;$('ticketMessage').hidden=true;$('previewDialog').showModal()}
     document.querySelectorAll('[data-preview]').forEach(button=>button.addEventListener('click',()=>openDialog(button.dataset.preview,button.dataset.preview+' will be available when its page is added to this design preview.')));
     $('closeDialog').addEventListener('click',()=>$('previewDialog').close());$('dialogDone').addEventListener('click',()=>$('previewDialog').close());$('previewDialog').addEventListener('click',event=>{if(event.target===$('previewDialog')){const r=event.target.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)event.target.close()}});
@@ -265,9 +539,48 @@
     function renderTickets(){const query=$('ticketSearch').value.trim().toLowerCase();const filtered=tickets.filter(ticket=>Object.values(ticket).join(' ').toLowerCase().includes(query));const pages=Math.max(1,Math.ceil(filtered.length/pageSize));page=Math.max(1,Math.min(page,pages));$('ticketRows').replaceChildren();filtered.slice((page-1)*pageSize,page*pageSize).forEach(ticket=>{const row=document.createElement('tr');const id=document.createElement('td');id.textContent=ticket.id;const subject=document.createElement('td');const link=document.createElement('button');link.type='button';link.className='subject-link';link.textContent=ticket.subject;link.addEventListener('click',()=>showTicket(ticket));subject.append(link);const status=document.createElement('td');const pill=document.createElement('span');pill.className='status-pill'+(ticket.status==='Open'?' open':'');pill.textContent=ticket.status;status.append(pill);const updated=document.createElement('td');updated.textContent=ticket.updated;const actions=document.createElement('td');const view=document.createElement('button');view.type='button';view.className='view-ticket';view.setAttribute('aria-label','View ticket '+ticket.id);view.innerHTML='<i class="fa-regular fa-eye" aria-hidden="true"></i> View';view.addEventListener('click',()=>showTicket(ticket));actions.append(view);row.append(id,subject,status,updated,actions);$('ticketRows').append(row)});$('emptyTickets').hidden=filtered.length>0;$('previousPage').disabled=page<=1;$('nextPage').disabled=page>=pages;$('currentPage').textContent=page;$('currentPage').setAttribute('aria-label','Page '+page)}
     $('ticketSearch').addEventListener('input',()=>{page=1;renderTickets()});$('previousPage').addEventListener('click',()=>{page--;renderTickets()});$('nextPage').addEventListener('click',()=>{page++;renderTickets()});
     function timestamp(){const parts=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Kolkata',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hourCycle:'h23'}).formatToParts(new Date());const get=type=>parts.find(p=>p.type===type).value;return get('year')+'-'+get('month')+'-'+get('day')+' '+get('hour')+':'+get('minute')+':'+get('second')}
-    $('ticketForm').addEventListener('submit',event=>{event.preventDefault();const message=$('message').value.trim();if(!message){$('message').setCustomValidity('Please describe your issue.');$('message').reportValidity();return}const ticket={id:String(32698+tickets.length-1),subject:$('subject').value,request:$('request').value,reference:$('reference').disabled?'':$('reference').value.trim(),message,status:'Open',updated:timestamp()};tickets.unshift(ticket);$('ticketForm').reset();updateSubject();$('ticketSearch').value='';page=1;renderTickets();$('localNote').hidden=false;showTicket(ticket);notify('Preview ticket created locally. Nothing was sent to support.')});
+    $('ticketForm').addEventListener('submit',withSubmitProgress(event=>{event.preventDefault();const message=$('message').value.trim();if(!message){$('message').setCustomValidity('Please describe your issue.');$('message').reportValidity();return}const ticket={id:String(32698+tickets.length-1),subject:$('subject').value,request:$('request').value,reference:$('reference').disabled?'':$('reference').value.trim(),message,status:'Open',updated:timestamp()};tickets.unshift(ticket);$('ticketForm').reset();updateSubject();$('ticketSearch').value='';page=1;renderTickets();$('localNote').hidden=false;showTicket(ticket);notify('Preview ticket created locally. Nothing was sent to support.')}));
     $('message').addEventListener('input',()=>$('message').setCustomValidity(''));
     updateSubject();renderTickets();
+
+    // Keep mobile labels in sync with filtered and paginated table rows.
+    function labelResponsiveTables(){document.querySelectorAll('.orders-table,.services-table,.refill-table,.transaction-table,.tickets-table').forEach(table=>{const labels=[...table.querySelectorAll('thead th')].map(th=>th.textContent.trim());table.querySelectorAll('tbody tr').forEach(row=>[...row.children].forEach((cell,index)=>{cell.dataset.label=labels[index]||''}))})}
+    labelResponsiveTables();
+    const responsiveObserver=new MutationObserver(changes=>{if(changes.some(change=>change.addedNodes.length))labelResponsiveTables()});
+    document.querySelectorAll('main').forEach(main=>responsiveObserver.observe(main,{childList:true,subtree:true}));
+
+
+    // Accessible custom dropdowns; existing native change handlers remain in use.
+    (()=>{
+      const controls=new Map();let opened=null,popup=null,list=null,search=null,active=-1,shown=[],scheduled=false;
+      const symbols={INR:'₹',USD:'$',PKR:'₨',EUR:'€'};
+      function label(option){return option?option.label:''}
+      function sync(select){const control=controls.get(select);if(!control)return;control.text.textContent=label(select.selectedOptions[0])||'Select an option';control.button.disabled=select.disabled;control.button.setAttribute('aria-required',String(select.required));if(opened===select)draw(search?search.value:'')}
+      function syncAll(){scheduled=false;document.querySelectorAll('select').forEach(select=>{if(!controls.has(select))enhance(select);else sync(select)});refreshCurrency()}
+      function queue(){if(!scheduled){scheduled=true;queueMicrotask(syncAll)}}
+      function close(focus=false){if(!opened)return;const control=controls.get(opened);control.button.setAttribute('aria-expanded','false');control.button.removeAttribute('aria-activedescendant');popup.remove();if(focus)control.button.focus();opened=null;popup=null;list=null;search=null;active=-1}
+      function place(){if(!opened)return;const rect=controls.get(opened).button.getBoundingClientRect(),margin=10,width=Math.min(Math.max(rect.width,220),window.innerWidth-margin*2);const below=window.innerHeight-rect.bottom-margin,above=rect.top-margin;const upwards=below<190&&above>below;const height=Math.min(340,Math.max(100,upwards?above:below));popup.style.width=width+'px';popup.style.maxHeight=height+'px';popup.style.left=Math.max(margin,Math.min(rect.left,window.innerWidth-width-margin))+'px';if(upwards){popup.style.top='auto';popup.style.bottom=(window.innerHeight-rect.top+5)+'px'}else{popup.style.bottom='auto';popup.style.top=(rect.bottom+5)+'px'}}
+      function setActive(index){if(!shown.length)return;active=(index+shown.length)%shown.length;[...list.children].forEach((element,i)=>element.classList.toggle('active',i===active));const option=list.children[active];controls.get(opened).button.setAttribute('aria-activedescendant',option.id);if(search)search.setAttribute('aria-activedescendant',option.id);option.scrollIntoView({block:'nearest'})}
+      function choose(option){if(option.disabled)return;const select=opened;select.value=option.value;close(true);select.dispatchEvent(new Event('input',{bubbles:true}));select.dispatchEvent(new Event('change',{bubbles:true}));queue()}
+      function draw(query=''){if(!opened)return;const select=opened;shown=[...select.options].filter(option=>!option.hidden&&!option.disabled&&option.label.toLowerCase().includes(query.toLowerCase()));list.replaceChildren();shown.forEach((option,index)=>{const item=document.createElement('div');item.className='custom-select-option';item.id=select.id+'-custom-option-'+index;item.setAttribute('role','option');item.setAttribute('aria-selected',String(option.selected));const text=document.createElement('span');text.textContent=label(option);item.append(text);if(option.selected){const check=document.createElement('i');check.className='fa-solid fa-check';check.setAttribute('aria-hidden','true');item.append(check)}item.addEventListener('mousedown',event=>event.preventDefault());item.addEventListener('click',()=>choose(option));list.append(item)});if(!shown.length){const empty=document.createElement('div');empty.className='custom-select-empty';empty.textContent='No matching options';list.append(empty)}active=-1;const selected=shown.findIndex(option=>option.selected);if(shown.length)setActive(Math.max(0,selected));place()}
+      function key(event){if(!opened)return;if(['ArrowDown','ArrowUp','Home','End','Enter','Escape','Tab'].includes(event.key)){if(event.key!=='Tab')event.preventDefault();if(event.key==='ArrowDown')setActive(active+1);if(event.key==='ArrowUp')setActive(active-1);if(event.key==='Home')setActive(0);if(event.key==='End')setActive(shown.length-1);if(event.key==='Enter'&&shown[active])choose(shown[active]);if(event.key==='Escape')close(true);if(event.key==='Tab')close()}else if(!search&&event.key.length===1&&!event.ctrlKey&&!event.metaKey){const index=shown.findIndex(option=>option.label.toLowerCase().startsWith(event.key.toLowerCase()));if(index>=0)setActive(index)}}
+      function open(select){if(opened===select){close();return}close();opened=select;popup=document.createElement('div');popup.className='custom-select-popup';popup.id=select.id+'-custom-popup';const count=[...select.options].filter(option=>!option.hidden).length;if(count>10){search=document.createElement('input');search.type='search';search.className='custom-select-search';search.placeholder='Search options...';search.setAttribute('aria-label','Search '+controls.get(select).name);search.addEventListener('input',()=>draw(search.value));search.addEventListener('keydown',key);popup.append(search)}list=document.createElement('div');list.className='custom-select-options';list.id=select.id+'-custom-list';list.setAttribute('role','listbox');list.setAttribute('aria-label',controls.get(select).name);popup.append(list);document.body.append(popup);controls.get(select).button.setAttribute('aria-controls',list.id);controls.get(select).button.setAttribute('aria-expanded','true');draw();if(search)search.focus()}
+      function enhance(select){if(!select.id)select.id='select-'+controls.size;const wrapper=document.createElement('div');wrapper.className='custom-select';const button=document.createElement('button');button.type='button';button.className='custom-select-trigger';button.id=select.id+'-custom-trigger';button.setAttribute('role','combobox');button.setAttribute('aria-haspopup','listbox');button.setAttribute('aria-expanded','false');const name=select.getAttribute('aria-label')||(select.labels[0]?select.labels[0].textContent.trim():'Select option');button.setAttribute('aria-label',name);const text=document.createElement('span');text.className='custom-select-label';const arrow=document.createElement('i');arrow.className='fa-solid fa-chevron-down';arrow.setAttribute('aria-hidden','true');button.append(text,arrow);wrapper.append(button);select.after(wrapper);select.classList.add('custom-native-select');select.tabIndex=-1;select.setAttribute('aria-hidden','true');controls.set(select,{wrapper,button,text,name});button.addEventListener('click',()=>open(select));button.addEventListener('keydown',event=>{if(opened===select){key(event);return}if(['ArrowDown','ArrowUp','Enter',' '].includes(event.key)){event.preventDefault();open(select)}});select.addEventListener('change',()=>sync(select));select.addEventListener('invalid',event=>{event.preventDefault();button.focus();button.setAttribute('aria-invalid','true');open(select)});select.addEventListener('change',()=>button.removeAttribute('aria-invalid'));select.labels.forEach(label=>label.addEventListener('click',event=>{event.preventDefault();button.focus();open(select)}));new MutationObserver(queue).observe(select,{childList:true,subtree:true,attributes:true,attributeFilter:['disabled','hidden','label','selected','required']});sync(select)}
+      document.addEventListener('pointerdown',event=>{if(opened&&!popup.contains(event.target)&&!controls.get(opened).button.contains(event.target))close()});window.addEventListener('resize',()=>{if(opened)place()});window.addEventListener('scroll',event=>{if(opened&&!popup.contains(event.target))close()},{capture:true,passive:true});document.addEventListener('change',queue);document.addEventListener('input',event=>{if(!event.target.classList.contains('custom-select-search'))queue()});document.addEventListener('reset',()=>setTimeout(queue,0));
+      let currency='INR';try{currency=localStorage.getItem('smm-currency')||'INR'}catch{}if(!symbols[currency])currency='INR';
+      function refreshCurrency(){const select=document.getElementById('panelCurrency');if(select&&select.value!==currency){select.value=currency;const control=controls.get(select);if(control)control.text.textContent=select.selectedOptions[0].label}}
+      const panelCurrency=document.getElementById('panelCurrency');if(panelCurrency){panelCurrency.value=currency;panelCurrency.addEventListener('change',()=>{currency=panelCurrency.value;try{localStorage.setItem('smm-currency',currency)}catch{}const event=new CustomEvent('panelcurrencychange',{detail:{currency,symbol:symbols[currency]}});document.dispatchEvent(event)})}
+      document.querySelectorAll('select').forEach(enhance);refreshCurrency();
+    })();
+
+  
+    // Submission feedback wraps existing local validation without changing results.
+    function withSubmitProgress(handler){return async function(event){event.preventDefault();const form=event.currentTarget;if(form.dataset.submitting==='true'||!form.reportValidity())return;const button=event.submitter||form.querySelector('button[type="submit"]');if(!button)return handler(event);form.dataset.submitting='true';form.setAttribute('aria-busy','true');const original=button.innerHTML,disabled=button.disabled;button.disabled=true;button.innerHTML='<span class="submission-spinner" aria-hidden="true"></span><span>Checking…</span>';let status=form.querySelector('.submit-status');if(!status){status=document.createElement('span');status.className='ui-sr-only submit-status';status.setAttribute('role','status');status.setAttribute('aria-live','polite');form.append(status)}status.textContent='Checking your details.';try{await new Promise(resolve=>setTimeout(resolve,200));await handler(event)}finally{button.innerHTML=original;button.disabled=disabled;form.removeAttribute('aria-busy');delete form.dataset.submitting;status.textContent='Check complete.'}}}
+    const copiedStates=new WeakMap();
+    function markCopied(button){const previous=copiedStates.get(button);if(previous)clearTimeout(previous.timer);const original=previous?previous.original:button.innerHTML,aria=previous?previous.aria:button.getAttribute('aria-label');button.classList.add('is-copied');button.innerHTML='<i class="fa-solid fa-check" aria-hidden="true"></i><span class="copy-feedback">Copied</span>';button.setAttribute('aria-label','Copied to clipboard');const timer=setTimeout(()=>{button.innerHTML=original;button.classList.remove('is-copied');if(aria)button.setAttribute('aria-label',aria);else button.removeAttribute('aria-label');copiedStates.delete(button)},2000);copiedStates.set(button,{original,aria,timer})}
+    // Mark currency columns after filtering or pagination replaces their rows.
+    function alignMoneyColumns(){document.querySelectorAll('table').forEach(table=>{const headers=[...table.querySelectorAll('thead th')];headers.forEach((header,index)=>{if(/charge|amount|rate per/i.test(header.textContent)){header.classList.add('money-column');table.querySelectorAll('tbody tr').forEach(row=>{if(row.children[index])row.children[index].classList.add('money-column')})}})})}
+    alignMoneyColumns();let moneyScheduled=false;const moneyObserver=new MutationObserver(changes=>{if(changes.some(change=>change.addedNodes.length)&&!moneyScheduled){moneyScheduled=true;queueMicrotask(()=>{moneyScheduled=false;alignMoneyColumns()})}});document.querySelectorAll('main').forEach(main=>moneyObserver.observe(main,{childList:true,subtree:true}));
   </script>
 </body>
 </html>
