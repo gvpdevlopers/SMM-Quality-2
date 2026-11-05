@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#30465b">
+  <title>Withdraw Funds · SMM Quality</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    :root{--ink:#0b142c;--muted:#6b7b9c;--line:#e3ebf4;--soft:#f3f6fb;--blue:#087bff;--button:#30465b;--radius:11px}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% 0,#fff 0,#f8fbfe 78%);color:var(--ink);font-family:Poppins,Arial,sans-serif;font-size:15px;-webkit-font-smoothing:antialiased}button,input,select{font:inherit}button,a,input,select{-webkit-tap-highlight-color:transparent}a{color:inherit;text-decoration:none}button{cursor:pointer}button,input,select,a{outline-offset:4px}button:focus-visible,a:focus-visible{outline:3px solid #82baff}input:focus,select:focus{outline:none;border-color:#83b5ec;box-shadow:0 0 0 3px #087bff10}button{transition:background .2s,transform .2s,box-shadow .2s}button:active{transform:translateY(1px)}[hidden]{display:none!important}
+    .topbar{height:65px;background:#ffffffed;border-bottom:1px solid var(--line);box-shadow:0 3px 16px #243e5c03;position:relative;z-index:10}.header-inner{max-width:1600px;height:100%;margin:auto;padding:0 3%;display:flex;align-items:center;gap:39px}.brand{font-weight:800;font-size:25px;letter-spacing:-1px;white-space:nowrap}.nav{display:flex;align-items:center;gap:3px}.nav-link{border:0;background:none;padding:13px 14px;font-size:13px;font-weight:500;color:#354a6e;white-space:nowrap;border-radius:8px;transition:background .2s,color .2s}.nav-link:hover{background:var(--soft);color:var(--ink)}.nav-link.active{background:#eff3f9;color:var(--ink);font-weight:650}.badge{display:inline-grid;place-items:center;background:#596b8b;color:#fff;border-radius:50%;width:21px;height:21px;font-size:12px;margin-left:5px}.header-tools{margin-left:auto;display:flex;align-items:center;gap:23px}.plain-button{border:0;background:transparent;padding:8px 0;display:flex;align-items:center;gap:8px;color:#30466c;font-size:13px;white-space:nowrap}.chevron{font-size:9px}.balance-chip{background:#f5f8fb;padding:10px 15px;border-radius:8px;font-weight:750;white-space:nowrap;font-size:16px;display:flex;gap:10px;align-items:center}.avatar{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--ink);color:white;font-size:24px;margin-right:5px;box-shadow:0 0 0 4px #f7f9fc}.dropdown{position:relative}.dropdown-menu{position:absolute;right:0;top:calc(100% + 12px);min-width:180px;padding:7px;background:white;border:1px solid var(--line);box-shadow:0 12px 40px #23365118;border-radius:10px}.dropdown-menu button{width:100%;text-align:left;border:0;background:white;padding:11px;border-radius:6px;color:#354a6e;font-size:13px}.dropdown-menu button:hover{background:var(--soft)}.mobile-toggle{display:none;border:1px solid var(--line);background:var(--soft);border-radius:7px;width:39px;height:39px;color:var(--ink)}
+    .page{max-width:1600px;margin:0 auto;padding:23px 3% 26px}.dashboard{display:grid;grid-template-columns:minmax(0,1.53fr) minmax(0,1fr);align-items:start;gap:17px}.left-column{display:grid;gap:14px}.card{border:1px solid var(--line);border-radius:var(--radius);background:#ffffffc9;box-shadow:0 3px 16px #354c7402}.funds{display:flex;align-items:center;gap:24px;padding:26px 25px;min-height:141px}.wallet-art{flex:0 0 105px;height:92px;border-radius:10px;background:linear-gradient(120deg,#f2f5fa,#f6f8fc);display:grid;place-items:center;font-size:45px}.funds-copy{flex:1;min-width:0}.eyebrow{font-size:14px;font-weight:600;margin:0 0 5px;color:#23395d}.funds-value{font-size:38px;font-weight:750;line-height:1.15;letter-spacing:-.9px;margin:0 0 5px;white-space:nowrap}.funds-copy small{font-size:14px;line-height:1.5;color:var(--muted);display:block}.primary{border:1px solid #30465b;background:linear-gradient(135deg,#344c62,#2c3e51);color:white;border-radius:6px;font-weight:600;box-shadow:inset 0 1px 3px #ffffff14,0 2px 3px #16324b08}.primary:hover{background:linear-gradient(135deg,#405f7a,#314c65);box-shadow:0 5px 15px #233e5a20}.add-funds{display:flex;gap:15px;align-items:center;padding:16px 20px;white-space:nowrap;font-size:17px}.add-funds i{font-size:23px}
+    .order-card{padding:16px 25px 15px}.search-box{display:flex;align-items:center;border:1px solid #d4deeb;border-radius:6px;height:46px;margin-bottom:21px;transition:box-shadow .2s,border-color .2s}.search-box:focus-within{border-color:#83b5ec;box-shadow:0 0 0 3px #087bff10}.search-icon{width:48px;flex-shrink:0;display:grid;place-items:center;font-size:19px;height:100%;border-right:1px solid var(--line);color:#203756}.search-box input{width:100%;min-width:0;border:0;background:none;padding:12px;color:var(--ink);outline:none;box-shadow:none}.search-box input:focus{box-shadow:none}.search-box span{white-space:nowrap;padding-right:12px;color:var(--muted);font-size:11.5px}input::placeholder{color:var(--muted);opacity:1}.field-row{display:grid;grid-template-columns:34px minmax(0,1fr);gap:15px;margin-bottom:17px}.field-icon{font-size:23px;padding-top:1px;text-align:left}.field label,.field-label{display:block;font-size:15px;font-weight:600;margin:0 0 7px;letter-spacing:-.3px}.control{width:100%;height:40px;border:1px solid #d4deeb;border-radius:6px;background:#fff;color:var(--ink);padding:8px 14px;transition:border .2s,box-shadow .2s}.select-wrap{position:relative}.select-wrap select{appearance:none;padding-right:36px;cursor:pointer;font-size:14px}.select-wrap>i{position:absolute;right:14px;top:15px;pointer-events:none;font-size:12px}.description{display:grid;grid-template-columns:41px 1fr;gap:15px;background:linear-gradient(120deg,#f3f6fb,#f5f7fc);border-radius:7px;padding:12px 25px 13px;margin:-2px 0 14px;min-height:139px}.description>i{font-size:27px;padding-top:3px}.description h2{font-size:16px;margin:0 0 7px;font-weight:650;letter-spacing:-.3px}.description p{color:var(--muted);line-height:1.48;margin:0;font-size:14px}.description .check-line{margin-top:5px;display:flex;gap:7px;align-items:center}.check-line i{color:var(--button);font-size:19px}.quantity-line{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:29px}.quantity-line .field-row{margin-bottom:12px}.drip-control{display:flex;align-items:flex-start;gap:18px;padding-top:1px}.drip-control>i{font-size:23px}.drip-copy{flex:1}.drip-copy label{font-size:16px;font-weight:600;display:block;margin-bottom:5px;cursor:pointer}.drip-copy small{font-size:14px;white-space:nowrap;color:var(--muted)}.switch{position:relative;width:56px;height:29px;flex:0 0 56px;display:block;cursor:pointer}.switch input{position:absolute;inset:0;opacity:0;cursor:pointer;margin:0;z-index:1}.switch-track{position:absolute;inset:0;border-radius:20px;background:#c4cddd;transition:background .25s;box-shadow:inset 0 2px 4px #283c4e06}.switch-track:before{content:"";position:absolute;left:4px;top:4px;width:21px;height:21px;background:white;border-radius:50%;box-shadow:0 1px 4px #263b5f20;transition:transform .25s}.switch input:checked+.switch-track{background:var(--button)}.switch input:checked+.switch-track:before{transform:translateX(27px)}.switch input:focus-visible+.switch-track{outline:3px solid #82baff;outline-offset:3px}.drip-fields{margin:0 0 16px 49px;display:grid;grid-template-columns:1fr 1fr;gap:15px;padding:15px;background:var(--soft);border-radius:7px}.drip-fields small{grid-column:1/-1;color:var(--muted);line-height:1.5}.charge-row{margin-bottom:8px}.charge-input{display:flex;background:#f7f9fc;border:1px solid #d4deeb;border-radius:6px;height:37px;overflow:hidden}.charge-input span{padding:7px 18px;border-right:1px solid var(--line);font-weight:600}.charge-input input{background:none;border:0;width:100%;padding:8px 13px;color:var(--ink);box-shadow:none}.place-order{width:100%;min-height:44px;font-size:18px}.preview-note{margin:10px 0 0;color:var(--muted);font-size:12px;text-align:center;line-height:1.5}.no-services{font-size:13px;color:#9b4c2d;margin:7px 0 0}
+    .updates{padding:24px 22px 18px}.updates-heading{display:flex;align-items:center;gap:19px;margin:0 4px 22px}.updates-heading>i{font-size:31px}.updates-heading h1{font-size:21px;letter-spacing:-.7px;margin:0;font-weight:750}.text-button{border:0;background:none;color:var(--blue);font-weight:600;padding:6px 0;font-size:15px;margin-left:auto;white-space:nowrap}.text-button:hover{color:#0059bd}.update-list{display:grid;gap:9px}.update{border:1px solid var(--line);border-radius:8px;padding:19px 20px 18px;transition:background .2s,border-color .2s}.update:hover{background:#f9fbff;border-color:#ccddef}.update-title{display:flex;gap:14px;justify-content:space-between;align-items:baseline;margin-bottom:8px}.update h2{font-size:15px;font-weight:650;letter-spacing:-.35px;margin:0}.update time{color:#7586a8;font-size:13px;white-space:nowrap}.update p{font-size:15.5px;line-height:1.4;margin:0;color:var(--muted)}.support{margin-top:14px;padding:17px 20px;display:flex;justify-content:center;align-items:center;gap:22px;min-height:61px;text-align:center;font-size:15px;font-weight:600;color:#30466d}.support>i{font-size:27px;color:var(--ink)}.support button{border:0;background:none;color:var(--blue);padding:0;font-weight:600;font-size:inherit}.support button:hover{text-decoration:underline}.toast{position:fixed;bottom:25px;left:50%;transform:translate(-50%,15px);opacity:0;pointer-events:none;z-index:50;max-width:calc(100% - 32px);width:max-content;background:#14283e;color:#fff;border:1px solid #ffffff18;border-radius:10px;padding:14px 20px;box-shadow:0 8px 35px #10243825;font-size:14px;line-height:1.5;transition:opacity .25s,transform .25s}.toast.show{opacity:1;transform:translate(-50%,0)}dialog{width:min(480px,calc(100% - 32px));border:1px solid var(--line);border-radius:15px;padding:27px;color:var(--ink);box-shadow:0 24px 90px #15283a25}dialog::backdrop{background:#10213755;backdrop-filter:blur(4px)}.dialog-head{display:flex;justify-content:space-between;align-items:center;gap:15px}.dialog-head h2{margin:0;font-size:22px;letter-spacing:-.6px}.close-dialog{border:0;background:var(--soft);width:32px;height:32px;border-radius:50%;color:var(--ink)}dialog p{color:var(--muted);line-height:1.6}dialog dl{display:grid;grid-template-columns:100px 1fr;gap:13px;font-size:14px}dialog dt{color:var(--muted)}dialog dd{margin:0;overflow-wrap:anywhere}dialog .primary{padding:12px 20px;width:100%;margin-top:10px}.dialog-tag{display:inline-block;background:#edf5ff;color:#2367ac;font-size:12px;font-weight:600;border-radius:5px;padding:5px 8px;margin-bottom:15px}
+    @media(min-width:1500px){.header-inner{gap:40px}.nav-link{padding:13px 14px}.page{padding-top:23px}.funds{min-height:141px}.order-card{padding-top:16px}.dashboard{gap:17px}}
+    @media(max-width:1350px){.header-inner{gap:22px}.nav-link{padding:12px 8px;font-size:12px}.header-tools{gap:15px}.brand{font-size:23px}.funds{gap:18px;padding:24px 20px}.wallet-art{flex-basis:80px;height:82px;font-size:38px}.funds-value{font-size:32px}.add-funds{padding:15px;font-size:15px;gap:9px}.funds-copy small{font-size:12px}.order-card{padding-left:20px;padding-right:20px}.search-box span{font-size:10px}.quantity-line{gap:19px;grid-template-columns:1.15fr 1fr}.drip-control{gap:12px}.drip-copy small{font-size:12px}.update{padding:18px 17px}.update h2{font-size:14px}.update p{font-size:14px}.update time{font-size:11px}.updates{padding:23px 18px 18px}.updates-heading{gap:15px}.updates-heading h1{font-size:20px}}
+    @media(max-width:1120px){.header-inner{gap:20px}.nav-link{padding:12px 7px}.header-tools{gap:15px}.currency-dropdown{display:none}.balance-chip{font-size:13px;padding:10px}.brand{font-size:21px}.user-name{display:none}.header-tools .plain-button{gap:0}.dashboard{grid-template-columns:minmax(0,1.45fr) minmax(0,1fr)}.funds{flex-wrap:wrap;gap:15px}.funds-copy{min-width:200px}.add-funds{width:100%;justify-content:center;padding:11px}.wallet-art{height:72px;flex-basis:75px}.search-box span{display:none}.quantity-line{grid-template-columns:1fr;gap:0}.drip-control{padding:0 0 15px 0;margin-left:49px}.drip-copy small{font-size:13px}.switch{margin-left:auto}.updates-heading{gap:12px}.updates-heading h1{font-size:18px}.updates-heading>i{font-size:26px}.text-button{font-size:13px}.update-title{flex-wrap:wrap;gap:5px}.update time{font-size:11px}.update p{font-size:14px}.description{padding-left:16px;gap:8px}.description p{font-size:13px}}
+    @media(max-width:900px){.topbar{height:66px}.header-inner{padding:0 4%;gap:15px}.mobile-toggle{display:block}.brand{font-size:23px}.header-tools{gap:17px}.nav{display:none;position:absolute;top:65px;left:0;right:0;background:white;padding:12px 4% 18px;border-bottom:1px solid var(--line);box-shadow:0 15px 20px #2039570b;grid-template-columns:repeat(4,1fr);gap:6px}.nav.open{display:grid}.nav-link{padding:13px 9px;text-align:center;font-size:13px}.balance-chip{font-size:14px}.user-name{display:inline}.header-tools .plain-button{gap:7px}.page{padding:20px 4%}.dashboard{grid-template-columns:1fr}.funds{flex-wrap:nowrap;padding:22px}.funds-copy{min-width:0}.funds-copy small{font-size:13px}.add-funds{width:auto;padding:15px 19px}.wallet-art{height:82px;flex-basis:90px}.order-card{padding:20px 24px}.quantity-line{grid-template-columns:1.2fr 1fr;gap:25px}.drip-control{margin-left:0;padding-top:1px}.description p{font-size:14px}.description{padding-left:24px;gap:15px}.updates{padding:22px 24px}.updates-heading h1{font-size:21px}.update-title{flex-wrap:nowrap}.update h2{font-size:15px}.update time{font-size:12px}.update p{font-size:15px}.update-list{grid-template-columns:1fr 1fr;gap:12px}.update:last-child{grid-column:1/-1}.update{padding:18px}.support{font-size:13px;gap:15px}.currency-dropdown{display:block}}
+    @media(max-width:600px){.header-inner{gap:12px}.brand{font-size:20px;letter-spacing:-.8px}.header-tools{gap:12px}.avatar{height:32px;width:32px;font-size:20px;margin:0}.user-name,.user-chevron,.currency-dropdown{display:none}.balance-chip{font-size:12px;gap:6px;padding:9px 8px}.balance-chip i{display:none}.mobile-toggle{width:33px;height:33px}.nav{grid-template-columns:repeat(2,1fr)}.page{padding:15px 4% 20px}.left-column{gap:12px}.dashboard{gap:14px}.funds{padding:18px;gap:15px;flex-wrap:wrap}.wallet-art{height:69px;flex-basis:69px;font-size:33px}.funds-value{font-size:30px;letter-spacing:-1px}.eyebrow{font-size:11px;letter-spacing:.3px}.funds-copy small{font-size:12px;line-height:1.6}.add-funds{width:100%;padding:11px;font-size:14px}.add-funds i{font-size:18px}.order-card{padding:16px}.search-box{margin-bottom:21px}.search-box input{font-size:13px}.search-icon{width:41px;font-size:17px}.field-row{grid-template-columns:23px 1fr;gap:12px;margin-bottom:17px}.field-icon{font-size:20px;padding-top:2px}.field label,.field-label{font-size:13px;margin-bottom:8px}.control{height:43px;font-size:13px;padding-left:11px}.select-wrap select{font-size:12px}.select-wrap>i{top:16px;right:11px}.description{grid-template-columns:23px 1fr;padding:15px 12px;gap:12px;margin-bottom:17px}.description>i{font-size:23px}.description h2{font-size:14px}.description p{font-size:12px;line-height:1.65}.description .check-line{align-items:flex-start}.check-line i{font-size:16px;margin-top:2px}.quantity-line{grid-template-columns:1fr;gap:0}.drip-control{margin-left:35px;gap:12px;padding:0 0 19px}.drip-control>i{font-size:21px}.drip-copy label{font-size:14px}.drip-copy small{font-size:12px}.drip-fields{margin-left:35px;padding:12px;gap:10px;grid-template-columns:1fr}.drip-fields label{font-size:12px}.charge-row{margin-bottom:12px}.charge-input{height:40px}.place-order{min-height:44px;font-size:15px}.updates{padding:20px 16px 16px}.updates-heading{margin:0 2px 18px;gap:13px}.updates-heading h1{font-size:19px}.updates-heading>i{font-size:26px}.text-button{font-size:13px}.update-list{grid-template-columns:1fr;gap:10px}.update{padding:17px 15px}.update h2{font-size:13px}.update time{font-size:10px}.update p{font-size:13px;line-height:1.6}.support{padding:16px 17px;align-items:center;gap:13px;font-size:12px;line-height:1.7}.support>i{font-size:23px;flex-shrink:0}.preview-note{font-size:11px}.toast{font-size:12px;bottom:16px}}
+    /* Shared header: reuse this markup, styling, and menu behavior on every new page. */
+    .header-inner{width:100%;min-width:0;gap:clamp(16px,2vw,32px)}
+    .brand,.header-tools,.mobile-toggle{flex-shrink:0}
+    .nav{min-width:0;flex-shrink:0}
+    .header-tools{gap:clamp(12px,1.4vw,23px)}
+    .left-column,.card,.field,.select-wrap,.description>div,.drip-copy{min-width:0}
+    .control{min-width:0;max-width:100%}
+    .charge-input input{min-width:0}
+    .drip-copy small{white-space:normal}
+    @media(min-width:1241px) and (max-width:1450px){
+      .header-inner{gap:16px}
+      .brand{font-size:23px}
+      .nav{gap:2px}
+      .nav-link{padding:12px 9px;font-size:12px}
+      .header-tools{gap:14px}
+      .balance-chip{font-size:14px;padding:10px 12px}
+      .avatar{width:34px;height:34px;font-size:22px;margin-right:0}
+    }
+    @media(min-width:901px) and (max-width:1240px){
+      .topbar{height:66px}
+      .mobile-toggle{display:block}
+      .header-inner{gap:18px}
+      .header-tools{gap:20px}
+      .currency-dropdown{display:block}
+      .user-name{display:inline}
+      .header-tools .plain-button{gap:8px}
+      .nav{display:none;position:absolute;top:65px;left:0;right:0;background:white;padding:12px 3% 18px;border-bottom:1px solid var(--line);box-shadow:0 15px 20px #2039570b;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+      .nav.open{display:grid}
+      .nav-link{padding:13px 9px;text-align:center;font-size:13px}
+    }
+    .primary:disabled{opacity:.5;cursor:not-allowed;box-shadow:none}
+    @media(max-width:380px){.header-inner{gap:8px}.brand{font-size:17px}.header-tools{gap:8px}.balance-chip{font-size:11px;padding:8px 6px}.avatar{width:28px;height:28px;font-size:17px}.mobile-toggle{width:30px;height:32px}.funds-value{font-size:26px}.wallet-art{flex-basis:55px;height:60px;font-size:29px}.funds{gap:11px}.update-title{gap:8px}.update h2{font-size:12px}.update time{font-size:9px}}
+    @media(prefers-reduced-motion:no-preference){.card{animation:arrive .45s ease both}.updates{animation-delay:.08s}.support{animation-delay:.12s}@keyframes arrive{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}} @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+    /* API documentation page. Header is identical to the other dashboard pages. */
+    html{scroll-behavior:smooth;scroll-padding-top:24px}.api-layout{display:grid;grid-template-columns:230px minmax(0,1fr) 275px;gap:24px;align-items:start}.api-navigation{padding:20px 16px;position:sticky;top:24px}.api-nav{display:grid;gap:5px}.api-nav a{display:flex;gap:16px;align-items:center;padding:13px 14px;border-radius:6px;font-size:13px;font-weight:550;color:#3e5374;transition:background .2s,color .2s}.api-nav a i{width:17px;text-align:center;font-size:16px}.api-nav a:hover{background:#f2f6fc}.api-nav a.active{background:linear-gradient(110deg,#e5f0ff,#edf5ff);color:#173a66;font-weight:650}.api-main{min-width:0;display:grid;gap:15px}.api-title{display:flex;gap:19px;align-items:center;padding:23px 20px}.code-icon{display:grid;place-items:center;width:51px;height:51px;flex:0 0 51px;background:linear-gradient(135deg,#e4efff,#edf5ff);border-radius:8px;font-size:27px}.api-title h1{font-size:22px;letter-spacing:-.65px;margin:0 0 7px;font-weight:750}.api-title p{margin:0;font-size:13px;line-height:1.6;color:var(--muted)}.overview-card{padding:20px}.overview-card h2{font-size:17px;margin:0 0 14px;display:flex;align-items:center;gap:9px;letter-spacing:-.4px}.api-table{width:100%;border-collapse:separate;border-spacing:0;font-size:12px;line-height:1.5;border:1px solid var(--line);border-radius:3px;overflow:hidden;table-layout:fixed}.api-table th,.api-table td{padding:7px 9px;text-align:left;vertical-align:top;overflow-wrap:anywhere}.api-table th{font-weight:650;color:#263d5b;background:#f3f6f9}.api-table td{color:#526582}.api-table tr+tr>*{border-top:1px solid var(--line)}.api-table thead+tbody tr:first-child>*{border-top:1px solid var(--line)}.api-table tr>*+*{border-left:1px solid var(--line)}.api-table th:first-child,.api-table td:first-child{width:48%}.overview-table th{width:41%!important;font-size:12px}.overview-table td{width:59%;font-size:12px}.endpoint{display:grid;grid-template-columns:43px minmax(0,1fr);gap:17px;padding:17px 18px;scroll-margin-top:24px}.section-number{width:39px;height:39px;border-radius:50%;background:linear-gradient(130deg,#e2efff,#ecf4ff);display:grid;place-items:center;color:#084f9e;font-size:19px;font-weight:700}.endpoint-content{min-width:0}.endpoint h2{font-size:17px;margin:3px 0 12px;letter-spacing:-.4px;font-weight:750}.example{margin-top:13px}.example h3{font-size:12px;font-weight:600;color:#354c6b;margin:0 0 6px}.code-block{position:relative;border-radius:5px;background:linear-gradient(110deg,#f3f6f9,#f5f8fa);overflow:hidden}.code-block pre{margin:0;padding:14px 43px 14px 14px;overflow-x:auto;tab-size:2;color:#2b5f9e;line-height:1.55;font-size:11px;font-family:Consolas,'Courier New',monospace}.code-block code{font:inherit}.json-key{color:#c9447a}.json-string{color:#238564}.json-number{color:#176199}.copy-code{position:absolute;top:9px;right:7px;width:29px;height:29px;border:0;border-radius:5px;color:#405777;background:#f4f7fa;font-size:14px;display:grid;place-items:center}.copy-code:hover{background:#e2ecf8;color:#087bff}.api-sidebar{position:sticky;top:24px;display:grid;gap:18px;min-width:0}.help-panel,.quick-links-panel{padding:21px 19px}.aside-heading{display:flex;align-items:center;gap:14px;margin:0 0 11px;font-size:15px;font-weight:750;letter-spacing:-.4px}.aside-heading i{font-size:21px;width:23px;text-align:center}.help-panel p{font-size:12px;color:var(--muted);line-height:1.8;margin:0 0 15px 37px}.contact-api{display:block;text-align:center;border:1px solid #506d94;border-radius:5px;margin-left:37px;padding:9px 8px;color:#334e70;font-weight:600;font-size:11px;transition:background .2s}.contact-api:hover{background:#eef5ff}.quick-links{display:grid}.quick-links>a,.quick-links>button{display:flex;gap:16px;align-items:center;padding:13px 5px;text-align:left;border:0;background:none;font-size:12px;font-weight:500;color:#3d5474}.quick-links>*+*{border-top:1px solid var(--line)!important}.quick-links i{font-size:13px;width:18px;color:#6f91bb;text-align:center}.quick-links>a:hover,.quick-links>button:hover{color:#087bff;background:#f7faff}.api-key{font-family:Consolas,'Courier New',monospace;font-size:11px!important;color:#2c4668!important}.api-title,.api-navigation,.api-sidebar .card,.endpoint,.overview-card{animation:none}.key-preview{background:var(--soft);border:1px solid var(--line);border-radius:7px;display:flex;align-items:center;gap:12px;padding:12px;margin-top:15px}.key-preview code{font-size:13px;min-width:0;overflow-wrap:anywhere;flex:1}.key-preview button{border:0;background:white;color:#304c70;border-radius:5px;padding:9px}.dialog-caption{font-size:12px!important}
+    @media(min-width:1450px){.api-layout{grid-template-columns:260px minmax(0,1fr) 310px}.api-table{font-size:13px}.api-table td,.api-table th{padding:8px 10px}.code-block pre{font-size:12px}.api-title h1{font-size:23px}.api-title p{font-size:14px}.api-nav a{font-size:14px}.aside-heading{font-size:17px}.help-panel p{font-size:13px}.quick-links>a,.quick-links>button{font-size:13px}.contact-api{font-size:12px}}
+    @media(max-width:1200px){.api-layout{grid-template-columns:190px minmax(0,1fr) 220px;gap:17px}.api-navigation{padding:17px 11px}.api-nav a{font-size:11px;gap:12px;padding:12px 10px}.api-title{gap:15px;padding:20px 16px}.api-title h1{font-size:20px}.api-title p{font-size:12px}.help-panel,.quick-links-panel{padding:18px 15px}.help-panel p{margin-left:0;font-size:11px}.contact-api{margin-left:0}.aside-heading{font-size:14px;gap:10px}.quick-links>a,.quick-links>button{font-size:11px;gap:11px}.endpoint{gap:12px;padding:16px 14px;grid-template-columns:34px minmax(0,1fr)}.section-number{height:33px;width:33px;font-size:16px}.overview-card{padding:17px}.api-table{font-size:11px}.api-table th,.api-table td{padding:6px 8px}.overview-table td,.overview-table th{font-size:11px}.api-key{font-size:10px!important}}
+    @media(max-width:1000px){.api-layout{grid-template-columns:180px minmax(0,1fr)}.api-sidebar{position:static;grid-column:2;grid-template-columns:1fr 1fr;gap:15px}.api-navigation{grid-column:1;grid-row:1/span 2}.api-main{grid-column:2}.api-title p{font-size:12px}.api-table{font-size:12px}.overview-table td,.overview-table th{font-size:12px}.help-panel p{font-size:12px}.endpoint h2{font-size:17px}.api-nav a{font-size:12px}}
+    @media(max-width:700px){.api-layout{grid-template-columns:minmax(0,1fr);gap:15px}.api-navigation{position:static;grid-column:1;grid-row:auto;padding:10px}.api-nav{display:flex;overflow-x:auto;gap:5px;padding-bottom:3px;scrollbar-width:thin}.api-nav a{flex:0 0 auto;padding:10px 12px;gap:8px;font-size:11px}.api-nav a i{font-size:13px;width:15px}.api-main{grid-column:1;gap:13px}.api-sidebar{grid-column:1}.api-title{padding:20px 16px;gap:14px}.api-title h1{font-size:20px}.code-icon{width:44px;height:46px;flex-basis:44px;font-size:23px}.api-title p{font-size:12px}.overview-card{padding:17px 14px}.overview-card h2{font-size:16px}.endpoint{padding:17px 13px;grid-template-columns:29px minmax(0,1fr);gap:10px}.section-number{height:28px;width:28px;font-size:14px}.endpoint h2{font-size:16px;margin-top:4px}.api-table{font-size:11px}.api-table th,.api-table td{padding:7px}.overview-table td,.overview-table th{font-size:11px}.api-key{font-size:10px!important}.code-block pre{font-size:10px;padding:13px 38px 13px 11px;line-height:1.65}.example h3{font-size:11px}.copy-code{width:25px;height:25px;font-size:12px;right:6px;top:7px}.api-sidebar{grid-template-columns:1fr 1fr}.aside-heading{font-size:13px;gap:9px}.help-panel,.quick-links-panel{padding:17px 13px}.help-panel p{font-size:11px}.contact-api{font-size:10px}.quick-links>a,.quick-links>button{font-size:10px;gap:8px;padding:12px 2px}}
+    @media(max-width:380px){.api-sidebar{grid-template-columns:1fr}.api-title h1{font-size:18px}.api-title p{font-size:11px}.api-table{font-size:10px}.api-table th,.api-table td{padding:6px}.overview-table td,.overview-table th{font-size:10px}.endpoint{gap:8px;padding:15px 10px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+    .dropdown-menu a{display:block;width:100%;text-align:left;background:white;padding:11px;border-radius:6px;color:#354a6e;font-size:13px}.dropdown-menu a:hover{background:var(--soft)}
+
+    /* Shared UI standards — keep identical in every standalone page. */
+    :root{--font-ui:'Poppins',Arial,sans-serif;--text-title:24px;--text-section:18px;--text-body:14px;--text-small:12px;--text-table:12px;--control-height:44px;--button-height:44px;--button-small-height:34px;--space-card:24px;--space-section:20px;--space-field:16px;--ui-radius:8px}
+    body{font-family:var(--font-ui);font-size:var(--text-body);line-height:1.6}
+    button,input,select,textarea{font-family:var(--font-ui)}
+    button,a,input,select,textarea{font-weight:400}
+    h1,h2,h3{line-height:1.35;font-weight:600;letter-spacing:-.4px}
+    :is(.section-intro h1,.settings-intro h1,.history-heading h1,.refill-heading h1,.orders-title h1,.catalog-title h1,.api-title h1,.funding-intro h1){font-size:var(--text-title);font-weight:600;line-height:1.35;letter-spacing:-.6px;margin:0 0 6px}
+    :is(.section-intro h2,.settings-intro h2,.side-heading,.side-intro h2,.help-heading h2,.help-inline h2,.tickets-heading h2,.updates-heading h1,.category-heading h2,.aside-heading){font-size:var(--text-section);font-weight:600;line-height:1.4;letter-spacing:-.4px}
+    :is(.endpoint h2,.overview-card h2,.description h2){font-size:16px;font-weight:600;line-height:1.4}
+    :is(.update h2,.steps h3,.information-item h3,.help-copy h2){font-size:14px;font-weight:600;line-height:1.5}
+    :is(.section-intro p,.settings-intro p,.history-heading p,.refill-heading p,.orders-title p,.catalog-title p,.api-title p,.funding-intro p,.side-intro p,.help-inline p,.information-item p,.steps p,.update p,.description p,.help-copy p){font-size:var(--text-body);line-height:1.65;font-weight:400}
+    :is(.field-hint,.message-hint,.qr-caption,.local-note,.catalog-note,.order-preview-note,.preview-note,.date-filter-note,.dialog-caption){font-size:var(--text-small);line-height:1.6}
+    :is(.field label,.field-label,.ticket-field>label,.settings-field>label,.payment-field label){font-size:13px;font-weight:500;line-height:1.5;margin-bottom:8px;letter-spacing:0}
+    :is(.primary,.help-action,.secondary-action,.reset-filters,.order-reset,.view-ticket,.view-transaction,.view-refill,.reorder-button,.service-view,.contact-api,.contact-action,.api-doc-link,.service-order-link,.refill-preview-link,.clear-date){font-family:var(--font-ui);font-weight:500;line-height:1.4;letter-spacing:0;border-radius:var(--ui-radius);display:inline-flex;align-items:center;justify-content:center;gap:10px;text-align:center;min-width:0;vertical-align:middle}
+    :is(.primary,.help-action,.secondary-action,.reset-filters,.order-reset,.contact-api,.service-order-link,.refill-preview-link,.clear-date){height:auto;min-height:var(--button-height);padding:11px 18px;font-size:13px}
+    :is(.place-order,.pay-button,.submit-ticket,.settings-submit){width:100%;min-height:48px;font-size:14px;padding:12px 18px}
+    :is(.add-funds,.whatsapp-save,.secondary-action){min-height:44px;font-size:13px;padding:11px 18px}
+    .add-funds i{font-size:19px}
+    :is(.view-ticket,.view-transaction,.view-refill,.reorder-button,.service-view){min-height:var(--button-small-height);padding:7px 11px;font-size:11px;gap:8px;white-space:nowrap;border-radius:6px}
+    :is(.view-ticket,.view-transaction,.view-refill,.reorder-button,.service-view) i{font-size:13px}
+    :is(.contact-action,.api-doc-link){min-height:56px;padding:15px 18px;font-size:13px;justify-content:flex-start;text-align:left;gap:16px}
+    .contact-action{width:100%}.contact-api,.service-order-link,.refill-preview-link{display:flex}
+    :is(.copy-code,.copy-key,.copy-button,.visibility-button,.close-dialog,.more-order){min-width:34px;min-height:34px;font-size:14px;border-radius:6px}
+    .copy-code{width:34px;height:34px;top:7px;right:7px}.code-block pre{padding-right:49px}
+    :is(.control,.payment-select select,.filter-select select,.order-filter select,.catalog-select select){min-height:var(--control-height);height:var(--control-height);font-family:var(--font-ui);font-size:13px;line-height:1.5;border-radius:var(--ui-radius);font-weight:400}
+    :is(.select-wrap select,.payment-select select){font-size:13px}
+    :is(.support-input,.settings-input,.input-group,.search-box,.transaction-search,.order-search,.catalog-search,.ticket-search,.refill-search,.copy-field,.date-trigger,.charge-input){min-height:var(--control-height);height:auto;border-radius:var(--ui-radius)}
+    :is(.support-input input,.support-input select,.settings-input input,.settings-input select,.input-group input,.search-box input,.transaction-search input,.order-search input,.catalog-search input,.ticket-search input,.refill-search input){font-family:var(--font-ui);font-size:13px;line-height:1.5;padding-top:11px;padding-bottom:11px;min-height:42px;font-weight:400}
+    .support-input textarea{font-family:var(--font-ui);font-size:13px;line-height:1.65;min-height:120px}
+    .charge-input input{font-size:13px;font-family:var(--font-ui)}.charge-input span{display:grid;place-items:center;padding:8px 16px;font-size:14px}
+    :is(.select-wrap>i,.payment-select>i,.filter-select i,.order-filter>.fa-chevron-down,.catalog-select>.fa-chevron-down,.support-input>.fa-chevron-down,.settings-input>.fa-chevron-down){top:17px;font-size:11px}
+    .order-date>.fa-calendar-days{top:14px}.catalog-select>i:not(.fa-chevron-down){top:15px}.payment-select .upi-mark{top:7px}
+    :is(.ticket-field,.settings-field,.payment-field,.payment-field.utr-field){margin-bottom:var(--space-field)}
+    .field-row{margin-bottom:var(--space-field)}
+    :is(.section-intro,.settings-intro,.funding-intro){gap:20px;margin-bottom:var(--space-section)}
+    :is(.ticket-form-card,.settings-card,.funding-card,.updates,.side-card,.information-card,.quick-card,.settings-help,.refill-card,.overview-card){padding:var(--space-card)}
+    :is(.support-layout,.funding-layout,.settings-layout,.dashboard){gap:var(--space-section)}
+    :is(.left-column,.funding-sidebar,.support-sidebar,.service-groups){gap:var(--space-section)}
+    :is(.history-heading,.orders-title,.catalog-title,.api-title){padding:var(--space-card);gap:20px}
+    :is(.order-filters,.catalog-filters){padding:20px 24px;gap:16px}
+    :is(.history-body,.tickets-card){padding:20px 24px}
+    :is(.catalog-footer,.orders-footer){padding:16px 24px}
+    :is(.help-card,.tickets-card,.support,.orders-title){margin-top:var(--space-section)}.orders-title{margin-top:0}
+    :is(.orders-table,.services-table,.refill-table,.transaction-table,.tickets-table,.api-table){font-family:var(--font-ui)}
+    :is(.orders-table,.services-table,.refill-table,.transaction-table,.tickets-table,.api-table) th{font-size:12px;font-weight:600;line-height:1.5;padding-top:13px;padding-bottom:13px}
+    :is(.orders-table,.services-table,.refill-table,.transaction-table,.tickets-table,.api-table) td{font-size:var(--text-table);font-weight:400;line-height:1.6}
+    :is(.service-time,.service-description,.order-date-cell,.refill-date){font-size:12px!important;line-height:1.6!important}
+    :is(.order-id,.refill-order,.subject-link,.order-detail-link){font-family:var(--font-ui);font-size:12px;font-weight:400}
+    :is(.transaction-table .amount,.charge-cell){font-size:13px;font-weight:500}
+    :is(.order-status,.transaction-type,.refill-status,.status-pill){font-size:11px;font-weight:500;line-height:1.5;padding:6px 10px;border-radius:8px}
+    :is(.orders-pagination,.catalog-pagination,.transaction-pagination,.refill-pagination,.pagination){gap:8px}
+    :is(.orders-pagination,.catalog-pagination,.transaction-pagination,.refill-pagination,.pagination) button{min-width:36px;width:36px;height:36px;padding:0 7px;border-radius:7px;font-family:var(--font-ui);font-size:12px;font-weight:500}
+    :is(.orders-summary,.catalog-summary,.result-summary,.refill-summary){font-size:12px;line-height:1.6}
+    .status-tab{min-height:42px;font-size:12px;font-weight:500;padding:10px 15px;gap:9px;border-radius:7px}.status-tab span{font-size:11px;font-weight:400}
+    .category-heading{min-height:54px}.category-count{font-size:12px;font-weight:400}.service-meta strong{font-size:12px;font-weight:500}.server-tag{font-size:10px}
+    .header-inner{gap:20px}.brand{font-family:var(--font-ui);font-size:24px;font-weight:700;letter-spacing:-.8px}.nav-link{font-family:var(--font-ui);font-size:12px;line-height:1.5;font-weight:400;padding:12px 10px;min-height:42px;display:flex;align-items:center;justify-content:center;gap:5px}.nav-link.active{font-weight:500}.header-tools{gap:16px}.plain-button{font-size:12px;font-family:var(--font-ui);font-weight:400}.balance-chip{font-size:14px;font-weight:600}.dropdown-menu :is(a,button){font-family:var(--font-ui);font-size:12px;font-weight:400;line-height:1.6;min-height:40px;padding:10px 12px}.badge{font-size:11px;margin-left:0}
+    .text-button{font-size:13px;font-weight:500;min-height:36px}.support{font-size:13px;font-weight:500;line-height:1.6}.support button{font:inherit;font-weight:500}.funds-copy small{font-size:13px;line-height:1.6}.eyebrow{font-size:12px;font-weight:500}.funds-value{font-size:36px;font-weight:600;line-height:1.2}.search-box span{font-size:11px}.drip-copy label{font-size:14px;font-weight:500}.drip-copy small{font-size:12px;line-height:1.6}.description{padding:16px 20px}.update{padding:18px}.side-intro{gap:20px}.twofa-content{margin-left:85px}
+    dialog{font-family:var(--font-ui);padding:24px}.dialog-head h2{font-size:21px;font-weight:600;line-height:1.4}dialog p{font-size:13px;line-height:1.7}dialog dl{font-size:12px;line-height:1.65}dialog .primary{width:100%;min-height:44px}.toast{font-family:var(--font-ui);font-size:13px;line-height:1.6}.preview-feedback{font-size:12px;line-height:1.65}.code-block pre,.code-block code,.api-key{font-family:Consolas,'Courier New',monospace}
+    @media(min-width:901px) and (max-width:1400px){.topbar{height:66px}.mobile-toggle{display:block}.nav{display:none;position:absolute;top:65px;left:0;right:0;padding:12px 3% 18px;background:white;border-bottom:1px solid var(--line);box-shadow:0 15px 20px #2039570b;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}.nav.open{display:grid}.header-tools{margin-left:auto}.currency-dropdown{display:block}.user-name{display:inline}.header-tools .plain-button{gap:8px}}
+    @media(min-width:1401px){.nav{gap:2px}.header-inner{gap:20px}.nav-link{padding-left:8px;padding-right:8px}.brand{font-size:23px}.header-tools{gap:14px}.balance-chip{padding:10px 12px}.avatar{width:34px;height:34px;font-size:22px;margin-right:0}}
+    @media(max-width:1120px){:root{--space-card:20px;--text-title:22px}.search-box span{display:none}.twofa-content{margin-left:79px}.settings-intro{gap:20px}}
+    @media(max-width:900px){.nav-link{font-size:12px}.header-inner{gap:15px}.brand{font-size:22px}.header-tools{gap:15px}.nav.open{grid-template-columns:repeat(4,minmax(0,1fr))}.twofa-content{margin-left:0}.funds-value{font-size:32px}}
+    @media(max-width:600px){:root{--text-title:20px;--text-section:17px;--text-body:12px;--text-small:11px;--text-table:11px;--space-card:16px;--space-section:16px;--space-field:16px}.header-inner{gap:10px}.brand{font-size:18px;letter-spacing:-.6px}.header-tools{gap:10px}.balance-chip{font-size:11px;padding:9px 7px}.plain-button{font-size:11px}.avatar{width:30px;height:30px;font-size:19px;margin:0}.mobile-toggle{width:33px;flex-basis:33px}.nav.open{grid-template-columns:repeat(2,minmax(0,1fr))}.nav-link{font-size:12px;min-height:42px;padding:11px 8px}.currency-dropdown{display:none}.user-name,.user-chevron{display:none}
+      :is(.section-intro,.settings-intro,.funding-intro){gap:15px}.twofa-content{margin-left:0}
+      :is(.control,.select-wrap select,.payment-select select,.filter-select select,.order-filter select,.catalog-select select,.support-input input,.support-input select,.settings-input input,.settings-input select,.input-group input,.search-box input,.transaction-search input,.order-search input,.catalog-search input,.ticket-search input,.refill-search input,.support-input textarea){font-size:12px}
+      :is(.field label,.field-label,.ticket-field>label,.settings-field>label,.payment-field label){font-size:12px}
+      :is(.primary,.help-action,.secondary-action,.reset-filters,.order-reset,.contact-api,.service-order-link,.refill-preview-link,.clear-date){font-size:12px;min-height:44px;padding:11px 14px}
+      :is(.place-order,.pay-button,.submit-ticket,.settings-submit){font-size:13px;min-height:46px}
+      :is(.view-ticket,.view-transaction,.view-refill,.reorder-button,.service-view){font-size:11px;min-height:34px;padding:7px 10px}
+      :is(.contact-action,.api-doc-link){font-size:12px;min-height:52px;padding:14px 16px}
+      :is(.history-heading,.orders-title,.catalog-title,.api-title){padding:18px 16px;gap:15px}
+      :is(.order-filters,.catalog-filters,.history-body,.tickets-card){padding:16px 13px;gap:12px}
+      :is(.catalog-footer,.orders-footer){padding:15px 13px}
+      :is(.orders-table,.services-table,.refill-table,.transaction-table,.tickets-table,.api-table) th{font-size:11px;padding-top:12px;padding-bottom:12px}
+      :is(.service-time,.service-description,.order-date-cell,.refill-date){font-size:11px!important}.category-heading h2{font-size:14px}.category-count{font-size:11px}.status-tab{font-size:11px;padding:10px 12px}.orders-summary,.catalog-summary,.result-summary,.refill-summary{font-size:11px}.funds-value{font-size:29px}.funds-copy small{font-size:12px}.text-button{font-size:12px}.support{font-size:12px}.dialog-head h2{font-size:19px}.toast{font-size:12px}dialog{padding:20px}
+    }
+    @media(max-width:380px){.header-inner{gap:7px}.brand{font-size:16px;letter-spacing:-.7px}.header-tools{gap:7px}.balance-chip{font-size:10px;padding:8px 5px}.avatar{width:26px;height:26px;font-size:16px}.mobile-toggle{width:29px;flex-basis:29px}.funds-value{font-size:26px}}
+
+
+    /* Shared responsive header: desktop 1280px+, tablet/mobile below 1280px. */
+    .topbar{height:72px;background:#fff;border-bottom:1px solid var(--line)}
+    .header-inner{width:100%;max-width:1600px;height:100%;padding:0 28px;gap:24px;align-items:center}
+    .brand{flex:0 0 auto;font-size:22px;font-weight:700;line-height:1;letter-spacing:-.8px}
+    .header-tools{margin-left:auto;gap:16px;flex:0 0 auto;align-items:center}
+    .header-tools .plain-button{gap:7px;min-height:40px;padding:0;font-size:12px}
+    .balance-chip{height:42px;padding:0 13px;gap:8px;font-size:13px;line-height:1;border-radius:8px}
+    .avatar{height:34px;width:34px;margin:0 3px 0 0;font-size:21px;flex-shrink:0}
+    .mobile-toggle{height:40px;width:40px;flex:0 0 40px;margin:0;border:1px solid #dce6f3;border-radius:8px;background:#f3f6fb;font-size:15px;display:none}
+    .dropdown-menu{top:calc(100% + 12px);min-width:190px}
+    @media(min-width:1280px){
+      .header-inner{gap:20px;padding:0 28px}
+      .nav{display:flex!important;position:static;flex:1 1 auto;min-width:0;align-items:center;justify-content:center;gap:1px;padding:0;background:none;border:0;box-shadow:none}
+      .nav-link{min-height:40px;padding:10px 8px;font-size:11px;line-height:1.5;border-radius:7px;gap:5px}
+      .header-tools{gap:12px;margin-left:0}
+      .currency-dropdown{display:block}.user-name,.user-chevron{display:inline}
+      .mobile-toggle{display:none!important}
+    }
+    @media(min-width:1500px){.header-inner{padding:0 40px;gap:28px}.brand{font-size:24px}.nav{gap:3px}.nav-link{font-size:12px;padding:11px 10px}.header-tools{gap:20px}.balance-chip{font-size:14px;padding:0 15px}}
+    @media(max-width:1279px){
+      .header-inner{padding:0 24px;gap:18px}
+      .mobile-toggle{display:grid;place-items:center}
+      .nav{display:none;position:absolute;top:71px;left:0;right:0;width:100%;padding:14px 24px 18px;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 14px 24px #2039570c;gap:8px;grid-template-columns:repeat(4,minmax(0,1fr))}
+      .nav.open{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+      .nav-link{font-size:12px;padding:12px 10px;min-height:44px;justify-content:center}
+      .header-tools{gap:18px;margin-left:auto}
+      .currency-dropdown{display:block}.user-name,.user-chevron{display:inline}
+    }
+    @media(max-width:767px){
+      .topbar{height:64px}.header-inner{padding:0 16px;gap:12px}.brand{font-size:20px;letter-spacing:-.7px}
+      .header-tools{gap:12px}.currency-dropdown,.user-name,.user-chevron{display:none}
+      .header-tools .plain-button{gap:0;min-height:36px}.avatar{width:32px;height:32px;margin:0;font-size:20px}
+      .balance-chip{height:38px;font-size:12px;padding:0 10px;gap:7px}.balance-chip i{display:inline-block}
+      .mobile-toggle{width:36px;height:36px;flex-basis:36px;font-size:14px}
+      .nav{top:63px;padding:12px 16px 16px;gap:7px}.nav.open{grid-template-columns:repeat(2,minmax(0,1fr))}.nav-link{font-size:12px;min-height:44px}
+    }
+    @media(max-width:430px){.header-inner{padding:0 12px;gap:9px}.brand{font-size:18px}.header-tools{gap:9px}.balance-chip{font-size:11px;padding:0 8px}.balance-chip i{display:none}.avatar{height:29px;width:29px;font-size:18px}.mobile-toggle{width:34px;height:36px;flex-basis:34px}}
+    @media(max-width:359px){.header-inner{padding:0 10px;gap:7px}.brand{font-size:16px}.header-tools{gap:7px}.balance-chip{font-size:10px;padding:0 6px;height:35px}.avatar{width:26px;height:26px;font-size:16px}.mobile-toggle{width:31px;flex-basis:31px}}
+
+
+    /* Header text sizing refinement. */
+    .nav-link{font-size:13px}.header-tools .plain-button{font-size:13px}
+    @media(min-width:1280px){.nav-link{font-size:12px;padding-left:8px;padding-right:8px}}
+    @media(min-width:1500px){.nav-link{font-size:13px;padding-left:9px;padding-right:9px}}
+    @media(max-width:767px){.nav-link{font-size:13px}}
+
+    /* Plain header navigation with an underline for the active page. */
+    .nav-link{background:transparent;border:0;border-bottom:2px solid transparent;border-radius:0;box-shadow:none;transition:color .2s,border-color .2s}
+    .nav-link:hover{background:transparent;color:var(--blue);box-shadow:none}
+    .nav-link.active,.nav-link[aria-current="page"]{background:transparent;color:var(--ink);border-bottom-color:var(--blue);border-radius:0;box-shadow:none;font-weight:500}
+    .nav-link:active{transform:none}
+
+    /* SMMQuality panel palette and responsive refinements. */
+    :root{--ink:#142b48;--muted:#536b86;--line:#cbd6e3;--soft:#eaf0f6;--blue:#176bb4;--button:#243f59;--panel-navy:#172f48;--panel-bg:#e9eef4}
+    body{background:var(--panel-bg);color:var(--ink)}
+    .card{background:#fff;border-color:var(--line);box-shadow:0 2px 8px #17324c05}
+    .topbar{background:var(--panel-navy);border-color:#264660;box-shadow:0 2px 8px #102a4220}
+    .brand,.topbar .plain-button,.topbar .nav-link,.topbar .nav-link.active,.topbar .nav-link[aria-current="page"]{color:#f5f8fc}
+    .topbar .nav-link:hover{color:#a8d2ff;background:none}.topbar .nav-link.active{border-bottom-color:#8ac3ff}
+    .topbar .balance-chip{background:#27435e;color:#fff}.avatar{background:#36536f;color:#fff;box-shadow:none}
+    .topbar .mobile-toggle{background:#29455f;border-color:#54708b;color:#fff}.topbar .badge{background:#466381;color:white}
+    .topbar .dropdown-menu{background:white}.topbar .dropdown-menu :is(a,button){color:var(--ink)}
+    .primary,.help-action.ticket,.secondary-action{background:var(--button);border-color:var(--button);box-shadow:none;color:#fff}
+    .primary:hover,.help-action.ticket:hover,.secondary-action:hover{background:#315572;border-color:#315572;box-shadow:none}
+    :is(.help-action,.view-ticket,.view-transaction,.view-refill,.reorder-button,.service-view,.contact-api,.api-doc-link){border-color:#9db3ca;color:#224e77;background:#fff;box-shadow:none}
+    :is(.help-action,.view-ticket,.view-transaction,.view-refill,.reorder-button,.service-view,.contact-api,.api-doc-link):hover{background:#edf3f8;border-color:#648aaf;box-shadow:none}
+    :is(.control,.support-input,.settings-input,.input-group,.search-box,.transaction-search,.order-search,.catalog-search,.ticket-search,.refill-search,.copy-field,.date-trigger,.charge-input){border-color:#b8c9da;background:#fff}
+    :is(.filter-select select,.order-filter select,.catalog-select select,.payment-select select){border-color:#b8c9da}
+    input::placeholder,textarea::placeholder{color:#617790;opacity:1}
+    :is(.orders-table,.services-table,.refill-table,.transaction-table,.tickets-table,.api-table) th{background:#e6edf5;color:#203f5d}
+    :is(.orders-table,.services-table,.refill-table,.transaction-table,.tickets-table,.api-table) td{color:#415c78;border-color:#d7e0ea}
+    .transaction-table tbody tr:nth-child(even){background:#f4f7fa}
+    .status-tab{background:#edf2f7;border-color:#cbd7e4;color:#294b6c}.status-tab.active{background:#294e71;border-color:#294e71;box-shadow:none}.status-tab.active:after{background:#294e71}
+    .category-heading{background:#e2ebf5;border-radius:6px;padding-left:16px}.category-heading:hover{background:#d8e5f2}.category-heading h2{color:#173a5c}
+    .catalog-filters{border-top:0;background:#f7f9fc}.category-select select{background:#294e71;border-color:#294e71;color:#fff}
+    .wallet-art,.settings-icon,.intro-icon,.history-icon,.refill-icon,.orders-icon,.code-icon{background:#e6edf5;color:#203f5d}
+    .update,.steps,.information-list,.info-table{border-color:#cbd7e4}.contact-action{background:#eaf0f6;color:#244766}.contact-action:hover{background:#dfe9f3}
+    .whatsapp-support{margin-top:12px;border:1px solid #a9bfc7;background:#edf5f1;color:#1c654a}.whatsapp-support:hover{background:#e0efe7}
+    .funds{gap:20px}.funds-actions{display:flex;align-items:center;justify-content:flex-end;gap:12px;flex-shrink:0}.funds-actions .currency-dropdown{display:block}.funds-actions .plain-button{min-height:44px;padding:10px 12px;border:1px solid #b8c9da;border-radius:8px;color:#294767;background:white;font-size:12px}.funds-actions .dropdown-menu{z-index:20}
+    .description{grid-template-columns:28px minmax(0,1fr);gap:16px;padding:20px;background:#edf2f7;border:1px solid #cedae6;border-radius:8px;margin:0 0 20px;min-height:0;align-items:start}
+    .description>i{font-size:24px;line-height:1.4;padding-top:0;color:#294c70}.description h2{margin:0 0 10px;font-size:16px;line-height:1.5}.description p{font-size:13px;line-height:1.75;margin:0 0 4px;color:#425f7d}.description .check-line{align-items:flex-start;gap:9px;margin:10px 0 0;padding-top:10px;border-top:1px solid #cdd9e6}.description .check-line i{font-size:17px;line-height:1.7;color:#294e71}
+    .orders-card{margin-top:0}.status-tabs{margin-top:0}.catalog-top{margin-bottom:20px}
+    .payment-upi{margin:0 0 20px;padding:17px;background:#edf2f7;border:1px solid #c2d2e1;border-radius:8px}.payment-upi .side-heading{font-size:17px;margin-bottom:12px}.payment-upi .side-heading i{font-size:21px}.payment-upi .copy-field{background:white}.payment-upi label{margin-left:0;margin-bottom:7px}.payment-upi .copy-field span{font-size:12px}
+    .qr-area{background:#f3f6f9;border:1px solid #e0e7ee;padding:14px;margin-bottom:20px}.payment-art{aspect-ratio:367/350}.payment-art img{top:-84.286%}
+    .unified-payment-help{display:block;padding:0;overflow:hidden}.unified-payment-help>.side-card{background:none;border:0;box-shadow:none;border-radius:0;margin:0}.unified-payment-help>.side-card+.side-card{border-top:1px solid var(--line)}
+    .funding-layout{align-items:start}.funding-card{padding-top:24px}.funding-sidebar{grid-template-columns:1fr}.info-row{grid-template-columns:100px minmax(0,1fr)}
+    .dialog-tag{display:none}.dialog-head{margin-bottom:14px}.code-block{background:#eef2f6}
+    @media(max-width:1279px){.topbar .nav{background:var(--panel-navy);border-color:#36536d}.nav-link{min-height:44px}.topbar .nav-link:hover{background:#243f59}}
+    @media(max-width:1120px){.funds{flex-wrap:wrap}.funds-actions{width:100%;justify-content:flex-end}.funds-actions .add-funds{width:auto}.funds-copy{min-width:0}.funding-layout{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)}}
+    @media(max-width:850px){.funding-layout,.support-layout,.settings-layout{grid-template-columns:minmax(0,1fr)}.funding-sidebar,.support-sidebar{grid-template-columns:minmax(0,1fr)}.funds-actions{justify-content:flex-start}.info-row{grid-template-columns:90px minmax(0,1fr)}.payment-art{width:min(100%,330px)}}
+    @media(max-width:767px){
+      .page{padding:18px 14px 24px;max-width:100%;width:100%}.card{max-width:100%}.dashboard,.funding-layout,.support-layout,.settings-layout{grid-template-columns:minmax(0,1fr)}
+      :is(.view-ticket,.view-transaction,.view-refill,.reorder-button,.service-view,.copy-code,.copy-key,.copy-button,.visibility-button,.close-dialog,.mobile-toggle){min-height:44px;min-width:44px}
+      :is(.orders-pagination,.catalog-pagination,.transaction-pagination,.refill-pagination,.pagination) button{width:40px;height:44px;min-width:40px}
+      input,select,textarea,.control,.select-wrap select,.settings-input input,.settings-input select,.support-input input,.support-input select,.input-group input{font-size:16px!important}
+      .funds{padding:18px;gap:15px}.funds-actions{width:100%;display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px}.funds-actions .add-funds{width:100%;min-height:44px}.funds-actions .plain-button{min-height:44px}.funds-copy small{font-size:12px}.funds-value{font-size:28px}
+      .description{padding:16px;gap:12px;grid-template-columns:24px minmax(0,1fr)}.description p{font-size:13px}.description h2{font-size:15px}.description>i{font-size:22px}
+      .funding-card{padding:16px}.payment-upi{padding:14px}.payment-upi .copy-field{padding-left:10px}.payment-upi .copy-field span{font-size:11px}.qr-area{padding:10px}.info-row{font-size:12px}
+      .category-heading h2{font-size:14px}.category-heading{padding-left:14px}.category-count{font-size:11px}
+      :is(.orders-table-scroll,.services-scroll,.refill-table-scroll,.transaction-table-scroll,.table-scroll){overflow:visible;border:0}
+      :is(.orders-table,.services-table,.refill-table,.transaction-table,.tickets-table){display:block;min-width:0;width:100%;table-layout:auto;white-space:normal}
+      :is(.orders-table,.services-table,.refill-table,.transaction-table,.tickets-table) thead{display:none}
+      :is(.orders-table,.services-table,.refill-table,.transaction-table,.tickets-table) tbody{display:grid;gap:14px;width:100%}
+      :is(.orders-table,.services-table,.refill-table,.transaction-table,.tickets-table) tbody tr{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border:1px solid #c8d6e5;border-radius:8px;overflow:hidden;background:white;padding:8px}
+      :is(.orders-table,.services-table,.refill-table,.transaction-table,.tickets-table) td{display:block;min-width:0;border:0!important;padding:9px 8px;font-size:12px;white-space:normal;overflow-wrap:anywhere;background:none!important}
+      :is(.orders-table,.services-table,.refill-table,.transaction-table,.tickets-table) td:before{content:attr(data-label);display:block;font-weight:500;font-size:11px;color:#60748d;margin-bottom:5px}
+      .orders-table td:nth-child(4),.orders-table td:nth-child(8),.orders-table td:last-child,.services-table td:nth-child(2),.services-table td:last-child,.refill-table td:nth-child(4),.refill-table td:nth-child(5),.refill-table td:last-child,.transaction-table td:nth-child(5){grid-column:1/-1}
+      .orders-table-scroll{padding:12px}.services-scroll{padding:6px}.refill-link,.order-video{max-width:100%}.service-time{white-space:normal}.order-actions{justify-content:flex-start}.service-view,.view-refill,.reorder-button{min-height:44px}.orders-table td:first-child{display:none}
+      .orders-footer,.catalog-footer,.refill-footer,.table-footer{flex-wrap:wrap;gap:14px}.orders-pagination{flex-wrap:wrap;justify-content:center}.catalog-pagination{flex-wrap:wrap}.orders-summary,.refill-summary{font-size:12px}.orders-table .service-description{font-size:12px!important}.service-meta{font-size:12px}.order-status,.refill-status,.transaction-type{font-size:12px}
+      .catalog-search input,.order-search input,.transaction-search input,.ticket-search input,.refill-search input{font-size:14px!important}.category-select select,.catalog-select select,.order-filter select,.filter-select select{font-size:13px!important}
+    }
+
+
+    /* Brand background with the original white working surfaces. */
+    :root{--panel-bg:#2B3E50}
+    body{background:#2B3E50}
+
+    /* Shared custom selects: native controls retain their values and validation. */
+    .custom-native-select{position:absolute!important;width:1px!important;height:1px!important;min-height:0!important;clip-path:inset(50%);overflow:hidden!important;opacity:0!important;padding:0!important;border:0!important;pointer-events:none}
+    .custom-select{position:relative;min-width:0;width:100%}
+    .custom-select-trigger{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-width:0;min-height:44px;padding:11px 14px;background:#fff;border:1px solid #b8c9da;border-radius:8px;color:#294767;font-family:var(--font-ui);font-size:13px;line-height:1.5;text-align:left;font-weight:400;box-shadow:none}
+    .custom-select-trigger:hover{border-color:#7296b9;background:#fbfdff}.custom-select-trigger[aria-expanded="true"]{border-color:#518bbd;box-shadow:0 0 0 3px #83b5ec20}.custom-select-trigger:disabled{opacity:.55;cursor:not-allowed}
+    .custom-select-label{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1}.custom-select-trigger>i{flex:0 0 12px;font-size:11px;text-align:center;transition:transform .18s}.custom-select-trigger[aria-expanded="true"]>i{transform:rotate(180deg)}
+    :is(.select-wrap,.payment-select,.filter-select,.order-filter,.catalog-select,.settings-input,.support-input):has(>.custom-native-select)>i{display:none!important}
+    :is(.settings-input,.support-input):has(>.custom-native-select){overflow:visible}.settings-input .custom-select-trigger,.support-input .custom-select-trigger{border:0;border-radius:0 8px 8px 0;min-height:42px}.settings-input .custom-select,.support-input .custom-select{flex:1}
+    .payment-select .custom-select-trigger{padding-left:58px;min-height:46px}.payment-select .upi-mark{z-index:1;top:8px}
+    .catalog-select.category-select .custom-select-trigger{background:#294e71;color:white;border-color:#294e71}
+    .catalog-select .custom-select-trigger{padding-left:38px}.catalog-select>i:not(.fa-chevron-down){display:block!important;z-index:1;top:15px}.category-select>i{color:white}
+    .order-date .custom-select-trigger{padding-left:36px}.order-date>.fa-calendar-days{display:block!important;z-index:1;top:14px}
+    .funds-actions .custom-select-trigger{min-height:46px;font-size:13px;min-width:105px}
+    .custom-select-popup{position:fixed;z-index:1000;display:flex;flex-direction:column;background:#fff;border:1px solid #bed0e1;box-shadow:0 12px 36px #17324c26;border-radius:9px;padding:6px;color:#294767;max-width:calc(100vw - 24px);box-sizing:border-box}
+    .custom-select-search{width:100%;min-height:40px;padding:9px 11px;font:inherit;font-size:13px;border:1px solid #d2dfeb;border-radius:6px;color:#294767;background:#f8fbfe;margin:0 0 6px;flex-shrink:0}
+    .custom-select-options{overflow-y:auto;overscroll-behavior:contain;min-height:0;scrollbar-width:thin}
+    .custom-select-option{display:flex;align-items:center;gap:12px;justify-content:space-between;width:100%;padding:10px 11px;min-height:42px;font-family:var(--font-ui);font-size:13px;line-height:1.5;color:#294767;background:white;border:0;border-radius:5px;text-align:left;font-weight:400;white-space:normal;overflow-wrap:anywhere;cursor:pointer}
+    .custom-select-option[aria-selected="true"]{background:#e8f1fb;color:#1a5687;font-weight:500}.custom-select-option.active,.custom-select-option:hover{background:#edf4fc}.custom-select-option[aria-disabled="true"]{opacity:.45;cursor:not-allowed}.custom-select-option i{font-size:12px;flex-shrink:0}.custom-select-empty{padding:15px 11px;color:#62778d;font-size:13px}
+    @media(max-width:767px){.custom-select-trigger{min-height:48px;font-size:14px;padding:12px}.custom-select-option{min-height:46px;font-size:14px;padding:12px}.custom-select-search{font-size:16px;min-height:44px}.settings-input .custom-select-trigger,.support-input .custom-select-trigger{min-height:46px}.payment-select .custom-select-trigger{padding-left:53px}.custom-select-popup{max-width:calc(100vw - 20px)}}
+
+
+    /* Shared type, 8px rhythm, numeric alignment, and interaction states. */
+    :root{--weight-body:400;--weight-label:500;--weight-heading:600;--space-1:8px;--space-2:16px;--space-3:24px;--space-4:32px;--space-card:24px;--space-field:16px;--space-section:24px}
+    body{font-weight:var(--weight-body)}
+    :is(h1,h2,h3,.section-intro h1,.settings-intro h1,.history-heading h1,.refill-heading h1,.api-title h1,.funding-intro h1,.section-intro h2,.settings-intro h2,.side-heading,.side-intro h2,.help-heading h2,.help-inline h2,.tickets-heading h2,.updates-heading h1,.category-heading h2,.aside-heading,.endpoint h2,.overview-card h2,.description h2,.description-content h2,.update h2,.steps h3,.information-item h3,.help-copy h2){font-weight:var(--weight-heading)}
+    :is(p,small,td,dd,.service-description,.section-intro p,.settings-intro p,.help-inline p,.side-intro p,.update p){font-weight:var(--weight-body)}
+    :is(label,.field label,.field-label,.ticket-field>label,.settings-field>label,.payment-field label,.description-facts dt,.drip-copy label,.eyebrow){font-weight:var(--weight-label)}
+    :is(button,.primary,.help-action,.secondary-action,.view-ticket,.view-transaction,.view-refill,.reorder-button,.service-view,.contact-api,.contact-action,.api-doc-link,.nav-link.active){font-weight:var(--weight-label)}
+    :is(.dashboard,.funding-layout,.support-layout,.settings-layout){gap:24px}
+    :is(.left-column,.funding-sidebar,.support-sidebar,.service-groups,.api-main,.api-sidebar){gap:24px}
+    :is(.field-row,.ticket-field,.settings-field,.payment-field,.payment-field.utr-field){margin-bottom:16px}
+    :is(.field label,.field-label,.ticket-field>label,.settings-field>label,.payment-field label){margin-bottom:8px}
+    :is(.section-intro,.settings-intro,.funding-intro,.side-intro,.updates-heading){gap:16px;margin-bottom:24px}
+    :is(.ticket-form-card,.settings-card,.funding-card,.updates,.side-card,.information-card,.quick-card,.settings-help,.refill-card,.overview-card){padding:24px}
+    :is(.history-heading,.catalog-title,.api-title){padding:24px;gap:16px}
+    :is(.order-filters,.catalog-filters){padding:24px;gap:16px}
+    :is(.history-body,.tickets-card){padding:24px}
+    :is(.catalog-footer,.orders-footer){padding:16px 24px}
+    :is(.catalog-top,.description,.order-card .description,.refill-heading){margin-bottom:24px}
+    :is(.catalog-footer,.tickets-card,.payment-support,.help-card,.support){margin-top:24px}
+    .payment-support .help-card{margin:0;padding:24px}
+    .description-content{padding:16px}.description-facts{gap:8px;margin-bottom:16px}.description h2{margin-bottom:16px}.description .check-line{margin-top:16px;padding-top:16px;gap:8px}
+    .update-list{gap:16px}.update{padding:16px}.update-title{margin-bottom:8px}.update p{line-height:1.7}
+    .order-card .drip-fields{padding:16px;gap:16px;margin-bottom:16px}
+    .order-card .drip-control{gap:16px}.drip-copy label{margin-bottom:8px}
+    :is(.field-hint,.message-hint,.qr-caption,.local-note,.preview-note,.date-filter-note,.dialog-caption,.catalog-note,.order-preview-note){font-size:12px;line-height:1.65;color:#536b83}
+    :is(.orders-table,.services-table,.refill-table,.transaction-table,.tickets-table,.api-table) th{font-weight:var(--weight-heading)}
+    .money-column{text-align:right!important;font-variant-numeric:tabular-nums lining-nums;font-feature-settings:'tnum' 1;white-space:nowrap}
+    :is(.funds-value,.balance-chip,.charge-input input,.service-price,.amount,.charge-cell,.refill-date,.order-date-cell,.orders-summary,.result-summary,.refill-summary){font-variant-numeric:tabular-nums lining-nums;font-feature-settings:'tnum' 1}
+    .charge-input input{text-align:right}
+    :is(.view-ticket,.view-transaction,.view-refill,.reorder-button,.service-view,.copy-code,.copy-key,.copy-button,.visibility-button,.close-dialog,.mobile-toggle){min-height:44px;min-width:44px}
+    :is(.orders-pagination,.catalog-pagination,.transaction-pagination,.refill-pagination,.pagination){gap:8px}
+    :is(.orders-pagination,.catalog-pagination,.transaction-pagination,.refill-pagination,.pagination) button{height:44px;min-width:44px;width:44px}
+    .text-button{min-height:44px;padding:8px}.nav-link{min-height:44px}
+    :is(button,a,input,select,textarea,[tabindex]):focus-visible{outline:3px solid #1877bf;outline-offset:3px}
+    .topbar :is(button,a,[tabindex]):focus-visible{outline-color:#b9ddff}
+    :is(input,select,textarea)[aria-invalid="true"],.custom-select-trigger[aria-invalid="true"]{border-color:#b84242;box-shadow:0 0 0 3px #c2484818}
+    .custom-select-trigger:focus-visible{outline:3px solid #1877bf;outline-offset:3px}.custom-select-option{min-height:44px}
+    .ui-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+    form[aria-busy="true"] button[type="submit"]{cursor:wait;opacity:.8}
+    .submission-spinner{width:15px;height:15px;display:inline-block;flex-shrink:0;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:submit-spin .7s linear infinite}
+    @keyframes submit-spin{to{transform:rotate(360deg)}}
+    :is(.copy-button,.copy-key,.copy-code).is-copied{display:inline-flex;align-items:center;justify-content:center;gap:6px;width:auto;min-width:88px;flex-basis:88px;padding:8px;color:#245c42;background:#e8f5ed;font-size:12px;line-height:1.5;white-space:nowrap}
+    .copy-feedback{font-family:var(--font-ui);font-size:12px;font-weight:500}.code-block pre{padding-right:56px}.code-block:has(.is-copied) pre{padding-right:104px}
+    @media(max-width:1024px){.orders-pagination{flex-wrap:wrap;justify-content:center}.table-footer,.orders-footer{flex-wrap:wrap;row-gap:16px}}
+    @media(max-width:767px){
+      :root{--space-card:16px;--space-section:24px}.page{padding:16px 12px 24px}
+      :is(.dashboard,.funding-layout,.support-layout,.settings-layout,.left-column,.funding-sidebar,.support-sidebar,.service-groups,.api-main,.api-sidebar){gap:24px}
+      :is(.order-card,.ticket-form-card,.settings-card,.funding-card,.updates,.side-card,.information-card,.quick-card,.settings-help,.refill-card,.overview-card){padding:16px}
+      :is(.history-heading,.catalog-title,.api-title,.history-body,.tickets-card,.order-filters,.catalog-filters){padding:16px;gap:16px}
+      :is(.catalog-footer,.orders-footer){padding:16px}
+      :is(.section-intro,.settings-intro,.side-intro,.updates-heading){gap:16px;margin-bottom:16px}
+      .order-card .field-row,.quantity-line .field-row{margin-bottom:16px}.order-card .description{margin-bottom:24px}.description-content{padding:16px}.order-card .drip-control{padding:16px 0;margin-bottom:16px;gap:8px}.drip-copy label{margin-bottom:8px}
+      :is(.field-hint,.message-hint,.local-note,.preview-note,.date-filter-note){font-size:12px}.update p,.description .description-note,.description .check-line{font-size:13px;line-height:1.7}
+      :is(.orders-table,.services-table,.refill-table,.transaction-table,.tickets-table) td.money-column{text-align:left!important}
+      :is(.orders-pagination,.catalog-pagination,.transaction-pagination,.refill-pagination,.pagination) button{width:40px;min-width:40px;height:44px}
+      .orders-pagination,.catalog-pagination{flex-wrap:wrap}.orders-footer,.catalog-footer{gap:16px}.payment-support .help-card{padding:16px;gap:16px}
+    }
+    @media(prefers-reduced-motion:reduce){.submission-spinner{animation:none;border-right-color:currentColor;opacity:.6}}
+
+
+    /* Text-first documentation navigation. */
+    .api-nav a{gap:0;padding-left:16px;padding-right:16px}
+    .quick-links>a,.quick-links>button{gap:0;padding-left:0;padding-right:0;min-height:44px}
+    @media(max-width:700px){.api-nav a{gap:0;padding-left:12px;padding-right:12px}}
+    .api-title h1{margin-bottom:0}
+
+    /* Readable data tables with a consistent 14px type scale. */
+    :root{--text-table:14px}
+    :is(.orders-table,.services-table,.refill-table,.transaction-table,.tickets-table,.api-table){font-size:14px;line-height:1.65}
+    :is(.orders-table,.services-table,.refill-table,.transaction-table,.tickets-table,.api-table) :is(th,td){font-size:14px!important;line-height:1.65!important;padding-top:14px;padding-bottom:14px}
+    :is(.orders-table,.services-table,.refill-table,.transaction-table,.tickets-table,.api-table) :is(.order-date-cell,.refill-date,.service-description,.service-time,.service-meta,.service-meta strong,.server-tag,.service-price,.amount,.charge-cell,.order-id,.refill-order,.subject-link,.order-detail-link,.order-video span,.refill-link span,.order-status,.transaction-type,.refill-status,.status-pill,.view-ticket,.view-transaction,.view-refill,.reorder-button,.service-view,.sort-orders,.api-key){font-size:14px!important;line-height:1.6!important}
+    .services-table .service-time{white-space:normal}.services-table .service-view{white-space:normal}
+    .order-actions{flex-wrap:wrap}.orders-table .reorder-button{padding-left:9px;padding-right:9px}
+    .orders-table th:nth-child(11){width:12%}.orders-table th:nth-child(8){width:16%}
+    @media(min-width:768px){.orders-table{min-width:1400px}.services-table{min-width:1250px}.refill-table{min-width:1180px}.transaction-table{min-width:1050px}.tickets-table{min-width:740px}}
+    @media(max-width:767px){
+      :is(.orders-table,.services-table,.refill-table,.transaction-table,.tickets-table){min-width:0}
+      :is(.orders-table,.services-table,.refill-table,.transaction-table,.tickets-table) td{padding:12px 8px;font-size:14px!important;line-height:1.65!important}
+      :is(.orders-table,.services-table,.refill-table,.transaction-table,.tickets-table) td:before{font-size:12px;font-weight:500;line-height:1.5;margin-bottom:8px}
+      .service-meta{gap:8px}.service-description{margin-top:8px}.api-table :is(th,td){padding:12px 8px}
+    }
+
+    /* Readable forms and supporting interface text. */
+    :root{--text-body:14px;--text-small:14px}
+    body{font-size:14px}
+    :is(.field label,.field-label,.ticket-field>label,.settings-field>label,.payment-field label,.description>h2,.order-card .description>h2,.drip-copy label,.date-popover label){font-size:14px;line-height:1.6}
+    :is(input,select,textarea,.control,.select-wrap select,.payment-select select,.filter-select select,.order-filter select,.catalog-select select,.support-input input,.support-input select,.support-input textarea,.settings-input input,.settings-input select,.input-group input,.search-box input,.transaction-search input,.order-search input,.catalog-search input,.ticket-search input,.refill-search input,.charge-input input,.custom-select-trigger,.custom-select-option,.custom-select-search){font-size:14px!important;line-height:1.6}
+    :is(.field-hint,.message-hint,.drip-copy small,.funds-copy small,.section-intro p,.settings-intro p,.side-intro p,.help-inline p,.information-item p,.steps p,.help-copy p,.api-title p,.help-panel p,.update p,.preview-feedback,.twofa-notice,.security-list li,.twofa-help .security-list li,.bonus-preview,.date-filter-note,.local-note,.preview-note,.dialog-caption){font-size:14px;line-height:1.7}
+    :is(.primary,.help-action,.secondary-action,.reset-filters,.order-reset,.contact-api,.contact-action,.api-doc-link,.service-order-link,.refill-preview-link,.clear-date,.text-button,.whatsapp-save,.funds-actions .plain-button){font-size:14px}
+    :is(.copy-field span,.payment-upi .copy-field span,.info-row,.info-row strong,.quick-links>a,.quick-links>button,.link-wrap-control,.result-summary,.orders-summary,.refill-summary,.catalog-summary,.support){font-size:14px;line-height:1.65}
+    .custom-select-trigger{min-height:46px}.custom-select-option{min-height:44px}
+    .custom-select-label{line-height:1.6}.custom-select-trigger>i{font-size:11px}
+    :is(.support-input,.settings-input,.input-group,.search-box,.transaction-search,.order-search,.catalog-search,.ticket-search,.refill-search){min-height:46px}
+    .control{height:46px;min-height:46px}.charge-input{min-height:46px}
+    .info-row>span{overflow-wrap:anywhere}.quick-links>a,.quick-links>button{line-height:1.6}
+    dialog p,dialog dl,.toast{font-size:14px;line-height:1.7}
+    @media(max-width:767px){
+      :is(input,select,textarea,.control,.settings-input input,.settings-input select,.support-input input,.support-input select,.support-input textarea,.input-group input,.search-box input,.transaction-search input,.order-search input,.catalog-search input,.ticket-search input,.refill-search input,.charge-input input,.custom-select-search,.order-card input,.order-card select){font-size:16px!important}
+      :is(.custom-select-trigger,.custom-select-option){font-size:14px!important}
+      :is(.field label,.ticket-field>label,.settings-field>label,.payment-field label,.order-card .field label,.order-card .description>h2,.field-hint,.message-hint,.section-intro p,.settings-intro p,.side-intro p,.help-inline p,.information-item p,.steps p,.help-copy p,.drip-copy small,.funds-copy small,.preview-feedback,.twofa-notice,.security-list li,.twofa-help .security-list li){font-size:14px;line-height:1.7}
+      .funds-actions .add-funds,.order-card .place-order,.settings-submit,.pay-button,.submit-ticket,.whatsapp-save{font-size:14px}
+      .info-row{grid-template-columns:minmax(0,1fr);gap:8px}.info-row>span{text-align:left}.info-row strong{font-size:14px}
+      .orders-footer,.catalog-footer,.refill-footer,.table-footer{flex-wrap:wrap}.result-summary,.orders-summary,.refill-summary,.catalog-summary{font-size:14px;max-width:none}.support{font-size:14px}
+    }
+  </style>
+<style id="ui-consistency">
+
+    /* Authoritative shared presentation layer. Keep this block identical on all pages. */
+    :root{--font-ui:'Poppins',Arial,sans-serif;--text-body:14px;--text-table:14px;--text-small:14px;--text-title:24px;--text-section:18px;--space-card:24px;--space-section:24px;--space-field:16px;--control-height:48px;--button-height:44px}
+    body{font-family:var(--font-ui);font-size:14px;line-height:1.7;font-weight:400;color:#203b55}
+    .page{padding:24px clamp(16px,3vw,40px) 32px;width:100%;min-width:0}
+    .card{min-width:0}.card :is(h1,h2,h3){font-weight:600;line-height:1.4;letter-spacing:-.3px}
+    .card :is(.section-intro h1,.settings-intro h1,.history-heading h1,.refill-heading h1,.api-title h1,.funding-intro h1){font-size:24px}
+    .card :is(.settings-intro h2,.side-heading,.side-intro h2,.help-heading h2,.help-inline h2,.tickets-heading h2,.updates-heading h1,.category-heading h2,.aside-heading){font-size:18px}
+    .card :is(.endpoint h2,.overview-card h2,.help-copy h2){font-size:16px}
+    .card :is(.update h2,.steps h3,.information-item h3){font-size:14px}
+    .card :is(p,small,dd,.section-intro p,.settings-intro p,.side-intro p,.help-inline p,.help-copy p,.information-item p,.steps p,.api-title p,.help-panel p,.security-list li,.twofa-help .security-list li,.twofa-notice,.preview-feedback,.bonus-preview){font-size:14px;line-height:1.7;font-weight:400}
+    .card :is(label,.field label,.field-label,.ticket-field>label,.settings-field>label,.payment-field label,.drip-copy label,.date-popover label){font-size:14px;font-weight:500;line-height:1.6;letter-spacing:0}
+    .card :is(.field-hint,.message-hint,.drip-copy small,.funds-copy small,.local-note,.date-filter-note,.preview-note,.qr-caption){font-size:14px;line-height:1.7;color:#506980}
+    :is(.dashboard,.funding-layout,.support-layout,.settings-layout,.left-column,.funding-sidebar,.support-sidebar,.service-groups,.api-main,.api-sidebar){gap:24px}
+    :is(.order-card,.ticket-form-card,.settings-card,.funding-card,.updates,.side-card,.information-card,.quick-card,.settings-help,.refill-card,.overview-card){padding:24px}
+    :is(.history-body,.tickets-card,.order-filters,.catalog-filters){padding:24px;gap:16px}
+    :is(.field-row,.ticket-field,.settings-field,.payment-field,.payment-field.utr-field,.quantity-line .field-row){margin-bottom:16px}
+    :is(.field label,.field-label,.ticket-field>label,.settings-field>label,.payment-field label){margin-bottom:8px}
+    :is(.section-intro,.settings-intro,.side-intro,.updates-heading){gap:16px;margin-bottom:24px}
+    .funds{padding:24px;gap:24px}.funds-value{line-height:1.25;letter-spacing:-.6px}.card .eyebrow{font-size:12px;font-weight:500;margin-bottom:8px;line-height:1.5}
+    .card .funds-value{font-size:32px;font-weight:500;line-height:1.25;margin:0}.funds-actions{gap:16px}
+    .card :is(.primary,.help-action,.secondary-action,.reset-filters,.order-reset,.contact-api,.contact-action,.api-doc-link,.service-order-link,.refill-preview-link,.clear-date,.text-button){font-size:14px;font-weight:500;line-height:1.5;min-height:44px}
+    :is(.copy-button,.copy-key,.copy-code,.visibility-button,.close-dialog,.mobile-toggle){min-height:44px;min-width:44px}
+    :is(.control,.custom-select-trigger,.support-input,.settings-input,.input-group,.search-box,.transaction-search,.order-search,.catalog-search,.ticket-search,.refill-search,.copy-field,.date-trigger,.charge-input){min-height:48px}
+    .control{height:48px}.custom-select-trigger{font-size:14px!important;line-height:1.6;padding-top:12px;padding-bottom:12px}
+    :is(.settings-input,.support-input) .custom-select-trigger{min-height:46px}
+    .card :is(.control,input:not([type="checkbox"]),select,textarea){font-size:14px!important;line-height:1.6}
+    .custom-select-option{font-size:14px;min-height:44px;padding:12px;line-height:1.6}.custom-select-popup{padding:8px}
+    .order-card .description{margin:0 0 24px}.order-card .description>h2{font-size:14px;line-height:1.6;font-weight:500;margin:0 0 8px}
+    .description-content{padding:16px!important}.order-card #descriptionText,.order-card #descriptionText :is(p,li,div),.order-card .description .check-line{font-size:14px;line-height:1.8}
+    .order-card .description .check-line{margin-top:16px;gap:8px}.order-card .drip-control{gap:16px}.order-card .drip-fields{margin-bottom:16px;padding:16px;gap:16px}
+    .update-list{gap:16px}.update{padding:16px}.update-title{gap:8px 16px;margin-bottom:8px}.update time{font-size:13px;color:#5b728a;line-height:1.6}
+    :is(.info-row,.info-row strong,.info-row>span,.quick-links>a,.quick-links>button,.copy-field span,.payment-upi .copy-field span,.result-summary,.orders-summary,.refill-summary,.catalog-summary){font-size:14px;line-height:1.65}
+    .quick-links>a,.quick-links>button{min-height:44px}.info-row{padding:16px;gap:16px}.steps li,.information-item{padding-top:24px;padding-bottom:24px}
+    .support{font-size:14px;line-height:1.7;padding:16px 24px;margin-top:24px}.payment-support .help-card{padding:24px;margin:0;gap:24px}
+    .catalog-footer,.orders-footer{padding:16px 24px;gap:16px}.refill-footer,.table-footer{gap:16px;padding-top:24px}.refill-footer{margin-top:24px}
+    :is(.orders-table,.services-table,.refill-table,.transaction-table,.tickets-table,.api-table) :is(th,td){font-size:14px!important;line-height:1.65!important;padding-top:16px;padding-bottom:16px}
+    :is(.orders-table,.services-table,.refill-table,.transaction-table,.tickets-table,.api-table) th{font-weight:600}
+    .money-column{font-weight:500;font-variant-numeric:tabular-nums;text-align:right!important}
+    .service-meta{gap:8px;margin-bottom:8px}.server-tag{padding:2px 8px}.status-tab{font-size:14px;min-height:44px;gap:8px;padding:12px 16px}.status-tab span{font-size:12px}
+    .api-nav a{font-size:14px;min-height:44px;line-height:1.6}.endpoint{gap:16px;padding:24px 16px}.example{margin-top:16px}.example h3{font-size:14px;font-weight:500;line-height:1.6;margin-bottom:8px}
+    .code-block pre,.code-block code{font-size:13px;line-height:1.75}.code-block pre{padding:16px 64px 16px 16px}.code-block:has(.is-copied) pre{padding-right:112px}
+    .api-title h1{margin-bottom:0}.help-panel p{margin-left:0}.contact-api{margin-left:0}.quick-links-panel .aside-heading,.help-panel .aside-heading{margin-bottom:16px}
+    dialog{padding:24px;max-width:calc(100vw - 24px);max-height:calc(100dvh - 32px);overflow-y:auto}.dialog-head h2{font-size:20px;line-height:1.4;font-weight:600}dialog p,dialog dl{font-size:14px;line-height:1.7}dialog dl{gap:16px}.toast{font-size:14px;line-height:1.7}
+    .topbar .nav-link{font-size:13px;line-height:1.5;min-height:44px}.topbar .plain-button{font-size:13px}.topbar .balance-chip{font-size:14px;font-variant-numeric:tabular-nums}.brand{line-height:1.2}
+    @media(min-width:1280px) and (max-width:1499px){.header-inner{gap:16px;padding-left:24px;padding-right:24px}.topbar .nav-link{padding-left:6px;padding-right:6px}.header-tools{gap:12px}}
+    @media(max-width:1024px){.orders-pagination,.catalog-pagination{flex-wrap:wrap}.table-footer,.orders-footer{flex-wrap:wrap}.search-box>span{display:none}}
+    @media(max-width:767px){
+      :root{--space-card:16px;--text-title:20px}.page{padding:16px 12px 24px}
+      :is(.order-card,.ticket-form-card,.settings-card,.funding-card,.updates,.side-card,.information-card,.quick-card,.settings-help,.refill-card,.overview-card,.history-body,.tickets-card,.order-filters,.catalog-filters){padding:16px}
+      .card :is(.section-intro h1,.settings-intro h1,.refill-heading h1,.api-title h1){font-size:20px}
+      .card :is(.side-intro h2,.settings-intro h2,.tickets-heading h2,.updates-heading h1,.help-heading h2,.help-inline h2){font-size:18px}
+      :is(.section-intro,.settings-intro,.side-intro,.updates-heading){margin-bottom:16px;gap:16px}
+      .card :is(input:not([type="checkbox"]),select,textarea,.control){font-size:16px!important}
+      .custom-select-trigger,.custom-select-option{font-size:14px!important}.custom-select-search{font-size:16px!important}
+      .funds{padding:16px;gap:16px}.funds-actions{gap:16px}.card .funds-value{font-size:28px}.card .eyebrow{font-size:12px}
+      .order-card .drip-control{gap:8px}.order-card .drip-fields{gap:16px}.drip-copy small{white-space:normal}
+      .category-heading{padding-left:12px}.category-heading h2{font-size:16px}.category-count{font-size:13px}.update-title{flex-wrap:wrap}
+      .card .payment-upi .copy-field span{font-size:14px;overflow-wrap:anywhere}.copy-field{gap:8px}.copy-button{flex-shrink:0}
+      .info-row{grid-template-columns:minmax(0,1fr);gap:8px}.info-row>span{text-align:left}
+      .payment-support .help-card{padding:16px;gap:16px}.support{padding:16px}
+      .catalog-footer,.orders-footer{padding:16px}.refill-footer,.table-footer{padding-top:16px}.refill-footer{margin-top:16px}
+      :is(.orders-table,.services-table,.refill-table,.transaction-table,.tickets-table) td{padding:12px 8px}.money-column{text-align:left!important}
+      .code-block pre,.code-block code{font-size:13px}.endpoint{padding:16px 12px;gap:12px}.api-nav a{font-size:14px;padding:12px;white-space:nowrap}
+      dialog{padding:20px}dialog dl{grid-template-columns:88px minmax(0,1fr);gap:12px}dialog dd{min-width:0;overflow-wrap:anywhere}
+      .topbar .balance-chip{font-size:11px}.topbar .nav-link{font-size:13px}.header-inner{gap:9px}.brand{font-size:18px}
+    }
+    @media(max-width:359px){.topbar .balance-chip{font-size:10px}.brand{font-size:16px}.header-inner{gap:7px}.card .funds-value{font-size:25px}.funds-actions{gap:8px}}
+
+  </style>
+
+  <style id="navigation-spacing">
+    @media(min-width:1280px){
+      .topbar .nav{gap:8px}
+      .topbar .nav-link{padding-left:8px;padding-right:8px}
+      .header-inner{gap:16px}
+    }
+    @media(min-width:1500px){.topbar .nav{gap:12px}.topbar .nav-link{padding-left:10px;padding-right:10px}.header-inner{gap:24px}}
+  </style>
+
+  <style id="withdraw-funds-card-style">
+    .withdraw-funds{width:100%;min-height:141px;margin:0 0 24px;padding:24px;gap:24px;background:#fff}
+    .withdraw-funds .wallet-art{flex:0 0 90px;width:90px;height:82px;background:#e6edf5;color:#203f5d;font-size:38px;border-radius:10px}
+    .withdraw-funds .funds-copy{flex:1;min-width:0}
+    .withdraw-funds .funds-copy .eyebrow{font-size:14px;font-weight:500;margin:0 0 8px;line-height:1.5;color:#294767}
+    .withdraw-funds .funds-copy .funds-value{font-size:38px;font-weight:700;line-height:1.2;letter-spacing:-.6px;margin:0;color:#203e58;white-space:nowrap;font-variant-numeric:tabular-nums}
+    .withdraw-funds .funds-actions{display:flex;align-items:center;justify-content:flex-end;gap:12px;flex-shrink:0}
+    .withdraw-funds .currency-dropdown select{min-width:105px;min-height:46px;padding:10px 30px 10px 13px;border:1px solid #b8c9da;border-radius:8px;background:#fff;color:#294767;font:inherit;font-size:13px}
+    .withdraw-funds .add-funds{min-height:46px;padding:11px 18px;gap:10px;font-size:14px;white-space:nowrap}
+    .withdraw-form-card .withdraw-section-title{margin-top:0}
+    @media(max-width:767px){
+      .withdraw-funds{padding:18px;gap:15px;flex-wrap:wrap}
+      .withdraw-funds .wallet-art{flex:0 0 69px;width:69px;height:69px;font-size:32px}
+      .withdraw-funds .funds-copy .funds-value{font-size:32px}
+      .withdraw-funds .funds-actions{width:100%;display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px}
+      .withdraw-funds .add-funds{width:100%;justify-content:center}
+    }
+    @media(max-width:359px){.withdraw-funds .funds-copy .funds-value{font-size:27px}.withdraw-funds .wallet-art{flex-basis:56px;width:56px;height:60px}}
+  </style>
+
+  <style id="withdraw-page-style">
+    .withdraw-intro{padding:24px;margin-bottom:24px}.withdraw-intro h1{font-size:24px;font-weight:600;line-height:1.4;margin:0 0 8px}.withdraw-intro p{font-size:14px;line-height:1.7;color:#526b83;margin:0;max-width:85ch}
+    .withdraw-layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:24px;align-items:start}.withdraw-form-card{padding:24px}.withdraw-sidebar{display:grid;gap:24px;min-width:0}
+    .withdraw-wallet{display:flex;align-items:center;justify-content:space-between;gap:16px;background:#edf3f8;border:1px solid #cddce9;border-radius:8px;padding:20px;margin-bottom:24px}.withdraw-wallet-label{font-size:13px;font-weight:500;line-height:1.6;color:#425f78;display:block;margin-bottom:8px}.withdraw-wallet-value{font-size:30px;font-weight:600;line-height:1.3;letter-spacing:-.4px;color:#203e58;font-variant-numeric:tabular-nums;display:block}.withdraw-wallet small{font-size:14px;color:#526b83;display:block;margin-top:8px}.withdraw-wallet-icon{width:52px;height:56px;flex:0 0 52px;border-radius:10px;background:#dfeaf4;display:grid;place-items:center;font-size:24px;color:#294b68}
+    .withdraw-section-title{font-size:18px;font-weight:600;line-height:1.5;margin:0 0 8px}.withdraw-description{margin:0 0 24px;font-size:14px;line-height:1.7;color:#526b83}.withdraw-field{margin-bottom:16px;min-width:0}.withdraw-field>label,.withdraw-methods legend{font-size:14px;line-height:1.6;font-weight:500;color:#25435e;display:block;margin-bottom:8px}.withdraw-required{color:#b23a3a}.withdraw-optional{color:#60788e;font-weight:400}
+    .withdraw-control{width:100%;min-height:48px;border:1px solid #b8c9da;background:#fff;color:#294767;padding:12px 14px;border-radius:8px;font-family:var(--font-ui);font-size:14px;line-height:1.6;transition:border-color .18s,box-shadow .18s}.withdraw-control:focus{outline:0;border-color:#538bb9;box-shadow:0 0 0 3px #80b9e527}.withdraw-control::placeholder{color:#62778d;opacity:1}.withdraw-field textarea{min-height:120px;resize:vertical;max-height:360px}
+    .withdraw-hint{display:block;font-size:14px;line-height:1.7;color:#536b83;margin:8px 0 0}.withdraw-error{font-size:14px;line-height:1.6;color:#a52c34;margin:8px 0 0}.withdraw-field [aria-invalid="true"]{border-color:#b84242}
+    .withdraw-methods{border:0;margin:0 0 16px;padding:0;min-width:0}.withdraw-method{display:inline-flex;align-items:center;gap:12px;border:1px solid #cbd9e6;background:#f6f9fc;border-radius:8px;padding:10px 14px;min-height:48px;font-size:14px;color:#294767;cursor:pointer}.withdraw-method input{width:18px;height:18px;accent-color:#294e71;margin:0;min-height:0}
+    .withdraw-actions{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}.withdraw-actions button{min-height:48px;width:100%;font-size:14px;padding:12px;gap:8px;white-space:normal}.withdraw-secondary{display:inline-flex;justify-content:center;align-items:center;border:1px solid #8da9c1;border-radius:8px;background:#fff;color:#294e71;font-weight:500;cursor:pointer}.withdraw-secondary:hover{background:#eef5fb;border-color:#527c9f}.withdraw-privacy{font-size:14px;line-height:1.7;color:#536b83;margin:16px 0 0}
+    .withdraw-terms,.withdraw-help{padding:24px}.withdraw-terms h2,.withdraw-help h2{font-size:18px;font-weight:600;line-height:1.5;margin:0 0 16px}.withdraw-terms ul{list-style:none;margin:0;padding:0}.withdraw-terms li{font-size:14px;line-height:1.75;color:#48647d;padding:16px 0;border-bottom:1px solid #dce5ed}.withdraw-terms li:first-child{padding-top:0}.withdraw-terms li:last-child{padding-bottom:0;border-bottom:0}.withdraw-help p{font-size:14px;line-height:1.7;color:#526b83;margin:0 0 16px}.withdraw-help-links{display:flex;flex-wrap:wrap;gap:16px}.withdraw-help-links a{min-height:44px;font-size:14px;display:inline-flex;align-items:center;justify-content:center;padding:10px 16px;gap:8px}
+    .withdraw-review-actions{display:grid;gap:12px;margin-top:24px}.withdraw-review-actions a{width:100%;min-height:48px;padding:12px;font-size:14px;text-align:center;display:flex;align-items:center;justify-content:center}.withdraw-review-note{font-size:14px;line-height:1.7;color:#536b83}.withdraw-intro,.withdraw-form-card,.withdraw-terms,.withdraw-help{animation:none}
+    @media(max-width:1000px){.withdraw-layout{grid-template-columns:minmax(0,1fr)}.withdraw-sidebar{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);align-items:start}}
+    @media(max-width:767px){.withdraw-intro,.withdraw-form-card,.withdraw-terms,.withdraw-help{padding:16px}.withdraw-intro h1{font-size:22px}.withdraw-sidebar{grid-template-columns:minmax(0,1fr)}.withdraw-wallet{padding:16px;gap:12px}.withdraw-wallet-value{font-size:27px}.withdraw-wallet-icon{width:44px;flex-basis:44px;height:48px;font-size:22px}.withdraw-control{font-size:16px!important}.withdraw-actions{grid-template-columns:minmax(0,1fr);gap:12px}.withdraw-help-links{display:grid;grid-template-columns:minmax(0,1fr)}.withdraw-help-links a{width:100%}.withdraw-method input{font-size:16px!important}.withdraw-layout{gap:24px}}
+  </style>
+
+  <style id="withdraw-navigation-layout">
+    @media(min-width:1280px) and (max-width:1439px){.topbar .nav{display:none!important;position:absolute;top:71px;left:0;right:0;padding:16px 24px;background:var(--panel-navy);border-bottom:1px solid #36536d;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.topbar .nav.open{display:grid!important}.topbar .mobile-toggle{display:grid!important;place-items:center}.header-tools{margin-left:auto}.topbar .nav-link{padding:12px 8px;min-height:44px}}
+    @media(min-width:1440px){.topbar .nav{gap:5px}.topbar .nav-link{padding-left:7px;padding-right:7px;font-size:13px}.header-inner{gap:16px}.header-tools{gap:12px}}
+    @media(min-width:1600px){.topbar .nav{gap:8px}.topbar .nav-link{padding-left:8px;padding-right:8px}.header-inner{gap:24px}}
+  </style>
+
+    <!-- Exact New Order available-funds card styling -->
+    <style id="new-order-funds-match">
+      .funds.withdraw-funds{display:flex!important;align-items:center!important;gap:24px!important;padding:26px 25px!important;min-height:141px!important;width:100%!important;margin:0 0 24px!important;flex-wrap:nowrap!important;background:#fff!important;border:1px solid var(--line)!important;border-radius:var(--radius)!important;box-shadow:0 3px 16px #354c7402!important}
+      .funds.withdraw-funds .wallet-art{display:grid!important;place-items:center!important;flex:0 0 105px!important;width:105px!important;height:92px!important;border-radius:10px!important;background:linear-gradient(120deg,#f2f5fa,#f6f8fc)!important;color:#203756!important;font-size:45px!important}
+      .funds.withdraw-funds .funds-copy{flex:1 1 auto!important;min-width:0!important}
+      .funds.withdraw-funds .funds-copy .eyebrow{font-size:14px!important;font-weight:600!important;line-height:1.5!important;margin:0 0 5px!important;color:#23395d!important;letter-spacing:0!important}
+      .funds.withdraw-funds .funds-copy .funds-value{display:block!important;font-family:inherit!important;font-size:38px!important;font-weight:750!important;line-height:1.15!important;letter-spacing:-.9px!important;margin:0 0 5px!important;color:#203e58!important;white-space:nowrap!important;font-variant-numeric:tabular-nums!important}
+      .funds.withdraw-funds .funds-actions{display:flex!important;align-items:center!important;justify-content:flex-end!important;gap:16px!important;flex:0 0 auto!important;width:auto!important}
+      .funds.withdraw-funds .currency-dropdown{display:block!important}
+      .funds.withdraw-funds .currency-dropdown select{min-width:105px!important;min-height:46px!important;padding:10px 30px 10px 13px!important;border:1px solid #b8c9da!important;border-radius:8px!important;background:#fff!important;color:#294767!important;font:inherit!important;font-size:13px!important}
+      .funds.withdraw-funds .add-funds{display:flex!important;align-items:center!important;justify-content:center!important;gap:10px!important;min-height:46px!important;padding:11px 18px!important;border:1px solid #30465b!important;border-radius:6px!important;background:linear-gradient(135deg,#344c62,#2c3e51)!important;color:#fff!important;font-size:14px!important;font-weight:600!important;white-space:nowrap!important}
+      .funds.withdraw-funds .add-funds i{font-size:20px!important}
+      @media(max-width:1350px) and (min-width:768px){.funds.withdraw-funds{gap:18px!important;padding:24px 20px!important}.funds.withdraw-funds .wallet-art{flex-basis:80px!important;width:80px!important;height:82px!important;font-size:38px!important}.funds.withdraw-funds .funds-copy .funds-value{font-size:32px!important}.funds.withdraw-funds .add-funds{padding:15px!important;font-size:15px!important}}
+      @media(max-width:767px){.funds.withdraw-funds{display:grid!important;grid-template-columns:54px minmax(0,1fr)!important;gap:14px!important;padding:18px 16px!important;min-height:0!important;flex-wrap:initial!important}.funds.withdraw-funds .wallet-art{width:54px!important;height:58px!important;flex-basis:auto!important;font-size:27px!important;border-radius:9px!important}.funds.withdraw-funds .funds-copy{width:100%!important;min-width:0!important}.funds.withdraw-funds .funds-copy .eyebrow{font-size:11px!important;margin-bottom:5px!important}.funds.withdraw-funds .funds-copy .funds-value{font-size:28px!important;line-height:1.25!important;letter-spacing:-.7px!important;white-space:normal!important;margin:0!important}.funds.withdraw-funds .funds-actions{grid-column:1/-1!important;width:100%!important;display:grid!important;grid-template-columns:105px minmax(0,1fr)!important;gap:12px!important}.funds.withdraw-funds .funds-actions .add-funds{width:100%!important;min-height:44px!important;padding:11px!important}.funds.withdraw-funds .currency-dropdown select{width:100%!important;min-height:44px!important}}
+      @media(max-width:359px){.funds.withdraw-funds{padding:16px 14px!important;gap:12px!important}.funds.withdraw-funds .funds-copy .funds-value{font-size:25px!important}.funds.withdraw-funds .funds-actions{grid-template-columns:87px minmax(0,1fr)!important;gap:10px!important}}
+    </style>
+
+
+  <style id="withdraw-two-column-alignment-fix">
+    /* Keep the wallet card directly above the form in the left column.
+       The terms panel starts at the top of the matching right column. */
+    .withdraw-layout{
+      display:grid!important;
+      grid-template-columns:minmax(0,1.55fr) minmax(0,1fr)!important;
+      align-items:start!important;
+      gap:24px!important;
+    }
+    .withdraw-left-column{
+      display:grid;
+      grid-template-columns:minmax(0,1fr);
+      align-content:start;
+      gap:24px;
+      min-width:0;
+    }
+    .withdraw-left-column>.withdraw-funds{
+      width:100%!important;
+      margin:0!important;
+    }
+    .withdraw-left-column>.withdraw-form-card{min-width:0}
+    .withdraw-sidebar{
+      display:grid;
+      grid-template-columns:minmax(0,1fr);
+      align-content:start;
+      gap:24px;
+      min-width:0;
+    }
+    @media(max-width:1000px){
+      .withdraw-layout{grid-template-columns:minmax(0,1fr)!important}
+      .withdraw-sidebar{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+    }
+    @media(max-width:767px){
+      .withdraw-layout{gap:18px!important}
+      .withdraw-left-column,.withdraw-sidebar{gap:18px}
+      .withdraw-sidebar{grid-template-columns:minmax(0,1fr)}
+    }
+  </style>
+  </head>
+<body>
+<header class="topbar">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="SMM Quality home">SMM QUALITY</a>
+      <nav class="nav" id="navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav-link">New Order</a>
+        <a href="orders.html" class="nav-link">Order History</a>
+        <a href="addfunds.html" class="nav-link">Add Funds</a>
+        <a href="withdrawfunds.html" class="nav-link active" aria-current="page">Withdraw</a>
+        <a href="services.html" class="nav-link">Service List</a>
+        <a href="support.html" class="nav-link">Support <span class="badge">0</span></a>
+        <a href="refill.html" class="nav-link">Refill</a>
+        <a href="api.html" class="nav-link">API</a>
+        <a href="transactions.html" class="nav-link">Transactions</a>
+      </nav>
+      <div class="header-tools">
+        
+        <div class="balance-chip" aria-label="Balance: 3588.439 rupees"><i class="fa-solid fa-wallet" aria-hidden="true"></i><span>₹ 3588.439</span></div>
+        <div class="dropdown"><button class="plain-button" id="accountButton" aria-label="Account menu for vdii7" aria-expanded="false" aria-controls="accountMenu"><span class="avatar"><i class="fa-solid fa-user" aria-hidden="true"></i></span><span class="user-name">vdii7</span><i class="fa-solid fa-caret-down chevron user-chevron" aria-hidden="true"></i></button><div class="dropdown-menu" id="accountMenu" hidden><a href="account.html"><i class="fa-regular fa-user" aria-hidden="true"></i> Account settings</a><button data-preview="Sign Out"><i class="fa-solid fa-arrow-right-from-bracket" aria-hidden="true"></i> Sign out</button></div></div>
+      </div>
+      <button class="mobile-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="navigation"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="withdraw-layout">
+      <div class="withdraw-left-column">
+        <section class="funds card withdraw-funds" aria-labelledby="fundsTitle">
+      <div class="wallet-art"><i class="fa-solid fa-wallet" aria-hidden="true"></i></div>
+      <div class="funds-copy">
+        <h2 class="eyebrow" id="fundsTitle">AVAILABLE FUNDS</h2>
+        <p class="funds-value" id="availableFundsValue" data-inr="3588.439">₹ 3,588.439</p>
+      </div>
+      <div class="funds-actions">
+        <div class="currency-dropdown">
+          <label class="ui-sr-only" for="panelCurrency">Currency</label>
+          <select id="panelCurrency" aria-label="Currency">
+            <option value="INR">₹ INR</option>
+            <option value="USD">$ USD</option>
+            <option value="PKR">₨ PKR</option>
+            <option value="EUR">€ EUR</option>
+          </select>
+        </div>
+        <a class="primary add-funds" href="addfunds.html"><i class="fa-solid fa-circle-plus" aria-hidden="true"></i> Add Funds</a>
+      </div>
+        </section>
+        <section class="card withdraw-form-card" aria-labelledby="withdrawFormTitle">
+        
+        <h2 class="withdraw-section-title" id="withdrawFormTitle">Request a withdrawal</h2><p class="withdraw-description">Enter the amount and payment details. Our team will review your request.</p>
+        <form id="withdrawForm" novalidate>
+          <div class="withdraw-field"><label for="withdrawAmount">Withdrawal amount (INR) <span class="withdraw-required">*</span></label><input class="withdraw-control" type="number" id="withdrawAmount" name="withdrawal_amount" min="100" max="3588.43" step="0.01" inputmode="decimal" placeholder="Enter withdrawal amount" required aria-describedby="withdrawAmountHint withdrawAmountError"><span class="withdraw-hint" id="withdrawAmountHint"></span><p class="withdraw-error" id="withdrawAmountError" role="alert" hidden></p></div>
+          <fieldset class="withdraw-methods"><legend>Payment method <span class="withdraw-required">*</span></legend><label class="withdraw-method"><input type="radio" name="payment_method" value="UPI" checked>UPI</label></fieldset>
+          <div class="withdraw-field"><label for="withdrawUpi">UPI ID (VPA) <span class="withdraw-required">*</span></label><input class="withdraw-control" type="text" id="withdrawUpi" name="upi_id" placeholder="yourname@upi" autocomplete="off" spellcheck="false" required maxlength="321" aria-describedby="withdrawUpiHint withdrawUpiError"><span class="withdraw-hint" id="withdrawUpiHint">Enter your verified UPI ID, for example name@okaxis.</span><p class="withdraw-error" id="withdrawUpiError" role="alert" hidden></p></div>
+          <div class="withdraw-field"><label for="withdrawReason">Reason for withdrawal <span class="withdraw-required">*</span></label><select id="withdrawReason" name="withdrawal_reason" class="withdraw-control" required aria-describedby="withdrawReasonError"><option value="">Select a reason</option><option value="Order Cancelled / Service Undelivered">Order Cancelled / Service Undelivered</option><option value="Unused Account Balance">Unused Account Balance</option><option value="Duplicate Payment / Excess Funds">Duplicate Payment / Excess Funds</option><option value="Other">Other</option></select><p class="withdraw-error" id="withdrawReasonError" role="alert" hidden></p></div>
+          <div class="withdraw-field"><label for="withdrawRemarks">Additional details / remarks <span class="withdraw-optional">(Optional)</span></label><textarea class="withdraw-control" id="withdrawRemarks" name="additional_details" maxlength="1000" placeholder="Add your order ID or details that may help us process your request." aria-describedby="withdrawPrivacyHint"></textarea><span class="withdraw-hint" id="withdrawPrivacyHint">Do not include passwords, OTPs or account credentials.</span></div>
+          <div class="withdraw-actions"><button type="submit" class="primary" name="channel" value="whatsapp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i>Request via WhatsApp</button><button type="submit" class="withdraw-secondary" name="channel" value="email"><i class="fa-regular fa-envelope" aria-hidden="true"></i>Request via email</button></div><p class="withdraw-privacy">You can review your details before opening WhatsApp or your email app. Nothing is sent automatically.</p>
+        </form>
+        </section>
+      </div>
+      <div class="withdraw-sidebar"><section class="card withdraw-terms" aria-labelledby="termsTitle"><h2 id="termsTitle">Withdrawal terms</h2><ul><li>Withdrawals are available only from your eligible account balance.</li><li>Make sure your payment details are correct before submitting a request.</li><li>Withdrawal processing time may vary depending on the selected payment method.</li><li>Once a withdrawal has been processed, it may not be reversible.</li><li>Funds related to pending, disputed, or incomplete orders may not be eligible for withdrawal.</li><li>SMMQuality may review withdrawal requests to prevent errors, fraud, or misuse.</li></ul></section><section class="card withdraw-help"><h2>Need to reverse a withdrawal?</h2><p>If you submitted a request by mistake or need help, contact support as soon as possible.</p><p>Include your account and withdrawal request details so our team can assist you.</p><div class="withdraw-help-links"><a class="primary" href="support.html">Create a ticket</a><a class="withdraw-secondary" href="https://wa.me/917200485444" target="_blank" rel="noopener noreferrer">WhatsApp Support</a></div></section></div>
+    </div>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <dialog id="previewDialog" aria-labelledby="dialogTitle"><div class="dialog-head"><h2 id="dialogTitle">Review your request</h2><button class="close-dialog" id="closeDialog" aria-label="Close review"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button></div><p id="dialogMessage"></p><dl id="withdrawSummary" hidden></dl><div class="withdraw-review-actions" id="withdrawReviewActions" hidden><a class="primary" id="openWithdrawDraft" href="#" target="_blank" rel="noopener noreferrer">Open request draft</a></div><button class="primary" id="dialogDone">Close</button></dialog>
+<script>
+
+    'use strict';
+    const $=id=>document.getElementById(id);let toastTimer;
+    function notify(message){$('toast').textContent=message;$('toast').classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').classList.remove('show'),3000)}
+    const menus=[['currencyButton','currencyMenu'],['accountButton','accountMenu']].filter(([button,menu])=>$(button)&&$(menu));
+    function closeMenus(){menus.forEach(([button,menu])=>{$(menu).hidden=true;$(button).setAttribute('aria-expanded','false')})}
+    menus.forEach(([button,menu])=>$(button).addEventListener('click',()=>{const open=$(menu).hidden;closeMenus();$(menu).hidden=!open;$(button).setAttribute('aria-expanded',String(open))}));
+    function closeNavigation(){$('navigation').classList.remove('open');$('menuToggle').setAttribute('aria-expanded','false');$('menuToggle').setAttribute('aria-label','Open navigation');$('menuToggle').innerHTML='<i class="fa-solid fa-bars" aria-hidden="true"></i>'}
+    $('menuToggle').addEventListener('click',()=>{const open=$('navigation').classList.toggle('open');$('menuToggle').setAttribute('aria-expanded',String(open));$('menuToggle').setAttribute('aria-label',open?'Close navigation':'Open navigation');$('menuToggle').innerHTML='<i class="fa-solid '+(open?'fa-xmark':'fa-bars')+'" aria-hidden="true"></i>'});
+    document.addEventListener('click',event=>{if(!event.target.closest('.dropdown'))closeMenus();if(!event.target.closest('.topbar'))closeNavigation()});
+    document.addEventListener('keydown',event=>{if(event.key==='Escape'){const trigger=menus.find(([button])=>$(button).getAttribute('aria-expanded')==='true');closeMenus();if(trigger)$(trigger[0]).focus();closeNavigation()}});
+    $('inrOption')?.addEventListener('click',()=>{closeMenus();notify('Prices are displayed in Indian Rupees (INR).')});
+    function openDialog(title,message){closeMenus();$('dialogTitle').textContent=title;$('dialogMessage').textContent=message;$('withdrawSummary').hidden=true;$('withdrawReviewActions').hidden=true;$('previewDialog').showModal()}
+    document.querySelectorAll('[data-preview]').forEach(button=>button.addEventListener('click',()=>openDialog(button.dataset.preview,button.dataset.preview+' will be available when its page is added to this design preview.')));
+    $('closeDialog').addEventListener('click',()=>$('previewDialog').close());$('dialogDone').addEventListener('click',()=>$('previewDialog').close());$('previewDialog').addEventListener('click',event=>{if(event.target===$('previewDialog')){const r=event.target.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)event.target.close()}});
+
+    // Replace the preview wallet amount with the eligible balance returned by the backend.
+    const availableBalance=3588.439,minimumWithdrawal=100,maximumWithdrawal=Math.floor(availableBalance*100)/100;
+    const withdrawalContacts={"email":"gvp.prakash@gmail.com","phone":"917045215444"};
+    const formatINR=value=>new Intl.NumberFormat('en-IN',{style:'currency',currency:'INR',minimumFractionDigits:2,maximumFractionDigits:2}).format(value);
+    $('withdrawAmount').max=maximumWithdrawal;
+    function updateAvailableFundsCurrency(code='INR'){
+      const rates={INR:1,USD:1/98,PKR:2.85,EUR:1/106};
+      const symbols={INR:'₹',USD:'$',PKR:'₨',EUR:'€'};
+      const amount=Number(availableBalance)*rates[code];
+      $('availableFundsValue').textContent=symbols[code]+' '+amount.toLocaleString('en-IN',{minimumFractionDigits:2,maximumFractionDigits:3});
+      $('withdrawAmountHint').textContent='Minimum: '+formatINR(minimumWithdrawal)+' · Maximum available: '+formatINR(maximumWithdrawal);
+    }
+    const panelCurrency=$('panelCurrency');
+    let selectedCurrency='INR';
+    try{selectedCurrency=localStorage.getItem('smm-currency')||'INR'}catch{}
+    if(!['INR','USD','PKR','EUR'].includes(selectedCurrency))selectedCurrency='INR';
+    if(panelCurrency){panelCurrency.value=selectedCurrency;updateAvailableFundsCurrency(selectedCurrency);panelCurrency.addEventListener('change',()=>{
+      selectedCurrency=panelCurrency.value;
+      try{localStorage.setItem('smm-currency',selectedCurrency)}catch{}
+      updateAvailableFundsCurrency(selectedCurrency);
+    });}
+    else{updateAvailableFundsCurrency('INR');}
+    $('withdrawAmountHint').textContent='Minimum: '+formatINR(minimumWithdrawal)+' · Maximum available: '+formatINR(maximumWithdrawal);
+    function withdrawalErrors(amount,upi,reason){const errors={};if(!Number.isFinite(amount)||amount<minimumWithdrawal)errors.withdrawAmount='Enter an amount of at least '+formatINR(minimumWithdrawal)+'.';else if(amount>maximumWithdrawal)errors.withdrawAmount='The amount cannot exceed '+formatINR(maximumWithdrawal)+'.';else if(Math.abs(amount*100-Math.round(amount*100))>0.00001)errors.withdrawAmount='Use no more than two decimal places.';if(!/^[a-zA-Z0-9._-]{2,256}@[a-zA-Z0-9.-]{2,64}$/.test(upi))errors.withdrawUpi='Enter a valid UPI ID, such as name@okaxis.';if(!reason)errors.withdrawReason='Select a reason for your withdrawal.';return errors}
+    function displayWithdrawalErrors(errors){['withdrawAmount','withdrawUpi','withdrawReason'].forEach(id=>{const message=errors[id]||'';$(id+'Error').textContent=message;$(id+'Error').hidden=!message;if(message)$(id).setAttribute('aria-invalid','true');else $(id).removeAttribute('aria-invalid');const trigger=$(id+'-custom-trigger');if(trigger){if(message)trigger.setAttribute('aria-invalid','true');else trigger.removeAttribute('aria-invalid')}})}
+    ['withdrawAmount','withdrawUpi','withdrawReason'].forEach(id=>$(id).addEventListener(id==='withdrawReason'?'change':'input',()=>{const errors={};['withdrawAmount','withdrawUpi','withdrawReason'].filter(other=>other!==id).forEach(other=>{if(!$(other+'Error').hidden)errors[other]=$(other+'Error').textContent});displayWithdrawalErrors(errors)}));
+    $('withdrawForm').addEventListener('submit',withSubmitProgress(event=>{const amount=Number($('withdrawAmount').value),upi=$('withdrawUpi').value.trim(),reason=$('withdrawReason').value;const errors=withdrawalErrors(amount,upi,reason);displayWithdrawalErrors(errors);if(Object.keys(errors).length){const id=Object.keys(errors)[0];($(id+'-custom-trigger')||$(id)).focus();return}const channel=event.submitter&&event.submitter.value==='email'?'email':'whatsapp';openDialog('Review withdrawal request','Review the details before opening your '+(channel==='email'?'email app':'WhatsApp')+'. No request has been submitted and no funds have been withdrawn.');const summary=$('withdrawSummary');summary.replaceChildren();[['Amount',formatINR(amount)],['Method','UPI'],['UPI ID',upi],['Reason',reason],['Remarks',$('withdrawRemarks').value.trim()||'Not provided']].forEach(([label,value])=>{const dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=label;dd.textContent=value;summary.append(dt,dd)});summary.hidden=false;const message=['SMMQuality - Withdrawal Request','Withdrawal Amount: '+formatINR(amount),'Available Wallet Balance: '+formatINR(maximumWithdrawal),'Payment Method: UPI','UPI ID: '+upi,'Reason: '+reason,'Additional Details: '+($('withdrawRemarks').value.trim()||'Not provided'),'','Please review and process my withdrawal request.'].join('\n');const draft=$('openWithdrawDraft');draft.textContent=channel==='email'?'Open email draft':'Open WhatsApp draft';draft.href=channel==='email'?'mailto:'+withdrawalContacts.email+'?subject='+encodeURIComponent('SMMQuality Withdrawal Request - '+formatINR(amount))+'&body='+encodeURIComponent(message):'https://wa.me/'+withdrawalContacts.phone+'?text='+encodeURIComponent(message);$('withdrawReviewActions').hidden=false}));
+    // Accessible custom dropdowns; existing native change handlers remain in use.
+    (()=>{
+      const controls=new Map();let opened=null,popup=null,list=null,search=null,active=-1,shown=[],scheduled=false;
+      const symbols={INR:'₹',USD:'$',PKR:'₨',EUR:'€'};
+      function label(option){return option?option.label:''}
+      function sync(select){const control=controls.get(select);if(!control)return;control.text.textContent=label(select.selectedOptions[0])||'Select an option';control.button.disabled=select.disabled;control.button.setAttribute('aria-required',String(select.required));if(opened===select)draw(search?search.value:'')}
+      function syncAll(){scheduled=false;document.querySelectorAll('select').forEach(select=>{if(!controls.has(select))enhance(select);else sync(select)});refreshCurrency()}
+      function queue(){if(!scheduled){scheduled=true;queueMicrotask(syncAll)}}
+      function close(focus=false){if(!opened)return;const control=controls.get(opened);control.button.setAttribute('aria-expanded','false');control.button.removeAttribute('aria-activedescendant');popup.remove();if(focus)control.button.focus();opened=null;popup=null;list=null;search=null;active=-1}
+      function place(){if(!opened)return;const rect=controls.get(opened).button.getBoundingClientRect(),margin=10,width=Math.min(Math.max(rect.width,220),window.innerWidth-margin*2);const below=window.innerHeight-rect.bottom-margin,above=rect.top-margin;const upwards=below<190&&above>below;const height=Math.min(340,Math.max(100,upwards?above:below));popup.style.width=width+'px';popup.style.maxHeight=height+'px';popup.style.left=Math.max(margin,Math.min(rect.left,window.innerWidth-width-margin))+'px';if(upwards){popup.style.top='auto';popup.style.bottom=(window.innerHeight-rect.top+5)+'px'}else{popup.style.bottom='auto';popup.style.top=(rect.bottom+5)+'px'}}
+      function setActive(index){if(!shown.length)return;active=(index+shown.length)%shown.length;[...list.children].forEach((element,i)=>element.classList.toggle('active',i===active));const option=list.children[active];controls.get(opened).button.setAttribute('aria-activedescendant',option.id);if(search)search.setAttribute('aria-activedescendant',option.id);option.scrollIntoView({block:'nearest'})}
+      function choose(option){if(option.disabled)return;const select=opened;select.value=option.value;close(true);select.dispatchEvent(new Event('input',{bubbles:true}));select.dispatchEvent(new Event('change',{bubbles:true}));queue()}
+      function draw(query=''){if(!opened)return;const select=opened;shown=[...select.options].filter(option=>!option.hidden&&!option.disabled&&option.label.toLowerCase().includes(query.toLowerCase()));list.replaceChildren();shown.forEach((option,index)=>{const item=document.createElement('div');item.className='custom-select-option';item.id=select.id+'-custom-option-'+index;item.setAttribute('role','option');item.setAttribute('aria-selected',String(option.selected));const text=document.createElement('span');text.textContent=label(option);item.append(text);if(option.selected){const check=document.createElement('i');check.className='fa-solid fa-check';check.setAttribute('aria-hidden','true');item.append(check)}item.addEventListener('mousedown',event=>event.preventDefault());item.addEventListener('click',()=>choose(option));list.append(item)});if(!shown.length){const empty=document.createElement('div');empty.className='custom-select-empty';empty.textContent='No matching options';list.append(empty)}active=-1;const selected=shown.findIndex(option=>option.selected);if(shown.length)setActive(Math.max(0,selected));place()}
+      function key(event){if(!opened)return;if(['ArrowDown','ArrowUp','Home','End','Enter','Escape','Tab'].includes(event.key)){if(event.key!=='Tab')event.preventDefault();if(event.key==='ArrowDown')setActive(active+1);if(event.key==='ArrowUp')setActive(active-1);if(event.key==='Home')setActive(0);if(event.key==='End')setActive(shown.length-1);if(event.key==='Enter'&&shown[active])choose(shown[active]);if(event.key==='Escape')close(true);if(event.key==='Tab')close()}else if(!search&&event.key.length===1&&!event.ctrlKey&&!event.metaKey){const index=shown.findIndex(option=>option.label.toLowerCase().startsWith(event.key.toLowerCase()));if(index>=0)setActive(index)}}
+      function open(select){if(opened===select){close();return}close();opened=select;popup=document.createElement('div');popup.className='custom-select-popup';popup.id=select.id+'-custom-popup';const count=[...select.options].filter(option=>!option.hidden).length;if(count>10){search=document.createElement('input');search.type='search';search.className='custom-select-search';search.placeholder='Search options...';search.setAttribute('aria-label','Search '+controls.get(select).name);search.addEventListener('input',()=>draw(search.value));search.addEventListener('keydown',key);popup.append(search)}list=document.createElement('div');list.className='custom-select-options';list.id=select.id+'-custom-list';list.setAttribute('role','listbox');list.setAttribute('aria-label',controls.get(select).name);popup.append(list);document.body.append(popup);controls.get(select).button.setAttribute('aria-controls',list.id);controls.get(select).button.setAttribute('aria-expanded','true');draw();if(search)search.focus()}
+      function enhance(select){if(!select.id)select.id='select-'+controls.size;const wrapper=document.createElement('div');wrapper.className='custom-select';const button=document.createElement('button');button.type='button';button.className='custom-select-trigger';button.id=select.id+'-custom-trigger';button.setAttribute('role','combobox');button.setAttribute('aria-haspopup','listbox');button.setAttribute('aria-expanded','false');const name=select.getAttribute('aria-label')||(select.labels[0]?select.labels[0].textContent.trim():'Select option');button.setAttribute('aria-label',name);const text=document.createElement('span');text.className='custom-select-label';const arrow=document.createElement('i');arrow.className='fa-solid fa-chevron-down';arrow.setAttribute('aria-hidden','true');button.append(text,arrow);wrapper.append(button);select.after(wrapper);select.classList.add('custom-native-select');select.tabIndex=-1;select.setAttribute('aria-hidden','true');controls.set(select,{wrapper,button,text,name});button.addEventListener('click',()=>open(select));button.addEventListener('keydown',event=>{if(opened===select){key(event);return}if(['ArrowDown','ArrowUp','Enter',' '].includes(event.key)){event.preventDefault();open(select)}});select.addEventListener('change',()=>sync(select));select.addEventListener('invalid',event=>{event.preventDefault();button.focus();button.setAttribute('aria-invalid','true');open(select)});select.addEventListener('change',()=>button.removeAttribute('aria-invalid'));select.labels.forEach(label=>label.addEventListener('click',event=>{event.preventDefault();button.focus();open(select)}));new MutationObserver(queue).observe(select,{childList:true,subtree:true,attributes:true,attributeFilter:['disabled','hidden','label','selected','required']});sync(select)}
+      document.addEventListener('pointerdown',event=>{if(opened&&!popup.contains(event.target)&&!controls.get(opened).button.contains(event.target))close()});window.addEventListener('resize',()=>{if(opened)place()});window.addEventListener('scroll',event=>{if(opened&&!popup.contains(event.target))close()},{capture:true,passive:true});document.addEventListener('change',queue);document.addEventListener('input',event=>{if(!event.target.classList.contains('custom-select-search'))queue()});document.addEventListener('reset',()=>setTimeout(queue,0));
+      let currency='INR';try{currency=localStorage.getItem('smm-currency')||'INR'}catch{}if(!symbols[currency])currency='INR';
+      function refreshCurrency(){const select=document.getElementById('panelCurrency');if(select&&select.value!==currency){select.value=currency;const control=controls.get(select);if(control)control.text.textContent=select.selectedOptions[0].label}}
+      const panelCurrency=document.getElementById('panelCurrency');if(panelCurrency){panelCurrency.value=currency;panelCurrency.addEventListener('change',()=>{currency=panelCurrency.value;try{localStorage.setItem('smm-currency',currency)}catch{}const event=new CustomEvent('panelcurrencychange',{detail:{currency,symbol:symbols[currency]}});document.dispatchEvent(event)})}
+      document.querySelectorAll('select').forEach(enhance);refreshCurrency();
+    })();
+
+  
+    // Submission feedback wraps existing local validation without changing results.
+    function withSubmitProgress(handler){return async function(event){event.preventDefault();const form=event.currentTarget;if(form.dataset.submitting==='true'||!form.reportValidity())return;const button=event.submitter||form.querySelector('button[type="submit"]');if(!button)return handler(event);form.dataset.submitting='true';form.setAttribute('aria-busy','true');const original=button.innerHTML,disabled=button.disabled;button.disabled=true;button.innerHTML='<span class="submission-spinner" aria-hidden="true"></span><span>Checking…</span>';let status=form.querySelector('.submit-status');if(!status){status=document.createElement('span');status.className='ui-sr-only submit-status';status.setAttribute('role','status');status.setAttribute('aria-live','polite');form.append(status)}status.textContent='Checking your details.';try{await new Promise(resolve=>setTimeout(resolve,200));await handler(event)}finally{button.innerHTML=original;button.disabled=disabled;form.removeAttribute('aria-busy');delete form.dataset.submitting;status.textContent='Check complete.'}}}
+    const copiedStates=new WeakMap();
+    function markCopied(button){const previous=copiedStates.get(button);if(previous)clearTimeout(previous.timer);const original=previous?previous.original:button.innerHTML,aria=previous?previous.aria:button.getAttribute('aria-label');button.classList.add('is-copied');button.innerHTML='<i class="fa-solid fa-check" aria-hidden="true"></i><span class="copy-feedback">Copied</span>';button.setAttribute('aria-label','Copied to clipboard');const timer=setTimeout(()=>{button.innerHTML=original;button.classList.remove('is-copied');if(aria)button.setAttribute('aria-label',aria);else button.removeAttribute('aria-label');copiedStates.delete(button)},2000);copiedStates.set(button,{original,aria,timer})}
+    // Mark currency columns after filtering or pagination replaces their rows.
+    function alignMoneyColumns(){document.querySelectorAll('table').forEach(table=>{const headers=[...table.querySelectorAll('thead th')];headers.forEach((header,index)=>{if(/charge|amount|rate per/i.test(header.textContent)){header.classList.add('money-column');table.querySelectorAll('tbody tr').forEach(row=>{if(row.children[index])row.children[index].classList.add('money-column')})}})})}
+    alignMoneyColumns();let moneyScheduled=false;const moneyObserver=new MutationObserver(changes=>{if(changes.some(change=>change.addedNodes.length)&&!moneyScheduled){moneyScheduled=true;queueMicrotask(()=>{moneyScheduled=false;alignMoneyColumns()})}});document.querySelectorAll('main').forEach(main=>moneyObserver.observe(main,{childList:true,subtree:true}));
+  </script>
+</body>
+</html>

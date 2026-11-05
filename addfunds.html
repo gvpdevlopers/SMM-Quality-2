@@ -472,6 +472,45 @@
     }
     @media(min-width:1500px){.topbar .nav{gap:12px}.topbar .nav-link{padding-left:10px;padding-right:10px}.header-inner{gap:24px}}
   </style>
+
+  <style id="payment-support-placement">
+    .funding-right-column{display:grid;gap:24px;min-width:0;align-content:start}
+    .funding-right-column .payment-support{margin:0}
+    .funding-right-column .payment-support .help-card{display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:16px;align-items:center;padding:24px;min-height:0}
+    .funding-right-column .help-card>i{width:28px;font-size:25px}
+    .funding-right-column .help-copy{min-width:0}
+    .funding-right-column .help-copy h2{font-size:15px;line-height:1.5;margin-bottom:8px}
+    .funding-right-column .help-copy p{font-size:14px;line-height:1.65}
+    .funding-right-column .help-action{white-space:nowrap;padding:10px 14px;gap:8px;width:auto}
+    @media(max-width:1200px){.funding-right-column .payment-support .help-card{grid-template-columns:28px minmax(0,1fr)}.funding-right-column .help-action{grid-column:2;justify-self:start}}
+    @media(max-width:767px){.funding-right-column{gap:24px}.funding-right-column .payment-support .help-card{padding:16px;gap:16px}.funding-right-column .help-action{width:100%;justify-self:stretch}}
+  </style>
+
+  <style id="add-funds-column-balance">
+    @media(min-width:851px){
+      .funding-layout{align-items:stretch}
+      .funding-layout>.funding-card{align-self:stretch;display:flex;flex-direction:column}
+      .funding-card #paymentForm{display:flex;flex-direction:column;flex:1;min-height:0}
+      .funding-card .qr-area{flex:1;display:flex;align-items:center;justify-content:center;min-height:0}
+      .funding-card .payment-art{flex-shrink:0}
+      .funding-right-column{align-self:stretch;display:flex;flex-direction:column;gap:24px}
+      .funding-right-column .unified-payment-help{flex:1;display:flex;flex-direction:column}
+      .funding-right-column .instructions-card{flex:1}
+      .funding-right-column .payment-support{flex:0 0 auto}
+    }
+    @media(max-width:850px){
+      .funding-layout{align-items:start}
+      .funding-layout>.funding-card,.funding-card #paymentForm{display:block}
+      .funding-right-column{display:grid;gap:24px;align-self:auto}
+      .funding-card .qr-area{display:flex;flex-direction:column;align-items:center;justify-content:center}
+    }
+  </style>
+
+  <style id="withdraw-navigation-layout">
+    @media(min-width:1280px) and (max-width:1439px){.topbar .nav{display:none!important;position:absolute;top:71px;left:0;right:0;padding:16px 24px;background:var(--panel-navy);border-bottom:1px solid #36536d;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.topbar .nav.open{display:grid!important}.topbar .mobile-toggle{display:grid!important;place-items:center}.header-tools{margin-left:auto}.topbar .nav-link{padding:12px 8px;min-height:44px}}
+    @media(min-width:1440px){.topbar .nav{gap:5px}.topbar .nav-link{padding-left:7px;padding-right:7px;font-size:13px}.header-inner{gap:16px}.header-tools{gap:12px}}
+    @media(min-width:1600px){.topbar .nav{gap:8px}.topbar .nav-link{padding-left:8px;padding-right:8px}.header-inner{gap:24px}}
+  </style>
 </head>
 <body>
   <header class="topbar">
@@ -481,6 +520,7 @@
         <a href="index.html" class="nav-link">New Order</a>
         <a href="orders.html" class="nav-link">Order History</a>
         <a href="addfunds.html" class="nav-link active" aria-current="page">Add Funds</a>
+        <a href="withdrawfunds.html" class="nav-link">Withdraw</a>
         <a href="services.html" class="nav-link">Service List</a>
         <a href="support.html" class="nav-link">Support <span class="badge">0</span></a>
         <a href="refill.html" class="nav-link">Refill</a>
@@ -509,14 +549,14 @@
           <button class="primary pay-button" type="submit">Pay</button>
         </form>
       </section>
-      <aside class="funding-sidebar card unified-payment-help" aria-label="Payment help and information">
+      <div class="funding-right-column"><aside class="funding-sidebar card unified-payment-help" aria-label="Payment help and information">
         <section class="card side-card instructions-card"><h2 class="side-heading"><i class="fa-regular fa-file-lines" aria-hidden="true"></i>Payment Instructions</h2><ol class="steps"><li><span class="step-number" aria-hidden="true">1</span><div><h3>Send amount to the QR or UPI</h3><p>Scan the QR code or use the UPI ID below.</p></div></li><li><span class="step-number" aria-hidden="true">2</span><div><h3>Enter UTR ID &amp; Amount</h3><p>After payment, enter the 12-digit UTR number and the amount below.</p></div></li><li><span class="step-number" aria-hidden="true">3</span><div><h3>Click on Pay</h3><p>Submit the details and click on Pay. Your funds will be added after verification.</p></div></li></ol></section>
         
         
         <section class="card side-card info-card"><h2 class="side-heading"><i class="fa-solid fa-circle-info" aria-hidden="true"></i>Important Information</h2><div class="info-table"><div class="info-row"><strong>Conversion Rate</strong><span>98 INR = 1$</span></div><div class="info-row"><strong>Bonus 1 ⚡</strong><span><b>5%</b> extra funds on all deposits above 1,000 INR</span></div><div class="info-row"><strong>Bonus 2 ⚡</strong><span><b>10%</b> extra funds on all deposits above 5,000 INR</span></div><div class="info-row"><strong>Bonus 3 ⚡</strong><span><b>15%</b> extra funds on all deposits above 25,000 INR</span></div></div></section>
-      </aside>
+      </aside><section class="card payment-support" aria-label="Payment support"><div class="help-card"><i class="fa-solid fa-headset" aria-hidden="true"></i><div class="help-copy"><h2>Need any other payment method?</h2><p>If you need any other payment method, please contact us.</p></div><button class="help-action" data-preview="Contact Us"><i class="fa-regular fa-envelope" aria-hidden="true"></i>Contact Us</button></div><div class="help-card"><i class="fa-solid fa-ticket" aria-hidden="true"></i><div class="help-copy"><h2>Facing any issue?</h2><p>Create a ticket for quick support and our team will assist you.</p></div><a class="help-action ticket" href="support.html"><i class="fa-solid fa-ticket" aria-hidden="true"></i>Create a ticket</a></div></section></div>
     </div>
-    <section class="card payment-support" aria-label="Payment support"><div class="help-card"><i class="fa-solid fa-headset" aria-hidden="true"></i><div class="help-copy"><h2>Need any other payment method?</h2><p>If you need any other payment method, please contact us.</p></div><button class="help-action" data-preview="Contact Us"><i class="fa-regular fa-envelope" aria-hidden="true"></i>Contact Us</button></div><div class="help-card"><i class="fa-solid fa-ticket" aria-hidden="true"></i><div class="help-copy"><h2>Facing any issue?</h2><p>Create a ticket for quick support and our team will assist you.</p></div><a class="help-action ticket" href="support.html"><i class="fa-solid fa-ticket" aria-hidden="true"></i>Create a ticket for Quick support</a></div></section>
+    
     
   </main>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>

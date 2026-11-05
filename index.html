@@ -538,6 +538,56 @@
     }
     @media(min-width:1500px){.topbar .nav{gap:12px}.topbar .nav-link{padding-left:10px;padding-right:10px}.header-inner{gap:24px}}
   </style>
+
+  <style id="available-funds-emphasis">
+    .funds.card .funds-copy .funds-value{font-size:32px;font-weight:700;line-height:1.25;letter-spacing:-.6px;margin:0;color:#203e58;font-variant-numeric:tabular-nums}
+    .funds.card .funds-copy .eyebrow{font-size:13px;font-weight:500;margin-bottom:8px;line-height:1.5}
+    @media(max-width:767px){.funds.card .funds-copy .funds-value{font-size:28px}}
+    @media(max-width:359px){.funds.card .funds-copy .funds-value{font-size:25px}}
+  </style>
+
+  <style id="funds-size-adjustment">
+    .funds.card .funds-copy .funds-value{font-size:38px;font-weight:700;line-height:1.2;letter-spacing:-.6px}
+    .funds.card .funds-copy .eyebrow{font-size:14px;margin-bottom:8px}
+    @media(max-width:767px){.funds.card .funds-copy .funds-value{font-size:32px}}
+    @media(max-width:359px){.funds.card .funds-copy .funds-value{font-size:28px}}
+  </style>
+
+  <style id="new-order-sidebar-layout">
+    .new-order-sidebar{display:flex;flex-direction:column;gap:24px;min-width:0;align-self:stretch}
+    .new-order-sidebar .updates{flex:0 0 auto}
+    .new-order-sidebar .ordering-guide{flex:1}
+    @media(max-width:1024px){.new-order-sidebar{align-self:auto}.new-order-sidebar .ordering-guide{flex:0 0 auto}}
+  </style>
+
+  <style id="ordering-guide-style">
+    .dashboard>.left-column{align-self:stretch;grid-template-rows:auto minmax(0,1fr)}
+    .ordering-guide{padding:24px;display:flex;flex-direction:column;min-width:0}
+    .ordering-guide h2{font-size:18px;font-weight:600;line-height:1.4;margin:0 0 16px;color:#203e58}
+    .ordering-tip+.ordering-tip{margin-top:16px}
+    .ordering-guide h3{font-size:14px;font-weight:500;line-height:1.6;margin:0 0 8px;color:#294965}
+    .ordering-guide p{font-size:14px;line-height:1.7;margin:0;color:#526b83}
+    .ordering-guide-links{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px 16px;padding-top:16px;margin-top:auto}
+    .ordering-guide-links a{display:inline-flex;align-items:center;gap:8px;min-height:44px;font-size:14px;font-weight:500;color:#1764a4;text-underline-offset:4px}
+    .ordering-guide-links a:hover{text-decoration:underline}
+    @media(max-width:1024px){.dashboard>.left-column{grid-template-rows:auto auto}}
+    @media(max-width:767px){.ordering-guide{padding:16px}.ordering-guide-links{margin-top:16px}}
+  </style>
+
+  <style id="simple-sidebar-update">
+    .standalone-update{padding:24px;justify-content:flex-start}
+    .standalone-update .update-title{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px 16px;margin-bottom:8px}
+    .standalone-update h2{font-size:14px;font-weight:600;line-height:1.5;margin:0}
+    .standalone-update time{font-size:13px;line-height:1.6;color:#5b728a;white-space:nowrap}
+    .standalone-update p{font-size:14px;line-height:1.7;color:#526b83;margin:0}
+    @media(max-width:767px){.standalone-update{padding:16px}}
+  </style>
+
+  <style id="withdraw-navigation-layout">
+    @media(min-width:1280px) and (max-width:1439px){.topbar .nav{display:none!important;position:absolute;top:71px;left:0;right:0;padding:16px 24px;background:var(--panel-navy);border-bottom:1px solid #36536d;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.topbar .nav.open{display:grid!important}.topbar .mobile-toggle{display:grid!important;place-items:center}.header-tools{margin-left:auto}.topbar .nav-link{padding:12px 8px;min-height:44px}}
+    @media(min-width:1440px){.topbar .nav{gap:5px}.topbar .nav-link{padding-left:7px;padding-right:7px;font-size:13px}.header-inner{gap:16px}.header-tools{gap:12px}}
+    @media(min-width:1600px){.topbar .nav{gap:8px}.topbar .nav-link{padding-left:8px;padding-right:8px}.header-inner{gap:24px}}
+  </style>
 </head>
 <body>
   <header class="topbar">
@@ -547,6 +597,7 @@
         <a href="index.html" class="nav-link active" aria-current="page">New Order</a>
         <a href="orders.html" class="nav-link">Order History</a>
         <a href="addfunds.html" class="nav-link">Add Funds</a>
+        <a href="withdrawfunds.html" class="nav-link">Withdraw</a>
         <a href="services.html" class="nav-link">Service List</a>
         <a href="support.html" class="nav-link">Support <span class="badge">0</span></a>
         <a href="refill.html" class="nav-link">Refill</a>
@@ -576,25 +627,26 @@
             <div class="field-row"><div class="field"><label for="service">Select Service</label><div class="select-wrap"><select class="control" id="service" required></select><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></div><p id="noServices" class="no-services" role="status" hidden>No matching services. Try another search.</p></div></div>
             <section class="description" aria-labelledby="descriptionTitle"><h2 id="descriptionTitle">Service Description</h2><div class="description-content"><div id="descriptionText"><p>Start Time : 0–1 Hour</p><p>Quality : Good</p><p>Use other servers in case this one is slow or doesn’t work.</p></div><p class="check-line"><i class="fa-solid fa-square-check" aria-hidden="true"></i><span id="serviceCompatibility">Works on all - Video, Reel, IGTV etc.</span></p></div></section>
             <div class="field-row"><div class="field"><label for="orderLink">Enter Link :</label><input class="control" type="url" id="orderLink" placeholder="https://www.instagram.com/p/..." required autocomplete="url"></div></div>
-            <div class="quantity-line"><div class="field-row"><div class="field"><label for="quantity">Enter Quantity :</label><input class="control" type="number" id="quantity" min="100" max="10000000" step="1" placeholder="Min: 100 - Max: 10000000" required inputmode="numeric"></div></div><div class="drip-control"><i class="fa-regular fa-clock" aria-hidden="true"></i><div class="drip-copy"><label for="dripFeed">Drip-Feed</label><small>Deliver gradually over time</small></div><label class="switch"><input type="checkbox" id="dripFeed" role="switch" aria-controls="dripFields"><span class="switch-track"></span></label></div></div>
+            <div class="quantity-line"><div class="field-row"><div class="field"><label for="quantity">Enter Quantity :</label><input class="control" type="number" id="quantity" min="100" max="10000000" step="1" placeholder="Min: 100 - Max: 10000000" required inputmode="numeric"></div></div><div class="drip-control"><div class="drip-copy"><label for="dripFeed">Drip-Feed</label><small>Deliver gradually over time</small></div><label class="switch"><input type="checkbox" id="dripFeed" role="switch" aria-controls="dripFields"><span class="switch-track"></span></label></div></div>
             <div class="drip-fields" id="dripFields" hidden><div class="field"><label for="runs">Number of runs</label><input class="control" type="number" id="runs" min="2" max="100" step="1" value="2" disabled></div><div class="field"><label for="interval">Interval (minutes)</label><input class="control" type="number" id="interval" min="1" max="10080" step="1" value="30" disabled></div><small>Quantity is delivered in each run. The charge includes all runs.</small></div>
             <div class="field-row charge-row"><div class="field"><label for="charge">Charge (₹)</label><div class="charge-input"><span aria-hidden="true">₹</span><input id="charge" readonly aria-live="polite" placeholder=" "></div></div></div>
             <button class="primary place-order" type="submit" id="placeOrder">Place Order</button>
           </form>
         </section>
       </div>
-      <aside class="card updates" aria-labelledby="updatesTitle">
+      <div class="new-order-sidebar"><aside class="card updates" aria-labelledby="updatesTitle">
         <div class="updates-heading"><i class="fa-solid fa-bullhorn" aria-hidden="true"></i><h1 id="updatesTitle">Panel Updates</h1><button class="text-button" id="viewUpdates" aria-expanded="false">View All</button></div>
         <div class="update-list">
           <article class="update"><div class="update-title"><h2>Followers Services</h2><time datetime="2026-10-30">30 Oct 2026</time></div><p>We are currently experiencing some instability with Followers services, which may result in higher-than-usual drops on certain orders.</p></article>
           <article class="update"><div class="update-title"><h2>Payment Gateway Update</h2><time datetime="2026-10-30">30 Oct 2026</time></div><p>Stripe payment gateway is currently unavailable. We’re working on it and expect them to be back within the next few hours.</p></article>
           <article class="update"><div class="update-title"><h2>YouTube Subscribers</h2><time datetime="2026-10-30">30 Oct 2026</time></div><p>YouTube subscriber slow-speed servers are currently overloaded and temporarily disabled. Please wait for them to resume or use the high-speed servers instead.</p></article>
+          <article class="update"><div class="update-title"><h2>YouTube Likes</h2><time datetime="2026-10-30">30 Oct 2026</time></div><p>YouTube subscriber slow-speed servers are currently overloaded and temporarily disabled. Please wait for them to resume or use the high-speed servers instead.</p></article>
           <article class="update"><div class="update-title"><h2>WhatsApp Support Update</h2><time datetime="2026-10-30">30 Oct 2026</time></div><p>Now we are available 24/7 at your service. Share your issue and feedback with us.</p></article>
           <article class="update"><div class="update-title"><h2>Others</h2><time datetime="2026-10-30">30 Oct 2026</time></div><p>Rest all services are tested &amp; working fine!<br>5% to 10% Auto-Bonus Enabled on All Payment Methods ⚡</p></article>
           <article class="update older-update" hidden><div class="update-title"><h2>Welcome to SMM Quality</h2><time datetime="2026-10-29">29 Oct 2026</time></div><p>Check the service description and delivery limits before placing your order. Our support team is here if you need help.</p></article>
         </div>
       </aside>
-    </div>
+     
     <footer class="card support"><i class="fa-solid fa-headset" aria-hidden="true"></i><span><a href="support.html" style="color:var(--blue)">Contact Us</a> For Support, Queries, Discounts &amp; More Services.</span></footer>
   </main>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>

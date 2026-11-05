@@ -480,6 +480,12 @@
     }
     @media(min-width:1500px){.topbar .nav{gap:12px}.topbar .nav-link{padding-left:10px;padding-right:10px}.header-inner{gap:24px}}
   </style>
+
+  <style id="withdraw-navigation-layout">
+    @media(min-width:1280px) and (max-width:1439px){.topbar .nav{display:none!important;position:absolute;top:71px;left:0;right:0;padding:16px 24px;background:var(--panel-navy);border-bottom:1px solid #36536d;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.topbar .nav.open{display:grid!important}.topbar .mobile-toggle{display:grid!important;place-items:center}.header-tools{margin-left:auto}.topbar .nav-link{padding:12px 8px;min-height:44px}}
+    @media(min-width:1440px){.topbar .nav{gap:5px}.topbar .nav-link{padding-left:7px;padding-right:7px;font-size:13px}.header-inner{gap:16px}.header-tools{gap:12px}}
+    @media(min-width:1600px){.topbar .nav{gap:8px}.topbar .nav-link{padding-left:8px;padding-right:8px}.header-inner{gap:24px}}
+  </style>
 </head>
 <body>
   <header class="topbar">
@@ -489,6 +495,7 @@
         <a href="index.html" class="nav-link">New Order</a>
         <a href="orders.html" class="nav-link">Order History</a>
         <a href="addfunds.html" class="nav-link">Add Funds</a>
+        <a href="withdrawfunds.html" class="nav-link">Withdraw</a>
         <a href="services.html" class="nav-link active" aria-current="page">Service List</a>
         <a href="support.html" class="nav-link">Support <span class="badge">0</span></a>
         <a href="refill.html" class="nav-link">Refill</a>
