@@ -269,7 +269,7 @@
     .payment-select .custom-select-trigger{padding-left:58px;min-height:46px}.payment-select .upi-mark{z-index:1;top:8px}
     .catalog-select.category-select .custom-select-trigger{background:#294e71;color:white;border-color:#294e71}
     .catalog-select .custom-select-trigger{padding-left:38px}.catalog-select>i:not(.fa-chevron-down){display:block!important;z-index:1;top:15px}.category-select>i{color:white}
-    .order-date .custom-select-trigger{padding-left:36px}.order-date>.fa-calendar-days{display:block!important;z-index:1;top:14px}
+    .order-date .custom-select-trigger{padding-left:14px}.order-date>.fa-calendar-days{display:block!important;z-index:1;top:14px}
     .funds-actions .custom-select-trigger{min-height:46px;font-size:13px;min-width:105px}
     .custom-select-popup{position:fixed;z-index:1000;display:flex;flex-direction:column;background:#fff;border:1px solid #bed0e1;box-shadow:0 12px 36px #17324c26;border-radius:9px;padding:6px;color:#294767;max-width:calc(100vw - 24px);box-sizing:border-box}
     .custom-select-search{width:100%;min-height:40px;padding:9px 11px;font:inherit;font-size:13px;border:1px solid #d2dfeb;border-radius:6px;color:#294767;background:#f8fbfe;margin:0 0 6px;flex-shrink:0}
@@ -569,6 +569,10 @@
       .orders-footer,.catalog-footer{padding-top:12px;padding-bottom:12px}
     }
     @media(max-width:767px){.orders-table-scroll,.service-catalog .unified-service-scroll{max-height:none}}
+  </style>
+<style id="order-charge-alignment">
+    .orders-table td.charge-cell,.orders-table td.charge-cell.money-column{text-align:left!important;font-variant-numeric:tabular-nums;white-space:nowrap}
+    @media(min-width:768px){.orders-table th:nth-child(4){width:112px}.orders-table td:nth-child(4),.orders-table th:nth-child(4){padding-left:12px;padding-right:12px}.orders-table th:nth-child(3){width:16%}}
   </style>
 </head>
 <body>

@@ -590,6 +590,10 @@
       .unified-services-table :is(th,td){padding-left:6px;padding-right:6px}
     }
   </style>
+<style id="service-rate-alignment">
+    .services-table td.service-price,.services-table td.service-price.money-column{text-align:left!important;font-variant-numeric:tabular-nums;white-space:nowrap}
+    @media(min-width:768px){.unified-services-table th:nth-child(3){width:96px}.unified-services-table td.service-price,.unified-services-table thead th:nth-child(3){padding-left:12px;padding-right:8px}}
+  </style>
 </head>
 <body>
   <header class="topbar">
