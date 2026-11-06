@@ -498,6 +498,98 @@
     @media(min-width:1366px){.topbar .nav{gap:5px}.topbar .nav-link{font-size:13px;padding-left:7px;padding-right:7px}.topbar .brand{font-size:22px}.topbar .balance-chip{font-size:13px}}
     @media(min-width:1600px){.header-inner{padding-left:40px;padding-right:40px;gap:24px}.topbar .nav{gap:8px}.topbar .nav-link{padding-left:8px;padding-right:8px}.topbar .brand{font-size:24px}.header-tools{gap:16px}.topbar .balance-chip{font-size:14px}}
   </style>
+
+  <style id="unified-service-table-layout">
+    .service-catalog{padding:0;overflow:hidden;min-width:0;animation:none}
+    .service-catalog:empty{display:none}
+    .service-catalog .unified-service-scroll{margin:0;padding:0;border-radius:9px;width:100%}
+    .unified-services-table .service-category-heading th{padding:0!important;border:0;background:#e2ebf5;text-align:left}
+    .unified-services-table .category-heading{width:100%;min-height:48px;padding:12px 16px;border:0;border-radius:0;background:#e2ebf5}
+    .unified-services-table .category-heading:hover{background:#d6e5f3}
+    .unified-services-table .category-heading h2{font-size:16px;line-height:1.5;white-space:normal;margin:0}
+    .unified-services-table .category-count{font-size:13px;margin-left:8px;font-weight:400}
+    .unified-services-table .category-heading>.fa-chevron-down{font-size:13px}
+    .unified-services-table .service-category-rows+ .service-category-heading th{border-top:1px solid #cbd9e6}
+    @media(min-width:768px){
+      .service-catalog .unified-service-scroll{max-height:70vh;max-height:70dvh;overflow:auto;overscroll-behavior:contain;scrollbar-gutter:stable;position:relative;isolation:isolate}
+      .unified-services-table{border-collapse:separate;border-spacing:0;width:100%;min-width:1200px;table-layout:auto}
+      .unified-services-table thead th{position:sticky;top:0;z-index:3;background:#e6edf5;border-bottom:1px solid #c6d6e5;box-shadow:0 1px 0 #c6d6e5}
+      .unified-services-table .service-category-heading th{position:static;box-shadow:none}
+      .unified-services-table th:nth-child(1){width:52px}.unified-services-table th:nth-child(2){width:auto}.unified-services-table th:nth-child(3){width:88px}.unified-services-table th:nth-child(4){width:56px}.unified-services-table th:nth-child(5){width:116px}.unified-services-table th:nth-child(6){width:136px}.unified-services-table th:nth-child(7){width:96px}.unified-services-table th:nth-child(8){width:136px}
+      .unified-services-table .service-name{white-space:nowrap}
+    }
+    @media(max-width:767px){
+      .service-catalog{background:transparent;border:0;box-shadow:none;overflow:visible}
+      .service-catalog .unified-service-scroll{overflow:visible;max-height:none;background:transparent;padding:0}
+      .unified-services-table{min-width:0;background:transparent}
+      .unified-services-table tbody.service-category-heading{display:block;margin:24px 0 12px;background:transparent}
+      .unified-services-table tbody.service-category-heading:first-of-type{margin-top:0}
+      .unified-services-table .service-category-heading tr{display:block;border:1px solid #cbd9e6;padding:0;border-radius:8px;overflow:hidden}
+      .unified-services-table .service-category-heading th{display:block;width:100%;padding:0!important}
+      .unified-services-table tbody.service-category-rows{background:transparent}
+      .unified-services-table .category-heading{padding:12px;gap:12px}
+      .unified-services-table .category-heading h2{font-size:15px}.unified-services-table .category-count{display:block;margin:4px 0 0;font-size:13px}
+      .unified-services-table .service-name{white-space:normal}
+    }
+  </style>
+
+  <style id="table-heading-and-input-focus">
+    table th,table th.money-column{text-align:left!important}
+    /* Standalone fields have one restrained, rounded focus indicator. */
+    input:not([type="checkbox"]):not([type="radio"]):focus,
+    textarea:focus,select:focus{outline:none!important;border-color:#5486b0;box-shadow:0 0 0 2px #5486b018}
+    /* Compound inputs draw focus on their outside edge, not the inner input. */
+    :is(.search-box,.transaction-search,.order-search,.catalog-search,.ticket-search,.refill-search,.support-input,.settings-input,.input-group,.charge-input):focus-within{border-color:#5486b0;outline:0;box-shadow:0 0 0 2px #5486b018}
+    :is(.search-box,.transaction-search,.order-search,.catalog-search,.ticket-search,.refill-search,.support-input,.settings-input,.input-group,.charge-input) :is(input,textarea,select):focus,
+    :is(.search-box,.transaction-search,.order-search,.catalog-search,.ticket-search,.refill-search,.support-input,.settings-input,.input-group,.charge-input) :is(input,textarea,select):focus-visible{outline:none!important;box-shadow:none!important;border-color:transparent}
+    .custom-select-trigger:focus-visible,.custom-select-trigger[aria-expanded="true"]{outline:none;border-color:#5486b0;box-shadow:0 0 0 2px #5486b018}
+    :is(.support-input,.settings-input) .custom-select-trigger:focus-visible,
+    :is(.support-input,.settings-input) .custom-select-trigger[aria-expanded="true"]{outline:none;box-shadow:none}
+    input[aria-invalid="true"]:focus,textarea[aria-invalid="true"]:focus,.custom-select-trigger[aria-invalid="true"]:focus-visible{border-color:#b84242;box-shadow:0 0 0 2px #b8424218}
+  </style>
+
+  <style id="expanded-table-viewport">
+    @media(min-width:768px){
+      .orders-table-scroll,.service-catalog .unified-service-scroll{max-height:85vh;max-height:85dvh}
+      .orders-table tbody td,.unified-services-table .service-category-rows td{padding-top:8px;padding-bottom:8px}
+      .orders-table thead th,.unified-services-table thead th{padding-top:12px;padding-bottom:12px}
+      .orders-table .service-meta{margin-bottom:4px;gap:8px}
+      .unified-services-table .category-heading{min-height:44px;padding-top:8px;padding-bottom:8px}
+      .order-filters,.catalog-filters{padding-top:16px;padding-bottom:16px}
+      .orders-footer,.catalog-footer{padding-top:12px;padding-bottom:12px}
+    }
+    @media(max-width:767px){.orders-table-scroll,.service-catalog .unified-service-scroll{max-height:none}}
+  </style>
+
+  <style id="services-fit-width">
+    @media(min-width:768px){
+      .service-catalog .unified-service-scroll{overflow-x:hidden;min-width:0}
+      .unified-services-table{width:100%;min-width:0;table-layout:fixed}
+      .unified-services-table th:nth-child(1){width:5%}
+      .unified-services-table th:nth-child(2){width:38%}
+      .unified-services-table th:nth-child(3){width:8%}
+      .unified-services-table th:nth-child(4){width:5%}
+      .unified-services-table th:nth-child(5){width:10%}
+      .unified-services-table th:nth-child(6){width:13%}
+      .unified-services-table th:nth-child(7){width:8%}
+      .unified-services-table th:nth-child(8){width:13%}
+      .unified-services-table :is(th,td){padding-left:8px;padding-right:8px;overflow-wrap:anywhere}
+      .unified-services-table thead th{white-space:normal}
+      .unified-services-table .service-name{white-space:normal;overflow-wrap:anywhere;word-break:normal}
+      .unified-services-table .service-time{display:block;white-space:normal}
+      .unified-services-table .service-view{min-width:0;max-width:100%;width:100%;white-space:normal;gap:6px;padding:8px}
+      .unified-services-table .service-price{white-space:normal}
+    }
+    @media(min-width:768px) and (max-width:1024px){
+      .unified-services-table th:nth-child(2){width:33%}
+      .unified-services-table th:nth-child(3){width:9%}
+      .unified-services-table th:nth-child(4){width:6%}
+      .unified-services-table th:nth-child(6){width:14%}
+      .unified-services-table th:nth-child(7){width:9%}
+      .unified-services-table th:nth-child(8){width:14%}
+      .unified-services-table :is(th,td){padding-left:6px;padding-right:6px}
+    }
+  </style>
 </head>
 <body>
   <header class="topbar">
@@ -523,7 +615,7 @@
     </div>
   </header>
 
-  <main class="page"><section class="card catalog-top"><div class="catalog-filters"><div class="catalog-select category-select"><i class="fa-solid fa-filter" aria-hidden="true"></i><select id="categoryFilter" aria-label="Filter service categories"><option value="all">All Categories</option><option value="views">Instagram: Views</option><option value="good-followers">Instagram: Followers (Good Quality Profiles)</option><option value="high-followers">Instagram: Followers (High Quality Profiles)</option><option value="likes">Instagram: Likes</option><option value="comments">Instagram: Comments</option><option value="story">Instagram: Story Views</option></select><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></div><div class="catalog-select"><i class="fa-solid fa-indian-rupee-sign" id="currencyIcon" aria-hidden="true"></i><select id="currencyFilter" aria-label="Service price currency"><option value="INR">INR</option><option value="USD">USD</option><option value="PKR">PKR</option><option value="EUR">EUR</option></select><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></div><div class="catalog-search"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><input id="serviceSearch" type="search" placeholder="Search services by ID, name or description..." aria-label="Search services" autocomplete="off"></div></div></section><div class="service-groups" id="serviceGroups"></div><section class="card catalog-empty" id="emptyServices" role="status" hidden><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><strong>No matching services</strong>Try another service ID, keyword or category.</section><footer class="card catalog-footer"><p class="catalog-summary" id="catalogSummary" role="status" aria-live="polite"></p><nav class="catalog-pagination" id="catalogPagination" aria-label="Service category pages"></nav></footer></main>
+  <main class="page"><section class="card catalog-top"><div class="catalog-filters"><div class="catalog-select category-select"><i class="fa-solid fa-filter" aria-hidden="true"></i><select id="categoryFilter" aria-label="Filter service categories"><option value="all">All Categories</option><option value="views">Instagram: Views</option><option value="good-followers">Instagram: Followers (Good Quality Profiles)</option><option value="high-followers">Instagram: Followers (High Quality Profiles)</option><option value="likes">Instagram: Likes</option><option value="comments">Instagram: Comments</option><option value="story">Instagram: Story Views</option></select><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></div><div class="catalog-select"><i class="fa-solid fa-indian-rupee-sign" id="currencyIcon" aria-hidden="true"></i><select id="currencyFilter" aria-label="Service price currency"><option value="INR">INR</option><option value="USD">USD</option><option value="PKR">PKR</option><option value="EUR">EUR</option></select><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></div><div class="catalog-search"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><input id="serviceSearch" type="search" placeholder="Search services by ID, name or description..." aria-label="Search services" autocomplete="off"></div></div></section><div class="card service-catalog" id="serviceGroups"></div><section class="card catalog-empty" id="emptyServices" role="status" hidden><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><strong>No matching services</strong>Try another service ID, keyword or category.</section><footer class="card catalog-footer"><p class="catalog-summary" id="catalogSummary" role="status" aria-live="polite"></p><nav class="catalog-pagination" id="catalogPagination" aria-label="Service category pages"></nav></footer></main>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <dialog id="previewDialog" aria-labelledby="dialogTitle"><div class="dialog-head"><h2 id="dialogTitle">Service details</h2><button class="close-dialog" id="closeDialog" aria-label="Close preview"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button></div><p id="dialogMessage"></p><dl id="serviceDetails" hidden></dl><a class="service-order-link" id="newOrderLink" href="index.html" hidden>Open New Order</a><button class="primary" id="dialogDone">Got it</button></dialog>
   <script>
@@ -550,7 +642,20 @@
     function price(rate){const currency=$('currencyFilter').value;const rates={INR:1,USD:1/98,PKR:2.85,EUR:1/106},symbols={INR:'₹ ',USD:'$ ',PKR:'₨ ',EUR:'€ '};return symbols[currency]+(rate*rates[currency]).toLocaleString('en-US',{minimumFractionDigits:3,maximumFractionDigits:3})}
     function filteredCategories(){const query=$('serviceSearch').value.trim().toLowerCase(),category=$('categoryFilter').value;return categories.filter(group=>category==='all'||group.id===category).map(group=>({...group,rows:group.rows.filter(service=>(group.title+' '+service.id+' '+service.name).toLowerCase().includes(query))})).filter(group=>group.rows.length)}
     function showService(service,group){openDialog('Service #'+service.id,service.name);const details=$('serviceDetails');details.replaceChildren();[['Category',group.title],['Rate per 1,000',price(service.rate)],['Minimum',number(service.min)],['Maximum',number(service.max)],['Average time',service.time],['Description','Sample service information. Check the final delivery terms and refill policy before placing an order.']].forEach(([label,value])=>{const dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=label;dd.textContent=value;details.append(dt,dd)});details.hidden=false;$('newOrderLink').hidden=false}
-    function render(){const matches=filteredCategories(),pages=Math.max(1,Math.ceil(matches.length/pageSize));page=Math.max(1,Math.min(page,pages));$('serviceGroups').replaceChildren();matches.slice((page-1)*pageSize,page*pageSize).forEach(group=>{const section=document.createElement('section');section.className='card service-group';const heading=document.createElement('button');heading.type='button';heading.className='category-heading';heading.id='heading-'+group.id;heading.setAttribute('aria-expanded',String(!collapsed.has(group.id)));heading.setAttribute('aria-controls','table-'+group.id);const icon=document.createElement('span');icon.className='category-icon '+(group.style||'');const symbol=document.createElement('i');symbol.className=group.icon;symbol.setAttribute('aria-hidden','true');icon.append(symbol);const title=document.createElement('h2');title.textContent=group.title;const count=document.createElement('span');count.className='category-count';count.textContent='('+group.rows.length+' Service'+(group.rows.length===1?'':'s')+')';title.append(count);const arrow=document.createElement('i');arrow.className='fa-solid fa-chevron-down';arrow.setAttribute('aria-hidden','true');heading.append(title,arrow);const scroll=document.createElement('div');scroll.className='services-scroll';scroll.id='table-'+group.id;scroll.hidden=collapsed.has(group.id);scroll.tabIndex=0;scroll.setAttribute('role','region');scroll.setAttribute('aria-labelledby',heading.id);heading.addEventListener('click',()=>{const open=heading.getAttribute('aria-expanded')!=='true';heading.setAttribute('aria-expanded',String(open));scroll.hidden=!open;if(open)collapsed.delete(group.id);else collapsed.add(group.id)});const table=document.createElement('table');table.className='services-table';const thead=document.createElement('thead');thead.innerHTML='<tr><th scope="col">ID</th><th scope="col">Service</th><th scope="col">Rate per<br>1000</th><th scope="col">Min</th><th scope="col">Max</th><th scope="col">Average Time</th><th scope="col">Description</th><th scope="col">Action</th></tr>';const tbody=document.createElement('tbody');group.rows.forEach(service=>{const row=document.createElement('tr');function cell(text,cls=''){const td=document.createElement('td');if(text!==undefined)td.textContent=text;if(cls)td.className=cls;row.append(td);return td}cell(service.id);const name=cell(undefined,'service-name');if(service.featured){const star=document.createElement('i');star.className='fa-solid fa-star star-service';star.setAttribute('aria-label','Featured service');name.append(star)}name.append(document.createTextNode(service.name));cell(price(service.rate),'service-price');cell(String(service.min));cell(number(service.max));const time=cell();const wrap=document.createElement('span');wrap.className='service-time';const clock=document.createElement('i');clock.className='fa-regular fa-clock';clock.setAttribute('aria-hidden','true');wrap.append(document.createTextNode(service.time));time.append(wrap);cell('—');const action=cell();const view=document.createElement('button');view.type='button';view.className='service-view';view.setAttribute('aria-label','View details for service '+service.id);view.innerHTML='<i class="fa-regular fa-eye" aria-hidden="true"></i> View Details';view.addEventListener('click',()=>showService(service,group));action.append(view);tbody.append(row)});table.append(thead,tbody);scroll.append(table);section.append(heading,scroll);$('serviceGroups').append(section)});$('emptyServices').hidden=matches.length>0;const count=matches.reduce((sum,group)=>sum+group.rows.length,0);$('catalogSummary').textContent=matches.length?'Showing '+((page-1)*pageSize+1)+' to '+Math.min(page*pageSize,matches.length)+' of '+matches.length+' categories · '+count+' services':'Showing 0 categories · 0 services';const nav=$('catalogPagination');nav.replaceChildren();function button(label,target,disabled,current,aria){const b=document.createElement('button');b.type='button';b.textContent=label;b.disabled=disabled;if(current){b.className='current';b.setAttribute('aria-current','page')}b.setAttribute('aria-label',aria);b.addEventListener('click',()=>{page=target;render()});nav.append(b)}button('‹',page-1,page===1,false,'Previous page');for(let i=1;i<=pages;i++)button(String(i),i,false,i===page,'Page '+i);button('›',page+1,page===pages,false,'Next page');$('currencyIcon').className='fa-solid '+(({INR:'fa-indian-rupee-sign',USD:'fa-dollar-sign',PKR:'fa-money-bill-wave',EUR:'fa-euro-sign'}[$('currencyFilter').value]));}
+    function render(){
+      const matches=filteredCategories(),pages=Math.max(1,Math.ceil(matches.length/pageSize));page=Math.max(1,Math.min(page,pages));$('serviceGroups').replaceChildren();
+      const scroll=document.createElement('div');scroll.className='services-scroll unified-service-scroll';scroll.tabIndex=0;scroll.setAttribute('role','region');scroll.setAttribute('aria-label','Service list; scroll services below the fixed column headings');
+      const table=document.createElement('table');table.className='services-table unified-services-table';const thead=document.createElement('thead');thead.innerHTML='<tr><th scope="col">ID</th><th scope="col">Service</th><th scope="col">Rate per<br>1000</th><th scope="col">Min</th><th scope="col">Max</th><th scope="col">Average Time</th><th scope="col">Description</th><th scope="col">Action</th></tr>';table.append(thead);
+      matches.slice((page-1)*pageSize,page*pageSize).forEach(group=>{
+        const categoryBody=document.createElement('tbody');categoryBody.className='service-category-heading';const categoryRow=document.createElement('tr');const categoryCell=document.createElement('th');categoryCell.colSpan=8;categoryCell.scope='rowgroup';
+        const heading=document.createElement('button');heading.type='button';heading.className='category-heading';heading.id='heading-'+group.id;heading.setAttribute('aria-expanded',String(!collapsed.has(group.id)));heading.setAttribute('aria-controls','rows-'+group.id);
+        const title=document.createElement('h2');title.textContent=group.title;const count=document.createElement('span');count.className='category-count';count.textContent='('+group.rows.length+' Service'+(group.rows.length===1?'':'s')+')';title.append(count);const arrow=document.createElement('i');arrow.className='fa-solid fa-chevron-down';arrow.setAttribute('aria-hidden','true');heading.append(title,arrow);categoryCell.append(heading);categoryRow.append(categoryCell);categoryBody.append(categoryRow);
+        const tbody=document.createElement('tbody');tbody.id='rows-'+group.id;tbody.className='service-category-rows';tbody.hidden=collapsed.has(group.id);heading.addEventListener('click',()=>{const open=heading.getAttribute('aria-expanded')!=='true';heading.setAttribute('aria-expanded',String(open));tbody.hidden=!open;if(open)collapsed.delete(group.id);else collapsed.add(group.id)});
+        group.rows.forEach(service=>{const row=document.createElement('tr');function cell(text,cls=''){const td=document.createElement('td');if(text!==undefined)td.textContent=text;if(cls)td.className=cls;row.append(td);return td}cell(service.id);const name=cell(undefined,'service-name');if(service.featured){const star=document.createElement('i');star.className='fa-solid fa-star star-service';star.setAttribute('aria-label','Featured service');name.append(star)}name.append(document.createTextNode(service.name));cell(price(service.rate),'service-price');cell(String(service.min));cell(number(service.max));const time=cell();const wrap=document.createElement('span');wrap.className='service-time';const clock=document.createElement('i');clock.className='fa-regular fa-clock';clock.setAttribute('aria-hidden','true');wrap.append(document.createTextNode(service.time));time.append(wrap);cell('—');const action=cell();const view=document.createElement('button');view.type='button';view.className='service-view';view.setAttribute('aria-label','View details for service '+service.id);view.innerHTML='<i class="fa-regular fa-eye" aria-hidden="true"></i> View Details';view.addEventListener('click',()=>showService(service,group));action.append(view);tbody.append(row)});
+        table.append(categoryBody,tbody);
+      });scroll.append(table);if(matches.length)$('serviceGroups').append(scroll);
+      $('emptyServices').hidden=matches.length>0;const count=matches.reduce((sum,group)=>sum+group.rows.length,0);$('catalogSummary').textContent=matches.length?'Showing '+((page-1)*pageSize+1)+' to '+Math.min(page*pageSize,matches.length)+' of '+matches.length+' categories · '+count+' services':'Showing 0 categories · 0 services';const nav=$('catalogPagination');nav.replaceChildren();function button(label,target,disabled,current,aria){const b=document.createElement('button');b.type='button';b.textContent=label;b.disabled=disabled;if(current){b.className='current';b.setAttribute('aria-current','page')}b.setAttribute('aria-label',aria);b.addEventListener('click',()=>{page=target;render()});nav.append(b)}button('‹',page-1,page===1,false,'Previous page');for(let i=1;i<=pages;i++)button(String(i),i,false,i===page,'Page '+i);button('›',page+1,page===pages,false,'Next page');$('currencyIcon').className='fa-solid '+(({INR:'fa-indian-rupee-sign',USD:'fa-dollar-sign',PKR:'fa-money-bill-wave',EUR:'fa-euro-sign'}[$('currencyFilter').value]));}
+
     $('serviceSearch').addEventListener('input',()=>{page=1;collapsed.clear();render()});$('categoryFilter').addEventListener('change',()=>{page=1;render()});$('currencyFilter').addEventListener('change',render);render();
 
     // Keep mobile labels in sync with filtered and paginated table rows.

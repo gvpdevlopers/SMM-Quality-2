@@ -600,6 +600,21 @@
     @media(min-width:1366px){.topbar .nav{gap:5px}.topbar .nav-link{font-size:13px;padding-left:7px;padding-right:7px}.topbar .brand{font-size:22px}.topbar .balance-chip{font-size:13px}}
     @media(min-width:1600px){.header-inner{padding-left:40px;padding-right:40px;gap:24px}.topbar .nav{gap:8px}.topbar .nav-link{padding-left:8px;padding-right:8px}.topbar .brand{font-size:24px}.header-tools{gap:16px}.topbar .balance-chip{font-size:14px}}
   </style>
+
+  <style id="table-heading-and-input-focus">
+    table th,table th.money-column{text-align:left!important}
+    /* Standalone fields have one restrained, rounded focus indicator. */
+    input:not([type="checkbox"]):not([type="radio"]):focus,
+    textarea:focus,select:focus{outline:none!important;border-color:#5486b0;box-shadow:0 0 0 2px #5486b018}
+    /* Compound inputs draw focus on their outside edge, not the inner input. */
+    :is(.search-box,.transaction-search,.order-search,.catalog-search,.ticket-search,.refill-search,.support-input,.settings-input,.input-group,.charge-input):focus-within{border-color:#5486b0;outline:0;box-shadow:0 0 0 2px #5486b018}
+    :is(.search-box,.transaction-search,.order-search,.catalog-search,.ticket-search,.refill-search,.support-input,.settings-input,.input-group,.charge-input) :is(input,textarea,select):focus,
+    :is(.search-box,.transaction-search,.order-search,.catalog-search,.ticket-search,.refill-search,.support-input,.settings-input,.input-group,.charge-input) :is(input,textarea,select):focus-visible{outline:none!important;box-shadow:none!important;border-color:transparent}
+    .custom-select-trigger:focus-visible,.custom-select-trigger[aria-expanded="true"]{outline:none;border-color:#5486b0;box-shadow:0 0 0 2px #5486b018}
+    :is(.support-input,.settings-input) .custom-select-trigger:focus-visible,
+    :is(.support-input,.settings-input) .custom-select-trigger[aria-expanded="true"]{outline:none;box-shadow:none}
+    input[aria-invalid="true"]:focus,textarea[aria-invalid="true"]:focus,.custom-select-trigger[aria-invalid="true"]:focus-visible{border-color:#b84242;box-shadow:0 0 0 2px #b8424218}
+  </style>
 </head>
 <body>
   <header class="topbar">
