@@ -507,9 +507,21 @@
   </style>
 
   <style id="withdraw-navigation-layout">
-    @media(min-width:1280px) and (max-width:1439px){.topbar .nav{display:none!important;position:absolute;top:71px;left:0;right:0;padding:16px 24px;background:var(--panel-navy);border-bottom:1px solid #36536d;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.topbar .nav.open{display:grid!important}.topbar .mobile-toggle{display:grid!important;place-items:center}.header-tools{margin-left:auto}.topbar .nav-link{padding:12px 8px;min-height:44px}}
-    @media(min-width:1440px){.topbar .nav{gap:5px}.topbar .nav-link{padding-left:7px;padding-right:7px;font-size:13px}.header-inner{gap:16px}.header-tools{gap:12px}}
-    @media(min-width:1600px){.topbar .nav{gap:8px}.topbar .nav-link{padding-left:8px;padding-right:8px}.header-inner{gap:24px}}
+    /* Full navigation on laptops; hamburger only below 1200px. */
+    @media(min-width:1200px){
+      .header-inner{padding-left:20px;padding-right:20px;gap:16px}
+      .topbar .nav,.topbar .nav.open{display:flex!important;position:static;flex:1 1 auto;min-width:0;justify-content:center;align-items:center;gap:4px;width:auto;padding:0;background:none;border:0;box-shadow:none}
+      .topbar .nav-link{font-size:12px;padding:12px 6px;min-height:44px;white-space:nowrap}
+      .topbar .mobile-toggle{display:none!important}
+      .header-tools{margin-left:0;gap:12px;flex-shrink:0}
+      .topbar .brand{font-size:21px;letter-spacing:-.7px}
+      .topbar .balance-chip{font-size:12px;padding-left:10px;padding-right:10px;gap:7px}
+      .topbar .avatar{width:32px;height:32px;font-size:20px}
+      .topbar .plain-button{font-size:12px;gap:6px}
+      .topbar .user-name,.topbar .user-chevron{display:inline}
+    }
+    @media(min-width:1366px){.topbar .nav{gap:5px}.topbar .nav-link{font-size:13px;padding-left:7px;padding-right:7px}.topbar .brand{font-size:22px}.topbar .balance-chip{font-size:13px}}
+    @media(min-width:1600px){.header-inner{padding-left:40px;padding-right:40px;gap:24px}.topbar .nav{gap:8px}.topbar .nav-link{padding-left:8px;padding-right:8px}.topbar .brand{font-size:24px}.header-tools{gap:16px}.topbar .balance-chip{font-size:14px}}
   </style>
 </head>
 <body>
