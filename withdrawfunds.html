@@ -7120,6 +7120,21 @@
     :is(.support-input,.settings-input) .custom-select-trigger[aria-expanded="true"]{outline:none;box-shadow:none}
     input[aria-invalid="true"]:focus,textarea[aria-invalid="true"]:focus,.custom-select-trigger[aria-invalid="true"]:focus-visible{border-color:#b84242;box-shadow:0 0 0 2px #b8424218}
   </style>
+  <style id="compact-withdraw-funds">
+    .funds.withdraw-funds{min-height:0 !important;padding:16px 20px !important;gap:18px !important}
+    .funds.withdraw-funds .wallet-art{flex:0 0 68px !important;width:68px !important;height:68px !important;font-size:32px !important}
+    .funds.withdraw-funds .funds-copy .funds-value{font-size:30px !important;line-height:1.2 !important}
+    .funds.withdraw-funds .funds-copy .eyebrow{font-size:12px !important;margin-bottom:4px !important}
+    .funds.withdraw-funds .funds-actions{gap:12px !important}
+    .funds.withdraw-funds .funds-actions .add-funds{padding:11px 16px !important;font-size:14px !important;gap:9px !important}
+    .funds.withdraw-funds .funds-actions .add-funds i{font-size:18px !important}
+    @media(max-width:767px){
+      .funds.withdraw-funds{padding:16px !important;gap:14px !important}
+      .funds.withdraw-funds .wallet-art{flex-basis:60px !important;width:60px !important;height:60px !important;font-size:28px !important}
+      .funds.withdraw-funds .funds-copy .funds-value{font-size:27px !important}
+    }
+    @media(max-width:359px){.funds.withdraw-funds .funds-copy .funds-value{font-size:24px !important}}
+  </style>
 </head>
 
 <body>

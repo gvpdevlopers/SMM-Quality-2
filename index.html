@@ -615,6 +615,31 @@
     :is(.support-input,.settings-input) .custom-select-trigger[aria-expanded="true"]{outline:none;box-shadow:none}
     input[aria-invalid="true"]:focus,textarea[aria-invalid="true"]:focus,.custom-select-trigger[aria-invalid="true"]:focus-visible{border-color:#b84242;box-shadow:0 0 0 2px #b8424218}
   </style>
+  <style id="new-order-refinements">
+    .funds.card{min-height:0;padding:16px 20px;gap:18px}
+    .funds.card .wallet-art{flex:0 0 68px;width:68px;height:68px;font-size:32px}
+    .funds.card .funds-copy .funds-value{font-size:30px;line-height:1.2}
+    .funds.card .funds-copy .eyebrow{font-size:12px;margin-bottom:4px}
+    .funds-actions{gap:12px}
+    .funds-actions .add-funds{padding:11px 16px;font-size:14px;gap:9px}
+    .funds-actions .add-funds i{font-size:18px}
+    .update-list .update{position:relative;padding-left:32px;background:#fbfcfe}
+    .update-list .update::before{content:"";position:absolute;left:15px;top:23px;width:8px;height:8px;border-radius:50%;background:#4f83b5;box-shadow:0 0 0 4px #e8f1f9}
+    .order-card .drip-control{align-items:flex-start}
+    .order-card .drip-copy label{margin:0 0 7px;line-height:1.6}
+    .order-card .drip-copy small{display:flex;align-items:center;min-height:40px;line-height:1.5}
+    .order-card .switch{margin-top:0}
+    @media(max-width:767px){
+      .funds.card{padding:16px;gap:14px}
+      .funds.card .wallet-art{flex-basis:60px;width:60px;height:60px;font-size:28px}
+      .funds.card .funds-copy .funds-value{font-size:27px}
+      .order-card .drip-control{align-items:center}
+      .order-card .drip-copy label{margin-bottom:3px}
+      .order-card .drip-copy small{display:block;min-height:0}
+      .order-card .switch{margin-top:0}
+    }
+    @media(max-width:359px){.funds.card .funds-copy .funds-value{font-size:24px}}
+  </style>
 </head>
 <body>
   <header class="topbar">
