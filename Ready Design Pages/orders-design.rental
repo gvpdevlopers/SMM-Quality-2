@@ -1,0 +1,238 @@
+<style>
+.smm-history { color:#183554; padding:28px 20px 48px; }
+.smm-history, .smm-history *, .smm-history *::before, .smm-history *::after { box-sizing:border-box; }
+.smm-history .smm-history-wrap { display:block !important; width:100% !important; max-width:1440px; margin:0 auto; }
+.smm-history .smm-history-wrap > .smm-history-tabs, .smm-history .smm-history-wrap > .smm-history-card, .smm-history .smm-history-wrap > .smm-history-content { display:block; float:none !important; clear:both; width:100% !important; max-width:none !important; }
+.smm-history .smm-history-content { overflow-wrap:anywhere; }
+.smm-history .smm-history-content:empty { display:none; }
+.smm-history .smm-history-tabs { margin:0 0 20px !important; padding:0 !important; }
+.smm-history .smm-history-tabs .nav-pills { display:flex !important; flex-wrap:wrap; gap:8px; padding:0 !important; margin-bottom:10 !important; list-style:none; }
+.smm-history .smm-history-tabs .nav-pills > li { float:none !important; margin:0 !important; }
+.smm-history .smm-history-tabs .nav-pills > li > a { display:block; padding:10px 15px; border:1px solid #d5e3f1 !important; border-radius:6px !important; background:#fff !important; color:#315679 !important; text-decoration:none; font-size:14px; line-height:1.5; }
+.smm-history .smm-history-tabs .nav-pills > li > a:hover, .smm-history .smm-history-tabs .nav-pills > li > a:focus { background:#edf5fc !important; }
+.smm-history .smm-history-tabs .nav-pills > li.active > a, .smm-history .smm-history-tabs .nav-pills > li.active > a:hover, .smm-history .smm-history-tabs .nav-pills > li.active > a:focus { background:#2B3E50 !important; border-color:#2B3E50 !important; border-radius:6px !important; color:#fff !important; }
+.smm-history .smm-history-select-compat { display:none; }
+.smm-history .smm-history-card { min-width:0; background:#fff !important; border:1px solid #d9e5f1 !important; border-radius:10px !important; box-shadow:0 4px 18px rgba(35,71,110,.07); overflow:hidden; }
+.smm-history .smm-history-search { padding:20px 22px; border-bottom:1px solid #e2ebf4; }
+.smm-history #history-search { width:100%; max-width:550px; margin:0 0 0 auto !important; }
+.smm-history #history-search .input-group { display:flex; width:100%; }
+.smm-history #history-search .form-control { display:block; flex:1 1 auto; min-width:0; width:100%; height:46px; padding:10px 13px; border:1px solid #cbdced !important; border-radius:6px 0 0 6px !important; background:#fff !important; color:#183554; box-shadow:none; }
+.smm-history #history-search .input-group-btn { width:auto; flex:0 0 auto; display:block; }
+.smm-history #history-search button { height:46px; min-width:50px; padding:0 14px; border:1px solid #2B3E50 !important; border-radius:0 6px 6px 0 !important; background:#2B3E50 !important; color:#fff !important; }
+.smm-history #history-search button:hover { background:#1D2E3E !important; }
+.smm-history #order-page { width:100%; overflow-x:auto; }
+.smm-history #order-page .table { width:100%; min-width:1000px; margin:0; border-collapse:collapse; }
+.smm-history #order-page th, .smm-history #order-page td { padding:13px 12px; border-bottom:1px solid #e2ebf4; font-size:13px; line-height:1.5; vertical-align:middle; }
+.smm-history #order-page th { background:#f1f6fc !important; color:#24435f; white-space:nowrap; }
+.smm-history #order-page td { overflow-wrap:anywhere; }
+.smm-history #order-page tbody tr:hover { background:#f8fbfe; }
+.smm-history .smm-history-pagination { padding:0 22px 16px; }
+.smm-history .smm-history-pagination .pagination { margin:16px 0 0; }
+.smm-history a:focus-visible, .smm-history button:focus-visible, .smm-history input:focus-visible { outline:3px solid #78b5e7; outline-offset:2px; }
+.smm-history a[href^="tel"], .smm-history a[x-apple-data-detectors] { color:inherit !important; text-decoration:none !important; pointer-events:none !important; }
+@media(max-width:767px) { .smm-history { padding:18px 12px 32px; } .smm-history .smm-history-tabs .nav-pills > li > a { padding:9px 11px; font-size:13px; } .smm-history .smm-history-search { padding:16px; } .smm-history .smm-history-pagination { padding:0 16px 16px; } }
+
+/* Form focus: suppress the theme outline while retaining a visible focus indicator. */
+.smm-history input:focus, .smm-history select:focus, .smm-history textarea:focus { outline:none !important; border-color:#2B3E50 !important; box-shadow:0 0 0 2px rgba(43,62,80,.22) !important; }
+.smm-history input:focus-visible, .smm-history select:focus-visible, .smm-history textarea:focus-visible { outline:none !important; }
+
+/* Keep the pressed state consistent with the page's button design. */
+.smm-history button:active, .smm-history input[type="submit"]:active, .smm-history a.btn:active { box-shadow:none !important; }
+.smm-history button[type="submit"]:active, .smm-history input[type="submit"]:active, .smm-history .btn-primary:active { background-color:#1D2E3E !important; border-color:#1D2E3E !important; color:#fff !important; }
+.smm-history .smm-history-tabs .nav-pills > li.active > a, .smm-history .smm-history-tabs .nav-pills > li.active > a:hover, .smm-history .smm-history-tabs .nav-pills > li.active > a:focus, .smm-history .smm-history-tabs .nav-pills > li.active > a:active { background:#2B3E50 !important; color:#fff !important; border:1px solid #2B3E50 !important; border-radius:6px !important; box-shadow:none !important; }
+
+/* Order-history controls: override shared navigation and button rules on this page only. */
+.smm-history .smm-history-toolbar > nav.smm-history-tabs { display:block !important; visibility:visible !important; position:static !important; height:auto !important; max-height:none !important; overflow:visible !important; opacity:1 !important; }
+.smm-history .smm-history-tabs ul.nav.nav-pills { display:flex !important; visibility:visible !important; position:static !important; width:100% !important; margin:0 !important; padding:0 0 4px !important; list-style:none; }
+.smm-history .smm-history-tabs .nav-pills > li { display:block !important; visibility:visible !important; }
+.smm-history .smm-history-tabs .nav-pills > li > a { display:block !important; border:1px solid #d2e0ed !important; border-radius:7px !important; background:#f3f7fb !important; color:#24435f !important; font-weight:600 !important; text-decoration:none !important; box-shadow:none !important; white-space:nowrap; }
+.smm-history .smm-history-tabs .nav-pills > li.active > a,
+.smm-history .smm-history-tabs .nav-pills > li.active > a:hover,
+.smm-history .smm-history-tabs .nav-pills > li.active > a:focus,
+.smm-history .smm-history-tabs .nav-pills > li.active > a:active { background:#2B3E50 !important; border-color:#91aac0 !important; border-radius:7px !important; color:#fff !important; box-shadow:none !important; }
+.smm-history #history-search .form-control { outline:none !important; border:1px solid #cbdced !important; box-shadow:none !important; }
+.smm-history #history-search .form-control:focus { outline:none !important; border-color:#2B3E50 !important; box-shadow:inset 0 0 0 1px #2B3E50 !important; }
+.smm-history #history-search button, .smm-history #history-search button:focus { background:#2B3E50 !important; border-color:#2B3E50 !important; color:#fff !important; }
+.smm-history #history-search button:hover, .smm-history #history-search button:active { background:#1D2E3E !important; border-color:#1D2E3E !important; }
+/* Allow the scroll container to accommodate readable columns instead of breaking words. */
+.smm-history #order-page table { table-layout:auto !important; }
+.smm-history #order-page th:nth-child(3), .smm-history #order-page td:nth-child(3) { min-width:220px; }
+.smm-history #order-page th:nth-child(7), .smm-history #order-page td:nth-child(7) { min-width:260px; }
+.smm-history #order-page th:nth-child(8), .smm-history #order-page td:nth-child(8) { min-width:125px; }
+.smm-history #order-page td:nth-child(8) { overflow-wrap:normal; word-break:normal; white-space:normal; }
+.smm-history #order-page th:last-child, .smm-history #order-page td:last-child { min-width:110px; }
+.smm-history #order-page td:last-child .cancel-btn, .smm-history #order-page td:last-child .reorder-btn { display:inline-block; margin:3px 0 !important; padding:5px 9px !important; border-radius:5px !important; color:#fff !important; line-height:1.4; text-align:center; }
+.smm-history #order-page td:last-child .cancel-btn { background:#c94750 !important; border-color:#c94750 !important; }
+.smm-history #order-page td:last-child .reorder-btn { background:#2B3E50 !important; border-color:#2B3E50 !important; }
+.smm-history #order-page td:last-child .cancel-btn:hover { background:#a6303b !important; }
+.smm-history #order-page td:last-child .reorder-btn:hover { background:#1D2E3E !important; }
+@media (max-width:767px) {
+  .smm-history .smm-history-toolbar > nav.smm-history-tabs { overflow-x:auto !important; overflow-y:hidden !important; -webkit-overflow-scrolling:touch; scrollbar-width:none; -ms-overflow-style:none; }
+  .smm-history .smm-history-toolbar > nav.smm-history-tabs::-webkit-scrollbar { display:none; width:0; height:0; }
+  .smm-history .smm-history-tabs ul.nav.nav-pills { flex-wrap:nowrap !important; width:max-content !important; min-width:100%; }
+  .smm-history .smm-history-tabs .nav-pills > li { flex:0 0 auto; }
+}
+
+/* Prevent the shared .nav .active rule from painting square edges behind the selected link. */
+.smm-history .smm-history-tabs ul.nav.nav-pills > li.active { background:transparent !important; background-color:transparent !important; border:0 !important; box-shadow:none !important; }
+.smm-history .smm-history-tabs ul.nav.nav-pills { margin-bottom:12px !important; }
+/* Keep the date column compact without splitting dates or times. */
+.smm-history #order-page th:nth-child(2), .smm-history #order-page td:nth-child(2) { width:120px; min-width:120px; max-width:120px; }
+.smm-history #order-page td:nth-child(2) { white-space:normal !important; overflow-wrap:normal !important; word-break:normal !important; }
+.smm-history #order-page th:nth-child(9), .smm-history #order-page td:nth-child(9) { width:75px; min-width:75px; white-space:nowrap; }
+
+/* Shared theme accent for panel-provided primary actions and table links. */
+.smm-history .btn-primary { background-color:#2B3E50 !important; border-color:#2B3E50 !important; color:#fff !important; }
+.smm-history .btn-primary:hover, .smm-history .btn-primary:focus, .smm-history .btn-primary:active { background-color:#1D2E3E !important; border-color:#1D2E3E !important; color:#fff !important; }
+.smm-history .table a:not(.btn) { color:#2B3E50; }
+
+/* Consistent table heading colors across the site. */
+.smm-history #order-page .table thead,
+.smm-history #order-page .table thead tr,
+.smm-history #order-page .table thead tr > th,
+.smm-history #order-page .table thead tr > td,
+.smm-history #order-page .table thead tr > :last-child { background-color:#e4f0fb !important; color:#2B3E50 !important; }
+
+/* Match the search field's inset focus style on form fields. */
+.smm-history input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]):not([type="hidden"]):focus,
+.smm-history textarea:focus, .smm-history select:focus { outline:none !important; border-color:#2B3E50 !important; box-shadow:inset 0 0 0 1px #2B3E50 !important; }
+
+/* Consistent readable table text and form controls on desktop and mobile. */
+.smm-history table th:not(.service_cat_header), .smm-history table td:not(.service_cat_header),
+.smm-history table .btn, .smm-history input:not([type="hidden"]):not([type="checkbox"]):not([type="radio"]),
+.smm-history select, .smm-history textarea, .smm-history button, .smm-history label { font-size:15px !important; }
+
+/* Keep body copy readable across screen sizes. */
+.smm-history, .smm-history p, .smm-history li { font-size:15px !important; }
+.smm-history .smm-history-tabs .nav-pills > li > a { font-size:15px !important; }
+
+/* Brighter hover for theme-colored actions; active and disabled states remain distinct. */
+@media (hover:hover) {
+  .smm-history button[type="submit"]:hover:not(:active):not(:disabled):not(.disabled):not([aria-disabled="true"]),
+  .smm-history input[type="submit"]:hover:not(:active):not(:disabled):not(.disabled):not([aria-disabled="true"]),
+  .smm-history .btn-primary:hover:not(:active):not(:disabled):not(.disabled):not([aria-disabled="true"]),
+  .smm-history #history-search button:hover:not(:active):not(:disabled):not(.disabled):not([aria-disabled="true"]),
+  .smm-history #order-page td:last-child .reorder-btn:hover:not(:active):not(:disabled):not(.disabled):not([aria-disabled="true"]),
+  .smm-history .smm-history-tabs .nav-pills > li > a:hover:not(:active):not(:disabled):not(.disabled):not([aria-disabled="true"]) { background-color:#405E78 !important; border-color:#405E78 !important; color:#fff !important; }
+}
+
+/* Place search alongside the filters, stacking on smaller screens. */
+.smm-history .smm-history-toolbar { display:flex; align-items:center; gap:16px; margin:0 0 20px; min-width:0; }
+.smm-history .smm-history-toolbar > nav.smm-history-tabs { flex:1 1 auto; min-width:0; margin:0 !important; }
+.smm-history .smm-history-toolbar .smm-history-tabs ul.nav.nav-pills { margin:0 !important; }
+.smm-history .smm-history-toolbar .smm-history-search { flex:0 1 380px; width:100%; min-width:0; padding:0 !important; border:0; }
+.smm-history .smm-history-toolbar #history-search { width:100%; max-width:none; margin:0 !important; }
+@media (max-width:991px) {
+  .smm-history .smm-history-toolbar { flex-direction:column; align-items:stretch; gap:12px; }
+  .smm-history .smm-history-toolbar > nav.smm-history-tabs { width:100%; flex:0 0 auto; }
+  .smm-history .smm-history-toolbar .smm-history-search { flex:0 0 auto; }
+}
+/* Match the joined drip-feed search control, including its focus state. */
+.smm-history #history-search .input-group { display:flex !important; align-items:stretch; width:100%; height:46px; border:1px solid #91aac0; border-radius:6px; background:#fff; overflow:hidden; }
+.smm-history #history-search .form-control { flex:1 1 0; width:0 !important; min-width:0; height:44px !important; margin:0 !important; border:0 !important; border-radius:0 !important; box-shadow:none !important; }
+.smm-history #history-search .form-control:focus { outline:none !important; border:0 !important; border-radius:5px 0 0 5px !important; box-shadow:inset 0 0 0 1px #405E78 !important; }
+.smm-history #history-search .input-group-btn { display:block; flex:0 0 50px; width:50px; }
+.smm-history #history-search button, .smm-history #history-search button:focus { display:block; width:50px; min-width:50px; height:44px; margin:0 !important; padding:0 !important; border:0 !important; border-left:1px solid #91aac0 !important; border-radius:0 !important; }
+.smm-history #history-search button:focus-visible { outline:2px solid #fff !important; outline-offset:-4px; }
+</style>
+<meta name="format-detection" content="telephone=no">
+<div class="smm-history"><div class="smm-history-wrap">
+  <div class="smm-history-content">[order_history.content.top]</div>
+  <div class="smm-history-toolbar">
+  <nav class="smm-history-tabs" aria-label="Filter orders by status"><ul class="nav nav-pills ">
+                    <li class="[order_history.tab.all.active_class]"><a
+                            href="[order_history.tab.all.url-query]">[order_history.tab.all]</a></li>
+                    <li class="[order_history.tab.pending.active_class]"><a
+                            href="[order_history.tab.pending.url-query]">[order_history.tab.pending]</a></li>
+                    <li class="[order_history.tab.processing.active_class]"><a
+                            href="[order_history.tab.processing.url-query]">[order_history.tab.processing]</a></li>
+                    <li class="[order_history.tab.completed.active_class]"><a
+                            href="[order_history.tab.completed.url-query]">[order_history.tab.completed]</a></li>
+                    <li class="[order_history.tab.partial.active_class]"><a
+                            href="[order_history.tab.partial.url-query]">[order_history.tab.partial]</a></li>
+                    <li class="[order_history.tab.canceled.active_class]"><a
+                            href="[order_history.tab.canceled.url-query]">[order_history.tab.canceled]</a></li>
+                </ul></nav>
+    <div class="smm-history-search"><form action="" method="get" id="history-search">
+                        <div class="input-group">
+                            <input name="search" class="form-control" aria-label="Search orders" placeholder="Search orders" type="text">
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-default" aria-label="Search orders"><i class="fa fa-search"
+                                        aria-hidden="true"></i></button>
+                            </span>
+                        </div>
+                    </form></div>
+  </div>
+  <div class="smm-history-select-compat" aria-hidden="true"><select class="custom-select w-full" aria-label="Order status" tabindex="-1">
+                    <option value="[order_history.tab.all.url-query]" [order_history.tab.all.select_class]>
+                        [order_history.tab.all]</option>
+                    <option value="[order_history.tab.pending.url-query]" [order_history.tab.pending.select_class]>
+                        [order_history.tab.pending]</option>
+                    <option value="[order_history.tab.processing.url-query]"
+                        [order_history.tab.processing.select_class]>[order_history.tab.processing]</option>
+                    <option value="[order_history.tab.completed.url-query]" [order_history.tab.completed.select_class]>
+                        [order_history.tab.completed]</option>
+                    <option value="[order_history.tab.partial.url-query]" [order_history.tab.partial.select_class]>
+                        [order_history.tab.partial]</option>
+                    <option value="[order_history.tab.canceled.url-query]" [order_history.tab.canceled.select_class]>
+                        [order_history.tab.canceled]</option>
+                </select></div>
+  <section class="smm-history-card" aria-label="Order history">
+
+    <div id="order-page" class="table-responsive" role="region" aria-label="Order history table" tabindex="0"><table class="table ">
+                    <thead>
+                        <tr>
+                            <th>[order_history.table.id]</th>
+                            <th>[order_history.table.Date]</th>
+                            <th class="width-40">[order_history.table.Link]</th>
+                            <th>[panel.currency.symbol] [order_history.table.Charge]</th>
+                            <th class="nowrap">[order_history.table.start_count]</th>
+                            <th>[order_history.table.quantity]</th>
+                            <th>[order_history.table.Service]</th>
+                            <th>[order_history.table.status]</th>
+                            <th>[order_history.table.remains]</th>
+                            <th> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        [template.tickets.table.items]
+                    </tbody>
+                </table></div>
+    <nav class="smm-history-pagination" aria-label="Order history pages"><ul class="pagination">[template.pages.pagination.items]</ul></nav>
+  </section>
+  <div class="smm-history-content">[order_history.content.bottom]</div>
+</div></div>
+
+<script>
+(function () {
+  'use strict';
+  var table = document.querySelector('.smm-history #order-page .table');
+  if (!table) return;
+  function wrapDates() {
+    Array.prototype.forEach.call(table.querySelectorAll('tbody tr'), function (row) {
+      var cell = row.cells[1];
+      if (!cell) return;
+      var walker = document.createTreeWalker(cell, NodeFilter.SHOW_TEXT, null);
+      var node;
+      while ((node = walker.nextNode())) {
+        var match = /(\b\d{4}-\d{2}-\d{2})([ \t\u00a0]+)(\d{1,2}:\d{2}(?::\d{2})?)/.exec(node.nodeValue);
+        if (!match) continue;
+        var afterDate = node.splitText(match.index + match[1].length);
+        afterDate.deleteData(0, match[2].length);
+        afterDate.parentNode.insertBefore(document.createElement('br'), afterDate);
+        break;
+      }
+    });
+  }
+  wrapDates();
+  if (window.MutationObserver) {
+    var pending = false;
+    var observer = new MutationObserver(function () {
+      if (pending) return;
+      pending = true;
+      window.requestAnimationFrame(function () { pending = false; wrapDates(); });
+    });
+    observer.observe(table, { childList:true, subtree:true, characterData:true });
+  }
+}());
+</script>

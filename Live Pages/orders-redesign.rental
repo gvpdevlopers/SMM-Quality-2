@@ -1,0 +1,150 @@
+<meta name="format-detection" content="telephone=no">
+<style>
+    .smm-orders .table a {
+        display: none;
+        margin: 5px;
+    }
+
+    .smm-orders .table .btn,
+    .smm-orders .table .order-url a {
+        display: block;
+    }
+
+    .smm-orders #order-pages table tbody tr td:first-child {
+        color: #000 !important;
+        min-width: 100px;
+    }
+
+    .smm-orders #order-pages table tbody tr td:first-child a {
+        display: inline-block !important;
+    }
+
+    .smm-orders a[href^="tel"],
+    .smm-orders a[x-apple-data-detectors] {
+        color: inherit !important;
+        text-decoration: none !important;
+        pointer-events: none !important;
+        cursor: default !important;
+    }
+
+
+.smm-orders a, .smm-orders button, .smm-orders input, .smm-orders select, .smm-orders textarea { transition:background-color .16s ease, border-color .16s ease, box-shadow .16s ease, color .16s ease; }
+@media (prefers-reduced-motion:reduce) { .smm-orders a, .smm-orders button, .smm-orders input, .smm-orders select, .smm-orders textarea { transition:none; } }
+</style>
+<style>
+.smm-orders { color:#183554; padding:28px 20px 48px; }
+.smm-orders *, .smm-orders *::before, .smm-orders *::after { box-sizing:border-box; }
+.smm-orders > .container-fluid { max-width:1440px; padding:0; margin:0 auto; }
+.smm-orders > .paddingbody { display:none; }
+.smm-orders .well { background:#fff; border:1px solid #d9e5f1; border-radius:10px; box-shadow:0 4px 18px rgba(35,71,110,.07); padding:20px; overflow-wrap:anywhere; }
+.smm-orders nav { margin-bottom:18px; }
+.smm-orders .nav-pills { display:flex; flex-wrap:wrap; gap:8px; margin:0 0 16px; padding:0; list-style:none; }
+.smm-orders .nav-pills > li { float:none; margin:0; }
+.smm-orders .nav-pills > li > a { display:block; border:1px solid #d6e4f2; border-radius:6px; background:#fff; color:#315679; padding:9px 14px; text-decoration:none; }
+.smm-orders .nav-pills > li.active > a, .smm-orders .nav-pills > li.active > a:hover, .smm-orders .nav-pills > li.active > a:focus { background:#126cb5; border-color:#126cb5; color:#fff; }
+.smm-orders .forced-pull-right-search { float:none; width:100%; max-width:550px; padding:0; margin:0 0 12px; }
+.smm-orders #history-search .form-control { min-height:44px; border:1px solid #cbdced; border-radius:6px 0 0 6px; box-shadow:none; }
+.smm-orders #history-search button { min-height:44px; border-color:#cbdced; background:#f5f9fd; color:#24435f; }
+.smm-orders nav select.custom-select { max-width:100%; min-height:42px; border:1px solid #cbdced; border-radius:6px; padding:8px; color:#183554; background:#fff; }
+.smm-orders #order-page { padding:0; overflow-x:auto; }
+.smm-orders #order-page .table { width:100%; min-width:1000px; margin:0; border-collapse:collapse; }
+.smm-orders #order-page th, .smm-orders #order-page td { padding:12px; border-bottom:1px solid #e2ebf4; vertical-align:middle; font-size:13px; line-height:1.5; }
+.smm-orders #order-page th { background:#f1f6fc; color:#24435f; white-space:nowrap; }
+.smm-orders #order-page td { overflow-wrap:anywhere; }
+.smm-orders .pagination { margin:4px 0 20px; }
+.smm-orders .pagination a, .smm-orders .pagination span { border-color:#d9e5f1; color:#315679; }
+.smm-orders a:focus-visible, .smm-orders button:focus-visible, .smm-orders input:focus-visible, .smm-orders select:focus-visible { outline:3px solid #78b5e7; outline-offset:2px; }
+@media (max-width:767px) { .smm-orders { padding:18px 12px 32px; } .smm-orders .well { padding:16px; } .smm-orders #order-page { padding:0; } .smm-orders .nav-pills { gap:6px; } .smm-orders .nav-pills > li > a { padding:8px 10px; font-size:13px; } }
+</style>
+
+
+<div class="smm-orders">
+<div class="paddingbody"></div>
+<div class="container-fluid container-fluid-spacious">
+    <div class="row">
+
+
+        <div class="col-lg-12">
+
+            <div class="well well-float table-responsive">
+                [order_history.content.top]
+            </div>
+
+
+            <nav>
+                <ul class="nav nav-pills ">
+                    <li class="[order_history.tab.all.active_class]"><a
+                            href="[order_history.tab.all.url-query]">[order_history.tab.all]</a></li>
+                    <li class="[order_history.tab.pending.active_class]"><a
+                            href="[order_history.tab.pending.url-query]">[order_history.tab.pending]</a></li>
+                    <li class="[order_history.tab.processing.active_class]"><a
+                            href="[order_history.tab.processing.url-query]">[order_history.tab.processing]</a></li>
+                    <li class="[order_history.tab.completed.active_class]"><a
+                            href="[order_history.tab.completed.url-query]">[order_history.tab.completed]</a></li>
+                    <li class="[order_history.tab.partial.active_class]"><a
+                            href="[order_history.tab.partial.url-query]">[order_history.tab.partial]</a></li>
+                    <li class="[order_history.tab.canceled.active_class]"><a
+                            href="[order_history.tab.canceled.url-query]">[order_history.tab.canceled]</a></li>
+                </ul>
+                <div class="col-lg-6 col-xs-12 forced-pull-right-search">
+                    <form action="" method="get" id="history-search">
+                        <div class="input-group">
+                            <input name="search" class="form-control" placeholder="Search orders" type="text">
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-default" aria-label="Search orders"><i class="fa fa-search"
+                                        aria-hidden="true"></i></button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+                <select class="custom-select w-full" aria-label="Order status">
+                    <option value="[order_history.tab.all.url-query]" [order_history.tab.all.select_class]>
+                        [order_history.tab.all]</option>
+                    <option value="[order_history.tab.pending.url-query]" [order_history.tab.pending.select_class]>
+                        [order_history.tab.pending]</option>
+                    <option value="[order_history.tab.processing.url-query]"
+                        [order_history.tab.processing.select_class]>[order_history.tab.processing]</option>
+                    <option value="[order_history.tab.completed.url-query]" [order_history.tab.completed.select_class]>
+                        [order_history.tab.completed]</option>
+                    <option value="[order_history.tab.partial.url-query]" [order_history.tab.partial.select_class]>
+                        [order_history.tab.partial]</option>
+                    <option value="[order_history.tab.canceled.url-query]" [order_history.tab.canceled.select_class]>
+                        [order_history.tab.canceled]</option>
+                </select>
+
+            </nav>
+        </div>
+        <div class="col-md-12">
+            <div id="order-page" class="well well-float table-responsive">
+                <table class="table ">
+                    <thead>
+                        <tr>
+                            <th>[order_history.table.id]</th>
+                            <th>[order_history.table.Date]</th>
+                            <th class="width-40">[order_history.table.Link]</th>
+                            <th>[panel.currency.symbol] [order_history.table.Charge]</th>
+                            <th class="nowrap">[order_history.table.start_count]</th>
+                            <th>[order_history.table.quantity]</th>
+                            <th>[order_history.table.Service]</th>
+                            <th>[order_history.table.status]</th>
+                            <th>[order_history.table.remains]</th>
+                            <th> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        [template.tickets.table.items]
+                    </tbody>
+                </table>
+            </div>
+
+            <ul class="pagination ">
+                [template.pages.pagination.items]
+            </ul>
+
+            <div class="well well-float table-responsive">
+                [order_history.content.bottom]
+            </div>
+        </div>
+    </div>
+</div>
+</div>

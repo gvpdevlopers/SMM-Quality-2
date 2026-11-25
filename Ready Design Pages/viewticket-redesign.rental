@@ -1,0 +1,146 @@
+<style>
+.smm-viewticket { color:#183554; padding:28px 20px 48px; }
+.smm-viewticket *, .smm-viewticket *::before, .smm-viewticket *::after { box-sizing:border-box; }
+.smm-viewticket .paddingbody { display:none; }
+.smm-viewticket .container-fluid { max-width:1100px; padding:0; margin:0 auto; }
+.smm-viewticket .well { background:#fff; border:1px solid #d9e5f1; border-radius:10px; box-shadow:0 4px 18px rgba(35,71,110,.07); padding:24px; overflow-wrap:anywhere; }
+.smm-viewticket h3 { margin:0 0 12px; color:#173756; font-size:22px; font-weight:700; }
+.smm-viewticket p { line-height:1.7; }
+.smm-viewticket label { display:block; margin-bottom:8px; color:#24435f; font-size:14px; font-weight:600; }
+.smm-viewticket .form-group { margin-bottom:18px; }
+.smm-viewticket .form-control { width:100%; min-height:48px; padding:10px 12px; border:1px solid #cbdced; border-radius:6px; background:#fff; color:#183554; box-shadow:none; font-size:14px; }
+.smm-viewticket textarea.form-control { height:auto; resize:vertical; }
+.smm-viewticket .form-control:focus { border-color:#2B3E50; box-shadow:0 0 0 3px rgba(43,62,80,.12); }
+.smm-viewticket .help-block:empty { display:none; }
+.smm-viewticket button[type=submit], .smm-viewticket input[type=submit] { min-height:44px; padding:11px 19px; background:#2B3E50; border:1px solid #2B3E50; border-radius:6px; color:#fff; font-weight:600; }
+.smm-viewticket button[type=submit]:hover, .smm-viewticket button[type=submit]:focus { background:#1D2E3E; }
+.smm-viewticket .titcket-title { color:#173756; font-size:20px; font-weight:700; line-height:1.4; padding:0 0 16px; margin-bottom:18px; border-bottom:1px solid #e2ebf4; }
+.smm-viewticket img { max-width:100%; height:auto; }
+.smm-viewticket a:focus-visible, .smm-viewticket button:focus-visible, .smm-viewticket input:focus-visible, .smm-viewticket textarea:focus-visible { outline:3px solid #78b5e7; outline-offset:2px; }
+@media (max-width:767px) { .smm-viewticket { padding:18px 12px 32px; } .smm-viewticket .well { padding:18px; } }
+
+.smm-viewticket a, .smm-viewticket button, .smm-viewticket input, .smm-viewticket select, .smm-viewticket textarea { transition:background-color .16s ease, border-color .16s ease, box-shadow .16s ease, color .16s ease; }
+@media (prefers-reduced-motion:reduce) { .smm-viewticket a, .smm-viewticket button, .smm-viewticket input, .smm-viewticket select, .smm-viewticket textarea { transition:none; } }
+</style>
+<div class="smm-viewticket">
+<div class="paddingbody"></div>
+<style>
+     html body .smm-viewticket .d_flex .btn_close{
+          min-width: 100px !important;
+          width: fit-content !important;
+     }
+
+/* Form focus: suppress the theme outline while retaining a visible focus indicator. */
+.smm-viewticket input:focus, .smm-viewticket select:focus, .smm-viewticket textarea:focus { outline:none !important; border-color:#2B3E50 !important; box-shadow:0 0 0 2px rgba(43,62,80,.22) !important; }
+.smm-viewticket input:focus-visible, .smm-viewticket select:focus-visible, .smm-viewticket textarea:focus-visible { outline:none !important; }
+
+/* Keep the pressed state consistent with the page's button design. */
+.smm-viewticket button:active, .smm-viewticket input[type="submit"]:active, .smm-viewticket a.btn:active { box-shadow:none !important; }
+.smm-viewticket button[type="submit"]:active, .smm-viewticket input[type="submit"]:active, .smm-viewticket .btn-primary:active { background-color:#1D2E3E !important; border-color:#1D2E3E !important; color:#fff !important; }
+
+/* Shared theme accent for panel-provided primary actions and table links. */
+.smm-viewticket .btn-primary { background-color:#2B3E50 !important; border-color:#2B3E50 !important; color:#fff !important; }
+.smm-viewticket .btn-primary:hover, .smm-viewticket .btn-primary:focus, .smm-viewticket .btn-primary:active { background-color:#1D2E3E !important; border-color:#1D2E3E !important; color:#fff !important; }
+.smm-viewticket .table a:not(.btn) { color:#2B3E50; }
+
+/* Match the search field's inset focus style on form fields. */
+.smm-viewticket input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]):not([type="hidden"]):focus,
+.smm-viewticket textarea:focus, .smm-viewticket select:focus { outline:none !important; border-color:#2B3E50 !important; box-shadow:inset 0 0 0 1px #2B3E50 !important; }
+
+/* Consistent readable table text and form controls on desktop and mobile. */
+.smm-viewticket table th:not(.service_cat_header), .smm-viewticket table td:not(.service_cat_header),
+.smm-viewticket table .btn, .smm-viewticket input:not([type="hidden"]):not([type="checkbox"]):not([type="radio"]),
+.smm-viewticket select, .smm-viewticket textarea, .smm-viewticket button, .smm-viewticket label { font-size:15px !important; }
+
+/* Keep body copy readable across screen sizes. */
+.smm-viewticket, .smm-viewticket p, .smm-viewticket li { font-size:15px !important; }
+
+/* Brighter hover for theme-colored actions; active and disabled states remain distinct. */
+@media (hover:hover) {
+  .smm-viewticket button[type="submit"]:hover:not(:active):not(:disabled):not(.disabled):not([aria-disabled="true"]),
+  .smm-viewticket input[type="submit"]:hover:not(:active):not(:disabled):not(.disabled):not([aria-disabled="true"]),
+  .smm-viewticket .btn-primary:hover:not(:active):not(:disabled):not(.disabled):not([aria-disabled="true"]) { background-color:#405E78 !important; border-color:#405E78 !important; color:#fff !important; }
+}
+</style>
+<div class="container-fluid container-fluid-spacious">
+     <div class="row">
+
+          <div class="col-md-3">
+
+          </div>
+          <div class="col-md-6">
+               [error_message]
+               <div class="well">
+                    <div class="titcket-title">
+                         <div class="row">
+                              <div class="col-md-8">
+                                   [ticket.subject]
+                              </div>
+                              <div class="col-md-4">
+                                   <!-- <a class="pull-right close-button [tickets.close-button.css-class]" href="?close_ticket=[ticket.id]">[tickets.button.close-ticket]</a> -->
+                              </div>
+                         </div>
+                    </div>
+                    [ticket.responses]
+
+                    [template.ticket-show.response-area]
+               </div>
+          </div>
+          <div class="col-md-3">
+
+          </div>
+     </div>
+</div>
+
+<script>
+     function readFile() {
+
+          if (!this.files || !this.files[0]) return;
+
+          document.getElementById("upload_status").innerHTML = 'Please wait! We are uploading your image.';
+
+          const FR = new FileReader();
+
+          FR.addEventListener("load", function (evt) {
+               var message_old_value = document.getElementsByName("message")[0].value;
+               var post_data = "key=[user.username]&image=" + encodeURIComponent(evt.target.result);
+               var xhttp = new XMLHttpRequest();
+               xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                         var response_back = JSON.parse(this.responseText);
+
+                         if (typeof response_back.image !== 'undefined') {
+                              document.getElementsByName("message")[0].value = message_old_value + ' ' + response_back.image;
+
+
+
+                              var elementExists = document.getElementById("message");
+                              if (elementExists) {
+                                   document.getElementById("message").value = document.getElementById("message").value + " " + response_back.image;
+                              }
+
+                              document.getElementById("upload_status").innerHTML = 'Image is uploaded. You can create ticket';
+                         } else {
+                              document.getElementById("upload_status").innerHTML = 'Image uploading failed. Try again after refreshing page';
+
+                         }
+
+
+
+                    }
+               };
+               xhttp.open("POST", "https://panelupdates.com/uploader/api", true);
+               xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+               xhttp.send(post_data);
+
+          });
+
+          FR.readAsDataURL(this.files[0]);
+
+     }
+
+     var input = document.getElementById('inp');
+     if (input) input.addEventListener("change", readFile);
+
+</script>
+</div>

@@ -1,0 +1,151 @@
+<style>
+.smm-transactions { color:#183554; padding:28px 20px 48px; }
+.smm-transactions *, .smm-transactions *::before, .smm-transactions *::after { box-sizing:border-box; }
+.smm-transactions > .container-fluid { max-width:1320px; padding:0; margin:0 auto; }
+.smm-transactions > .paddingbody { display:none; }
+.smm-transactions #order-page { padding:0; background:#fff; border:1px solid #d9e5f1; border-radius:10px; box-shadow:0 4px 18px rgba(35,71,110,.07); overflow-x:auto; }
+/* Remove shared theme spacing between the card and table. */
+.smm-transactions #order-page { padding:0 !important; }
+.smm-transactions #order-page .table { margin:0 !important; border-spacing:0 !important; }
+.smm-transactions #order-page .table { width:100%; min-width:700px; margin:0; border-collapse:collapse; }
+.smm-transactions #order-page th, .smm-transactions #order-page td { padding:15px 13px; border-bottom:1px solid #e2ebf4; vertical-align:middle; font-size:15px; line-height:1.6; }
+.smm-transactions #order-page th { background:#f1f6fc; color:#24435f; white-space:nowrap; }
+.smm-transactions #order-page .table thead th, .smm-transactions #order-page .table thead td { background:#e4f0fb !important; color:#2B3E50 !important; }
+/* Transaction types are labels; their existing content and links stay intact. */
+.smm-transactions #order-page .smm-transaction-type { display:inline-block; padding:5px 10px; border:1px solid transparent; border-radius:6px; font-size:15px; font-weight:600; line-height:1.4; white-space:nowrap; }
+.smm-transactions #order-page .smm-transaction-type--deduction { background:#fceced !important; border-color:#f3cdd1 !important; color:#a43d48 !important; }
+.smm-transactions #order-page .smm-transaction-type--addition { background:#e9f6ee !important; border-color:#c8e9d3 !important; color:#287447 !important; }
+.smm-transactions #order-page .smm-transaction-type--credit { background:#eaf0f6 !important; border-color:#cddae5 !important; color:#35536c !important; }
+.smm-transactions #order-page .smm-transaction-type a:not(.btn) { color:inherit !important; }
+.smm-transactions #order-page td { overflow-wrap:anywhere; }
+.smm-transactions #order-page tbody tr:hover { background:#f8fbfe; }
+.smm-transactions .pagination { margin:4px 0 20px; }
+.smm-transactions .pagination a, .smm-transactions .pagination span { border-color:#d9e5f1; color:#315679; }
+.smm-transactions a:focus-visible, .smm-transactions button:focus-visible { outline:3px solid #78b5e7; outline-offset:2px; }
+@media (max-width:767px) { .smm-transactions { padding:18px 12px 32px; } .smm-transactions #order-page th, .smm-transactions #order-page td { padding:11px; font-size:15px; } }
+
+.smm-transactions a, .smm-transactions button, .smm-transactions input, .smm-transactions select, .smm-transactions textarea { transition:background-color .16s ease, border-color .16s ease, box-shadow .16s ease, color .16s ease; }
+@media (prefers-reduced-motion:reduce) { .smm-transactions a, .smm-transactions button, .smm-transactions input, .smm-transactions select, .smm-transactions textarea { transition:none; } }
+
+/* Form focus: suppress the theme outline while retaining a visible focus indicator. */
+.smm-transactions input:focus, .smm-transactions select:focus, .smm-transactions textarea:focus { outline:none !important; border-color:#2B3E50 !important; box-shadow:0 0 0 2px rgba(43,62,80,.22) !important; }
+.smm-transactions input:focus-visible, .smm-transactions select:focus-visible, .smm-transactions textarea:focus-visible { outline:none !important; }
+
+/* Keep the pressed state consistent with the page's button design. */
+.smm-transactions button:active, .smm-transactions input[type="submit"]:active, .smm-transactions a.btn:active { box-shadow:none !important; }
+.smm-transactions button[type="submit"]:active, .smm-transactions input[type="submit"]:active, .smm-transactions .btn-primary:active { background-color:#1D2E3E !important; border-color:#1D2E3E !important; color:#fff !important; }
+
+/* Shared theme accent for panel-provided primary actions and table links. */
+.smm-transactions .btn-primary { background-color:#2B3E50 !important; border-color:#2B3E50 !important; color:#fff !important; }
+.smm-transactions .btn-primary:hover, .smm-transactions .btn-primary:focus, .smm-transactions .btn-primary:active { background-color:#1D2E3E !important; border-color:#1D2E3E !important; color:#fff !important; }
+.smm-transactions .table a:not(.btn) { color:#2B3E50; }
+
+/* Align each heading with its data and balance the outside spacing. */
+.smm-transactions #order-page .table { table-layout:fixed !important; min-width:820px; }
+.smm-transactions #order-page .table th, .smm-transactions #order-page .table td { width:21%; text-align:left !important; }
+.smm-transactions #order-page .table th:last-child, .smm-transactions #order-page .table td:last-child { width:16%; padding-right:24px; }
+.smm-transactions #order-page .table th:first-child, .smm-transactions #order-page .table td:first-child { padding-left:24px; }
+.smm-transactions #order-page .table td:nth-child(-n+4) { white-space:nowrap; overflow-wrap:normal; word-break:normal; }
+@media (max-width:767px) {
+  .smm-transactions #order-page .table th:first-child, .smm-transactions #order-page .table td:first-child { padding-left:16px; }
+  .smm-transactions #order-page .table th:last-child, .smm-transactions #order-page .table td:last-child { padding-right:16px; }
+}
+
+/* Consistent table heading colors across the site. */
+.smm-transactions #order-page .table thead,
+.smm-transactions #order-page .table thead tr,
+.smm-transactions #order-page .table thead tr > th,
+.smm-transactions #order-page .table thead tr > td,
+.smm-transactions #order-page .table thead tr > :last-child { background-color:#e4f0fb !important; color:#2B3E50 !important; }
+
+/* Match the search field's inset focus style on form fields. */
+.smm-transactions input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]):not([type="hidden"]):focus,
+.smm-transactions textarea:focus, .smm-transactions select:focus { outline:none !important; border-color:#2B3E50 !important; box-shadow:inset 0 0 0 1px #2B3E50 !important; }
+
+/* Consistent readable table text and form controls on desktop and mobile. */
+.smm-transactions table th:not(.service_cat_header), .smm-transactions table td:not(.service_cat_header),
+.smm-transactions table .btn, .smm-transactions input:not([type="hidden"]):not([type="checkbox"]):not([type="radio"]),
+.smm-transactions select, .smm-transactions textarea, .smm-transactions button, .smm-transactions label { font-size:15px !important; }
+.smm-transactions #order-page .smm-transaction-type { font-size:15px !important; }
+
+/* Keep body copy readable across screen sizes. */
+.smm-transactions, .smm-transactions p, .smm-transactions li { font-size:15px !important; }
+
+/* Brighter hover for theme-colored actions; active and disabled states remain distinct. */
+@media (hover:hover) {
+  .smm-transactions button[type="submit"]:hover:not(:active):not(:disabled):not(.disabled):not([aria-disabled="true"]),
+  .smm-transactions input[type="submit"]:hover:not(:active):not(:disabled):not(.disabled):not([aria-disabled="true"]),
+  .smm-transactions .btn-primary:hover:not(:active):not(:disabled):not(.disabled):not([aria-disabled="true"]) { background-color:#405E78 !important; border-color:#405E78 !important; color:#fff !important; }
+}
+</style>
+<script>
+(function () {
+  'use strict';
+  function initTransactionTypes() {
+    var table = document.querySelector('.smm-transactions #order-page .table');
+    if (!table) return false;
+    var types = { deduction:true, addition:true, credit:true };
+    function styleTypes() {
+      Array.prototype.forEach.call(table.querySelectorAll('tbody tr'), function (row) {
+        var cell = row.cells[1];
+        if (!cell || cell.querySelector('.smm-transaction-type')) return;
+        var type = cell.textContent.trim().toLowerCase();
+        if (!Object.prototype.hasOwnProperty.call(types, type)) return;
+        var label = document.createElement('span');
+        label.className = 'smm-transaction-type smm-transaction-type--' + type;
+        while (cell.firstChild) label.appendChild(cell.firstChild);
+        cell.appendChild(label);
+      });
+    }
+    styleTypes();
+    if (window.MutationObserver) {
+      var rowsObserver = new MutationObserver(styleTypes);
+      rowsObserver.observe(table, { childList:true, subtree:true, characterData:true });
+    }
+    return true;
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTransactionTypes, { once:true });
+  } else if (!initTransactionTypes() && window.MutationObserver) {
+    var pageObserver = new MutationObserver(function () {
+      if (initTransactionTypes()) pageObserver.disconnect();
+    });
+    pageObserver.observe(document.documentElement, { childList:true, subtree:true });
+  }
+}());
+</script>
+<div class="smm-transactions">
+		
+		
+		<div class="paddingbody"></div>
+		<div class="container-fluid container-fluid-spacious">
+			<div class="row">
+				
+				<div class="col-md-12">
+					<div id="order-page" class="well well-float table-responsive">
+						<table class="table ">
+							<thead>
+								<tr>
+									<th>[transactions.table.id]</th>
+									<th>[transactions.table.type]</th>
+									<th>[panel.currency.symbol] [transactions.table.amount]</th>
+									<th>[transactions.table.Date]</th>
+									<th>[transactions.table.details]</th>
+								</tr>
+							</thead>
+							<tbody>
+								[template.transactions.table.items]
+							</tbody>
+						</table>
+					</div>
+					
+					<ul class="pagination ">
+						[template.pages.pagination.items]
+					</ul>
+					
+				</div>
+			</div>
+		</div>
+</div>
+
+

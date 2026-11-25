@@ -1,0 +1,207 @@
+<div class="paddingbody"></div>
+<div class="container-fluid container-fluid-spacious blog-single-section">
+  <div class="row">
+    <div class="col-lg-10 col-lg-offset-1">
+      <div class="blog-single-card">
+        <h2 class="single-title">
+          <a href="[post.url]" class="post-link">[post.title]</a>
+        </h2>
+        <div class="single-image">
+          <img src="[post.image-url]" alt="[post.title]" />
+        </div>
+        <div class="single-content">[post.content]</div>
+
+        <a href="/blog" class="back-btn">← Back to Blog</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.blog-single-section {
+  background-color: #2B3E50;
+  padding: 60px 20px;
+  color: #fff;
+}
+  .back-btn:hover {
+    color: #fff;
+    
+}
+.blog-single-card {
+  border: 1px solid rgba(135, 199, 247, .24);
+    border-radius: 18px;
+    background: linear-gradient(145deg, rgba(28, 54, 74, .78), rgba(20, 40, 57, .68));
+    box-shadow: 0 22px 50px rgba(5, 16, 27, .16), inset 0 1px 0 rgba(255, 255, 255, .045);
+  
+  padding: 35px;
+  overflow-wrap: break-word; /* prevents long text overflow */
+  word-break: break-word;
+}
+.single-title {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #fff;
+}
+.post-link {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.post-link:hover {
+  color: #00b4ff;
+  text-decoration: underline;
+}
+.single-image img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  max-width: 100%;
+  height: auto;
+}
+.single-content {
+  font-size: 16px;
+  color: #ddd;
+  line-height: 1.7;
+  margin-bottom: 30px;
+  overflow-wrap: break-word; /* fixes content overflow */
+  word-break: break-word;
+}
+.back-btn {
+  display: inline-block;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+.back-btn:hover {
+  background-color: #005fcc;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .blog-single-card {
+    padding: 25px;
+  }
+  .single-title {
+    font-size: 22px;
+  }
+  .single-content {
+    font-size: 15px;
+  }
+}
+  
+  
+  
+  
+  /* ========================================
+   RESPONSIVE BLOG TABLE
+   Applies to all blog tables automatically
+   ======================================== */
+
+table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+
+    table {
+        table-layout: auto;
+    }
+
+    table th,
+    table td {
+        word-break: normal !important;
+        overflow-wrap: normal !important;
+        white-space: normal !important;
+    }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+
+    table {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+
+        -webkit-overflow-scrolling: touch;
+
+        white-space: normal !important;
+    }
+
+    table tbody {
+        display: table !important;
+
+        width: 700px !important;
+        min-width: 700px !important;
+
+        table-layout: fixed !important;
+    }
+
+    table th,
+    table td {
+        padding: 14px 12px !important;
+
+        vertical-align: top !important;
+
+        word-break: normal !important;
+        overflow-wrap: normal !important;
+        white-space: normal !important;
+
+        line-height: 1.6 !important;
+    }
+
+    /* Column 1 */
+    table th:nth-child(1),
+    table td:nth-child(1) {
+        width: 150px !important;
+        min-width: 150px !important;
+    }
+
+    /* Column 2 */
+    table th:nth-child(2),
+    table td:nth-child(2) {
+        width: 260px !important;
+        min-width: 260px !important;
+    }
+
+    /* Column 3 */
+    table th:nth-child(3),
+    table td:nth-child(3) {
+        width: 290px !important;
+        min-width: 290px !important;
+    }
+
+    /* Scrollbar */
+    table::-webkit-scrollbar {
+        height: 6px;
+    }
+
+    table::-webkit-scrollbar-track {
+        background: #1a2430;
+    }
+
+    table::-webkit-scrollbar-thumb {
+        background: #666;
+        border-radius: 10px;
+    }
+}
+  ul{
+      padding-inline-start: 16px!important;
+  }
+
+</style>
+
+
+
+
+
+

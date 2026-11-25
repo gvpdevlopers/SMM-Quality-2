@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>[panel.title]</title>
+		<meta property="og:title" content="[panel.title]" />
+     
+      
+		[panel.header]
+		[panel.theme-assets]
+		[panel.css-assets]
+		[panel.google-recaptcha-api]
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
+ <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "SMMQuality",
+      "url": "https://www.smmquality.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://res.cloudinary.com/rentalpanel/image/upload/v1642665892/vgcku3sx2qwc3povurxq.png",
+        "width": 200,
+        "height": 60
+      },
+      "sameAs": [
+        "https://www.instagram.com/smmquality",
+        "https://www.facebook.com/smmquality",
+        "https://www.youtube.com/@smmquality"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "availableLanguage": ["English", "Hindi"]
+      }
+    }
+    </script>
+      
+    
+      
+      
+      <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "SMMQuality",
+  "url": "https://www.smmquality.com/"
+}
+</script>
+      
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How fast does SMM Quality deliver?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most orders start within 1 to 5 minutes of payment. Orders under 1,000 units usually complete in 30 to 60 minutes; larger orders deliver gradually over hours. You can track every order live on your dashboard."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it safe to use an SMM panel for Instagram or YouTube?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Platform rules prohibit artificial engagement, and no panel can remove that risk or guarantee results. Gradual delivery from quality sources avoids sudden spikes that draw attention. Start with a small test order before you scale."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does the refill guarantee cover?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If an eligible order drops below what you paid for, we top it up at no extra cost for the refill window shown on that service. If we can't deliver at all, you are refunded. Refill windows vary by service, so check the service page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can agencies and resellers actually run their business on SMM Quality?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes - full API access, real-time order tracking, and bulk pricing tiers that protect your margins as volume scales, plus white-label delivery so your clients see your brand, not ours. Agencies managing multiple client accounts get one dashboard and one wallet instead of juggling logins across platforms."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the minimum to get started?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No minimum wallet balance and no approval process. Sign-up takes about 30 seconds with just an email and password, and you can fund your wallet and place your first order in the same session. Individual services have their own minimum order quantities, shown on each service page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which platforms does SMM Quality actually cover?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Instagram, YouTube, TikTok, Telegram, and Facebook, with 35+ individual growth services across them - followers, views, likes, comments, watch time, channel members, and more, all from one dashboard and one wallet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is SMM Quality the cheapest SMM panel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not the lowest-priced, and that is deliberate. We price for retention and refill cover rather than the cheapest sourcing. Current rates for every service are on the pricing page, so you can compare before you order."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the SMM panel have an API for resellers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Full API access, bulk pricing and white-label delivery are available for agencies and resellers, with real-time order tracking from the same dashboard."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does SMM Quality work for Indian users?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. You can fund your wallet through UPI (Google Pay, PhonePe, Paytm, BHIM), RuPay or other cards, and support answers on WhatsApp on an Indian number. Some Instagram and YouTube services let you choose India-targeted delivery; the service description shows what is available."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between an SMM panel and an SMM reseller panel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An SMM panel sells services directly to creators and brands. A reseller panel adds an API, bulk pricing and white-label ordering so agencies can sell those services to their own clients. SMM Quality offers both from one dashboard."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I choose the best SMM panel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Compare four things: retention after 30 days, a refill policy that is honoured, clear service descriptions with real prices, and support that answers quickly. Place a small test order first and check how it holds after a few weeks."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I contact support if an order drops?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Message us on WhatsApp, email or open a ticket with your order ID. We check the order and apply a refill if it is eligible."
+      }
+    }
+  ]
+}
+</script>
+
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins" , sans-serif;
+}
+body{
+  min-height: 100vh;
+  width: 100%;
+  background: #EEECEB;
+}
+footer{
+  margin-top: 50px;
+  position: relative;
+  background: #373539;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+footer::before{
+  content: '';
+  position: relative;
+  left: 0;
+  top: 100px;
+  height: 1px;
+  width: 100%;
+  background: #373539;
+}
+footer .content{
+  max-width: 1250px;
+  margin: auto;
+  padding: 30px 40px 40px 40px;
+}
+footer .content .top{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0px;
+}
+.content .top .logo-details{
+  color: #fff;
+  font-size: 30px;
+}
+.content .top .media-icons{
+  display: flex;
+}
+.content .top .media-icons a{
+  height: 40px;
+  width: 40px;
+  margin: 0 8px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px;
+  color: #fff;
+  font-size: 17px;
+  text-decoration: none;
+  transition: all 0.4s ease;
+}
+.top .media-icons a:nth-child(1){
+  background: #4267B2;
+}
+.top .media-icons a:nth-child(1):hover{
+  color: #4267B2;
+  background: #fff;
+}
+.top .media-icons a:nth-child(2){
+  background: #1DA1F2;
+}
+.top .media-icons a:nth-child(2):hover{
+  color: #1DA1F2;
+  background: #fff;
+}
+.top .media-icons a:nth-child(3){
+  background: #E1306C;
+}
+.top .media-icons a:nth-child(3):hover{
+  color: #E1306C;
+  background: #fff;
+}
+.top .media-icons a:nth-child(4){
+  background: #0077B5;
+}
+.top .media-icons a:nth-child(4):hover{
+  color: #0077B5;
+  background: #fff;
+}
+.top .media-icons a:nth-child(5){
+  background: #FF0000;
+}
+.top .media-icons a:nth-child(5):hover{
+  color: #FF0000;
+  background: #fff;
+}
+footer .content .link-boxes{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+footer .content .link-boxes .box{
+  width: calc(100% / 5 - 10px);
+}
+.content .link-boxes .box .link_name{
+  color: #fff;
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 10px;
+  position: relative;
+}
+.link-boxes .box .link_name::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 2px;
+  width: 35px;
+  background: #fff;
+}
+.content .link-boxes .box li{
+  margin: 6px 0;
+  list-style: none;
+}
+.content .link-boxes .box li a{
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  text-decoration: none;
+  opacity: 0.8;
+  transition: all 0.4s ease
+}
+.content .link-boxes .box li a:hover{
+  opacity: 1;
+  text-decoration: underline;
+}
+.content .link-boxes .input-box{
+  margin-right: 55px;
+}
+.link-boxes .input-box input{
+  height: 40px;
+  width: calc(100% + 55px);
+  outline: none;
+  border: 2px solid #AFAFB6;
+  background: #140B5C;
+  border-radius: 4px;
+  padding: 0 15px;
+  font-size: 15px;
+  color: #fff;
+  margin-top: 5px;
+}
+.link-boxes .input-box input::placeholder{
+  color: #AFAFB6;
+  font-size: 16px;
+}
+.link-boxes .input-box input[type="button"]{
+  background: #fff;
+  color: #140B5C;
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 4px 0;
+  opacity: 0.8;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+.input-box input[type="button"]:hover{
+  opacity: 1;
+}
+footer .bottom-details{
+  width: 100%;
+background: #2c303a;
+}
+footer .bottom-details .bottom_text{
+  max-width: 1250px;
+  margin: auto;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: center;
+}
+.bottom-details .bottom_text span,
+.bottom-details .bottom_text a{
+  font-size: 14px;
+  font-weight: 300;
+  color: #fff;
+  opacity: 0.8;
+  text-decoration: none;
+}
+.bottom-details .bottom_text a:hover{
+  opacity: 1;
+  text-decoration: underline;
+}
+.bottom-details .bottom_text a{
+  text-align:center;
+}
+@media (max-width: 900px) {
+  footer .content .link-boxes{
+    flex-wrap: wrap;
+  }
+  footer .content .link-boxes .input-box{
+    width: 40%;
+    margin-top: 10px;
+  }
+}
+@media (max-width: 700px){
+  footer{
+    position: relative;
+  }
+  .content .top .logo-details{
+    font-size: 26px;
+  }
+  .content .top .media-icons a{
+    height: 35px;
+    width: 35px;
+    font-size: 14px;
+    line-height: 35px;
+  }
+  footer .content .link-boxes .box{
+    width: calc(100% / 3 - 10px);
+  }
+  footer .content .link-boxes .input-box{
+    width: 60%;
+  }
+  .bottom-details .bottom_text span,
+  .bottom-details .bottom_text a{
+    font-size: 12px;
+  }
+}
+@media (max-width: 520px){
+  footer::before{
+    top: 145px;
+  }
+  footer .content .top{
+    flex-direction: column;
+  }
+  .content .top .media-icons{
+    margin-top: 16px;
+  }
+  footer .content .link-boxes .box{
+    width: calc(100% / 2 - 10px);
+  }
+  footer .content .link-boxes .input-box{
+    width: 100%;
+  }
+}
+
+
+</style>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
+
+	</head>
+	<body id="[panel.module_key]" class="[panel.page.class]">
+		[template.panel.nav.without-login]
+		[template.panel.nav.with-login]
+		
+		
+		[yield]
+      
+
+	</body>
+  
+
+        
+	[panel.javascript-assets]
+	[panel.custom-javascript]
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  
+  <script>
+	$(".regular").slick({
+        
+        infinite: true,
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        autoplay:true,
+        arrow:true,
+
+
+        responsive: [{
+        breakpoint: 600,
+        settings: {
+            slidesToShow: 1
+        }
+    }, {
+        breakpoint: 490,
+        settings: {
+            slidesToShow: 1
+        }
+    }]
+      });
+	</script>
+  		<script>
+			
+			$('#message').on('keyup',function(){
+var val=$(this).val();
+$('#hmessage').val(val);
+    });
+   
+		</script>
+  
+  
+</html>

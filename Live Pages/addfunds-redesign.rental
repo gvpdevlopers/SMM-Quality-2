@@ -1,0 +1,83 @@
+<style>
+.smm-addfunds { --fund-ink:#183554; --fund-border:#d9e5f1; color:var(--fund-ink); padding:28px 20px 48px; }
+.smm-addfunds *, .smm-addfunds *::before, .smm-addfunds *::after { box-sizing:border-box; }
+.smm-funding-layout { max-width:1320px; margin:0 auto; display:grid; grid-template-columns:minmax(0, 1.1fr) minmax(0, 1fr); gap:24px; align-items:start; }
+.smm-funding-top { grid-column:1 / -1; }
+.smm-funding-card, .smm-funding-content, .smm-funding-support, .smm-funding-top { min-width:0; background:#fff; border:1px solid var(--fund-border); border-radius:10px; box-shadow:0 4px 18px rgba(35,71,110,.07); padding:24px; overflow-wrap:anywhere; }
+.smm-funding-top:empty, .smm-funding-content:empty { display:none; }
+.smm-funding-aside { display:grid; gap:20px; min-width:0; }
+.smm-funding-card h1 { margin:0 0 8px; color:#173756; font-size:22px; font-weight:700; }
+.smm-funding-intro { margin:0 0 24px; color:#526e88; font-size:14px; line-height:1.7; }
+.smm-addfunds .form-group { margin-bottom:18px; }
+.smm-addfunds label { display:block; margin-bottom:8px; color:#24435f; font-size:14px; font-weight:600; }
+.smm-addfunds .form-control { width:100%; min-height:48px; padding:10px 12px; border:1px solid #cbdced; border-radius:6px; background:#fff; color:#183554; box-shadow:none; font-size:14px; }
+.smm-addfunds .form-control:focus { border-color:#548cbd; box-shadow:0 0 0 3px rgba(52,125,188,.12); }
+.smm-addfunds .help-block:empty { display:none; }
+.smm-addfunds #image_areaa { text-align:center; }
+.smm-addfunds #iiimaaageID { max-width:100%; height:auto; }
+.smm-addfunds #instructions { border:1px solid #dce8f4; border-radius:7px; background:#f5f9fd; padding:15px; overflow-wrap:anywhere; }
+.smm-addfunds button[type=submit], .smm-addfunds .smm-ticket { display:inline-block; background:#126cb5; border:1px solid #126cb5; border-radius:6px; color:#fff; font-weight:600; padding:11px 19px; min-height:44px; text-align:center; text-decoration:none; }
+.smm-addfunds button[type=submit]:hover, .smm-addfunds button[type=submit]:focus, .smm-addfunds .smm-ticket:hover, .smm-addfunds .smm-ticket:focus { background:#0d578f; color:#fff; }
+.smm-addfunds :is(button,input,select,a):focus-visible { outline:3px solid #78b5e7; outline-offset:2px; }
+@media (max-width:900px) { .smm-funding-layout { grid-template-columns:minmax(0,1fr); gap:16px; } }
+@media (max-width:480px) { .smm-addfunds { padding:18px 12px 32px; } .smm-funding-card, .smm-funding-content, .smm-funding-support, .smm-funding-top { padding:18px; } .smm-addfunds button[type=submit], .smm-addfunds .smm-ticket { width:100%; } }
+
+.smm-addfunds a, .smm-addfunds button, .smm-addfunds input, .smm-addfunds select, .smm-addfunds textarea { transition:background-color .16s ease, border-color .16s ease, box-shadow .16s ease, color .16s ease; }
+@media (prefers-reduced-motion:reduce) { .smm-addfunds a, .smm-addfunds button, .smm-addfunds input, .smm-addfunds select, .smm-addfunds textarea { transition:none; } }
+</style>
+<div class="smm-addfunds">
+  <div class="smm-funding-layout" id="pills-tabContent">
+    <div class="smm-funding-top">[addfunds.content.top]</div>
+    <section id="main-page" class="smm-funding-card" aria-labelledby="smm-funding-title">
+      <h1 id="smm-funding-title">Add Funds</h1>
+      <p class="smm-funding-intro">Select a payment method and enter the required details.</p>
+      [error_message]
+      <form  method="post" action="" data-parsley-validate="" id="demo-form2" novalidate="">
+											<div class="form-group">
+												<label class="control-label" for="payment_type"> [add_funds.form.method] </label>
+												<select  name="payment_type" id="payment_type"  class="form-control" >
+													[add_funds.form.method.list]	
+												</select>
+												<p class="help-block help-block-error"></p>
+											</div>
+											
+											
+												
+												<div class="form-group row" id="image_areaa" style="display:none;" >
+													<div class="col-md-12">
+														<img src="" id="iiimaaageID" class="img-fluid" style="max-width:100%;" />
+													</div>
+												</div>
+												
+												
+												<div class="form-group" id="instruction_div" style="display:none;"  >
+													<label class="control-label" for="instructions"></label>
+													<div class="panel-body border-solid border-rounded" id="instructions" ></div>
+												</div>
+												
+												<div class="form-group" id="transaction_area" style="display:none;" >
+													<label class="control-label" id="transaction_id_dvi" for="transaction_id"></label>
+													<input class="form-control" name="transaction_id" id="transaction_id" type="text">
+													<p class="help-block help-block-error"></p>
+												</div>
+												
+												<div class="form-group">
+													<label class="control-label" id="amount_id_dvi" for="amount"></label>
+													<input class="form-control" name="amount" id="amount" required type="text">
+													<p class="help-block help-block-error"></p>
+												</div>
+												
+												<div class="form-group" style="display:none;">
+													<label><input type="checkbox" name="checkbox" checked > [add_funds.form.charge_back_text] </label>
+												</div>
+												
+												[panel.csrf_protection]
+												<button type="submit" class="btn btn-default"> [add_funds.form.pay_button] </button>
+										</form>
+    </section>
+    <aside class="smm-funding-aside">
+      <div id="main-page" class="smm-funding-content">[add_funds.content.bottom]</div>
+      <div id="main-page" class="smm-funding-support"><a class="btn btn-primary ticketbtn center smm-ticket" href="tickets">[pages_ticket_button]</a></div>
+    </aside>
+  </div>
+</div>

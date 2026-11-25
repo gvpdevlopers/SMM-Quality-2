@@ -1,0 +1,225 @@
+<style>
+.smm-account { --account-ink:#183554; --account-border:#d9e5f1; color:var(--account-ink); padding:28px 20px 48px; }
+.smm-account *, .smm-account *::before, .smm-account *::after { box-sizing:border-box; }
+.smm-account .smm-account-layout { display:block !important; width:100% !important; max-width:1320px; margin:0 auto !important; }
+.smm-account .smm-account-row { display:grid !important; grid-template-columns:minmax(0,1.75fr) minmax(0,1fr) !important; gap:24px; align-items:start; width:100%; margin:0 0 24px; }
+.smm-account .smm-account-layout > .smm-account-row:last-child { margin-bottom:0; }
+.smm-account-message { grid-column:1 / -1; min-width:0; }
+.smm-account-message:empty { display:none; }
+.smm-account-card, .smm-account-help { min-width:0; background:#fff !important; border:1px solid var(--account-border) !important; border-radius:10px !important; box-shadow:0 4px 18px rgba(35,71,110,.07); padding:24px; }
+.smm-account-heading { display:flex; gap:16px; align-items:flex-start; margin-bottom:24px; }
+.smm-account-icon { flex:0 0 46px; width:46px; height:46px; display:flex; align-items:center; justify-content:center; border-radius:9px; background:#eaf3fc; color:#2B3E50; font-size:20px; font-weight:700; }
+.smm-account h1, .smm-account h2 { margin:0 0 3px; color:#173756; font-size:18px; line-height:1.3; font-weight:700; }
+.smm-account p, .smm-account li { color:#526e88; font-size:13px; line-height:1.7; }
+.smm-account-heading p, .smm-account-help p { margin:0; }
+.smm-account .form-group { margin-bottom:18px; }
+.smm-account label { display:block; margin-bottom:8px; color:#24435f; font-size:15px; font-weight:600; }
+.smm-account .form-control { width:100%; min-height:48px; border:1px solid #cbdced; border-radius:6px; background:#fff; color:#183554; box-shadow:none; padding:10px 12px; font-size:14px; }
+.smm-account .form-control:focus { border-color:#2B3E50; box-shadow:0 0 0 3px rgba(43,62,80,.12); }
+.smm-account input[readonly] { background:#f6f9fc; }
+.smm-account .panel-border-top { border:0; padding-top:0; }
+.smm-account .help-block:empty { display:none; }
+.smm-account button[type=submit] { background:#2B3E50 !important; border:1px solid #2B3E50 !important; border-radius:6px !important; color:#fff !important; font-weight:600; padding:11px 19px; min-height:44px; width:100%; white-space:normal; }
+.smm-account button[type=submit]:hover, .smm-account button[type=submit]:focus { background:#1D2E3E; color:#fff; }
+.smm-account :is(button,input,select,a):focus-visible { outline:3px solid #78b5e7; outline-offset:2px; }
+.smm-account-help ul { margin:12px 0 0; padding-left:20px; }
+.smm-account .smm-account-help-icon { display:inline-block; width:1.35em; margin-right:7px; color:#2B3E50; text-align:center; }
+.smm-account .smm-account-tips { list-style:none; margin:12px 0 0; padding:0; }
+.smm-account .smm-account-tips li { position:relative; padding-left:25px; margin:0 0 10px; }
+.smm-account .smm-account-tips li::before { content:"\f058"; position:absolute; left:0; top:0; color:#567896; font-family:"Font Awesome 5 Free"; font-weight:900; }
+.smm-account-help a { display:inline-block; margin-top:16px; color:#2B3E50; font-weight:600; }
+@media (max-width:900px) { .smm-account .smm-account-row { grid-template-columns:minmax(0,1fr) !important; gap:16px; margin-bottom:16px; } }
+@media (max-width:480px) { .smm-account { padding:18px 12px 32px; } .smm-account-card, .smm-account-help { padding:18px; } .smm-account button[type=submit] { width:100%; } }
+
+.smm-account a, .smm-account button, .smm-account input, .smm-account select, .smm-account textarea { transition:background-color .16s ease, border-color .16s ease, box-shadow .16s ease, color .16s ease; }
+@media (prefers-reduced-motion:reduce) { .smm-account a, .smm-account button, .smm-account input, .smm-account select, .smm-account textarea { transition:none; } }
+
+/* The panel inserts these forms into #settings_addon_fields. Keep the forms intact. */
+.smm-account #settings_addon_fields { display:grid !important; grid-template-columns:minmax(0,1.75fr) minmax(0,1fr) !important; gap:24px; align-items:start; width:100% !important; margin:24px 0 0 !important; }
+.smm-account #settings_addon_fields > form { min-width:0; margin:0 !important; padding:24px !important; background:#fff !important; border:1px solid #d9e5f1 !important; border-radius:10px !important; box-shadow:0 4px 18px rgba(35,71,110,.07); }
+.smm-account #settings_addon_fields > .smm-account-addon-help { min-width:0; padding:24px; background:#fff !important; border:1px solid #d9e5f1 !important; border-radius:10px; box-shadow:0 4px 18px rgba(35,71,110,.07); }
+.smm-account #settings_addon_fields h2 { margin:0 0 3px; color:#173756; font-size:19px; line-height:1.3; font-weight:700; }
+.smm-account #settings_addon_fields h3 { margin:0 0 12px; color:#173756; font-size:18px; font-weight:700; }
+.smm-account #settings_addon_fields .form-control:disabled { background:#f6f9fc; color:#526e88; opacity:1; }
+.smm-account #settings_addon_fields input[type=submit] { width:100%; min-height:44px; padding:11px 19px; border:1px solid #2B3E50 !important; border-radius:6px !important; background:#2B3E50 !important; color:#fff !important; font-weight:600; white-space:normal; }
+.smm-account #settings_addon_fields input[type=submit]:hover, .smm-account button[type=submit]:hover { background:#1D2E3E !important; }
+@media (max-width:900px) { .smm-account #settings_addon_fields { grid-template-columns:minmax(0,1fr) !important; gap:16px; margin-top:16px !important; } }
+@media (max-width:480px) { .smm-account #settings_addon_fields > form, .smm-account #settings_addon_fields > .smm-account-addon-help { padding:18px !important; } }
+
+/* Form focus: suppress the theme outline while retaining a visible focus indicator. */
+.smm-account input:focus, .smm-account select:focus, .smm-account textarea:focus { outline:none !important; border-color:#2B3E50 !important; box-shadow:0 0 0 2px rgba(43,62,80,.22) !important; }
+.smm-account input:focus-visible, .smm-account select:focus-visible, .smm-account textarea:focus-visible { outline:none !important; }
+
+/* Keep the pressed state consistent with the page's button design. */
+.smm-account button:active, .smm-account input[type="submit"]:active, .smm-account a.btn:active { box-shadow:none !important; }
+.smm-account button[type="submit"]:active, .smm-account input[type="submit"]:active, .smm-account .btn-primary:active { background-color:#1D2E3E !important; border-color:#1D2E3E !important; color:#fff !important; }
+
+/* Shared theme accent for panel-provided primary actions and table links. */
+.smm-account .btn-primary { background-color:#2B3E50 !important; border-color:#2B3E50 !important; color:#fff !important; }
+.smm-account .btn-primary:hover, .smm-account .btn-primary:focus, .smm-account .btn-primary:active { background-color:#1D2E3E !important; border-color:#1D2E3E !important; color:#fff !important; }
+.smm-account .table a:not(.btn) { color:#2B3E50; }
+
+/* Match the search field's inset focus style on form fields. */
+.smm-account input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]):not([type="hidden"]):focus,
+.smm-account textarea:focus, .smm-account select:focus { outline:none !important; border-color:#2B3E50 !important; box-shadow:inset 0 0 0 1px #2B3E50 !important; }
+/* Keep the native select behavior with a comfortably inset arrow. */
+.smm-account select.form-control:not([multiple]):not([size]):not(.smm-ticket-select-native) { appearance:none; -webkit-appearance:none; padding-right:40px !important; background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%232B3E50%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22m6%209%206%206%206-6%22%2F%3E%3C%2Fsvg%3E") !important; background-repeat:no-repeat !important; background-position:right 14px center !important; background-size:16px 16px !important; }
+@media (forced-colors:active) { .smm-account select.form-control:not([multiple]):not([size]):not(.smm-ticket-select-native) { appearance:auto; -webkit-appearance:auto; background-image:none !important; } }
+
+/* Consistent readable table text and form controls on desktop and mobile. */
+.smm-account table th:not(.service_cat_header), .smm-account table td:not(.service_cat_header),
+.smm-account table .btn, .smm-account input:not([type="hidden"]):not([type="checkbox"]):not([type="radio"]),
+.smm-account select, .smm-account textarea, .smm-account button, .smm-account label { font-size:15px !important; }
+
+/* Keep body copy readable across screen sizes. */
+.smm-account, .smm-account p, .smm-account li { font-size:15px !important; }
+
+/* Brighter hover for theme-colored actions; active and disabled states remain distinct. */
+@media (hover:hover) {
+  .smm-account button[type="submit"]:hover:not(:active):not(:disabled):not(.disabled):not([aria-disabled="true"]),
+  .smm-account input[type="submit"]:hover:not(:active):not(:disabled):not(.disabled):not([aria-disabled="true"]),
+  .smm-account .btn-primary:hover:not(:active):not(:disabled):not(.disabled):not([aria-disabled="true"]),
+  .smm-account #settings_addon_fields input[type="submit"]:hover:not(:active):not(:disabled):not(.disabled):not([aria-disabled="true"]) { background-color:#405E78 !important; border-color:#405E78 !important; color:#fff !important; }
+}
+</style>
+<div class="smm-account">
+  <div id="main-page" class="smm-account-layout">
+    <div class="smm-account-message">[error_message]</div>
+    <div class="smm-account-row">
+    <section class="smm-account-card" aria-labelledby="smm-password-heading">
+      <div class="smm-account-heading"><span class="smm-account-icon" aria-hidden="true"><i class="fas fa-lock"></i></span><div><h1 id="smm-password-heading">Change Password</h1><p>Update your password to keep your account secure.</p></div></div>
+      <form method="post" action="">
+									<div class="form-group">
+										<label class="control-label" for="current_password">[settings.form.current_password]</label>
+										<input name="current_password" class="form-control" id="current_password" value="" type="password">
+										<p class="help-block help-block-error"></p>
+									</div>
+
+									<div class="form-group">
+										<label class="control-label" for="new_password">[settings.form.new_password]</label>
+										<input name="new_password" class="form-control" id="new_password" type="password">
+										<p class="help-block help-block-error"></p>
+									</div>
+
+									<div class="form-group">
+										<label class="control-label" for="new_password2">[settings.form.retype_password]</label>
+										<input name="new_password2" class="form-control" id="new_password2" type="password">
+										<p class="help-block help-block-error"></p>
+									</div>
+									<input type="hidden" name="password_reset" value="password_reset" >
+									<button type="submit" class="btn btn-default m-b">[settings.form.submit_pass_button]</button>
+									[panel.csrf_protection]
+								</form>
+    </section>
+    <aside class="smm-account-help"><h2><i class="fas fa-shield-alt smm-account-help-icon" aria-hidden="true"></i> Security Tips</h2><ul class="smm-account-tips"><li>Use a strong and unique password</li><li>Don?t share your login credentials</li><li>Enable two-factor authentication</li><li>Keep your email updated</li></ul></aside>
+    </div>
+    <div class="smm-account-row">
+    <section class="smm-account-card" aria-labelledby="smm-timezone-heading">
+      <div class="smm-account-heading"><span class="smm-account-icon" aria-hidden="true"><i class="fas fa-globe"></i></span><div><h2 id="smm-timezone-heading">Timezone</h2><p>Choose your account timezone.</p></div></div>
+      <form action="" method="POST">
+									<div class="form-group panel-border-top">
+										<label class="control-label" for="default_time_zone">[settings.form.timezone]</label>
+										<select  name="default_time_zone" id="default_time_zone"  class="form-control" >
+											[settings.form.timezone_list]	
+										</select>
+									</div>
+									
+									<input type="hidden" name="change_default_time_zone" value="change_default_time_zone" >
+									<button type="submit" class="btn btn-default">[settings.form.timezone_button]</button>
+									[panel.csrf_protection]
+								</form>
+    </section>
+    <aside class="smm-account-help"><h2><i class="fas fa-clock smm-account-help-icon" aria-hidden="true"></i> About Timezone</h2><p>Your timezone is used for order notifications, reports and activity logs.</p></aside>
+    </div>
+    <div class="smm-account-row">
+    <section class="smm-account-card" aria-labelledby="smm-api-heading">
+      <div class="smm-account-heading"><span class="smm-account-icon" aria-hidden="true"><i class="fas fa-key"></i></span><div><h2 id="smm-api-heading">API Key</h2><p>Use your API key to integrate with SMM Quality.</p></div></div>
+      <form action="" method="POST">
+									<div class="form-group panel-border-top">
+										<label class="control-label" for="api_key">[settings.form.api_key_text]</label>
+										<input class="form-control" id="api_key" value="[user.api_key]" readonly="readonly" type="text">
+									</div>
+									
+									<input type="hidden" name="api_reset" value="api_reset" >
+									<button type="submit" class="btn btn-default">[settings.form.api_key_button]</button>
+									[panel.csrf_protection]
+								</form>
+    </section>
+    <aside class="smm-account-help"><h2><i class="fas fa-code smm-account-help-icon" aria-hidden="true"></i> API Access</h2><p>Use the API key to place orders, check status, get services and more.</p><a href="/api"><i class="fas fa-external-link-alt smm-account-help-icon" aria-hidden="true"></i> View API Documentation &rarr;</a></aside>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var layout = document.querySelector('.smm-account .smm-account-layout');
+  if (!layout) return;
+  var observer;
+  var definitions = [
+    { id:'change_email_form', heading:'Account Information', help:'Email Update', icon:'fas fa-info-circle', text:'We will send a confirmation link to your new email address. Please enter your current password to confirm the change.' },
+    { id:'change_2fa_form', heading:null, help:'Why Enable 2FA?', icon:'fas fa-shield-alt', items:['Protect your account from unauthorized access','Adds an extra layer of security','Simple and easy to use','Recommended for all users'] },
+    { id:'change_whatsapp_auth_form', heading:'Authorized WhatsApp Number', help:'WhatsApp Notifications', icon:'fab fa-whatsapp', text:'We?ll use this number to send important order updates and alerts via WhatsApp.' }
+  ];
+  function addHeading(form, text) {
+    if (!text || form.querySelector('[data-smm-account-heading]')) return;
+    var heading = document.createElement('h2');
+    heading.setAttribute('data-smm-account-heading', '');
+    heading.textContent = text;
+    form.insertBefore(heading, form.firstChild);
+  }
+  function addHelp(form, definition) {
+    var next = form.nextElementSibling;
+    if (next && next.getAttribute('data-smm-help-for') === definition.id) return;
+    var aside = document.createElement('aside');
+    aside.className = 'smm-account-addon-help';
+    aside.setAttribute('data-smm-help-for', definition.id);
+    var heading = document.createElement('h2');
+    var icon = document.createElement('i');
+    icon.className = definition.icon + ' smm-account-help-icon';
+    icon.setAttribute('aria-hidden', 'true');
+    heading.appendChild(icon);
+    heading.appendChild(document.createTextNode(' ' + definition.help));
+    aside.appendChild(heading);
+    if (definition.items) {
+      var list = document.createElement('ul');
+      list.className = 'smm-account-tips';
+      definition.items.forEach(function (text) {
+        var item = document.createElement('li');
+        item.textContent = text;
+        list.appendChild(item);
+      });
+      aside.appendChild(list);
+    } else {
+      var paragraph = document.createElement('p');
+      paragraph.textContent = definition.text;
+      aside.appendChild(paragraph);
+    }
+    form.parentNode.insertBefore(aside, form.nextSibling);
+  }
+  function arrange() {
+    var addon = layout.querySelector('#settings_addon_fields');
+    if (!addon) return false;
+    if (addon.parentNode !== layout || layout.lastElementChild !== addon) layout.appendChild(addon);
+    Array.prototype.forEach.call(addon.children, function (child) {
+      if (child.tagName === 'P' && !child.textContent.trim()) child.style.display = 'none';
+    });
+    definitions.forEach(function (definition) {
+      var form = addon.querySelector('#' + definition.id);
+      if (!form) return;
+      addHeading(form, definition.heading);
+      addHelp(form, definition);
+    });
+    return true;
+  }
+  function start() {
+    arrange();
+    if (!window.MutationObserver) return;
+    observer = new MutationObserver(arrange);
+    observer.observe(layout, { childList:true, subtree:true });
+    window.setTimeout(function () { observer.disconnect(); }, 10000);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+  else start();
+}());
+</script>

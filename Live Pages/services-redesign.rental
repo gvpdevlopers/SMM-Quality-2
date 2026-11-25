@@ -1,0 +1,120 @@
+<div class="container-fluid container-fluid-spacious custom-services-page">
+    <!-- Top Filter Bar -->
+    <style>
+.custom-services-page { color:#183554; max-width:1440px; margin:0 auto; padding:28px 20px 48px; }
+.custom-services-page *, .custom-services-page *::before, .custom-services-page *::after { box-sizing:border-box; }
+.custom-services-page .top-bar-filter, .custom-services-page .service-table-well, .custom-services-page > .well { background:#fff; border:1px solid #d9e5f1; border-radius:10px; box-shadow:0 4px 18px rgba(35,71,110,.07); }
+.custom-services-page .top-bar-filter { padding:18px 22px; margin-bottom:20px; }
+.custom-services-page .top-bar-filter .row { display:flex; align-items:center; flex-wrap:wrap; }
+.custom-services-page .flexx_row { display:flex; width:100%; gap:10px; align-items:center; }
+.custom-services-page .btn-primary-blue, .custom-services-page .btn_drop .dropdown-toggle { display:inline-flex; align-items:center; justify-content:center; gap:9px; min-height:44px; padding:10px 15px; border:1px solid #126cb5; border-radius:6px; background:#126cb5; color:#fff; font-weight:600; }
+.custom-services-page .btn-primary-blue:hover, .custom-services-page .btn-primary-blue:focus, .custom-services-page .btn_drop .dropdown-toggle:hover, .custom-services-page .btn_drop .dropdown-toggle:focus { background:#0d578f; color:#fff; }
+.custom-services-page .search-wrapper { position:relative; display:flex; width:100%; }
+.custom-services-page .search-wrapper .form-control { width:100%; height:44px; padding:10px 58px 10px 14px; border:1px solid #cbdced; border-radius:6px; background:#fff; color:#183554; box-shadow:none; }
+.custom-services-page .search-wrapper .form-control:focus { border-color:#548cbd; box-shadow:0 0 0 3px rgba(52,125,188,.12); }
+.custom-services-page .search-btn { position:absolute; right:0; top:0; width:48px; height:44px; border:1px solid #126cb5; border-radius:0 6px 6px 0; background:#126cb5; color:#fff; }
+.custom-services-page .dropdown-menu { max-height:60vh; overflow:auto; border:1px solid #d9e5f1; border-radius:8px; box-shadow:0 10px 25px rgba(35,71,110,.15); }
+.custom-services-page .dropdown-menu .dropdown-item { display:block; padding:8px 16px; color:#24435f; white-space:normal; }
+.custom-services-page .dropdown-menu .dropdown-item:hover { background:#edf5fc; color:#126cb5; }
+.custom-services-page .service-table-well { overflow:hidden; margin-bottom:20px; }
+.custom-services-page .table-responsive { width:100%; overflow-x:auto; }
+.custom-services-page .custom-table { width:100%; min-width:760px; margin:0; border-collapse:collapse; }
+.custom-services-page .custom-table th, .custom-services-page .custom-table td { padding:13px 12px; border-bottom:1px solid #e2ebf4; vertical-align:middle; font-size:13px; line-height:1.55; }
+.custom-services-page .custom-table th { background:#f1f6fc; color:#24435f; }
+.custom-services-page .custom-table .service_cat_header { background:#eaf3fc; color:#173756; font-weight:700; }
+.custom-services-page .service-row:hover { background:#f8fbfe; }
+.custom-services-page > .well:not(.top-bar-filter) { padding:20px; overflow-wrap:anywhere; }
+.custom-services-page a:focus-visible, .custom-services-page button:focus-visible, .custom-services-page input:focus-visible, .custom-services-page select:focus-visible { outline:3px solid #78b5e7; outline-offset:2px; }
+@media (max-width:991px) { .custom-services-page .top-bar-filter .row { display:block; } .custom-services-page .flexx_row { margin-bottom:12px; } }
+@media (max-width:767px) { .custom-services-page { padding:18px 12px 32px; } .custom-services-page .top-bar-filter { padding:16px; } .custom-services-page .custom-table th, .custom-services-page .custom-table td { padding:10px; } }
+
+.custom-services-page a, .custom-services-page button, .custom-services-page input, .custom-services-page select, .custom-services-page textarea { transition:background-color .16s ease, border-color .16s ease, box-shadow .16s ease, color .16s ease; }
+@media (prefers-reduced-motion:reduce) { .custom-services-page a, .custom-services-page button, .custom-services-page input, .custom-services-page select, .custom-services-page textarea { transition:none; } }
+</style>
+    <div class="well top-bar-filter">
+        <div class="row align-items-center">
+            <div class="col-md-2">
+                <div class="flexx_row">
+                    <!-- Filter Category Button -->
+                    <div class="dropdown">
+                        <button class="btn btn-primary-blue dropdown-toggle" type="button" id="dropdownMenuLink"
+                            data-toggle="dropdown" aria-label="Filter services by category" aria-expanded="false">
+                            <i class="fas fa-filter"></i> <i class="fas fa-caret-down ml-1"></i>
+                        </button>
+                        <ul class="dropdown-menu" id="filter_cat_div"></ul>
+                    </div>
+
+                    <!-- Currency Button (Static for Design) -->
+                    <div class="dropdown btn_drop">
+                        [panel.currency_nav_drop_down]
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-10">
+                <div class="search-wrapper">
+                    <input type="text" id="searchService" placeholder="Search" aria-label="Search services" class="form-control" />
+                    <button type="button" class="search-btn" aria-label="Search services"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services Table Section -->
+    <div id="order-page" class=" service-table-well">
+        <div class="table-responsive">
+            <table class="table custom-table">
+
+                [services.get-services-list]
+
+            </table>
+        </div>
+    </div>
+
+    <div class="well well-float table-responsive" style="[services.bottom-content-div]">
+        [services.bottom-content]
+    </div>
+</div>
+
+
+
+<script>
+    var selectedServiceCategory = 'All';
+    function applyServiceFilters() {
+        var query = document.getElementById('searchService').value.toLowerCase();
+        $('.service-row').each(function () {
+            var row = $(this);
+            var categoryMatches = selectedServiceCategory === 'All' || this.getAttribute('data-category') === selectedServiceCategory;
+            row.toggle(categoryMatches && row.text().toLowerCase().indexOf(query) !== -1);
+        });
+        $('.service_cat_header').each(function () {
+            var category = this.getAttribute('data-category');
+            var categoryMatches = selectedServiceCategory === 'All' || category === selectedServiceCategory;
+            $(this).closest('tr').toggle(categoryMatches && $('.service-row:visible').filter(function () { return this.getAttribute('data-category') === category; }).length > 0);
+        });
+    }
+    function filterCatService(category) {
+        selectedServiceCategory = category;
+        applyServiceFilters();
+    }
+    (function () {
+        var menu = document.getElementById('filter_cat_div');
+        var seen = [];
+        function addCategory(label, category) {
+            var item = document.createElement('li');
+            var link = document.createElement('a');
+            link.className = 'dropdown-item';
+            link.href = '#';
+            link.textContent = label;
+            link.addEventListener('click', function (event) { event.preventDefault(); filterCatService(category); });
+            item.appendChild(link);
+            menu.appendChild(item);
+        }
+        addCategory('All Services', 'All');
+        document.querySelectorAll('.service_cat_header').forEach(function (header) {
+            var category = header.getAttribute('data-category');
+            if (category !== null && seen.indexOf(category) === -1) { seen.push(category); addCategory(category, category); }
+        });
+        document.getElementById('searchService').addEventListener('input', applyServiceFilters);
+    }());
+</script>

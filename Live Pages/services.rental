@@ -1,0 +1,254 @@
+<div class="container-fluid container-fluid-spacious custom-services-page">
+    <!-- Top Filter Bar -->
+    <style>
+        /* Main Container Styling */
+        .top-bar-filter {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 15px 25px;
+            border: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 25px;
+
+            background-color: #f5f5f5;
+            border: 1px solid rgba(0, 0, 0, .1);
+
+        }
+
+        /* Row and Alignment */
+        /* .row.align-items-center {
+            display: flex;
+            align-items: center;
+        } */
+
+        /* Filter and Currency Dropdown Buttons */
+        .col-md-4 {
+            display: flex;
+            gap: 12px;
+            /* Buttons ke beech ka gap */
+        }
+
+        .btn-primary-blue,
+        .btn_drop .dropdown-toggle {
+            background-color: #178acc !important;
+            /* Image blue color */
+            color: #fff !important;
+            border: none !important;
+            border-radius: 8px !important;
+            padding: 10px 20px !important;
+            font-weight: 600;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 45px;
+        }
+
+        /* Agar currency dropdown standard button use kar raha ho */
+        /* .btn_drop button,
+        .btn_drop a {
+            background-color: #178acc !important;
+            color: white !important;
+            border-radius: 8px !important;
+            border: none !important;
+        } */
+
+        /* Search Wrapper Styling */
+        .search-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        .search-wrapper .form-control {
+            background-color: #fff !important;
+            /* Light grey background */
+            border: 1px solid #e2e8f0 !important;
+            border-radius: 8px !important;
+            height: 45px !important;
+            padding-left: 15px !important;
+            padding-right: 60px !important;
+            width: 100% !important;
+            box-shadow: none !important;
+            color: #475569;
+        }
+
+        /* Search Icon Button inside the input */
+        .search-btn {
+            position: absolute;
+            right: 0;
+            background: #178acc;
+            /* Blue button from image */
+            color: white;
+            border: none;
+            height: 45px;
+            width: 55px;
+            border-radius: 0 8px 8px 0;
+            /* Right side rounded */
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+
+        .search-btn:hover {
+            background: #2563eb;
+        }
+
+        /* Font Awesome Icon sizing */
+        .search-btn i {
+            font-size: 16px;
+        }
+
+        /* Dropdown Menu Styling */
+        .dropdown-menu {
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            margin-top: 8px;
+            padding: 10px 0;
+        }
+
+        .dropdown-item {
+            padding: 8px 20px;
+            font-size: 14px;
+            color: #1e293b;
+        }
+
+        .dropdown-item:hover {
+            background-color: #f1f5f9;
+            color: #178acc;
+        }
+
+        .flexx_row {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        .dropdown.btn_drop .dropdown-toggle {
+            gap: 10px;
+        }
+
+        /* Spacing fix for mobile */
+        @media (max-width: 768px) {
+            .col-md-4 {
+                margin-bottom: 15px;
+            }
+
+            .flexx_row {
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+                flex-direction: column;
+                width: 100%;
+            }
+
+            /* .row.align-items-center {
+                display: flex;
+                align-items: center;
+                flex-direction: column !important;
+            } */
+
+            .btn-primary-blue,
+            .btn_drop .dropdown-toggle {
+                width: 100% !important;
+            }
+
+            ul.nav.navbar-nav.currency_div {
+                margin: 10px 0px !important;
+            }
+
+            .top-bar-filter {
+
+                border-radius: 12px;
+                padding: 15px 10px;
+            }
+        }
+    </style>
+    <div class="well top-bar-filter">
+        <div class="row align-items-center">
+            <div class="col-md-2">
+                <div class="flexx_row">
+                    <!-- Filter Category Button -->
+                    <div class="dropdown">
+                        <button class="btn btn-primary-blue dropdown-toggle" type="button" id="dropdownMenuLink"
+                            data-toggle="dropdown">
+                            <i class="fas fa-filter"></i> <i class="fas fa-caret-down ml-1"></i>
+                        </button>
+                        <ul class="dropdown-menu" id="filter_cat_div"></ul>
+                    </div>
+
+                    <!-- Currency Button (Static for Design) -->
+                    <div class="dropdown btn_drop">
+                        [panel.currency_nav_drop_down]
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-10">
+                <div class="search-wrapper">
+                    <input type="text" id="searchService" placeholder="Search" class="form-control" />
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services Table Section -->
+    <div id="order-page" class=" service-table-well">
+        <div class="table-responsive">
+            <table class="table custom-table">
+
+                [services.get-services-list]
+
+            </table>
+        </div>
+    </div>
+
+    <div class="well well-float table-responsive" style="[services.bottom-content-div]">
+        [services.bottom-content]
+    </div>
+</div>
+
+
+
+<script>
+    function filterCatService(category) {
+        if (category != 'All') {
+            $('.service_cat_header').closest('tr').hide();
+            $('.service_cat_header[data-category="' + category + '"]').closest('tr').show();
+            $('.service-row').hide();
+            $('.service-row[data-category="' + category + '"]').show();
+        } else {
+            $('.service_cat_header').closest('tr').show();
+            $('.service-row').show();
+        }
+    }
+
+    // Generating Dropdown List
+    var cat_ar = document.querySelectorAll(".service_cat_header");
+    var cat_html = '<li><a class="dropdown-item" onclick="filterCatService(\'All\')" href="#">All Services</a></li>';
+
+    var uniqueCats = [];
+    if (cat_ar.length > 0) {
+        for (var a = 0; a < cat_ar.length; a++) {
+            var cat = cat_ar[a].getAttribute('data-category');
+            if (!uniqueCats.includes(cat)) {
+                cat_html += '<li><a onclick="filterCatService(\'' + cat + '\')" class="dropdown-item" href="#">' + cat + '</a></li>';
+                uniqueCats.push(cat);
+            }
+        }
+    }
+    document.getElementById('filter_cat_div').innerHTML = cat_html;
+
+    // Simple Search Functionality
+    $("#searchService").on("keyup", function () {
+        var value = $(this).val().toLowerCase();
+        $(".service-row").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
+</script>

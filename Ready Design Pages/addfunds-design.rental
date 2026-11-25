@@ -1,0 +1,306 @@
+<style>
+.smm-funds-page { color:#183554; padding:28px 20px 48px; }
+.smm-funds-page, .smm-funds-page *, .smm-funds-page *::before, .smm-funds-page *::after { box-sizing:border-box; }
+.smm-funds-page .smm-funds-wrap { width:100%; max-width:850px; margin:0 auto; }
+.smm-funds-page .smm-funds-layout { display:grid !important; grid-template-columns:minmax(0,1fr) !important; gap:24px; align-items:start; }
+.smm-funds-page .smm-funds-card { min-width:0; padding:24px !important; background:#fff !important; border:1px solid #d9e5f1 !important; border-radius:10px !important; box-shadow:0 4px 18px rgba(35,71,110,.07); overflow-wrap:anywhere; }
+.smm-funds-page .smm-funds-top { margin-bottom:20px; }
+.smm-funds-page .smm-funds-top:empty, .smm-funds-page .smm-funds-admin-content:empty { display:none; }
+.smm-funds-page .smm-funds-sidebar { min-width:0; display:grid; gap:20px; }
+.smm-funds-page .smm-funds-heading { display:flex; gap:14px; align-items:flex-start; margin-bottom:24px; }
+.smm-funds-page .smm-funds-heading-icon { display:flex; justify-content:center; align-items:center; flex:0 0 48px; width:48px; height:48px; border-radius:8px; background:#eaf3fc; color:#2B3E50; font-size:21px; }
+.smm-funds-page h1, .smm-funds-page h2, .smm-funds-page h3 { color:#173756; font-weight:700; line-height:1.35; }
+.smm-funds-page h1 { margin:0 0 6px; font-size:22px; }
+.smm-funds-page h2 { margin:0 0 16px; font-size:18px; }
+.smm-funds-page h3 { margin:0 0 4px; font-size:14px; }
+.smm-funds-page p { color:#526e88; line-height:1.65; }
+.smm-funds-page .smm-funds-heading p { margin:0; font-size:14px; }
+.smm-funds-page #demo-form2 .form-group { margin-bottom:18px; }
+.smm-funds-page #demo-form2 label { display:block; margin-bottom:8px; color:#24435f; font-size:14px; font-weight:600; }
+.smm-funds-page #demo-form2 .form-control { display:block; width:100% !important; min-height:48px; padding:10px 12px; border:1px solid #cbdced !important; border-radius:6px; background:#fff; color:#183554; box-shadow:none; font-size:14px; }
+.smm-funds-page #demo-form2 .form-control:focus { border-color:#2B3E50 !important; box-shadow:0 0 0 3px rgba(43,62,80,.12); }
+.smm-funds-page .help-block:empty { display:none; }
+.smm-funds-page #image_areaa { text-align:center; }
+.smm-funds-page #iiimaaageID { max-width:100%; height:auto; }
+.smm-funds-page #instructions { padding:15px; border:1px solid #dce8f4; border-radius:7px; background:#f5f9fd; overflow-wrap:anywhere; }
+.smm-funds-page #demo-form2 button[type=submit], .smm-funds-page .smm-funds-support-link { display:inline-block; min-height:46px; padding:11px 19px; border:1px solid #2B3E50 !important; border-radius:6px; background:#2B3E50 !important; color:#fff !important; font-weight:600; text-align:center; text-decoration:none; }
+.smm-funds-page #demo-form2 button[type=submit] { width:100%; }
+.smm-funds-page #demo-form2 button[type=submit]:hover, .smm-funds-page .smm-funds-support-link:hover { background:#1D2E3E !important; }
+.smm-funds-page .smm-funds-steps { list-style:none; margin:0; padding:0; }
+.smm-funds-page .smm-funds-steps li { display:flex; gap:14px; padding:15px 0; }
+.smm-funds-page .smm-funds-steps li + li { border-top:1px solid #e2ebf4; }
+.smm-funds-page .smm-funds-steps li:first-child { padding-top:0; }
+.smm-funds-page .smm-funds-steps li:last-child { padding-bottom:0; }
+.smm-funds-page .smm-funds-step-number { flex:0 0 32px; width:32px; height:32px; display:flex; align-items:center; justify-content:center; border-radius:50%; background:#eaf3fc; color:#2B3E50; font-weight:700; }
+.smm-funds-page .smm-funds-steps p, .smm-funds-page .smm-funds-help p { margin:0; font-size:14px; }
+.smm-funds-page .smm-funds-help .smm-funds-support-link { margin-top:16px; }
+.smm-funds-page .smm-funds-admin-content { overflow-wrap:anywhere; }
+.smm-funds-page a:focus-visible, .smm-funds-page button:focus-visible, .smm-funds-page input:focus-visible, .smm-funds-page select:focus-visible { outline:3px solid #78b5e7; outline-offset:2px; }
+@media (max-width:900px) { .smm-funds-page .smm-funds-layout { gap:16px; } }
+@media (max-width:600px) { .smm-funds-page { padding:18px 12px 32px; } .smm-funds-page .smm-funds-card { padding:16px !important; } .smm-funds-page .smm-funds-help .smm-funds-support-link { width:100%; } }
+
+/* Form focus: suppress the theme outline while retaining a visible focus indicator. */
+.smm-funds-page input:focus, .smm-funds-page select:focus, .smm-funds-page textarea:focus { outline:none !important; border-color:#2B3E50 !important; box-shadow:0 0 0 2px rgba(43,62,80,.22) !important; }
+.smm-funds-page input:focus-visible, .smm-funds-page select:focus-visible, .smm-funds-page textarea:focus-visible { outline:none !important; }
+
+/* Keep the pressed state consistent with the page's button design. */
+.smm-funds-page button:active, .smm-funds-page input[type="submit"]:active, .smm-funds-page a.btn:active { box-shadow:none !important; }
+.smm-funds-page button[type="submit"]:active, .smm-funds-page input[type="submit"]:active, .smm-funds-page .btn-primary:active { background-color:#1D2E3E !important; border-color:#1D2E3E !important; color:#fff !important; }
+
+/* The editable bottom-content snippet and the panel-provided ticket button share one card. */
+.smm-funds-page .smm-funds-admin-content { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; gap:14px 20px; }
+.smm-funds-page .smm-funds-admin-content .smm-addfunds-help-block { display:contents; }
+.smm-funds-page .smm-funds-admin-content .smm-addfunds-help-top { grid-column:1 / -1; }
+.smm-funds-page .smm-funds-admin-content > .smm-funds-support-link { justify-self:end; margin:0; }
+/* The panel can insert inline backgrounds on links inside payment instructions. */
+.smm-funds-page #instructions a, .smm-funds-page #instructions a * { background-color:transparent !important; }
+@media (max-width:600px) {
+  .smm-funds-page .smm-funds-admin-content { grid-template-columns:minmax(0,1fr); }
+  .smm-funds-page .smm-funds-admin-content .smm-addfunds-help-top { grid-column:1; }
+  .smm-funds-page .smm-funds-admin-content > .smm-funds-support-link { justify-self:stretch; width:100%; }
+}
+
+/* Shared theme accent for panel-provided primary actions and table links. */
+.smm-funds-page .btn-primary { background-color:#2B3E50 !important; border-color:#2B3E50 !important; color:#fff !important; }
+.smm-funds-page .btn-primary:hover, .smm-funds-page .btn-primary:focus, .smm-funds-page .btn-primary:active { background-color:#1D2E3E !important; border-color:#1D2E3E !important; color:#fff !important; }
+.smm-funds-page .table a:not(.btn) { color:#2B3E50; }
+
+/* Match the search field's inset focus style on form fields. */
+.smm-funds-page input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]):not([type="hidden"]):focus,
+.smm-funds-page textarea:focus, .smm-funds-page select:focus { outline:none !important; border-color:#2B3E50 !important; box-shadow:inset 0 0 0 1px #2B3E50 !important; }
+/* Keep the native select behavior with a comfortably inset arrow. */
+.smm-funds-page select.form-control:not([multiple]):not([size]):not(.smm-ticket-select-native) { appearance:none; -webkit-appearance:none; padding-right:40px !important; background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%232B3E50%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22m6%209%206%206%206-6%22%2F%3E%3C%2Fsvg%3E") !important; background-repeat:no-repeat !important; background-position:right 14px center !important; background-size:16px 16px !important; }
+@media (forced-colors:active) { .smm-funds-page select.form-control:not([multiple]):not([size]):not(.smm-ticket-select-native) { appearance:auto; -webkit-appearance:auto; background-image:none !important; } }
+
+/* Custom payment method menu retains the panel's original select. */
+.smm-funds-page .smm-funds-select { position:relative; min-width:0; }
+.smm-funds-page #demo-form2 select.smm-funds-select-native { position:absolute !important; width:1px !important; height:1px !important; min-height:0 !important; padding:0 !important; margin:0 !important; border:0 !important; opacity:0; pointer-events:none; }
+.smm-funds-page #demo-form2 .smm-funds-select-trigger { display:flex !important; align-items:center; justify-content:space-between; gap:12px; width:100%; min-height:48px; padding:10px 18px 10px 12px !important; border:1px solid #cbdced !important; border-radius:6px !important; background:#fff !important; color:#183554 !important; text-align:left; line-height:1.5; box-shadow:none !important; }
+.smm-funds-page #demo-form2 .smm-funds-select-trigger:hover, .smm-funds-page #demo-form2 .smm-funds-select-trigger[aria-expanded="true"] { border-color:#2B3E50 !important; background:#f8fbfe !important; }
+.smm-funds-page #demo-form2 .smm-funds-select-trigger:focus-visible { outline:3px solid #78b5e7 !important; outline-offset:2px; }
+.smm-funds-page .smm-funds-select-menu { position:absolute; top:100%; left:0; right:0; z-index:30; max-height:260px; overflow:auto; margin:6px 0 0; padding:6px; list-style:none; border:1px solid #d9e5f1; border-radius:8px; background:#fff; box-shadow:0 8px 20px rgba(24,53,84,.16); }
+.smm-funds-page .smm-funds-select-menu[hidden] { display:none !important; }
+.smm-funds-page #demo-form2 .smm-funds-select-option { display:block; width:100%; padding:10px 12px; border:0 !important; border-radius:5px; background:transparent !important; color:#24435f !important; text-align:left; overflow-wrap:anywhere; }
+.smm-funds-page #demo-form2 .smm-funds-select-option:hover, .smm-funds-page #demo-form2 .smm-funds-select-option:focus { background:#edf5fc !important; color:#2B3E50 !important; }
+.smm-funds-page #demo-form2 .smm-funds-select-option[aria-pressed="true"] { background:#e4f0fb !important; font-weight:700; }
+.smm-funds-page #demo-form2 .smm-funds-select-option:disabled { opacity:.5; cursor:not-allowed; }
+
+/* Consistent readable table text and form controls on desktop and mobile. */
+.smm-funds-page table th:not(.service_cat_header), .smm-funds-page table td:not(.service_cat_header),
+.smm-funds-page table .btn, .smm-funds-page input:not([type="hidden"]):not([type="checkbox"]):not([type="radio"]),
+.smm-funds-page select, .smm-funds-page textarea, .smm-funds-page button, .smm-funds-page label { font-size:15px !important; }
+
+/* Keep body copy readable across screen sizes. */
+.smm-funds-page, .smm-funds-page p, .smm-funds-page li { font-size:15px !important; }
+
+/* Brighter hover for theme-colored actions; active and disabled states remain distinct. */
+@media (hover:hover) {
+  .smm-funds-page button[type="submit"]:hover:not(:active):not(:disabled):not(.disabled):not([aria-disabled="true"]),
+  .smm-funds-page input[type="submit"]:hover:not(:active):not(:disabled):not(.disabled):not([aria-disabled="true"]),
+  .smm-funds-page .btn-primary:hover:not(:active):not(:disabled):not(.disabled):not([aria-disabled="true"]),
+  .smm-funds-page #demo-form2 button[type="submit"]:hover:not(:active):not(:disabled):not(.disabled):not([aria-disabled="true"]),
+  .smm-funds-page .smm-funds-support-link:hover:not(:active):not(:disabled):not(.disabled):not([aria-disabled="true"]) { background-color:#405E78 !important; border-color:#405E78 !important; color:#fff !important; }
+}
+</style>
+<div class="smm-funds-page">
+  <div class="smm-funds-wrap">
+    <div class="smm-funds-top">[addfunds.content.top]</div>
+    <div class="tab-content" id="pills-tabContent">
+      <div class="smm-funds-layout">
+        <section id="main-page" class="smm-funds-card" aria-label="Add Funds">
+          [error_message]
+          <form  method="post" action="" data-parsley-validate="" id="demo-form2" novalidate="">
+											<div class="form-group">
+												<label class="control-label" for="payment_type"> [add_funds.form.method] </label>
+												<select  name="payment_type" id="payment_type"  class="form-control" >
+													[add_funds.form.method.list]	
+												</select>
+												<p class="help-block help-block-error"></p>
+											</div>
+											
+											
+												
+												<div class="form-group row" id="image_areaa" style="display:none;" >
+													<div class="col-md-12">
+														<img src="" id="iiimaaageID" class="img-fluid" style="max-width:100%;" />
+													</div>
+												</div>
+												
+												
+												<div class="form-group" id="instruction_div" style="display:none;"  >
+													<label class="control-label" for="instructions"></label>
+													<div class="panel-body border-solid border-rounded" id="instructions" ></div>
+												</div>
+												
+												<div class="form-group" id="transaction_area" style="display:none;" >
+													<label class="control-label" id="transaction_id_dvi" for="transaction_id"></label>
+													<input class="form-control" name="transaction_id" id="transaction_id" type="text">
+													<p class="help-block help-block-error"></p>
+												</div>
+												
+												<div class="form-group">
+													<label class="control-label" id="amount_id_dvi" for="amount"></label>
+													<input class="form-control" name="amount" id="amount" required type="text">
+													<p class="help-block help-block-error"></p>
+												</div>
+												
+												<div class="form-group" style="display:none;">
+													<label><input type="checkbox" name="checkbox" checked > [add_funds.form.charge_back_text] </label>
+												</div>
+												
+												[panel.csrf_protection]
+												<button type="submit" class="btn btn-default"> [add_funds.form.pay_button] </button>
+										</form>
+        </section>
+        <aside class="smm-funds-sidebar" aria-label="Payment support">
+          <div id="main-page" class="smm-funds-card smm-funds-admin-content">
+            [add_funds.content.bottom]
+            <a class="btn btn-primary ticketbtn center smm-funds-support-link" href="tickets">[pages_ticket_button]</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var page = document.querySelector('.smm-funds-page');
+  if (!page) return;
+  var label = page.querySelector('#transaction_id_dvi');
+  var field = page.querySelector('#transaction_id');
+  var method = page.querySelector('#payment_type');
+  if (!label || !field) return;
+  var lastExample = '';
+  var lastCleanedLabel = '';
+  function updateExample() {
+    var text = label.textContent || '';
+    if (lastCleanedLabel && text.trim() === lastCleanedLabel) return;
+    var example = text.match(/\s*\(\s*example\s*:\s*([^)]*?)\s*\)/i);
+    var isUtr = /\butr\b/i.test(text);
+    if (example && example[1]) {
+      lastExample = 'e.g. ' + example[1].trim();
+      field.setAttribute('placeholder', lastExample);
+      /* Preserve any generated nested markup rather than replacing it. */
+      if (label.childElementCount === 0) {
+        lastCleanedLabel = text.replace(example[0], '').trim();
+        label.textContent = lastCleanedLabel;
+      }
+    } else if (isUtr) {
+      lastExample = 'e.g. 123456789012';
+      field.setAttribute('placeholder', lastExample);
+    } else if (lastExample && field.getAttribute('placeholder') === lastExample) {
+      field.removeAttribute('placeholder');
+      lastExample = '';
+    }
+  }
+  if (window.MutationObserver) {
+    new MutationObserver(updateExample).observe(label, { childList:true, characterData:true, subtree:true });
+  }
+  if (method) method.addEventListener('change', function () {
+    if (lastExample && field.getAttribute('placeholder') === lastExample) field.removeAttribute('placeholder');
+    lastExample = '';
+    lastCleanedLabel = '';
+    window.setTimeout(updateExample, 0);
+  });
+  updateExample();
+}());
+</script>
+
+<script>
+(function () {
+  'use strict';
+  var control;
+  function closeMenu() {
+    if (!control) return;
+    control.menu.hidden = true;
+    control.trigger.setAttribute('aria-expanded', 'false');
+  }
+  function init() {
+    var page = document.querySelector('.smm-funds-page');
+    var select = page && page.querySelector('#payment_type');
+    if (!select || select.multiple || !select.parentNode) { control = null; return; }
+    if (control && control.select === select && page.contains(control.wrapper)) { control.sync(); return; }
+    var oldWrapper = select.closest('.smm-funds-select');
+    if (oldWrapper && oldWrapper.parentNode) {
+      oldWrapper.parentNode.insertBefore(select, oldWrapper);
+      oldWrapper.remove();
+    }
+    var label = page.querySelector('label[for="payment_type"], label[for="smm-funds-select-payment"]');
+    var wrapper = document.createElement('div');
+    var trigger = document.createElement('button');
+    var text = document.createElement('span');
+    var icon = document.createElement('i');
+    var menu = document.createElement('ul');
+    wrapper.className = 'smm-funds-select';
+    trigger.type = 'button';
+    trigger.id = 'smm-funds-select-payment';
+    trigger.className = 'smm-funds-select-trigger';
+    trigger.setAttribute('aria-expanded', 'false');
+    trigger.setAttribute('aria-controls', 'smm-funds-payment-options');
+    icon.className = 'fas fa-chevron-down';
+    icon.setAttribute('aria-hidden', 'true');
+    trigger.appendChild(text);
+    trigger.appendChild(icon);
+    menu.id = 'smm-funds-payment-options';
+    menu.className = 'smm-funds-select-menu';
+    menu.hidden = true;
+    function sync() {
+      var selected = select.options[select.selectedIndex];
+      var value = selected ? selected.textContent.trim() : '';
+      if (text.textContent !== value) text.textContent = value;
+      trigger.setAttribute('aria-label', (label ? label.textContent.trim() + ': ' : '') + value);
+      trigger.disabled = select.disabled;
+    }
+    function rebuild() {
+      menu.textContent = '';
+      Array.prototype.forEach.call(select.options, function (option, index) {
+        if (option.hidden) return;
+        var item = document.createElement('li');
+        var button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'smm-funds-select-option';
+        button.textContent = option.textContent.trim();
+        button.disabled = option.disabled || (option.parentElement && option.parentElement.disabled);
+        button.setAttribute('aria-pressed', index === select.selectedIndex ? 'true' : 'false');
+        button.addEventListener('click', function () {
+          if (select.selectedIndex !== index) {
+            select.selectedIndex = index;
+            select.dispatchEvent(new Event('change', { bubbles:true }));
+          }
+          sync();
+          closeMenu();
+          trigger.focus();
+        });
+        item.appendChild(button);
+        menu.appendChild(item);
+      });
+    }
+    select.parentNode.insertBefore(wrapper, select);
+    wrapper.appendChild(select);
+    wrapper.appendChild(trigger);
+    wrapper.appendChild(menu);
+    if (label) label.htmlFor = trigger.id;
+    select.classList.add('smm-funds-select-native');
+    select.tabIndex = -1;
+    select.setAttribute('aria-hidden', 'true');
+    control = { select:select, wrapper:wrapper, trigger:trigger, menu:menu, sync:sync };
+    select.addEventListener('change', sync);
+    trigger.addEventListener('click', function () {
+      if (!menu.hidden) { closeMenu(); return; }
+      sync();
+      rebuild();
+      menu.hidden = false;
+      trigger.setAttribute('aria-expanded', 'true');
+    });
+    sync();
+  }
+  init();
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  if (window.MutationObserver) new MutationObserver(init).observe(document.documentElement, { childList:true, subtree:true, characterData:true });
+  document.addEventListener('click', function (event) { if (control && !control.wrapper.contains(event.target)) closeMenu(); });
+  document.addEventListener('keydown', function (event) { if (event.key === 'Escape' && control && !control.menu.hidden) { var trigger = control.trigger; closeMenu(); trigger.focus(); } });
+  document.addEventListener('reset', function (event) { if (control && event.target.contains(control.select)) window.setTimeout(function () { if (control) { closeMenu(); control.sync(); } }, 0); });
+}());
+</script>

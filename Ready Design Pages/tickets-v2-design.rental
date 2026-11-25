@@ -1,0 +1,409 @@
+<style>
+/* Scoped support-page overrides. Existing panel controls, names and events are retained. */
+.smm-ticket-page { color:#183554; padding:28px 20px 48px; }
+.smm-ticket-page, .smm-ticket-page *, .smm-ticket-page *::before, .smm-ticket-page *::after { box-sizing:border-box; }
+.smm-ticket-page .smm-ticket-wrap { width:100%; max-width:1320px; margin:0 auto; }
+.smm-ticket-page .smm-ticket-layout { display:grid !important; grid-template-columns:minmax(0,1.35fr) minmax(0,1fr) !important; gap:24px !important; align-items:stretch; }
+.smm-ticket-page .smm-ticket-card, .smm-ticket-page .smm-ticket-side-card, .smm-ticket-page .smm-ticket-list { min-width:0; background:#fff !important; border:1px solid #d9e5f1 !important; border-radius:10px !important; box-shadow:0 4px 18px rgba(35,71,110,.07); padding:24px !important; }
+.smm-ticket-page .smm-ticket-sidebar { display:grid; grid-template-rows:auto 1fr; gap:20px; min-width:0; }
+.smm-ticket-page .smm-ticket-card { display:flex; flex-direction:column; }
+.smm-ticket-page #ticketsend { display:flex; flex:1 1 auto; flex-direction:column; }
+.smm-ticket-page #ticketsend .form-group.message { display:flex; flex:1 1 auto; flex-direction:column; }
+.smm-ticket-page #ticketsend .form-group.message textarea { flex:1 1 auto; }
+.smm-ticket-page #ticketsend button[type=submit] { align-self:flex-start; }
+.smm-ticket-page #ticketsend .form-group { margin:0 0 18px; }
+.smm-ticket-page #ticketsend label { display:block; margin-bottom:8px; color:#24435f; font-size:14px; font-weight:600; }
+.smm-ticket-page #ticketsend .form-control, .smm-ticket-page #history-search .form-control { display:block; width:100% !important; min-height:48px; padding:10px 12px; border:1px solid #cbdced !important; border-radius:6px; background:#fff; color:#183554; box-shadow:none; font-size:14px; }
+.smm-ticket-page #ticketsend textarea.form-control { height:auto; min-height:150px; resize:vertical; }
+.smm-ticket-page #ticketsend .form-control:focus, .smm-ticket-page #history-search .form-control:focus { border-color:#2B3E50 !important; box-shadow:0 0 0 3px rgba(43,62,80,.12); }
+.smm-ticket-page #ticketsend button[type=submit], .smm-ticket-page #history-search button { min-height:46px; padding:10px 18px; border:1px solid #2B3E50 !important; border-radius:6px; background:#2B3E50 !important; color:#fff !important; font-weight:600; }
+.smm-ticket-page #ticketsend button[type=submit]:hover, .smm-ticket-page #history-search button:hover { background:#1D2E3E !important; }
+.smm-ticket-page .smm-ticket-side-card h2, .smm-ticket-page .smm-ticket-list h2 { margin:0 0 14px; color:#173756; font-size:18px; font-weight:700; }
+.smm-ticket-page .smm-ticket-side-card h3 { margin:0 0 6px; color:#24435f; font-size:15px; font-weight:700; }
+.smm-ticket-page .smm-ticket-side-card p, .smm-ticket-page .smm-ticket-side-card li { margin:0; color:#526e88; font-size:14px; line-height:1.7; overflow-wrap:anywhere; }
+.smm-ticket-page .smm-ticket-side-card ul { padding-left:20px; margin:0; }
+.smm-ticket-page .smm-ticket-information { border:1px solid #d9e5f1; border-radius:8px; padding:0 16px; }
+.smm-ticket-page .smm-ticket-information-item { padding:17px 7px; }
+.smm-ticket-page .smm-ticket-information-item + .smm-ticket-information-item { border-top:1px solid #d9e5f1; }
+.smm-ticket-page .smm-ticket-side-card .smm-ticket-side-intro { margin:0 0 18px; }
+.smm-ticket-page .smm-ticket-contact { display:block; margin-top:10px; padding:13px 15px; border:1px solid transparent; border-radius:6px; background:#eaf1f8; color:#183f60 !important; text-decoration:none !important; font-weight:600; }
+.smm-ticket-page .smm-ticket-contact:hover { background:#dceaf5; }
+.smm-ticket-page .smm-ticket-contact-whatsapp { border-color:#b4d4ca; background:#edf7f2; color:#176246 !important; }
+.smm-ticket-page .smm-ticket-contact-whatsapp:hover { background:#e0f1e8; }
+.smm-ticket-page .smm-ticket-contact-actions { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+.smm-ticket-page .smm-ticket-contact-actions .smm-ticket-contact { display:flex; align-items:center; justify-content:center; margin:0; text-align:center; }
+.smm-ticket-page .smm-ticket-list { margin-top:24px; }
+.smm-ticket-page .smm-ticket-list-heading { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:14px; margin-bottom:18px; }
+.smm-ticket-page .smm-ticket-list-heading h2 { margin:0; }
+.smm-ticket-page #history-search { width:min(100%,360px); margin:0; }
+.smm-ticket-page #history-search .input-group { width:100%; }
+.smm-ticket-page #history-search .form-control { border-radius:6px 0 0 6px; }
+.smm-ticket-page #history-search button { border-radius:0 6px 6px 0; }
+.smm-ticket-page .smm-ticket-table-scroll { width:100%; overflow-x:auto; }
+.smm-ticket-page .smm-ticket-table-scroll .table { width:100%; min-width:650px; margin:0; border-collapse:collapse; }
+.smm-ticket-page .smm-ticket-table-scroll .table th, .smm-ticket-page .smm-ticket-table-scroll .table td { padding:13px 12px; border-bottom:1px solid #e2ebf4; vertical-align:middle; line-height:1.55; font-size:14px; }
+.smm-ticket-page .smm-ticket-table-scroll .table th { background:#f1f6fc; color:#24435f; text-align:left; }
+.smm-ticket-page .smm-ticket-table-scroll .table td { overflow-wrap:anywhere; }
+/* Keep ticket IDs together while allowing the table to scroll on small screens. */
+.smm-ticket-page .smm-ticket-table-scroll .table { table-layout:auto !important; }
+.smm-ticket-page .smm-ticket-table-scroll .table th:first-child, .smm-ticket-page .smm-ticket-table-scroll .table td:first-child { min-width:100px; white-space:nowrap !important; overflow-wrap:normal !important; word-break:normal !important; }
+.smm-ticket-page .smm-ticket-table-scroll .table td:first-child * { white-space:nowrap !important; overflow-wrap:normal !important; word-break:normal !important; }
+.smm-ticket-page .pagination { margin:16px 0 0; }
+.smm-ticket-page a:focus-visible, .smm-ticket-page button:focus-visible, .smm-ticket-page input:focus-visible, .smm-ticket-page select:focus-visible, .smm-ticket-page textarea:focus-visible { outline:3px solid #78b5e7; outline-offset:2px; }
+@media (max-width:900px) { .smm-ticket-page .smm-ticket-layout { grid-template-columns:minmax(0,1fr) !important; } .smm-ticket-page .smm-ticket-sidebar { grid-template-rows:auto; } }
+@media (max-width:600px) { .smm-ticket-page { padding:18px 12px 32px; } .smm-ticket-page .smm-ticket-card, .smm-ticket-page .smm-ticket-side-card, .smm-ticket-page .smm-ticket-list { padding:16px !important; } .smm-ticket-page #ticketsend button[type=submit] { width:100%; } .smm-ticket-page .smm-ticket-list-heading { align-items:stretch; flex-direction:column; } .smm-ticket-page #history-search { width:100%; } }
+@media (max-width:400px) { .smm-ticket-page .smm-ticket-contact-actions { grid-template-columns:minmax(0,1fr); } }
+.smm-ticket-page .smm-ticket-icon { width:1.25em; margin-right:8px; text-align:center; }
+.smm-ticket-page .smm-ticket-external { float:right; margin-top:3px; }
+
+/* Form focus: suppress the theme outline while retaining a visible focus indicator. */
+.smm-ticket-page input:focus, .smm-ticket-page select:focus, .smm-ticket-page textarea:focus { outline:none !important; border-color:#2B3E50 !important; box-shadow:0 0 0 2px rgba(43,62,80,.22) !important; }
+.smm-ticket-page input:focus-visible, .smm-ticket-page select:focus-visible, .smm-ticket-page textarea:focus-visible { outline:none !important; }
+
+/* Keep the pressed state consistent with the page's button design. */
+.smm-ticket-page button:active, .smm-ticket-page input[type="submit"]:active, .smm-ticket-page a.btn:active { box-shadow:none !important; }
+.smm-ticket-page button[type="submit"]:active, .smm-ticket-page input[type="submit"]:active, .smm-ticket-page .btn-primary:active { background-color:#1D2E3E !important; border-color:#1D2E3E !important; color:#fff !important; }
+
+/* Shared theme accent for panel-provided primary actions and table links. */
+.smm-ticket-page .btn-primary { background-color:#2B3E50 !important; border-color:#2B3E50 !important; color:#fff !important; }
+.smm-ticket-page .btn-primary:hover, .smm-ticket-page .btn-primary:focus, .smm-ticket-page .btn-primary:active { background-color:#1D2E3E !important; border-color:#1D2E3E !important; color:#fff !important; }
+.smm-ticket-page .table a:not(.btn) { color:#2B3E50; }
+
+/* Consistent table heading colors across the site. */
+.smm-ticket-page .smm-ticket-table-scroll .table thead,
+.smm-ticket-page .smm-ticket-table-scroll .table thead tr,
+.smm-ticket-page .smm-ticket-table-scroll .table thead tr > th,
+.smm-ticket-page .smm-ticket-table-scroll .table thead tr > td,
+.smm-ticket-page .smm-ticket-table-scroll .table thead tr > :last-child { background-color:#e4f0fb !important; color:#2B3E50 !important; }
+
+/* Custom subject and request menus retain the panel's native selects. */
+.smm-ticket-page .smm-ticket-select { position:relative; min-width:0; }
+.smm-ticket-page #ticketsend select.smm-ticket-select-native { position:absolute !important; width:1px !important; height:1px !important; min-height:0 !important; padding:0 !important; margin:0 !important; border:0 !important; opacity:0; pointer-events:none; }
+.smm-ticket-page #ticketsend .smm-ticket-select-trigger { display:flex !important; align-items:center; justify-content:space-between; gap:12px; width:100%; min-height:48px; padding:10px 12px !important; border:1px solid #cbdced !important; border-radius:6px !important; background:#fff !important; color:#183554 !important; text-align:left; font-size:14px; line-height:1.5; box-shadow:none !important; }
+.smm-ticket-page #ticketsend .smm-ticket-select-trigger:hover, .smm-ticket-page #ticketsend .smm-ticket-select-trigger[aria-expanded="true"] { border-color:#2B3E50 !important; background:#f8fbfe !important; }
+.smm-ticket-page #ticketsend .smm-ticket-select-trigger:focus-visible { outline:3px solid #78b5e7 !important; outline-offset:2px; }
+.smm-ticket-page .smm-ticket-select-menu { position:absolute; top:100%; left:0; right:0; z-index:30; max-height:260px; overflow:auto; margin:6px 0 0; padding:6px; list-style:none; border:1px solid #d9e5f1; border-radius:8px; background:#fff; box-shadow:0 8px 20px rgba(24,53,84,.16); }
+.smm-ticket-page .smm-ticket-select-menu[hidden] { display:none !important; }
+.smm-ticket-page #ticketsend .smm-ticket-select-option { display:block; width:100%; padding:10px 12px; border:0 !important; border-radius:5px; background:transparent !important; color:#24435f !important; font-size:14px; text-align:left; overflow-wrap:anywhere; }
+.smm-ticket-page #ticketsend .smm-ticket-select-option:hover, .smm-ticket-page #ticketsend .smm-ticket-select-option:focus { background:#edf5fc !important; color:#2B3E50 !important; }
+.smm-ticket-page #ticketsend .smm-ticket-select-option[aria-pressed="true"] { background:#e4f0fb !important; color:#24435f !important; font-weight:700; }
+.smm-ticket-page #ticketsend .smm-ticket-select-option:disabled { opacity:.5; cursor:not-allowed; }
+/* Match the joined services search field and keep its focus ring inside. */
+.smm-ticket-page #history-search .input-group { display:flex; width:100%; }
+.smm-ticket-page #history-search .form-control { flex:1 1 0; width:0 !important; min-width:0; height:48px; border-radius:6px 0 0 6px !important; }
+.smm-ticket-page #history-search .form-control:focus { outline:none !important; border-color:#2B3E50 !important; box-shadow:inset 0 0 0 1px #2B3E50 !important; }
+.smm-ticket-page #history-search .input-group-btn { display:block; flex:0 0 auto; width:auto; }
+.smm-ticket-page #history-search button { display:block; width:50px; height:48px; min-height:48px; padding:0 !important; border-radius:0 6px 6px 0 !important; }
+
+/* Match the search field's inset focus style on form fields. */
+.smm-ticket-page input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]):not([type="hidden"]):focus,
+.smm-ticket-page textarea:focus, .smm-ticket-page select:focus { outline:none !important; border-color:#2B3E50 !important; box-shadow:inset 0 0 0 1px #2B3E50 !important; }
+/* Keep the native select behavior with a comfortably inset arrow. */
+.smm-ticket-page select.form-control:not([multiple]):not([size]):not(.smm-ticket-select-native) { appearance:none; -webkit-appearance:none; padding-right:40px !important; background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%232B3E50%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22m6%209%206%206%206-6%22%2F%3E%3C%2Fsvg%3E") !important; background-repeat:no-repeat !important; background-position:right 14px center !important; background-size:16px 16px !important; }
+@media (forced-colors:active) { .smm-ticket-page select.form-control:not([multiple]):not([size]):not(.smm-ticket-select-native) { appearance:auto; -webkit-appearance:auto; background-image:none !important; } }
+.smm-ticket-page #ticketsend .smm-ticket-select-trigger { padding-right:18px !important; }
+.smm-ticket-page #ticketsend .smm-ticket-select-trigger:focus, .smm-ticket-page #ticketsend .smm-ticket-select-trigger:focus-visible { outline:none !important; border-color:#2B3E50 !important; box-shadow:inset 0 0 0 1px #2B3E50 !important; }
+
+/* Consistent readable table text and form controls on desktop and mobile. */
+.smm-ticket-page table th:not(.service_cat_header), .smm-ticket-page table td:not(.service_cat_header),
+.smm-ticket-page table .btn, .smm-ticket-page input:not([type="hidden"]):not([type="checkbox"]):not([type="radio"]),
+.smm-ticket-page select, .smm-ticket-page textarea, .smm-ticket-page button, .smm-ticket-page label { font-size:15px !important; }
+
+/* Keep body copy readable across screen sizes. */
+.smm-ticket-page, .smm-ticket-page p, .smm-ticket-page li { font-size:15px !important; }
+
+/* Brighter hover for theme-colored actions; active and disabled states remain distinct. */
+@media (hover:hover) {
+  .smm-ticket-page button[type="submit"]:hover:not(:active):not(:disabled):not(.disabled):not([aria-disabled="true"]),
+  .smm-ticket-page input[type="submit"]:hover:not(:active):not(:disabled):not(.disabled):not([aria-disabled="true"]),
+  .smm-ticket-page .btn-primary:hover:not(:active):not(:disabled):not(.disabled):not([aria-disabled="true"]),
+  .smm-ticket-page #ticketsend button[type="submit"]:hover:not(:active):not(:disabled):not(.disabled):not([aria-disabled="true"]),
+  .smm-ticket-page #history-search button:hover:not(:active):not(:disabled):not(.disabled):not([aria-disabled="true"]) { background-color:#405E78 !important; border-color:#405E78 !important; color:#fff !important; }
+  .smm-ticket-page #ticketsend button.btn.btn-primary[type="submit"]:hover:not(:active):not(:disabled):not(.disabled):not([aria-disabled="true"]) { background:#405E78 !important; border-color:#405E78 !important; color:#fff !important; }
+}
+</style>
+<div class="smm-ticket-page">
+  <div class="smm-ticket-wrap">
+    <div>[tickets.content.top]</div>
+    <div>[error_message]</div>
+    <!--<nav> -->
+								<!--<select name="category" id="page_Category" class="custom-select  w-full"> -->
+									<!--<option value="0">[tickets.tab.add_new]</option>-->
+									<!--<option value="2">[tickets.tab.updates]</option>-->
+								<!--</select> -->
+								<!-- <ul class="nav nav-pills " id="pills-tab" role="tablist"> -->
+									<!--<li class="nav-item active">
+										<a class="nav-link" id="pills-home-tab" data-toggle="pill" href="#new-ticket" role="tab" aria-controls="pills-home" aria-selected="true">[tickets.tab.add_new]</a>
+									</li>-->
+									
+									<!--<li class="nav-item">
+										<a  class="nav-link" id="pills-home-tab" data-toggle="pill" href="#info" role="tab" aria-controls="pills-home" aria-selected="true">[tickets.tab.updates]</a>
+									</li>-->
+								<!--</ul>
+							</nav> -->
+    <div class="tab-content" id="pills-tabContent">
+      <div class="tab-pane fade active in" id="new-ticket" role="tabpanel">
+        <div class="smm-ticket-layout">
+          <section id="main-page" class="smm-ticket-card" aria-label="Create support ticket">
+            <form method="post" action="" id="ticketsend" onSubmit="form_submit()">
+							
+											
+											<div class="form-group">
+												<label for="subject" class="control-label">[tickets.form.subject]</label>
+												<select class="form-control" id="subject" name="subject" onchange="handleOrderType(this)">
+													<option value="Order" selected="">[tickets.form.subject.Order]</option>
+													<option value="Payment">[tickets.form.subject.Payment]</option>
+													<option value="Api">[tickets.form.subject.Api]</option>
+													<option value="Child Panel">[tickets.form.subject.ChildPanel]</option>
+													<option value="Request">[tickets.form.subject.Request]</option>
+													<option value="Real Followers">[tickets.form.subject.RealFollowers]</option>
+													<option value="Blue Badge Verification">[tickets.form.subject.BlueBadge]</option>
+													<option value="Other">[tickets.form.subject.Other]</option>
+												</select>
+											</div>
+											<div class="form-group" id="order-group" style="display: block;">
+												<label for="orderid">[tickets.form.order_field]</label>
+												<input type="text" class="form-control" id="orderid">
+												<label for="want" style="margin-top:15px">[tickets.form.Request]</label>
+												<select class="form-control" name="want" id="want">
+													<option value="Refill">[tickets.form.Request.Refill]</option>
+													<option value="Cancel">[tickets.form.Request.Cancel]</option>
+													<option value="Speed-up">[tickets.form.Request.Speed-Up]</option>
+													<option value="Restart">[tickets.form.Request.Restart]</option>
+													<option value="Not-Started">[tickets.form.Request.Not-Started]</option>
+													<option value="Mark-as-completed-without-done">[tickets.form.Request.false-completed]</option>
+													<option value="Other">[tickets.form.Request.Other]</option>
+												</select>
+											</div>
+											<div class="form-group" id="payment-group" style="display: none;">
+												<label for="payment">[tickets.form.Payment]</label>
+												<select class="form-control" name="payment" id="payment">
+													[tickets.form.Payment.gateway-list]
+													<option value="Other">[tickets.form.Payment.Other]</option>
+												</select>
+												<label for="PaymentID" style="margin-top:15px">[tickets.form.transaction_id]</label>
+												<input type="text" class="form-control" name="transaction_id" id="PaymentID">
+												<label for="emailID" style="margin-top:15px">[tickets.form.payment_email]</label>
+												<input type="text" class="form-control" name="payment_email" id="emailID">
+												<label for="addamount" style="margin-top:15px">[tickets.form.payment_amount]</label>
+												<input type="number" class="form-control" name="payment_amount" id="addamount">
+											</div>
+											<div class="form-group message">
+												<label for="message" class="control-label">[tickets.form.message]</label>
+												<textarea class="form-control" rows="7" id="message" name="raw_message" ></textarea>
+											</div>
+											<input id="hmessage" name="message" type="hidden"  />
+											
+											[panel.csrf_protection]
+											<input type="hidden" name="add_ticket" value="add_ticket" />
+											<button type="submit" class="btn btn-primary">[tickets.form.submit_button]</button>
+										</form>
+          </section>
+          <aside class="smm-ticket-sidebar" aria-label="Support information">
+            <section class="smm-ticket-side-card">
+              <h2><i class="far fa-file-alt smm-ticket-icon" aria-hidden="true"></i> Support Information</h2>
+              <p class="smm-ticket-side-intro">Get quick help and support from our team.</p>
+              <div class="smm-ticket-information">
+                <div class="smm-ticket-information-item"><h3>Working Hours</h3><p>We are available 24/7 to assist you.</p></div>
+                <div class="smm-ticket-information-item"><h3>Average Response Time</h3><p>We usually respond within a few hours.</p></div>
+                <div class="smm-ticket-information-item"><h3>What to Include</h3><p>Please share the order ID, service name, and a detailed description of your issue.</p></div>
+              </div>
+            </section>
+            <section class="smm-ticket-side-card">
+              <h2><i class="fas fa-headset smm-ticket-icon" aria-hidden="true"></i> Quick Support</h2>
+              <p class="smm-ticket-side-intro">Need immediate help? You can also reach us directly.</p>
+              <div class="smm-ticket-contact-actions">
+                <a class="smm-ticket-contact" href="#ticketsend"><i class="far fa-envelope smm-ticket-icon" aria-hidden="true"></i> Contact Us</a>
+                <a class="smm-ticket-contact smm-ticket-contact-whatsapp" href="https://wa.me/917200485444" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp smm-ticket-icon" aria-hidden="true"></i> WhatsApp</a>
+              </div>
+            </section>
+          </aside>
+        </div>
+        <section class="smm-ticket-list" aria-labelledby="smm-ticket-list-title">
+          <div class="smm-ticket-list-heading"><h2 id="smm-ticket-list-title"><i class="fas fa-ticket-alt smm-ticket-icon" aria-hidden="true"></i> Your Support Tickets</h2><form action="" method="get" id="history-search">
+											  <div class="input-group">
+												<input aria-label="Search tickets" type="text" class="form-control" value="[tickets.form.search.value]" name="search" placeholder="Search tickets">
+												<span class="input-group-btn">
+												   <button type="submit" class="btn btn-default" aria-label="Search tickets"><i class="fas fa-search" aria-hidden="true"></i></button>
+												</span>
+											  </div>
+											</form></div>
+          <div class="smm-ticket-table-scroll" tabindex="0" role="region" aria-label="Support tickets table"><table class="table">
+											<thead>
+												<tr>
+													<th width="5%">#</th>
+													<th>[tickets.table.subject]</th>
+													<th width="13%">[tickets.table.status]</th>
+													<th width="30%">[tickets.table.last_update]</th>
+												</tr>
+											</thead>
+											<tbody>
+												[template.tickets.table.items]
+											</tbody>
+										</table></div>
+          <nav aria-label="Ticket pages"><ul id="yw0" class="pagination m-b-0">[template.pages.pagination.items]</ul></nav>
+        </section>
+      </div>
+      <div class="tab-pane fade" id="info" role="tabpanel" aria-labelledby="pills-contact-tab">
+        <div id="main-page" class="well well-float table-responsive">[tickets.content.bottom]</div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+		document.getElementById("payment-group").style.display = "none";
+
+		function handleOrderType(selectObject) {
+			var element = document.getElementById("order-group");
+			var element2 = document.getElementById("payment-group");
+			var optional = document.getElementById("optional");
+
+			if (selectObject.value == "Order" || selectObject.value == "VIP-Order") {
+				element.style.display = "block";
+				element2.style.display = "none";
+				if (optional) optional.style.display = "block";
+			} else if (selectObject.value == "Payment" || selectObject.value == "VIP-Payment") {
+				element.style.display = "none";
+				element2.style.display = "block";
+				if (optional) optional.style.display = "none";
+			} else if (selectObject.value == "Other" || selectObject.value == "VIP-Other") {
+				element.style.display = "none";
+				element2.style.display = "none";
+				if (optional) optional.style.display = "none";
+			}else{
+				element.style.display = "none";
+				element2.style.display = "none";
+				if (optional) optional.style.display = "none";
+			}
+		}
+
+		function createTicket(e) {
+			if (e.preventDefault) e.preventDefault();
+
+			var subject = document.getElementById("subject").value;
+			var message = "";
+			if (subject == "Order" || subject == "VIP-Order") {
+				message = "Order ID: " + document.getElementById("orderid").value + " " + "Request: " + document.getElementById("want").value + " " + document.getElementById("message").value;
+			} else if (subject == "Payment" || subject == "VIP-Payment") {
+				message = "Payment : " + document.getElementById("payment").value + " " + "Transaction ID : " + document.getElementById("PaymentID").value + " " + "Payment Email ID : " + document.getElementById("emailID").value + " " + "Amount : " + document.getElementById("addamount").value + " " + document.getElementById("message").value;
+			} else {
+				message = document.getElementById("message").value;
+			}
+			
+			document.getElementById("hmessage").value = message;
+
+			return true;
+		}
+		
+		function form_submit(){
+			var form = document.getElementById("ticketsend");
+			createTicket(form);
+		}
+		</script>
+
+<script>
+(function () {
+  'use strict';
+  var page;
+  var controls = [];
+  function closeAll(except) {
+    controls.forEach(function (control) {
+      if (control !== except) { control.menu.hidden = true; control.trigger.setAttribute('aria-expanded', 'false'); }
+    });
+  }
+  function enhance(id) {
+    var select = page.querySelector('#' + id);
+    if (!select || select.multiple || !select.parentNode) return;
+    var oldWrapper = select.closest('.smm-ticket-select');
+    if (select.classList.contains('smm-ticket-select-native') && oldWrapper && oldWrapper.querySelector('.smm-ticket-select-trigger')) return;
+    if (oldWrapper && oldWrapper.parentNode) {
+      oldWrapper.parentNode.insertBefore(select, oldWrapper);
+      oldWrapper.remove();
+    }
+    select.classList.remove('smm-ticket-select-native');
+    select.removeAttribute('aria-hidden');
+    var label = page.querySelector('label[for="' + id + '"]');
+    var wrapper = document.createElement('div');
+    var trigger = document.createElement('button');
+    var text = document.createElement('span');
+    var icon = document.createElement('i');
+    var menu = document.createElement('ul');
+    wrapper.className = 'smm-ticket-select';
+    trigger.type = 'button';
+    trigger.id = 'smm-ticket-select-' + id;
+    trigger.className = 'smm-ticket-select-trigger';
+    trigger.setAttribute('aria-expanded', 'false');
+    trigger.setAttribute('aria-controls', 'smm-ticket-options-' + id);
+    icon.className = 'fas fa-chevron-down';
+    icon.setAttribute('aria-hidden', 'true');
+    trigger.appendChild(text);
+    trigger.appendChild(icon);
+    menu.id = 'smm-ticket-options-' + id;
+    menu.className = 'smm-ticket-select-menu';
+    menu.hidden = true;
+    var control = { wrapper:wrapper, trigger:trigger, menu:menu };
+    function sync() {
+      var selected = select.options[select.selectedIndex];
+      text.textContent = selected ? selected.textContent.trim() : '';
+      trigger.setAttribute('aria-label', (label ? label.textContent.trim() + ': ' : '') + text.textContent);
+      trigger.disabled = select.disabled;
+    }
+    function rebuild() {
+      menu.textContent = '';
+      Array.prototype.forEach.call(select.options, function (option, index) {
+        if (option.hidden) return;
+        var item = document.createElement('li');
+        var button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'smm-ticket-select-option';
+        button.textContent = option.textContent.trim();
+        button.disabled = option.disabled || (option.parentElement && option.parentElement.disabled);
+        button.setAttribute('aria-pressed', index === select.selectedIndex ? 'true' : 'false');
+        button.addEventListener('click', function () {
+          select.selectedIndex = index;
+          select.dispatchEvent(new Event('change', { bubbles:true }));
+          sync();
+          closeAll();
+          trigger.focus();
+        });
+        item.appendChild(button);
+        menu.appendChild(item);
+      });
+    }
+    select.parentNode.insertBefore(wrapper, select);
+    wrapper.appendChild(select);
+    wrapper.appendChild(trigger);
+    wrapper.appendChild(menu);
+    if (label) label.htmlFor = trigger.id;
+    select.classList.add('smm-ticket-select-native');
+    select.tabIndex = -1;
+    select.setAttribute('aria-hidden', 'true');
+    controls.push(control);
+    select.addEventListener('change', sync);
+    trigger.addEventListener('click', function () {
+      var open = menu.hidden;
+      closeAll();
+      if (open) { sync(); rebuild(); menu.hidden = false; trigger.setAttribute('aria-expanded', 'true'); }
+    });
+    sync();
+  }
+  function init() {
+    var currentPage = document.querySelector('.smm-ticket-page');
+    if (!currentPage) return;
+    if (page !== currentPage) { page = currentPage; controls = []; }
+    controls = controls.filter(function (control) { return page.contains(control.wrapper); });
+    enhance('subject');
+    enhance('want');
+    var form = page.querySelector('#ticketsend');
+    if (form && !form.smmTicketResetBound) {
+      form.smmTicketResetBound = true;
+      form.addEventListener('reset', function () { window.setTimeout(function () { controls.forEach(function (control) { control.menu.hidden = true; control.trigger.setAttribute('aria-expanded', 'false'); }); ['subject', 'want'].forEach(function (id) { var select = page.querySelector('#' + id); if (select) select.dispatchEvent(new Event('change', { bubbles:true })); }); }, 0); });
+    }
+  }
+  init();
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  if (window.MutationObserver) new MutationObserver(init).observe(document.documentElement, { childList:true, subtree:true });
+  document.addEventListener('click', function (event) { if (!controls.some(function (control) { return control.wrapper.contains(event.target); })) closeAll(); });
+  document.addEventListener('keydown', function (event) { if (event.key === 'Escape') controls.forEach(function (control) { if (!control.menu.hidden) { closeAll(); control.trigger.focus(); } }); });
+}());
+</script>

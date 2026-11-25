@@ -1,0 +1,22 @@
+<style>
+/* Add Funds bottom-content block; works with the matching addfunds-design template. */
+.smm-addfunds-help-block { color:#183554; }
+.smm-addfunds-help-block *, .smm-addfunds-help-block *::before, .smm-addfunds-help-block *::after { box-sizing:border-box; }
+.smm-addfunds-help-top { display:flex; align-items:center; justify-content:space-between; gap:18px; padding:0 0 18px; border-bottom:1px solid #dce7f2; }
+.smm-addfunds-help-copy { display:flex; gap:14px; align-items:flex-start; min-width:0; }
+.smm-addfunds-help-icon { flex:0 0 26px; width:26px; padding-top:3px; color:#24435f; font-size:20px; text-align:center; }
+.smm-addfunds-help-block h2 { margin:0 0 5px; color:#173756; font-size:15px; line-height:1.4; font-weight:700; }
+.smm-addfunds-help-block p { margin:0; color:#526e88; font-size:15px; line-height:1.6; }
+.smm-addfunds-help-block .smm-addfunds-help-link { flex:0 0 auto; display:inline-block; min-height:44px; padding:10px 15px; border:1px solid #b9cfe1; border-radius:6px; color:#2B3E50 !important; background:#fff !important; font-weight:600; text-decoration:none !important; text-align:center; }
+.smm-addfunds-help-block .smm-addfunds-help-link:hover { background:#edf5fc !important; }
+.smm-addfunds-help-bottom { padding-top:4px; }
+@media (max-width:600px) { .smm-addfunds-help-top { align-items:stretch; flex-direction:column; gap:12px; } .smm-addfunds-help-block .smm-addfunds-help-link { width:100%; } }
+@media (hover:hover) { .smm-addfunds-help-block .smm-addfunds-help-link:hover:not(:active) { background:#405E78 !important; border-color:#405E78 !important; color:#fff !important; } }
+</style>
+<div class="smm-addfunds-help-block">
+  <div class="smm-addfunds-help-top">
+    <div class="smm-addfunds-help-copy"><span class="smm-addfunds-help-icon" aria-hidden="true"><i class="fas fa-headset"></i></span><div><h2>Need another payment method?</h2><p>Please contact us if you need another payment method.</p></div></div>
+    <a class="smm-addfunds-help-link" href="/tickets"><i class="far fa-envelope" aria-hidden="true"></i> Contact Us</a>
+  </div>
+  <div class="smm-addfunds-help-bottom smm-addfunds-help-copy"><span class="smm-addfunds-help-icon" aria-hidden="true"><i class="fas fa-ticket-alt"></i></span><div><h2>Facing an issue?</h2><p>Create a ticket for help with your payment.</p></div></div>
+</div>

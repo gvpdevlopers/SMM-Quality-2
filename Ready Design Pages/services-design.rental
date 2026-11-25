@@ -1,0 +1,370 @@
+<div class="container-fluid container-fluid-spacious custom-services-page">
+    <!-- Top Filter Bar -->
+    <style>
+.custom-services-page { color:#183554; max-width:1440px; margin:0 auto; padding:28px 20px 48px; }
+.custom-services-page *, .custom-services-page *::before, .custom-services-page *::after { box-sizing:border-box; }
+.custom-services-page .top-bar-filter, .custom-services-page .service-table-well, .custom-services-page > .well { background:#fff; border:1px solid #d9e5f1; border-radius:10px; box-shadow:0 4px 18px rgba(35,71,110,.07); }
+.custom-services-page .top-bar-filter { padding:18px 22px; margin-bottom:20px; }
+.custom-services-page .top-bar-filter .row { display:flex; align-items:center; flex-wrap:wrap; }
+.custom-services-page .flexx_row { display:flex; width:100%; gap:10px; align-items:center; }
+.custom-services-page .btn-primary-blue, .custom-services-page .btn_drop .dropdown-toggle { display:inline-flex; align-items:center; justify-content:center; gap:9px; min-height:44px; padding:10px 15px; border:1px solid #2B3E50; border-radius:6px; background:#2B3E50; color:#fff; font-weight:600; }
+.custom-services-page .btn-primary-blue:hover, .custom-services-page .btn-primary-blue:focus, .custom-services-page .btn_drop .dropdown-toggle:hover, .custom-services-page .btn_drop .dropdown-toggle:focus { background:#1D2E3E; color:#fff; }
+.custom-services-page .search-wrapper { position:relative; display:flex; width:100%; }
+.custom-services-page .search-wrapper .form-control { width:100%; height:44px; padding:10px 58px 10px 14px; border:1px solid #cbdced; border-radius:6px; background:#fff; color:#183554; box-shadow:none; }
+.custom-services-page .search-wrapper .form-control:focus { border-color:#2B3E50; box-shadow:0 0 0 3px rgba(43,62,80,.12); }
+.custom-services-page .search-btn { position:absolute; right:0; top:0; width:48px; height:44px; border:1px solid #2B3E50; border-radius:0 6px 6px 0; background:#2B3E50; color:#fff; }
+.custom-services-page .dropdown-menu { max-height:60vh; overflow:auto; border:1px solid #d9e5f1; border-radius:8px; box-shadow:0 10px 25px rgba(35,71,110,.15); }
+.custom-services-page .dropdown-menu .dropdown-item { display:block; padding:8px 16px; color:#24435f; white-space:normal; }
+.custom-services-page .dropdown-menu .dropdown-item:hover { background:#edf5fc; color:#2B3E50; }
+.custom-services-page .service-table-well { overflow:hidden; margin-bottom:20px; }
+.custom-services-page .table-responsive { width:100%; overflow-x:auto; }
+.custom-services-page .custom-table { width:100%; min-width:760px; margin:0; border-collapse:collapse; }
+.custom-services-page .custom-table th, .custom-services-page .custom-table td { padding:13px 12px; border-bottom:1px solid #e2ebf4; vertical-align:middle; font-size:15px; line-height:1.55; }
+.custom-services-page .custom-table th { background:#f1f6fc; color:#24435f; }
+.custom-services-page .custom-table .service_cat_header { background:#eaf3fc; color:#173756; font-weight:700; }
+.custom-services-page .service-row:hover { background:#f8fbfe; }
+.custom-services-page > .well:not(.top-bar-filter) { padding:20px; overflow-wrap:anywhere; }
+.custom-services-page a:focus-visible, .custom-services-page button:focus-visible, .custom-services-page input:focus-visible, .custom-services-page select:focus-visible { outline:3px solid #78b5e7; outline-offset:2px; }
+@media (max-width:991px) { .custom-services-page .top-bar-filter .row { display:block; } .custom-services-page .flexx_row { margin-bottom:12px; } }
+@media (max-width:767px) { .custom-services-page { padding:18px 12px 32px; } .custom-services-page .top-bar-filter { padding:16px; } .custom-services-page .custom-table th, .custom-services-page .custom-table td { padding:10px; } }
+
+.custom-services-page a, .custom-services-page button, .custom-services-page input, .custom-services-page select, .custom-services-page textarea { transition:background-color .16s ease, border-color .16s ease, box-shadow .16s ease, color .16s ease; }
+@media (prefers-reduced-motion:reduce) { .custom-services-page a, .custom-services-page button, .custom-services-page input, .custom-services-page select, .custom-services-page textarea { transition:none; } }
+
+/* This menu belongs only to the service category filter; currency keeps the panel's own controls. */
+.custom-services-page .smm-services-category-button { white-space:nowrap; cursor:pointer; }
+.custom-services-page .flexx_row > .dropdown:first-child { position:relative; }
+.custom-services-page #smm-services-category-label { max-width:170px; overflow:hidden; text-overflow:ellipsis; }
+.custom-services-page .smm-services-category-menu { position:absolute; top:100%; left:0; z-index:1000; width:max-content; min-width:220px; max-width:min(360px,calc(100vw - 48px)); max-height:60vh; overflow:auto; list-style:none; padding:6px; margin:6px 0 0; border:1px solid #d9e5f1; border-radius:8px; background:#fff; box-shadow:0 10px 25px rgba(35,71,110,.15); }
+.custom-services-page .smm-services-category-menu { scrollbar-width:none; -ms-overflow-style:none; -webkit-overflow-scrolling:touch; }
+.custom-services-page .smm-services-category-menu::-webkit-scrollbar { display:none; width:0; height:0; }
+.custom-services-page .smm-services-category-menu[hidden], .custom-services-page .smm-services-empty[hidden] { display:none !important; }
+.custom-services-page .smm-services-category-menu button { display:block; width:100%; padding:10px 12px; border:0; border-radius:5px; background:#fff; color:#24435f; text-align:left; overflow-wrap:anywhere; }
+.custom-services-page .smm-services-category-menu button:hover, .custom-services-page .smm-services-category-menu button:focus { background:#edf5fc; color:#2B3E50; }
+.custom-services-page .smm-services-category-menu button[aria-pressed="true"] { background:#e4f0fb; font-weight:700; }
+.custom-services-page .smm-services-empty { margin:0 0 20px; padding:18px; border:1px solid #d9e5f1; border-radius:10px; background:#fff; color:#526e88; }
+
+/* The panel uses Bootstrap columns here; let the filter controls take their natural width. */
+.custom-services-page .top-bar-filter { position:relative; overflow:visible !important; }
+.custom-services-page .top-bar-filter > .row { display:flex !important; flex-wrap:nowrap; align-items:center; gap:16px; margin:0 !important; }
+.custom-services-page .top-bar-filter > .row > .col-md-2 { float:none !important; width:auto !important; flex:0 1 auto; min-width:0; padding:0 !important; }
+.custom-services-page .top-bar-filter > .row > .col-md-10 { float:none !important; width:auto !important; flex:1 1 220px; min-width:0; padding:0 !important; }
+.custom-services-page .flexx_row { width:auto; min-width:0; margin:0 !important; gap:10px; }
+.custom-services-page .flexx_row > .dropdown:first-child { flex:0 1 auto; min-width:0; }
+.custom-services-page .flexx_row > .btn_drop { flex:0 0 auto; position:relative; }
+.custom-services-page .smm-services-category-button { max-width:100%; }
+.custom-services-page #smm-services-category-label { min-width:0; max-width:170px; }
+.custom-services-page .btn_drop ul.navbar-nav { float:none; margin:0; }
+.custom-services-page .btn_drop ul.navbar-nav > li { float:none; }
+.custom-services-page .search-wrapper .form-control { min-width:0; }
+@media (max-width:767px) {
+  .custom-services-page .top-bar-filter > .row { flex-wrap:wrap; gap:12px; }
+  .custom-services-page .top-bar-filter > .row > .col-md-2, .custom-services-page .top-bar-filter > .row > .col-md-10 { flex:1 1 100%; width:100% !important; }
+  .custom-services-page .flexx_row { width:100%; }
+  .custom-services-page .smm-services-category-button { width:100%; }
+}
+
+/* Form focus: suppress the theme outline while retaining a visible focus indicator. */
+.custom-services-page input:focus, .custom-services-page select:focus, .custom-services-page textarea:focus { outline:none !important; border-color:#2B3E50 !important; box-shadow:0 0 0 2px rgba(43,62,80,.22) !important; }
+.custom-services-page input:focus-visible, .custom-services-page select:focus-visible, .custom-services-page textarea:focus-visible { outline:none !important; }
+
+/* Keep the pressed state consistent with the page's button design. */
+.custom-services-page button:active, .custom-services-page input[type="submit"]:active, .custom-services-page a.btn:active { box-shadow:none !important; }
+.custom-services-page button[type="submit"]:active, .custom-services-page input[type="submit"]:active, .custom-services-page .btn-primary:active { background-color:#1D2E3E !important; border-color:#1D2E3E !important; color:#fff !important; }
+
+/* Filter controls and panel-generated currency dropdown. */
+.custom-services-page .top-bar-filter { z-index:5; }
+.custom-services-page .top-bar-filter .flexx_row { display:flex !important; flex-direction:row !important; align-items:center !important; flex-wrap:nowrap !important; }
+.custom-services-page .smm-services-category-button { display:inline-flex !important; align-items:center; justify-content:center; min-height:46px; border:1px solid #2B3E50 !important; border-radius:7px !important; background:#2B3E50 !important; color:#fff !important; box-shadow:none !important; }
+.custom-services-page .smm-services-category-button:hover, .custom-services-page .smm-services-category-button:focus, .custom-services-page .smm-services-category-button:active { background:#1D2E3E !important; border-color:#1D2E3E !important; color:#fff !important; }
+.custom-services-page .btn_drop { position:relative; overflow:visible !important; }
+.custom-services-page .btn_drop ul.navbar-nav { display:block !important; float:none !important; margin:0 !important; padding:0 !important; list-style:none; }
+.custom-services-page .btn_drop ul.navbar-nav > li { display:block !important; float:none !important; position:relative; margin:0 !important; }
+.custom-services-page .btn_drop .dropdown-toggle { display:inline-flex !important; align-items:center; justify-content:center; gap:8px; min-height:46px; padding:10px 14px !important; border:1px solid #b9cfe1 !important; border-radius:7px !important; background:#fff !important; color:#24435f !important; font-weight:600; line-height:1.4; text-decoration:none !important; box-shadow:none !important; white-space:nowrap; }
+.custom-services-page .btn_drop .dropdown-toggle:hover, .custom-services-page .btn_drop .dropdown-toggle:focus, .custom-services-page .btn_drop .open > .dropdown-toggle { background:#f1f6fb !important; border-color:#84a9ca !important; color:#24435f !important; }
+.custom-services-page .btn_drop .dropdown-menu { position:absolute !important; top:100% !important; left:0 !important; right:auto !important; z-index:1050 !important; float:none !important; min-width:150px; max-width:calc(100vw - 48px); margin:6px 0 0 !important; padding:6px !important; border:1px solid #d4e2ef !important; border-radius:8px !important; background:#fff !important; box-shadow:0 8px 20px rgba(24,53,84,.16) !important; }
+.custom-services-page .btn_drop .dropdown-menu > li > a { display:block; padding:9px 12px !important; border-radius:5px; background:transparent; color:#24435f !important; text-decoration:none; }
+.custom-services-page .btn_drop .dropdown-menu > li > a:hover, .custom-services-page .btn_drop .dropdown-menu > li > a:focus { background:#eaf3fb !important; color:#2B3E50 !important; }
+.custom-services-page .btn_drop .dropdown-menu > li.active, .custom-services-page .btn_drop .dropdown-menu > li.active:hover { background:transparent !important; }
+.custom-services-page .btn_drop .dropdown-menu > li.active > a, .custom-services-page .btn_drop .dropdown-menu > li.active > a:hover, .custom-services-page .btn_drop .dropdown-menu > li.active > a:focus { background:#e4f0fb !important; color:#24435f !important; font-weight:700 !important; }
+.custom-services-page .search-wrapper .form-control { border-color:#cbdced !important; }
+.custom-services-page .search-wrapper .search-btn { background:#2B3E50 !important; border-color:#2B3E50 !important; color:#fff !important; }
+.custom-services-page .search-wrapper .search-btn:hover, .custom-services-page .search-wrapper .search-btn:active { background:#1D2E3E !important; border-color:#1D2E3E !important; }
+/* Table headings, category rows and generated detail buttons. */
+.custom-services-page .custom-table thead th { background:#e9f0f7 !important; color:#24435f !important; }
+.custom-services-page .custom-table .service_cat_header { background:#e5eef7 !important; color:#173756 !important; }
+@supports selector(tr:has(.service_cat_header)) {
+  .custom-services-page .custom-table tr:has(.service_cat_header) > td,
+  .custom-services-page .custom-table tr:has(.service_cat_header) > th { background:#e5eef7 !important; color:#173756 !important; }
+}
+.custom-services-page .custom-table .service-row > td:last-child { background:#fff !important; }
+.custom-services-page .custom-table .service-row:hover > td:last-child { background:#f8fbfe !important; }
+.custom-services-page .custom-table .service-row > td:last-child .btn { display:inline-block; padding:8px 12px !important; border:1px solid #2B3E50 !important; border-radius:6px !important; background:#2B3E50 !important; color:#fff !important; white-space:nowrap; box-shadow:none !important; }
+.custom-services-page .custom-table .service-row > td:last-child .btn:hover, .custom-services-page .custom-table .service-row > td:last-child .btn:focus { background:#1D2E3E !important; border-color:#1D2E3E !important; color:#fff !important; }
+@media (max-width:767px) {
+  .custom-services-page .flexx_row { flex-wrap:nowrap !important; justify-content:flex-start; }
+  .custom-services-page .flexx_row > .dropdown:first-child { flex:0 1 auto; min-width:0; }
+  .custom-services-page .flexx_row > .btn_drop { flex:0 0 auto; }
+  .custom-services-page .smm-services-category-button { width:auto !important; max-width:100%; }
+  .custom-services-page .btn_drop .dropdown-toggle { width:auto !important; }
+  .custom-services-page .btn_drop .dropdown-menu { top:100% !important; left:0 !important; right:auto !important; }
+}
+
+/* Match the reference palette, including empty cells in generated headers. */
+.custom-services-page #order-page .custom-table thead,
+.custom-services-page #order-page .custom-table thead tr,
+.custom-services-page #order-page .custom-table thead tr > th,
+.custom-services-page #order-page .custom-table thead tr > td,
+.custom-services-page #order-page .custom-table thead tr > :last-child {
+  background-color:#e6edf5 !important;
+  color:#24435f !important;
+}
+.custom-services-page #order-page .custom-table .service_cat_header,
+.custom-services-page #order-page .custom-table .service_cat_header * {
+  color:#173756 !important;
+}
+.custom-services-page #order-page .custom-table .service_cat_header { background-color:#d6e5f3 !important; }
+@supports selector(tr:has(.service_cat_header)) {
+  .custom-services-page #order-page .custom-table tr:has(.service_cat_header) > th,
+  .custom-services-page #order-page .custom-table tr:has(.service_cat_header) > td { background-color:#d6e5f3 !important; color:#173756 !important; }
+}
+.custom-services-page #order-page .custom-table .service-row > td { color:#1c365e; }
+.custom-services-page #order-page .custom-table .service-row > td:nth-child(2) { color:#122747 !important; }
+
+/* Keep the search field and button joined, with a focus indicator inside the field. */
+.custom-services-page .search-wrapper .form-control { flex:1 1 0; width:0; min-width:0; padding:10px 14px !important; border-radius:6px 0 0 6px !important; }
+.custom-services-page .search-wrapper .form-control:focus { outline:none !important; border-color:#2B3E50 !important; box-shadow:inset 0 0 0 1px #2B3E50 !important; }
+.custom-services-page .search-wrapper .search-btn { position:static; flex:0 0 48px; height:44px; border-radius:0 6px 6px 0 !important; }
+/* Remove theme spacing around the table, retaining the card border. */
+.custom-services-page #order-page.service-table-well, .custom-services-page #order-page > .table-responsive { padding:0 !important; }
+.custom-services-page #order-page > .table-responsive { margin:0 !important; border:0 !important; }
+.custom-services-page #order-page .custom-table { margin:0 !important; border-spacing:0 !important; }
+
+/* Let the service list scroll with the page while retaining horizontal scrolling on mobile. */
+.custom-services-page #order-page > .table-responsive { max-height:none !important; overflow-x:auto !important; }
+.custom-services-page #order-page .custom-table thead,
+.custom-services-page #order-page .custom-table thead th,
+.custom-services-page #order-page .custom-table thead td { position:static !important; }
+
+/* Shared theme accent for panel-provided primary actions and table links. */
+.custom-services-page .btn-primary { background-color:#2B3E50 !important; border-color:#2B3E50 !important; color:#fff !important; }
+.custom-services-page .btn-primary:hover, .custom-services-page .btn-primary:focus, .custom-services-page .btn-primary:active { background-color:#1D2E3E !important; border-color:#1D2E3E !important; color:#fff !important; }
+.custom-services-page .table a:not(.btn) { color:#2B3E50; }
+
+/* Column headings and category rows. */
+.custom-services-page #order-page .custom-table thead,
+.custom-services-page #order-page .custom-table thead tr,
+.custom-services-page #order-page .custom-table thead tr > th,
+.custom-services-page #order-page .custom-table thead tr > td,
+.custom-services-page #order-page .custom-table thead tr > :last-child {
+  background-color:#fff !important; color:#2B3E50 !important;
+}
+.custom-services-page #order-page .custom-table .service_cat_header,
+.custom-services-page #order-page .custom-table .service_cat_header * { background-color:#e4f0fb !important; color:#2B3E50 !important; font-size:16px !important; }
+@supports selector(tr:has(.service_cat_header)) {
+  .custom-services-page #order-page .custom-table tr:has(.service_cat_header) > th,
+  .custom-services-page #order-page .custom-table tr:has(.service_cat_header) > td { background-color:#e4f0fb !important; color:#2B3E50 !important; font-size:16px !important; }
+}
+/* The service-details action may be generated inside a modal or moved to the body. */
+.custom-services-page .modal .btn-primary,
+.custom-services-page .modal a[href*="select_service_id"],
+.custom-services-page .modal .service-order-link,
+.modal a[href*="select_service_id"] { background:#2B3E50 !important; border-color:#2B3E50 !important; color:#fff !important; }
+.custom-services-page .modal .btn-primary:hover,
+.custom-services-page .modal a[href*="select_service_id"]:hover,
+.custom-services-page .modal .service-order-link:hover,
+.modal a[href*="select_service_id"]:hover { background:#1D2E3E !important; border-color:#1D2E3E !important; color:#fff !important; }
+
+/* Align the close control in the panel-generated service-details modal. */
+.modal-content:has(.placeorder-btn) > .modal-header { display:flex !important; align-items:flex-start; gap:12px; }
+.modal-content:has(.placeorder-btn) > .modal-header::before,
+.modal-content:has(.placeorder-btn) > .modal-header::after { content:none !important; }
+.modal-content:has(.placeorder-btn) > .modal-header .modal-title { flex:1 1 auto; min-width:0; margin:0; overflow-wrap:anywhere; }
+.modal-content:has(.placeorder-btn) > .modal-header > button.close {
+  display:flex !important; align-items:center; justify-content:center;
+  flex:0 0 36px; width:36px; height:36px; margin:0 !important; padding:0 !important;
+  float:none !important; border:0 !important; border-radius:6px !important;
+  background:transparent !important; color:#2B3E50 !important;
+  opacity:1 !important; font-size:26px !important; font-weight:400; line-height:1 !important;
+  text-shadow:none !important; box-shadow:none !important; cursor:pointer;
+}
+.modal-content:has(.placeorder-btn) > .modal-header > button.close:hover,
+.modal-content:has(.placeorder-btn) > .modal-header > button.close:focus { background:#e4f0fb !important; color:#1D2E3E !important; }
+.modal-content:has(.placeorder-btn) > .modal-header > button.close:focus-visible { outline:3px solid #78b5e7 !important; outline-offset:2px; }
+
+/* The panel generates the service modal and may place it outside the page wrapper. */
+.modal-dialog .modal-content .placeorder-btn {
+  background-color:#2B3E50 !important;
+  border:1px solid #2B3E50 !important;
+  border-radius:6px !important;
+  color:#fff !important;
+  font-weight:600;
+  cursor:pointer;
+}
+.modal-dialog .modal-content .placeorder-btn:hover,
+.modal-dialog .modal-content .placeorder-btn:focus,
+.modal-dialog .modal-content .placeorder-btn:active {
+  background-color:#1D2E3E !important;
+  border-color:#1D2E3E !important;
+  color:#fff !important;
+}
+
+/* White column headings distinguish them from the category rows. */
+.custom-services-page #order-page .custom-table thead,
+.custom-services-page #order-page .custom-table thead tr,
+.custom-services-page #order-page .custom-table thead tr > th,
+.custom-services-page #order-page .custom-table thead tr > td,
+.custom-services-page #order-page .custom-table thead tr > :last-child { background-color:#fff !important; color:#2B3E50 !important; }
+
+/* Match the search field's inset focus style on form fields. */
+.custom-services-page input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]):not([type="hidden"]):focus,
+.custom-services-page textarea:focus, .custom-services-page select:focus { outline:none !important; border-color:#2B3E50 !important; box-shadow:inset 0 0 0 1px #2B3E50 !important; }
+
+/* Consistent readable table text and form controls on desktop and mobile. */
+.custom-services-page table th:not(.service_cat_header), .custom-services-page table td:not(.service_cat_header),
+.custom-services-page table .btn, .custom-services-page input:not([type="hidden"]):not([type="checkbox"]):not([type="radio"]),
+.custom-services-page select, .custom-services-page textarea, .custom-services-page button, .custom-services-page label { font-size:15px !important; }
+
+/* Keep body copy readable across screen sizes. */
+.custom-services-page, .custom-services-page p, .custom-services-page li { font-size:15px !important; }
+
+/* Brighter hover for theme-colored actions; active and disabled states remain distinct. */
+@media (hover:hover) {
+  .custom-services-page button[type="submit"]:hover:not(:active):not(:disabled):not(.disabled):not([aria-disabled="true"]),
+  .custom-services-page input[type="submit"]:hover:not(:active):not(:disabled):not(.disabled):not([aria-disabled="true"]),
+  .custom-services-page .btn-primary:hover:not(:active):not(:disabled):not(.disabled):not([aria-disabled="true"]),
+  .custom-services-page .smm-services-category-button:hover:not(:active):not(:disabled):not(.disabled):not([aria-disabled="true"]),
+  .custom-services-page .search-wrapper .search-btn:hover:not(:active):not(:disabled):not(.disabled):not([aria-disabled="true"]),
+  .custom-services-page .custom-table .service-row > td:last-child .btn:hover:not(:active):not(:disabled):not(.disabled):not([aria-disabled="true"]),
+  .modal-dialog .modal-content .placeorder-btn:hover:not(:active) { background-color:#405E78 !important; border-color:#405E78 !important; color:#fff !important; }
+}
+</style>
+    <div class="well top-bar-filter">
+        <div class="row align-items-center">
+            <div class="col-md-2">
+                <div class="flexx_row">
+                    <!-- Filter Category Button -->
+                    <div class="dropdown">
+                        <button class="btn btn-primary-blue smm-services-category-button" type="button" id="dropdownMenuLink"
+                            aria-label="Filter services by category" aria-expanded="false" aria-controls="filter_cat_div">
+                            <i class="fas fa-filter" aria-hidden="true"></i> <span id="smm-services-category-label">All Services</span> <i class="fas fa-caret-down" aria-hidden="true"></i>
+                        </button>
+                        <ul class="smm-services-category-menu" id="filter_cat_div" hidden></ul>
+                    </div>
+
+                    <!-- Currency control provided by the panel -->
+                    <div class="dropdown btn_drop">
+                        [panel.currency_nav_drop_down]
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-10">
+                <div class="search-wrapper">
+                    <input type="text" id="searchService" placeholder="Search" aria-label="Search services" class="form-control" />
+                    <button type="button" class="search-btn" id="smm-services-search-button" aria-label="Search services"><i class="fas fa-search" aria-hidden="true"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services Table Section -->
+    <div id="order-page" class=" service-table-well">
+        <div class="table-responsive" role="region" aria-label="Services table" tabindex="0">
+            <table class="table custom-table">
+
+                [services.get-services-list]
+
+            </table>
+        </div>
+    </div>
+
+    <p id="smm-services-empty" class="smm-services-empty" role="status" hidden>No services match your search or category.</p>
+    <div class="well well-float table-responsive" style="[services.bottom-content-div]">
+        [services.bottom-content]
+    </div>
+</div>
+
+
+
+<script>
+(function () {
+    'use strict';
+    var page = document.querySelector('.custom-services-page');
+    if (!page) return;
+    var table = page.querySelector('.custom-table');
+    var search = page.querySelector('#searchService');
+    var searchButton = page.querySelector('#smm-services-search-button');
+    var trigger = page.querySelector('#dropdownMenuLink');
+    var menu = page.querySelector('#filter_cat_div');
+    var label = page.querySelector('#smm-services-category-label');
+    var empty = page.querySelector('#smm-services-empty');
+    if (!table || !search || !trigger || !menu || !label || !empty) return;
+    var selectedCategory = null;
+
+    function setMenuOpen(open) {
+        menu.hidden = !open;
+        trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    function applyFilters() {
+        var query = search.value.trim().toLowerCase();
+        var rows = table.querySelectorAll('.service-row');
+        var matchingCategories = Object.create(null);
+        var visibleCount = 0;
+        Array.prototype.forEach.call(rows, function (row) {
+            var category = row.getAttribute('data-category');
+            var categoryMatches = selectedCategory === null || category === selectedCategory;
+            var textMatches = row.textContent.toLowerCase().indexOf(query) !== -1;
+            var visible = categoryMatches && textMatches;
+            row.style.display = visible ? '' : 'none';
+            if (visible) { visibleCount++; matchingCategories[category] = true; }
+        });
+        Array.prototype.forEach.call(table.querySelectorAll('.service_cat_header'), function (header) {
+            var category = header.getAttribute('data-category');
+            var row = header.closest('tr');
+            if (row) row.style.display = matchingCategories[category] ? '' : 'none';
+        });
+        empty.hidden = rows.length === 0 || visibleCount !== 0;
+    }
+    function chooseCategory(category, name) {
+        selectedCategory = category;
+        label.textContent = name;
+        Array.prototype.forEach.call(menu.querySelectorAll('button'), function (button) {
+            button.setAttribute('aria-pressed', button._smmCategory === category ? 'true' : 'false');
+        });
+        applyFilters();
+        setMenuOpen(false);
+    }
+    function addCategory(category, name) {
+        var item = document.createElement('li');
+        var button = document.createElement('button');
+        button.type = 'button';
+        button.textContent = name;
+        button._smmCategory = category;
+        button.setAttribute('aria-pressed', category === selectedCategory ? 'true' : 'false');
+        button.addEventListener('click', function () { chooseCategory(category, name); trigger.focus(); });
+        item.appendChild(button);
+        menu.appendChild(item);
+    }
+    var seen = Object.create(null);
+    addCategory(null, 'All Services');
+    Array.prototype.forEach.call(table.querySelectorAll('.service_cat_header'), function (header) {
+        var category = header.getAttribute('data-category');
+        if (category !== null && !Object.prototype.hasOwnProperty.call(seen, category)) {
+            seen[category] = true;
+            addCategory(category, category);
+        }
+    });
+    trigger.addEventListener('click', function () { setMenuOpen(menu.hidden); });
+    search.addEventListener('input', applyFilters);
+    if (searchButton) searchButton.addEventListener('click', applyFilters);
+    document.addEventListener('click', function (event) {
+        if (!menu.hidden && !menu.contains(event.target) && !trigger.contains(event.target)) setMenuOpen(false);
+    });
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && !menu.hidden) { setMenuOpen(false); trigger.focus(); }
+    });
+    // Preserve the existing global hook used by the original template.
+    window.filterCatService = function (category) { chooseCategory(category === 'All' ? null : category, category === 'All' ? 'All Services' : category); };
+}());
+</script>

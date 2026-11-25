@@ -1,0 +1,1718 @@
+<!-- SMM Quality Perfect Panel Login Page | Aurora Glass -->
+<style>
+    .sq-login-page,
+    .sq-login-page *
+    {
+        box-sizing: border-box;
+    }
+
+    .sq-login-page
+    {
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
+        width: 100%;
+        min-height: calc(100vh - 90px);
+        padding: 78px 0 72px;
+        background: transparent;
+        color: #f4f8fc;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+    }
+
+    .sq-login-page::before
+    {
+        position: absolute;
+        z-index: -1;
+        top: 48%;
+        right: -190px;
+        width: 680px;
+        height: 680px;
+        border-radius: 50%;
+        background: radial-gradient(
+            circle,
+            rgba(76, 157, 216, 0.15),
+            rgba(76, 157, 216, 0.05) 38%,
+            transparent 70%
+        );
+        content: "";
+        pointer-events: none;
+        transform: translateY(-50%);
+    }
+
+    .sq-login-page a
+    {
+        text-decoration: none;
+    }
+
+    .sq-login-container
+    {
+        width: 100%;
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .sq-login-layout
+    {
+        display: grid;
+        align-items: center;
+        grid-template-columns: minmax(0, 0.95fr) minmax(430px, 0.78fr);
+        gap: 74px;
+    }
+
+    .sq-login-copy
+    {
+        position: relative;
+        z-index: 2;
+        max-width: 610px;
+    }
+
+    .sq-login-eyebrow
+    {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        margin-bottom: 24px;
+        padding: 8px 14px;
+        border: 1px solid rgba(126, 194, 247, 0.28);
+        border-radius: 999px;
+        background: rgba(69, 127, 173, 0.17);
+        color: #cbe7ff;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 1.15px;
+        text-transform: uppercase;
+    }
+
+    .sq-login-status
+    {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #8dccfa;
+        box-shadow: 0 0 0 5px rgba(141, 204, 250, 0.12);
+    }
+
+    .sq-login-copy h1
+    {
+        max-width: 600px;
+        margin: 0 0 21px;
+        color: #f8fbff;
+        font-size: clamp(43px, 5vw, 64px);
+        line-height: 1.06;
+        font-weight: 820;
+        letter-spacing: -2.2px;
+    }
+
+    .sq-login-highlight
+    {
+        background: linear-gradient(
+            90deg,
+            #8dccfa,
+            #d9f0ff
+        );
+        color: #a9d8fa;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .sq-login-description
+    {
+        max-width: 570px;
+        margin: 0;
+        color: #b8c6d3;
+        font-size: 17px;
+        line-height: 1.78;
+    }
+
+    .sq-login-trust
+    {
+        display: grid;
+        gap: 13px;
+        margin-top: 30px;
+    }
+
+    .sq-login-trust-item
+    {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: #d3dde6;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .sq-login-trust-icon
+    {
+        display: inline-flex;
+        flex: 0 0 24px;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        border: 1px solid rgba(139, 202, 250, 0.20);
+        border-radius: 50%;
+        background: rgba(63, 124, 171, 0.22);
+        color: #cfeaff;
+        font-size: 12px;
+        font-weight: 900;
+    }
+
+    .sq-login-mini-stats
+    {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 34px;
+    }
+
+    .sq-login-mini-stat
+    {
+        padding: 16px 15px;
+        border: 1px solid rgba(151, 201, 238, 0.13);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.028);
+        backdrop-filter: blur(9px);
+        -webkit-backdrop-filter: blur(9px);
+    }
+
+    .sq-login-mini-stat strong
+    {
+        display: block;
+        margin-bottom: 5px;
+        background: linear-gradient(
+            90deg,
+            #8dccfa,
+            #d9f0ff
+        );
+        color: #a9d8fa;
+        font-size: 20px;
+        line-height: 1.2;
+        font-weight: 820;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .sq-login-mini-stat span
+    {
+        color: #92a7b9;
+        font-size: 11px;
+        line-height: 1.45;
+    }
+
+    .sq-login-card-wrap
+    {
+        position: relative;
+        z-index: 3;
+    }
+
+    .sq-login-card
+    {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        padding: 38px;
+        border: 1px solid rgba(143, 203, 249, 0.24);
+        border-radius: 18px;
+        background: linear-gradient(
+            145deg,
+            rgba(25, 49, 68, 0.88),
+            rgba(16, 34, 50, 0.82)
+        );
+        box-shadow:
+            0 30px 65px rgba(5, 16, 27, 0.24),
+            inset 0 1px 0 rgba(255, 255, 255, 0.045);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+    }
+
+    .sq-login-card::before
+    {
+        position: absolute;
+        top: -180px;
+        right: -150px;
+        width: 360px;
+        height: 360px;
+        border-radius: 50%;
+        background: radial-gradient(
+            circle,
+            rgba(94, 174, 232, 0.13),
+            transparent 69%
+        );
+        content: "";
+        pointer-events: none;
+    }
+
+    .sq-login-card-content
+    {
+        position: relative;
+        z-index: 2;
+    }
+
+    .sq-login-card-head
+    {
+        margin-bottom: 28px;
+    }
+
+    .sq-login-card .login-area-head
+    {
+        margin: 0 0 8px;
+        color: #f8fbff;
+        font-size: 31px;
+        line-height: 1.2;
+        font-weight: 800;
+        letter-spacing: -0.65px;
+    }
+
+    .sq-login-card-subtitle
+    {
+        margin: 0;
+        color: #aab9c8;
+        font-size: 14px;
+        line-height: 1.65;
+    }
+
+    .sq-login-card form
+    {
+        margin: 0;
+    }
+
+    .sq-login-page .form-group
+    {
+        margin: 0 0 19px;
+    }
+
+    .sq-login-page .control-label
+    {
+        display: block;
+        margin: 0 0 8px;
+        color: #e8f3fb;
+        font-size: 13px;
+        line-height: 1.45;
+        font-weight: 750;
+    }
+
+    .sq-login-page .form-control
+    {
+        display: block;
+        width: 100%;
+        height: 56px;
+        min-height: 56px;
+        padding: 0 16px;
+        border: 1px solid rgba(151, 199, 235, 0.23);
+        border-radius: 11px;
+        outline: none;
+        background: rgba(255, 255, 255, 0.045);
+        box-shadow: none;
+        color: #f4f8fc;
+        font-family: inherit;
+        font-size: 15px;
+        line-height: 1.4;
+        appearance: none;
+        -webkit-appearance: none;
+        transition:
+            border-color 0.22s ease,
+            background 0.22s ease,
+            box-shadow 0.22s ease;
+    }
+
+    .sq-login-page .form-control::placeholder
+    {
+        color: #8296a8;
+        opacity: 1;
+    }
+
+    .sq-login-page .form-control:hover
+    {
+        border-color: rgba(151, 199, 235, 0.36);
+    }
+
+    .sq-login-page .form-control:focus
+    {
+        border-color: rgba(134, 201, 255, 0.62);
+        background: rgba(255, 255, 255, 0.063);
+        box-shadow: 0 0 0 4px rgba(93, 174, 232, 0.09);
+    }
+
+    .sq-login-page input:-webkit-autofill,
+    .sq-login-page input:-webkit-autofill:hover,
+    .sq-login-page input:-webkit-autofill:focus
+    {
+        border: 1px solid rgba(134, 201, 255, 0.45);
+        -webkit-box-shadow: 0 0 0 1000px #1b3448 inset;
+        -webkit-text-fill-color: #f4f8fc;
+        caret-color: #f4f8fc;
+        transition: background-color 9999s ease-out 0s;
+    }
+
+    .sq-login-page .help-block
+    {
+        min-height: 0;
+        margin: 6px 0 0;
+        color: #ffb2b7;
+        font-size: 12px;
+        line-height: 1.45;
+    }
+
+    .sq-login-options
+    {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        margin: 2px 0 20px;
+    }
+
+    .sq-login-page .checkbox
+    {
+        margin: 0;
+    }
+
+    .sq-login-page .checkbox label
+    {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        margin: 0;
+        padding: 0;
+        color: #b9c6d2;
+        font-size: 13px;
+        font-weight: 500;
+        cursor: pointer;
+    }
+
+    .sq-login-page .checkbox input
+    {
+        width: 16px;
+        height: 16px;
+        margin: 0;
+        accent-color: #8dccfa;
+        cursor: pointer;
+    }
+
+    .sq-login-reset
+    {
+        color: #b9dcf7;
+        font-size: 13px;
+        font-weight: 700;
+        transition: color 0.2s ease;
+    }
+
+    .sq-login-reset:hover,
+    .sq-login-reset:focus
+    {
+        color: #ffffff;
+    }
+
+    .sq-login-page .sq-login-system-message
+    {
+        margin: 0 0 16px;
+        color: #ffcf9f;
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    .sq-login-page .alert
+    {
+        margin: 0 0 18px;
+        padding: 13px 15px;
+        border: 1px solid rgba(255, 151, 159, 0.30);
+        border-radius: 10px;
+        background: rgba(189, 60, 71, 0.14);
+        box-shadow: none;
+        color: #ffd6d9;
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    .sq-login-page .alert-success
+    {
+        border-color: rgba(112, 226, 170, 0.25);
+        background: rgba(54, 154, 111, 0.14);
+        color: #cbf5e1;
+    }
+
+    .sq-login-page .alert a
+    {
+        color: inherit;
+        font-weight: 750;
+        text-decoration: underline;
+    }
+
+    .sq-login-page .btn,
+    .sq-login-page .btn-primary,
+    .sq-login-submit
+    {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        min-height: 54px;
+        margin: 0;
+        padding: 0 22px;
+        border: 1px solid rgba(196, 231, 255, 0.80);
+        border-radius: 10px;
+        outline: none;
+        background: linear-gradient(
+            135deg,
+            #d8efff,
+            #8cc9f6
+        );
+        box-shadow: 0 13px 30px rgba(48, 132, 194, 0.25);
+        color: #102233;
+        font-family: inherit;
+        font-size: 15px;
+        line-height: 1.2;
+        font-weight: 800;
+        cursor: pointer;
+        transition:
+            transform 0.24s ease,
+            background 0.24s ease,
+            box-shadow 0.24s ease;
+    }
+
+    .sq-login-page .btn:hover,
+    .sq-login-page .btn:focus,
+    .sq-login-page .btn-primary:hover,
+    .sq-login-page .btn-primary:focus,
+    .sq-login-submit:hover,
+    .sq-login-submit:focus
+    {
+        border-color: rgba(222, 242, 255, 0.95);
+        background: linear-gradient(
+            135deg,
+            #e8f6ff,
+            #9bd4fa
+        );
+        box-shadow: 0 17px 36px rgba(48, 132, 194, 0.33);
+        color: #081622;
+        transform: translateY(-2px);
+    }
+
+    .sq-login-page .btn:active,
+    .sq-login-submit:active
+    {
+        transform: translateY(0);
+    }
+
+    .sq-login-page .btn[disabled],
+    .sq-login-page .btn.disabled
+    {
+        opacity: 0.65;
+        cursor: not-allowed;
+        transform: none;
+    }
+
+    .sq-login-security
+    {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        margin-top: 13px;
+        color: #8298aa;
+        font-size: 11px;
+        line-height: 1.5;
+        text-align: center;
+    }
+
+    .sq-login-divider
+    {
+        display: flex;
+        align-items: center;
+        gap: 13px;
+        margin: 22px 0 18px;
+        color: #71899c;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.7px;
+        text-transform: uppercase;
+    }
+
+    .sq-login-divider::before,
+    .sq-login-divider::after
+    {
+        flex: 1;
+        height: 1px;
+        background: rgba(151, 201, 238, 0.12);
+        content: "";
+    }
+
+    .sq-login-signup
+    {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 6px;
+        color: #9fb0bf;
+        font-size: 13px;
+        line-height: 1.55;
+        text-align: center;
+    }
+
+    .sq-login-signup a
+    {
+        color: #d4ecff;
+        font-weight: 800;
+        transition: color 0.2s ease;
+    }
+
+    .sq-login-signup a:hover,
+    .sq-login-signup a:focus
+    {
+        color: #ffffff;
+    }
+
+    .sq-login-referral
+    {
+        margin-top: 13px;
+        color: #9db0bf;
+        font-size: 12px;
+        line-height: 1.6;
+        text-align: center;
+    }
+
+    .sq-login-referral:empty
+    {
+        display: none;
+    }
+
+    .sq-login-contact-slot
+    {
+        margin-top: 28px;
+        padding-top: 24px;
+        border-top: 1px solid rgba(151, 201, 238, 0.11);
+        color: #aebdca;
+        font-size: 13px;
+        line-height: 1.7;
+    }
+
+    .sq-login-contact-slot:empty
+    {
+        display: none;
+    }
+
+    .sq-login-contact-slot a
+    {
+        color: #cfeaff;
+        font-weight: 700;
+    }
+
+    .sq-login-contact-slot h1,
+    .sq-login-contact-slot h2,
+    .sq-login-contact-slot h3,
+    .sq-login-contact-slot h4,
+    .sq-login-contact-slot h5
+    {
+        margin-top: 0;
+        color: #f8fbff;
+    }
+
+    .sq-login-contact-slot .well,
+    .sq-login-contact-slot .card
+    {
+        margin: 0;
+        padding: 18px;
+        border: 1px solid rgba(151, 201, 238, 0.13);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.028);
+        box-shadow: none;
+    }
+
+    .sq-login-counter
+    {
+        margin-top: 54px;
+    }
+
+    .sq-login-counter:empty
+    {
+        display: none;
+    }
+
+    .sq-login-counter .row
+    {
+        margin-right: -8px;
+        margin-left: -8px;
+    }
+
+    .sq-login-counter [class*="col-"]
+    {
+        padding-right: 8px;
+        padding-left: 8px;
+    }
+
+    .sq-login-counter .card,
+    .sq-login-counter .well
+    {
+        height: 100%;
+        margin-bottom: 16px;
+        padding: 22px;
+        border: 1px solid rgba(151, 201, 238, 0.14);
+        border-radius: 13px;
+        background: linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.048),
+            rgba(255, 255, 255, 0.018)
+        );
+        box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.03),
+            0 10px 24px rgba(7, 19, 30, 0.08);
+        color: #b8c6d3;
+    }
+
+    .sq-login-counter h1,
+    .sq-login-counter h2,
+    .sq-login-counter h3,
+    .sq-login-counter h4,
+    .sq-login-counter h5,
+    .sq-login-counter strong
+    {
+        color: #f8fbff;
+    }
+
+    .sq-login-counter p
+    {
+        color: #aab9c8;
+    }
+
+    @media screen and (max-width: 991px)
+    {
+        .sq-login-page
+        {
+            padding: 66px 0 64px;
+        }
+
+        .sq-login-layout
+        {
+            grid-template-columns: 1fr;
+            gap: 46px;
+        }
+
+        .sq-login-copy
+        {
+            max-width: 760px;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .sq-login-copy h1,
+        .sq-login-description
+        {
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .sq-login-trust
+        {
+            max-width: 560px;
+            margin-right: auto;
+            margin-left: auto;
+            text-align: left;
+        }
+
+        .sq-login-mini-stats
+        {
+            max-width: 620px;
+            margin-right: auto;
+            margin-left: auto;
+            text-align: left;
+        }
+
+        .sq-login-card-wrap
+        {
+            width: 100%;
+            max-width: 590px;
+            margin: 0 auto;
+        }
+    }
+
+    @media screen and (max-width: 620px)
+    {
+        .sq-login-page
+        {
+            min-height: auto;
+            padding: 52px 0 58px;
+        }
+
+        .sq-login-page::before
+        {
+            top: 36%;
+            right: -330px;
+            width: 600px;
+            height: 600px;
+        }
+
+        .sq-login-container
+        {
+            padding: 0 15px;
+        }
+
+        .sq-login-layout
+        {
+            gap: 34px;
+        }
+
+        .sq-login-eyebrow
+        {
+            margin-bottom: 19px;
+            padding: 7px 12px;
+            font-size: 10px;
+        }
+
+        .sq-login-copy h1
+        {
+            margin-bottom: 17px;
+            font-size: 38px;
+            letter-spacing: -1.35px;
+        }
+
+        .sq-login-description
+        {
+            font-size: 15px;
+            line-height: 1.72;
+        }
+
+        .sq-login-trust
+        {
+            margin-top: 24px;
+        }
+
+        .sq-login-mini-stats
+        {
+            grid-template-columns: 1fr;
+            margin-top: 25px;
+        }
+
+        .sq-login-mini-stat
+        {
+            display: grid;
+            align-items: center;
+            grid-template-columns: auto 1fr;
+            gap: 11px;
+            padding: 13px 15px;
+        }
+
+        .sq-login-mini-stat strong
+        {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .sq-login-card
+        {
+            padding: 27px 20px;
+            border-radius: 15px;
+        }
+
+        .sq-login-card .login-area-head
+        {
+            font-size: 27px;
+        }
+
+        .sq-login-options
+        {
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .sq-login-page .form-control
+        {
+            height: 54px;
+            min-height: 54px;
+        }
+
+        .sq-login-counter
+        {
+            margin-top: 40px;
+        }
+    }
+  
+  .sq-login-status {
+    background: #70e2aa;
+  
+</style>
+
+<div class="sq-login-page">
+
+    <div class="sq-login-container">
+
+        <div class="sq-login-layout">
+
+            <section class="sq-login-copy">
+
+                <div class="sq-login-eyebrow">
+
+                    <span class="sq-login-status"></span>
+
+                    Secure dashboard access
+
+                </div>
+
+                <h1>
+
+                    Welcome to
+
+                    <span class="sq-login-highlight">
+
+                        the backbone of SMM Panels
+
+                    </span>
+
+                </h1>
+
+                 <p class="sq-login-description">
+
+                    SMM Quality has run its SMM panel since 2017. Order Followers, Views, Likes and Subscribers from one dashboard, pay by UPI, Cards or PayPal, and reach a 12-person support team on WhatsApp, Email or Ticket.
+
+
+                </p>
+
+               <!-- <div class="sq-login-trust">
+
+                    <div class="sq-login-trust-item">
+
+                        <span class="sq-login-trust-icon">✓</span>
+
+                        <span>Track every submitted order from your dashboard</span>
+
+                    </div>
+
+                    <div class="sq-login-trust-item">
+
+                        <span class="sq-login-trust-icon">✓</span>
+
+                        <span>Access live rates across five major platforms</span>
+
+                    </div>
+
+                    <div class="sq-login-trust-item">
+
+                        <span class="sq-login-trust-icon">✓</span>
+
+                        <span>Get 24x7 assistance from a 12 person support team</span>
+
+                    </div>
+
+                </div>
+
+                <!-- <div class="sq-login-mini-stats">
+
+                    <div class="sq-login-mini-stat">
+
+                        <strong>1,00,000+</strong>
+
+                        <span>Orders delivered</span>
+
+                    </div>
+
+                    <div class="sq-login-mini-stat">
+
+                        <strong>50,000+</strong>
+
+                        <span>Creators and brands</span>
+
+                    </div>
+
+                    <div class="sq-login-mini-stat">
+
+                        <strong>5</strong>
+
+                        <span>Platforms in one account</span>
+
+                    </div>
+
+                </div> -->
+
+                <div class="sq-login-contact-slot">
+
+                    [user_contact_us]
+
+                </div>
+
+            </section>
+
+            <section class="sq-login-card-wrap">
+
+                <div class="sq-login-card">
+
+                    <div class="sq-login-card-content">
+
+                        <div class="sq-login-card-head">
+
+                            <h2 class="login-area-head">
+
+                                [login.form.header]
+
+                            </h2>
+
+                            <p class="sq-login-card-subtitle">
+
+                                Enter your account details to access your SMM Quality dashboard.
+
+                            </p>
+
+                        </div>
+
+                        <form method="post" action="">
+
+                            [error_message]
+
+                            <div class="form-group">
+
+                                <label class="control-label" for="username">
+
+                                    [login.form.username]
+
+                                </label>
+
+                                <input
+                                    name="username"
+                                    class="form-control"
+                                    id="username"
+                                    type="text"
+                                    placeholder="[login.form.username]"
+                                    autocomplete="username"
+                                    required
+                                >
+
+                                <p class="help-block help-block-error"></p>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label class="control-label" for="password">
+
+                                    [login.form.password]
+
+                                </label>
+
+                                <input
+                                    name="password"
+                                    class="form-control"
+                                    id="password"
+                                    type="password"
+                                    placeholder="[login.form.password]"
+                                    autocomplete="current-password"
+                                    required
+                                >
+
+                                <p class="help-block help-block-error"></p>
+
+                            </div>
+
+                            <div class="sq-login-options">
+
+                                <!-- <div class="checkbox">
+
+                                    <label>
+
+                                        <input
+                                            name="remember_me"
+                                            id="remembered"
+                                            value="1"
+                                            type="checkbox"
+                                        >
+
+                                        <span>[login.form.remember_me_text]</span>
+
+                                    </label>
+
+                                </div> -->
+
+                                <a href="reset-password" class="sq-login-reset">
+
+                                    [login.form.reset_password_button]
+
+                                </a>
+
+                            </div>
+
+                            <div class="sq-login-system-message">
+
+                                [login.form.wrong_enter]
+
+                            </div>
+
+                            [login.form.csrf_protection]
+
+                            <button
+                                type="submit"
+                                name="login_btn"
+                                class="btn btn-primary sq-login-submit"
+                            >
+
+                                [login.form.submit_button]
+
+                            </button>
+
+                            <div class="sq-login-security">
+
+                                <span>●</span>
+
+                                <span>Your login details are submitted securely</span>
+
+                            </div>
+
+                            <div class="sq-login-divider">
+
+                                New here
+
+                            </div>
+
+                            <div class="sq-login-signup">
+
+                                <span>[login.form.signup_text]</span>
+
+                                <a href="signup">
+
+                                    [login.form.signup_button]
+
+                                </a>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+                <div class="sq-login-referral">
+
+                    [login.form.allow_refferal]
+
+                </div>
+
+            </section>
+
+        </div>
+
+        <div class="sq-login-counter">
+
+            [content_login_counter]
+
+        </div>
+
+    </div>
+
+</div>
+
+<!--
+Perfect Panel functional elements retained:
+1. Native POST action
+2. username and password field names
+3. remember_me field
+4. login_btn submit name
+5. error_message
+6. wrong_enter
+7. csrf_protection
+8. allow_refferal
+9. user_contact_us
+10. content_login_counter
+-->
+          
+      
+    
+
+
+<!-- SMM Quality Aurora Glass Footer -->
+<style>
+    .sq-footer,
+    .sq-footer *
+    {
+        box-sizing: border-box;
+    }
+
+    .sq-footer
+    {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        margin-top: 0;
+        background: transparent;
+        color: #f4f8fc;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+    }
+
+    .sq-footer::before
+    {
+        position: absolute;
+        right: -180px;
+        bottom: 90px;
+        width: 520px;
+        height: 520px;
+        border-radius: 50%;
+        background: radial-gradient(
+            circle,
+            rgba(76, 157, 216, 0.12),
+            transparent 68%
+        );
+        content: "";
+        pointer-events: none;
+    }
+
+    .sq-footer a
+    {
+        text-decoration: none;
+    }
+
+    .sq-footer-container
+    {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        max-width: 1480px;
+        margin: 0 auto;
+        padding: 0 24px;
+    }
+
+    .sq-footer-top
+    {
+        padding: 72px 0 38px;
+        border-top: 1px solid rgba(151, 201, 238, 0.12);
+    }
+
+    .sq-footer-intro
+    {
+        display: grid;
+        align-items: end;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 30px;
+        margin-bottom: 34px;
+    }
+
+    .sq-footer-eyebrow
+    {
+        margin-bottom: 10px;
+        color: #86c9ff;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 1.45px;
+        text-transform: uppercase;
+    }
+
+    .sq-footer-intro h2
+    {
+        max-width: 720px;
+        margin: 0 0 12px;
+        color: #f8fbff;
+        font-size: 34px;
+        line-height: 1.2;
+        font-weight: 800;
+        letter-spacing: -0.7px;
+    }
+
+    .sq-footer-intro p
+    {
+        max-width: 760px;
+        margin: 0;
+        color: #aebdca;
+        font-size: 15px;
+        line-height: 1.75;
+    }
+
+    .sq-footer-cta
+    {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: 0 20px;
+        border: 1px solid rgba(196, 231, 255, 0.78);
+        border-radius: 10px;
+        background: linear-gradient(
+            135deg,
+            #d8efff,
+            #8cc9f6
+        );
+        box-shadow: 0 12px 28px rgba(48, 132, 194, 0.22);
+        color: #102233;
+        font-size: 14px;
+        font-weight: 800;
+        transition:
+            transform 0.25s ease,
+            box-shadow 0.25s ease,
+            background 0.25s ease;
+    }
+
+    .sq-footer-cta:hover,
+    .sq-footer-cta:focus
+    {
+        background: linear-gradient(
+            135deg,
+            #e8f6ff,
+            #9bd4fa
+        );
+        box-shadow: 0 16px 34px rgba(48, 132, 194, 0.30);
+        color: #081622;
+        transform: translateY(-3px);
+    }
+
+    .sq-footer-services
+    {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 16px;
+    }
+
+    .sq-footer-group
+    {
+        min-height: 100%;
+        padding: 23px 21px;
+        border: 1px solid rgba(151, 201, 238, 0.14);
+        border-radius: 14px;
+        background: linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.048),
+            rgba(255, 255, 255, 0.018)
+        );
+        box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.03),
+            0 10px 24px rgba(7, 19, 30, 0.08);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        transition:
+            transform 0.25s ease,
+            border-color 0.25s ease,
+            background 0.25s ease;
+    }
+
+    .sq-footer-group:hover
+    {
+        border-color: rgba(132, 199, 251, 0.32);
+        background: linear-gradient(
+            145deg,
+            rgba(84, 143, 191, 0.10),
+            rgba(255, 255, 255, 0.026)
+        );
+        transform: translateY(-4px);
+    }
+
+    .sq-footer-group h3
+    {
+        margin: 0 0 16px;
+        background: linear-gradient(
+            90deg,
+            #8dccfa,
+            #d9f0ff
+        );
+        color: #a9d8fa;
+        font-size: 17px;
+        line-height: 1.35;
+        font-weight: 780;
+        letter-spacing: -0.2px;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .sq-footer-links
+    {
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+    }
+
+    .sq-footer-links a
+    {
+        position: relative;
+        display: inline-block;
+        width: fit-content;
+        max-width: 100%;
+        padding-left: 0;
+        color: #b9c6d2;
+        font-size: 13px;
+        line-height: 1.55;
+        transition:
+            color 0.2s ease,
+            transform 0.2s ease;
+    }
+
+    .sq-footer-links a::before
+    {
+        position: absolute;
+        top: 0.72em;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background: #8dccfa;
+        content: "";
+        opacity: 0;
+        transition:
+            width 0.2s ease,
+            opacity 0.2s ease;
+    }
+
+    .sq-footer-links a:hover,
+    .sq-footer-links a:focus
+    {
+        padding-left: 13px;
+        color: #ffffff;
+        transform: translateX(2px);
+    }
+
+    .sq-footer-links a:hover::before,
+    .sq-footer-links a:focus::before
+    {
+        width: 7px;
+        opacity: 1;
+    }
+
+    .sq-footer-brandbar
+    {
+        display: grid;
+        align-items: center;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 24px;
+        margin-top: 22px;
+        padding: 24px 0;
+        border-top: 1px solid rgba(151, 201, 238, 0.11);
+    }
+
+    .sq-footer-brand h2
+    {
+        margin: 0 0 6px;
+        color: #f8fbff;
+        font-size: 28px;
+        line-height: 1.2;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+    }
+
+    .sq-footer-brand p
+    {
+        margin: 0;
+        color: #92a6b8;
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    .sq-footer-social
+    {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .sq-footer-social a
+    {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border: 1px solid rgba(151, 201, 238, 0.18);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.04);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+        color: #c9e8ff;
+        font-size: 16px;
+        transition:
+            transform 0.22s ease,
+            border-color 0.22s ease,
+            background 0.22s ease,
+            color 0.22s ease;
+    }
+
+    .sq-footer-social a:hover,
+    .sq-footer-social a:focus
+    {
+        border-color: rgba(132, 199, 251, 0.42);
+        background: rgba(84, 143, 191, 0.13);
+        color: #ffffff;
+        transform: translateY(-3px);
+    }
+
+    .sq-footer-bottom
+    {
+        position: relative;
+        z-index: 2;
+        padding: 17px 15px;
+        border-top: 1px solid rgba(151, 201, 238, 0.10);
+        background: rgba(10, 22, 34, 0.22);
+        text-align: center;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+
+    .sq-footer-bottom p
+    {
+        margin: 0;
+        color: #91a4b5;
+        font-size: 13px;
+        line-height: 1.7;
+    }
+
+    .sq-footer-bottom a
+    {
+        color: #d9efff;
+        font-weight: 700;
+    }
+
+    .sq-footer-bottom a:hover
+    {
+        color: #ffffff;
+    }
+
+    @media screen and (max-width: 1180px)
+    {
+        .sq-footer-services
+        {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+    }
+
+    @media screen and (max-width: 900px)
+    {
+        .sq-footer-intro,
+        .sq-footer-brandbar
+        {
+            grid-template-columns: 1fr;
+            align-items: start;
+        }
+
+        .sq-footer-services
+        {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .sq-footer-cta
+        {
+            width: fit-content;
+        }
+    }
+
+    @media screen and (max-width: 620px)
+    {
+        .sq-footer-container
+        {
+            padding: 0 16px;
+        }
+
+        .sq-footer-top
+        {
+            padding: 54px 0 30px;
+        }
+
+        .sq-footer-intro
+        {
+            margin-bottom: 26px;
+        }
+
+        .sq-footer-intro h2
+        {
+            font-size: 28px;
+        }
+
+        .sq-footer-services
+        {
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .sq-footer-group
+        {
+            padding: 20px 18px;
+        }
+
+        .sq-footer-links
+        {
+            gap: 8px;
+        }
+
+        .sq-footer-brandbar
+        {
+            margin-top: 18px;
+            padding: 22px 0;
+        }
+
+        .sq-footer-brand h2
+        {
+            font-size: 24px;
+        }
+
+        .sq-footer-social
+        {
+            flex-wrap: wrap;
+        }
+
+        .sq-footer-bottom
+        {
+            padding-bottom: 76px;
+        }
+    }
+</style>
+
+
+<footer class="sq-footer">
+
+    <div class="sq-footer-container">
+
+        <div class="sq-footer-top">
+
+            <!-- <div class="sq-footer-intro">
+
+                <div>
+
+                    <div class="sq-footer-eyebrow">
+                        Explore SMM Quality
+                    </div>
+
+                    <h2>
+                        Every platform. Every service. One trusted dashboard.
+                    </h2>
+
+                    <p>
+                        Browse our most popular social growth services across Instagram,
+                        YouTube, Facebook, Twitter, TikTok, Telegram, and IMDB.
+                    </p>
+
+                </div>
+
+                <a href="/services" class="sq-footer-cta">
+                    View All Services →
+                </a>
+
+            </div> -->
+
+            <div class="sq-footer-services">
+
+                <div class="sq-footer-group">
+                    <h3>Instagram SMM Panel</h3>
+                     <div class="sq-footer-links">
+                         <a href="/buy-smm-instagram-followers">Buy Instagram Followers - SMM Panel</a>
+                        <a href="/buy-smm-instagram-views">Buy Instagram Views - SMM Panel</a>
+                        <a href="/buy-smm-instagram-likes">Buy Instagram Likes - SMM Panel</a>
+                        <a href="/buy-smm-instagram-comments">Buy Instagram Comments - SMM Panel</a>
+                        <a href="/buy-smm-instagram-story-views">Buy Instagram Story Views - SMM Panel</a>
+                        <a href="/buy-smm-instagram-poll-votes">Buy Instagram Poll Votes - SMM Panel</a>
+                       <a href="/buy-smm-instagram-impressions">Buy Instagram Impressions - SMM Panel</a>
+                     </div>
+                </div>
+
+                <div class="sq-footer-group">
+                    <h3>YouTube SMM Panel</h3>
+                    <div class="sq-footer-links">
+                        <a href="/buy-smm-youtube-views">Buy YouTube Views - SMM Panel</a>
+                        <a href="/buy-smm-youtube-views-bulk">Buy YouTube Views Bulk - SMM Panel</a>
+                        <a href="/buy-smm-youtube-likes">Buy YouTube Likes - SMM Panel</a>
+                        <a href="/buy-smm-youtube-subscribers">Buy YouTube Subscribers - SMM Panel</a>
+                        <a href="/buy-smm-youtube-indian-services">Buy YouTube Indian Views - SMM Panel</a>
+                        <a href="/buy-smm-youtube-comments">Buy YouTube Comments - SMM Panel</a>
+                        <a href="/buy-smm-youtube-livestream-viewers">Buy YouTube Livestream Viewers</a>
+                    </div>
+                </div>
+
+                <div class="sq-footer-group">
+                    <h3>Facebook SMM Panel</h3>
+                    <div class="sq-footer-links">
+                        <a href="/buy-smm-facebook-page-followers">Buy Facebook Followers - SMM Panel</a>
+                        <a href="/buy-smm-facebook-page-likes">Buy Facebook Page Likes - SMM Panel</a>
+                        <a href="/buy-smm-facebook-post-likes">Buy Facebook Post Likes - SMM Panel</a>
+                        <a href="/buy-smm-facebook-emoticons">Buy Facebook Emoticons - SMM Panel</a>
+                        <a href="/buy-smm-facebook-comments">Buy Facebook Comments - SMM Panel</a>
+                        <a href="/buy-smm-facebook-story-views">Buy Facebook Story Views - SMM Panel</a>
+                        <a href="/buy-smm-facebook-shares">Buy Facebook Shares - SMM Panel</a>
+                        <a href="/buy-smm-facebook-video-views">Buy Facebook Video Views - SMM Panel</a>
+                        <a href="/buy-smm-facebook-livestream-viewers">Buy Facebook Livestream Viewers</a>
+                    </div>
+                </div>
+
+                <div class="sq-footer-group">
+                    <h3>Twitter (X) SMM Panel</h3>
+                    <div class="sq-footer-links">
+                        <a href="/buy-smm-twitter-x-likes">Buy Twitter Likes - SMM Panel</a>
+                        <a href="/buy-smm-twitter-x-retweets">Buy Twitter Retweets - SMM Panel</a>
+                        <a href="/buy-smm-twitter-x-video-views">Buy Twitter Video Views - SMM Panel</a>
+                        <a href="/buy-smm-twitter-x-mentions">Buy Twitter Mentions - SMM Panel</a>
+                        <a href="/buy-smm-twitter-x-impressions">Buy Twitter Impressions - SMM Panel</a>
+                        <a href="/buy-smm-twitter-x-bookmarks">Buy Twitter Bookmarks - SMM Panel</a>
+                    </div>
+                </div>
+
+                <div class="sq-footer-group">
+                    <h3>TikTok SMM Panel</h3>
+                    <div class="sq-footer-links">
+                        <a href="/buy-smm-tiktok-views">Buy TikTok Views - SMM Panel</a>
+                        <a href="/buy-smm-tiktok-likes">Buy TikTok Likes - SMM Panel</a>
+                        <a href="/buy-smm-tiktok-followers">Buy TikTok Followers - SMM Panel</a>
+                    </div>
+                </div>
+
+                <div class="sq-footer-group">
+                    <h3>Telegram SMM Panel</h3>
+                    <div class="sq-footer-links">
+                        <a href="/buy-smm-telegram-post-views">Buy Telegram Post Views - SMM Panel</a>
+                        <a href="/buy-smm-telegram-chanel-members">Buy Telegram Members - SMM Panel</a>
+                        <a href="/buy-smm-telegram-post-reactions">Buy Telegram Reactions - SMM Panel</a>
+                    </div>
+                </div>
+
+                <div class="sq-footer-group">
+                    <h3>IMDB SMM Panel</h3>
+                    <div class="sq-footer-links">
+                        <a href="/buy-smm-imdb-votes">Buy IMDB Votes - SMM Panel</a>
+                        <a href="/buy-smm-imdb-reviews">Buy IMDB Reviews - SMM Panel</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="sq-footer-brandbar">
+
+                <div class="sq-footer-brand">
+                    <h2>SMM Quality</h2>
+                    <p>
+                        The SMM panel built for creators, brands, and agencies who notice the difference.
+                    </p>
+                </div>
+
+                <div class="sq-footer-social">
+
+                    <a
+                        href="mailto:support@smmquality.com"
+                        aria-label="Email SMM Quality"
+                        title="Email Support"
+                    >
+                        <i class="fas fa-envelope"></i>
+                    </a>
+
+                    <a
+                        href="https://wa.me/917200485444?text=Hello!"
+                        aria-label="Chat with SMM Quality on WhatsApp"
+                        title="WhatsApp Support"
+                    >
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+
+                    <a
+                        href="https://instagram.com/smmqualitycom"
+                        aria-label="Follow SMM Quality on Instagram"
+                        title="Instagram"
+                    >
+                        <i class="fab fa-instagram"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="sq-footer-bottom">
+
+        <p>
+            Copyright © 2026
+            <a href="https://www.smmquality.com">
+                SMM Quality
+            </a>
+            . 1302 Pickens Way, Dallas City, TX 75207
+        </p>
+
+    </div>
+
+</footer>

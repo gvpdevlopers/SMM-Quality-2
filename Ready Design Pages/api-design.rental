@@ -1,0 +1,434 @@
+<!-- API page template with page-local styles. -->
+<div class="smm-api-v2">
+  <div class="smm-api-v2-layout">
+    <aside class="smm-api-v2-sidebar" aria-label="API navigation and help">
+    <nav class="smm-api-v2-card smm-api-v2-nav" aria-label="API sections">
+      <a href="#smm-api-v2-overview"><i class="fas fa-th-large smm-api-v2-icon" aria-hidden="true"></i><span>Overview</span></a>
+      <a href="#smm-api-v2-add-order"><i class="fas fa-plus-circle smm-api-v2-icon" aria-hidden="true"></i><span>Add Order</span></a>
+      <a href="#smm-api-v2-services"><i class="fas fa-list-alt smm-api-v2-icon" aria-hidden="true"></i><span>Services List</span></a>
+      <a href="#smm-api-v2-status"><i class="fas fa-clipboard-check smm-api-v2-icon" aria-hidden="true"></i><span>Order Status</span></a>
+      <a href="#smm-api-v2-multiple-status"><i class="fas fa-tasks smm-api-v2-icon" aria-hidden="true"></i><span>Multiple Order Status</span></a>
+      <a href="#smm-api-v2-balance"><i class="fas fa-wallet smm-api-v2-icon" aria-hidden="true"></i><span>Balance</span></a>
+      <a href="#smm-api-v2-refill"><i class="fas fa-redo-alt smm-api-v2-icon" aria-hidden="true"></i><span>Refill</span></a>
+      <a href="#smm-api-v2-cancel"><i class="fas fa-times-circle smm-api-v2-icon" aria-hidden="true"></i><span>Cancel</span></a>
+    </nav>
+      <section class="smm-api-v2-card smm-api-v2-help">
+        <h2><i class="fas fa-headset smm-api-v2-icon" aria-hidden="true"></i> Need Help?</h2>
+        <p>Need assistance with API integration? Contact the support team.</p>
+        <a class="smm-api-v2-support-link" href="/tickets">Contact Support</a>
+      </section>
+    </aside>
+    <div class="smm-api-v2-main">
+      <section class="smm-api-v2-card smm-api-v2-overview" id="smm-api-v2-overview">
+<h1><i class="fas fa-laptop-code smm-api-v2-icon" aria-hidden="true"></i> API Overview</h1>
+						<table class="table table-bordered">
+								<tbody>
+									<tr>
+										<td class="width-40">HTTP Method</td>
+										<td>POST</td>
+									</tr>
+									<tr>
+										<td>API URL</td>
+										<td>
+											<strong>[panel.url]/[api-docs.api-url]</strong>
+										</td>
+									</tr>
+							
+									<tr>
+										<td>API KEY</td>
+										<td><strong>[user.api_key]</strong></td>
+									</tr>
+									
+									<tr>
+										<td>Response format</td>
+										<td>JSON</td>
+									</tr>
+								</tbody>
+						</table>
+      </section>
+<section class="smm-api-v2-card smm-api-v2-endpoint" id="smm-api-v2-add-order" aria-labelledby="smm-api-v2-heading-add-order">
+  <span class="smm-api-v2-number" aria-hidden="true">1</span>
+  <div class="smm-api-v2-section-body"><h2 id="smm-api-v2-heading-add-order">Add Order</h2>
+<p>
+						</p>
+						<form class="form-inline">
+							<div class="form-group">
+								<select class="form-control input-sm" id="service_type" aria-label="Service type">
+									<option value="0" selected="selected">Default</option>
+								</select>
+							</div>
+						</form>
+						<p></p>
+						
+						<div id="type_0" style="">
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th class="width-40">Parameters</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>[api-docs.key]</td>
+										<td>Your API key</td>
+									</tr>
+									<tr>
+										<td>[api-docs.action]</td>
+										<td>add</td>
+									</tr>
+									<tr>
+										<td>[api-docs.service]</td>
+										<td>Service ID</td>
+									</tr>
+									<tr>
+										<td>[api-docs.url]</td>
+										<td>Link to page</td>
+									</tr>
+									<tr>
+										<td>[api-docs.quantity]</td>
+										<td>Needed quantity</td>
+									</tr>
+									<tr>
+										<td>[api-docs.comments]</td>
+										<td>Comments list (encoded)</td>
+									</tr>
+									<tr>
+										<td>[api-docs.runs]</td>
+										<td>Runs to deliver</td>
+									</tr>
+									<tr>
+										<td>[api-docs.interval]</td>
+										<td>Interval in minutes</td>
+									</tr>
+									
+								</tbody>
+							</table>
+						</div>
+						<p><strong>Example success response</strong></p>
+						<pre>[api-docs.add-order.success]</pre>
+						<p><strong>Example error response</strong></p>
+						<pre>{
+	"error": "incorrect service type"
+}
+</pre>
+  </div>
+</section>
+<section class="smm-api-v2-card smm-api-v2-endpoint" id="smm-api-v2-services" aria-labelledby="smm-api-v2-heading-services">
+  <span class="smm-api-v2-number" aria-hidden="true">2</span>
+  <div class="smm-api-v2-section-body"><h2 id="smm-api-v2-heading-services">Services List</h2>
+<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th class="width-40">Parameters</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>[api-docs.key]</td>
+										<td>Your API key</td>
+									</tr>
+									<tr>
+										<td>[api-docs.action]</td>
+										<td>services</td>
+									</tr>
+								</tbody>
+							</table>
+							<p><strong>Example response</strong></p>
+							<pre>[api-docs.services.success]</pre>
+  </div>
+</section>
+<section class="smm-api-v2-card smm-api-v2-endpoint" id="smm-api-v2-status" aria-labelledby="smm-api-v2-heading-status">
+  <span class="smm-api-v2-number" aria-hidden="true">3</span>
+  <div class="smm-api-v2-section-body"><h2 id="smm-api-v2-heading-status">Order Status</h2>
+<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th class="width-40">Parameters</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>[api-docs.key]</td>
+										<td>Your API key</td>
+									</tr>
+									<tr>
+										<td>[api-docs.action]</td>
+										<td>status</td>
+									</tr>
+									<tr>
+										<td>[api-docs.status.order]</td>
+										<td>Order ID</td>
+									</tr>
+								</tbody>
+							</table>
+							<p><strong>Example response</strong></p>
+							<pre>[api-docs.status.success]</pre>
+  </div>
+</section>
+<section class="smm-api-v2-card smm-api-v2-endpoint" id="smm-api-v2-multiple-status" aria-labelledby="smm-api-v2-heading-multiple-status">
+  <span class="smm-api-v2-number" aria-hidden="true">4</span>
+  <div class="smm-api-v2-section-body"><h2 id="smm-api-v2-heading-multiple-status">Multiple Order Status</h2>
+<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th class="width-40">Parameters</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>[api-docs.key]</td>
+										<td>Your API key</td>
+									</tr>
+									<tr>
+										<td>[api-docs.action]</td>
+										<td>[api-docs.mass-status.action]</td>
+									</tr>
+									<tr>
+										<td>[api-docs.mass-status.orders]</td>
+										<td>Order IDs separated by comma(100 orders at once)</td>
+									</tr>
+								</tbody>
+							</table>
+							<p><strong>Example response</strong></p>
+							<pre>[api-docs.mass-status.success]</pre>
+  </div>
+</section>
+<section class="smm-api-v2-card smm-api-v2-endpoint" id="smm-api-v2-balance" aria-labelledby="smm-api-v2-heading-balance">
+  <span class="smm-api-v2-number" aria-hidden="true">5</span>
+  <div class="smm-api-v2-section-body"><h2 id="smm-api-v2-heading-balance">Balance</h2>
+<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th class="width-40">Parameters</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>[api-docs.key]</td>
+										<td>Your API key</td>
+									</tr>
+									<tr>
+										<td>[api-docs.action]</td>
+										<td>balance</td>
+									</tr>
+								</tbody>
+							</table>
+							<p><strong>Example response</strong></p>
+							<pre>{
+	"balance": 10000,
+	"currency": "USD"
+}
+</pre>
+  </div>
+</section>
+<section class="smm-api-v2-card smm-api-v2-endpoint" id="smm-api-v2-refill" aria-labelledby="smm-api-v2-heading-refill">
+  <span class="smm-api-v2-number" aria-hidden="true">6</span>
+  <div class="smm-api-v2-section-body"><h2 id="smm-api-v2-heading-refill">Refill</h2>
+<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th class="width-40">Parameters</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>[api-docs.key]</td>
+										<td>Your API key</td>
+									</tr>
+									<tr>
+										<td>[api-docs.action]</td>
+										<td>refill</td>
+									</tr>
+									<tr>
+										<td>[api-docs.status.order]</td>
+										<td>Order ID</td>
+									</tr>
+								</tbody>
+							</table>
+							<p><strong>Example response</strong></p>
+							<pre>{
+	"status": "Success",
+	"message": "Your order successfully added for refill. Thank you for patience."
+}
+</pre>
+  </div>
+</section>
+<section class="smm-api-v2-card smm-api-v2-endpoint" id="smm-api-v2-cancel" aria-labelledby="smm-api-v2-heading-cancel">
+  <span class="smm-api-v2-number" aria-hidden="true">7</span>
+  <div class="smm-api-v2-section-body"><h2 id="smm-api-v2-heading-cancel">Cancel</h2>
+<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th class="width-40">Parameters</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>[api-docs.key]</td>
+										<td>Your API key</td>
+									</tr>
+									<tr>
+										<td>[api-docs.action]</td>
+										<td>cancel</td>
+									</tr>
+									<tr>
+										<td>[api-docs.status.order]</td>
+										<td>Order ID</td>
+									</tr>
+								</tbody>
+							</table>
+							<p><strong>Example response</strong></p>
+							<pre>{
+	"status": "Success",
+	"message": "Your order was successfully marked for cancellation. Thank you for patience."
+}
+</pre>
+  </div>
+</section>
+      <div class="smm-api-v2-card smm-api-v2-download"><a href="[panel.url]/api.zip" target="_blank" rel="noopener noreferrer">Example of PHP code</a></div>
+    </div>
+
+  </div>
+</div>
+
+<style>
+/* SMM Quality API page. Scoped to .smm-api-v2. */
+.smm-api-v2 { color:#183554; padding:28px 20px 48px; }
+.smm-api-v2, .smm-api-v2 *, .smm-api-v2 *::before, .smm-api-v2 *::after { box-sizing:border-box; }
+.smm-api-v2 .smm-api-v2-layout { max-width:1440px; margin:0 auto; display:grid; grid-template-columns:301px minmax(0,1fr); gap:20px; align-items:start; }
+.smm-api-v2 .smm-api-v2-main, .smm-api-v2 .smm-api-v2-section-body, .smm-api-v2 .smm-api-v2-sidebar { min-width:0; }
+.smm-api-v2 .smm-api-v2-main, .smm-api-v2 .smm-api-v2-sidebar { display:grid; gap:16px; }
+.smm-api-v2 .smm-api-v2-card { min-width:0; background:#fff; border:1px solid #d9e5f1; border-radius:10px; box-shadow:0 4px 18px rgba(35,71,110,.07); }
+.smm-api-v2 .smm-api-v2-sidebar { position:sticky; top:20px; max-height:calc(100vh - 40px); overflow-y:auto; scrollbar-width:none; -ms-overflow-style:none; }
+.smm-api-v2 .smm-api-v2-sidebar::-webkit-scrollbar { display:none; width:0; height:0; }
+.smm-api-v2 .smm-api-v2-nav { display:grid !important; visibility:visible !important; opacity:1 !important; height:auto !important; max-height:none !important; gap:4px; padding:12px; }
+.smm-api-v2 .smm-api-v2-nav a { display:flex; align-items:center; min-height:42px; padding:10px 12px; border-radius:7px; color:#365777; text-decoration:none; font-size:14px; line-height:1.4; }
+.smm-api-v2 .smm-api-v2-nav a:hover, .smm-api-v2 .smm-api-v2-nav a:focus { background:#edf5fc; color:#2B3E50; }
+.smm-api-v2 .smm-api-v2-nav a[aria-current="location"] { background:#e5edf5 !important; color:#2B3E50 !important; box-shadow:inset 3px 0 0 #2B3E50; font-weight:700; }
+.smm-api-v2 .smm-api-v2-overview, .smm-api-v2 .smm-api-v2-help, .smm-api-v2 .smm-api-v2-download { padding:22px; }
+.smm-api-v2 .smm-api-v2-endpoint { display:grid; grid-template-columns:38px minmax(0,1fr); gap:14px; padding:22px; }
+.smm-api-v2 .smm-api-v2-number { display:flex; align-items:center; justify-content:center; width:38px; height:38px; border-radius:50%; background:#eaf3fc; color:#2B3E50; font-size:17px; font-weight:700; }
+.smm-api-v2 h1, .smm-api-v2 h2 { color:#173756; line-height:1.35; font-weight:700; }
+.smm-api-v2 h1 { font-size:21px; margin:0 0 18px; }
+.smm-api-v2 h2 { font-size:17px; margin:4px 0 16px; }
+.smm-api-v2 p { margin:14px 0 8px; line-height:1.6; }
+.smm-api-v2 .smm-api-v2-help p { margin:0 0 16px; color:#526e88; font-size:14px; }
+.smm-api-v2 .table { width:100%; max-width:100%; margin:0 0 16px; border-collapse:collapse; table-layout:fixed; }
+.smm-api-v2 .table th, .smm-api-v2 .table td { padding:10px 12px; border:1px solid #dce7f2; vertical-align:top; text-align:left; line-height:1.55; overflow-wrap:anywhere; word-break:normal; }
+.smm-api-v2 .table th { background:#f1f6fc; color:#24435f; }
+.smm-api-v2 .table th:first-child, .smm-api-v2 .table td:first-child { width:40%; }
+.smm-api-v2 pre { display:block; max-width:100%; margin:0 0 16px; padding:14px; border:1px solid #dce7f2; border-radius:6px; background:#f5f8fc; color:#24435f; line-height:1.6; white-space:pre; overflow:auto; font:13px/1.6 Consolas,monospace; }
+.smm-api-v2 select.form-control { max-width:100%; min-height:42px; border:1px solid #cbdced; border-radius:6px; background:#fff; color:#183554; }
+.smm-api-v2 .smm-api-v2-support-link { display:block; padding:11px 12px; border:1px solid #2B3E50 !important; border-radius:7px; background:#2B3E50 !important; color:#fff !important; text-align:center; text-decoration:none !important; font-weight:600; }
+.smm-api-v2 .smm-api-v2-support-link:hover, .smm-api-v2 .smm-api-v2-support-link:focus { background:#1D2E3E !important; border-color:#1D2E3E !important; color:#fff !important; }
+.smm-api-v2 .smm-api-v2-download a { color:#2B3E50; font-weight:600; }
+.smm-api-v2 a:focus-visible, .smm-api-v2 select:focus-visible { outline:3px solid #78b5e7; outline-offset:2px; }
+.smm-api-v2 a { transition:background-color .16s ease,color .16s ease; }
+.smm-api-v2 [id] { scroll-margin-top:24px; }
+@media (max-width:1100px) { .smm-api-v2 .smm-api-v2-layout { gap:14px; } }
+@media (max-width:700px) { .smm-api-v2 { padding:18px 12px 32px; } .smm-api-v2 .smm-api-v2-layout { grid-template-columns:minmax(0,1fr); gap:14px; } .smm-api-v2 .smm-api-v2-sidebar { display:contents; } .smm-api-v2 .smm-api-v2-nav { grid-column:1; grid-row:1; display:flex !important; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; -ms-overflow-style:none; } .smm-api-v2 .smm-api-v2-nav::-webkit-scrollbar { display:none; width:0; height:0; } .smm-api-v2 .smm-api-v2-main { grid-column:1; grid-row:2; } .smm-api-v2 .smm-api-v2-help { grid-column:1; grid-row:3; } .smm-api-v2 .smm-api-v2-nav a { flex:0 0 auto; white-space:nowrap; } .smm-api-v2 .smm-api-v2-endpoint { padding:16px; grid-template-columns:30px minmax(0,1fr); gap:10px; } .smm-api-v2 .smm-api-v2-number { width:30px; height:30px; font-size:14px; } .smm-api-v2 .smm-api-v2-overview, .smm-api-v2 .smm-api-v2-help, .smm-api-v2 .smm-api-v2-download { padding:16px; } .smm-api-v2 .table th, .smm-api-v2 .table td { padding:8px; font-size:13px; } }
+@media (prefers-reduced-motion:reduce) { .smm-api-v2 a { transition:none; } }
+
+.smm-api-v2 .smm-api-v2-icon { width:1.3em; margin-right:8px; text-align:center; color:#2B3E50; }
+
+/* Form focus: suppress the theme outline while retaining a visible focus indicator. */
+.smm-api-v2 input:focus, .smm-api-v2 select:focus, .smm-api-v2 textarea:focus { outline:none !important; border-color:#2B3E50 !important; box-shadow:0 0 0 2px rgba(43,62,80,.22) !important; }
+.smm-api-v2 input:focus-visible, .smm-api-v2 select:focus-visible, .smm-api-v2 textarea:focus-visible { outline:none !important; }
+
+/* Keep the pressed state consistent with the page's button design. */
+.smm-api-v2 button:active, .smm-api-v2 input[type="submit"]:active, .smm-api-v2 a.btn:active { box-shadow:none !important; }
+.smm-api-v2 button[type="submit"]:active, .smm-api-v2 input[type="submit"]:active, .smm-api-v2 .btn-primary:active { background-color:#1D2E3E !important; border-color:#1D2E3E !important; color:#fff !important; }
+
+/* Shared theme accent for panel-provided primary actions and table links. */
+.smm-api-v2 .btn-primary { background-color:#2B3E50 !important; border-color:#2B3E50 !important; color:#fff !important; }
+.smm-api-v2 .btn-primary:hover, .smm-api-v2 .btn-primary:focus, .smm-api-v2 .btn-primary:active { background-color:#1D2E3E !important; border-color:#1D2E3E !important; color:#fff !important; }
+.smm-api-v2 .table a:not(.btn) { color:#2B3E50; }
+
+/* Consistent table heading colors across the site. */
+.smm-api-v2 .table thead,
+.smm-api-v2 .table thead tr,
+.smm-api-v2 .table thead tr > th,
+.smm-api-v2 .table thead tr > td,
+.smm-api-v2 .table thead tr > :last-child { background-color:#e4f0fb !important; color:#2B3E50 !important; }
+
+/* Match the search field's inset focus style on form fields. */
+.smm-api-v2 input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]):not([type="hidden"]):focus,
+.smm-api-v2 textarea:focus, .smm-api-v2 select:focus { outline:none !important; border-color:#2B3E50 !important; box-shadow:inset 0 0 0 1px #2B3E50 !important; }
+/* Keep the native select behavior with a comfortably inset arrow. */
+.smm-api-v2 select.form-control:not([multiple]):not([size]):not(.smm-ticket-select-native) { appearance:none; -webkit-appearance:none; padding-right:40px !important; background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%232B3E50%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22m6%209%206%206%206-6%22%2F%3E%3C%2Fsvg%3E") !important; background-repeat:no-repeat !important; background-position:right 14px center !important; background-size:16px 16px !important; }
+@media (forced-colors:active) { .smm-api-v2 select.form-control:not([multiple]):not([size]):not(.smm-ticket-select-native) { appearance:auto; -webkit-appearance:auto; background-image:none !important; } }
+
+/* Consistent readable table text and form controls on desktop and mobile. */
+.smm-api-v2 table th:not(.service_cat_header), .smm-api-v2 table td:not(.service_cat_header),
+.smm-api-v2 table .btn, .smm-api-v2 input:not([type="hidden"]):not([type="checkbox"]):not([type="radio"]),
+.smm-api-v2 select, .smm-api-v2 textarea, .smm-api-v2 button, .smm-api-v2 label { font-size:15px !important; }
+
+/* Keep body copy readable across screen sizes. */
+.smm-api-v2, .smm-api-v2 p, .smm-api-v2 li { font-size:15px !important; }
+.smm-api-v2 .smm-api-v2-nav a { font-size:15px !important; }
+
+/* Brighter hover for theme-colored actions; active and disabled states remain distinct. */
+@media (hover:hover) {
+  .smm-api-v2 button[type="submit"]:hover:not(:active):not(:disabled):not(.disabled):not([aria-disabled="true"]),
+  .smm-api-v2 input[type="submit"]:hover:not(:active):not(:disabled):not(.disabled):not([aria-disabled="true"]),
+  .smm-api-v2 .btn-primary:hover:not(:active):not(:disabled):not(.disabled):not([aria-disabled="true"]),
+  .smm-api-v2 .smm-api-v2-support-link:hover:not(:active):not(:disabled):not(.disabled):not([aria-disabled="true"]) { background-color:#405E78 !important; border-color:#405E78 !important; color:#fff !important; }
+}
+
+/* Center each numbered badge against its section heading. */
+.smm-api-v2 .smm-api-v2-endpoint .smm-api-v2-section-body > h2 { display:flex; align-items:center; min-height:38px; margin:0 0 16px; }
+@media (max-width:700px) { .smm-api-v2 .smm-api-v2-endpoint .smm-api-v2-section-body > h2 { min-height:30px; } }
+</style>
+<script>
+(function () {
+  'use strict';
+  var page = document.querySelector('.smm-api-v2');
+  if (!page) return;
+  var links = Array.prototype.slice.call(page.querySelectorAll('.smm-api-v2-nav a[href^="#"]'));
+  var items = links.map(function (link) {
+    return { link: link, section: document.getElementById(link.getAttribute('href').slice(1)) };
+  }).filter(function (item) { return item.section && page.contains(item.section); });
+  if (!items.length) return;
+  function updateActive() {
+    var active = items[0];
+    var marker = window.innerHeight * 0.22;
+    items.forEach(function (item) {
+      if (item.section.getBoundingClientRect().top <= marker) active = item;
+    });
+    var root = document.documentElement;
+    if (window.scrollY > 0 && window.scrollY + window.innerHeight >= root.scrollHeight - 2) active = items[items.length - 1];
+    items.forEach(function (item) {
+      if (item === active) item.link.setAttribute('aria-current', 'location');
+      else item.link.removeAttribute('aria-current');
+    });
+  }
+  var scheduled = false;
+  function scheduleUpdate() {
+    if (scheduled) return;
+    scheduled = true;
+    window.requestAnimationFrame(function () { scheduled = false; updateActive(); });
+  }
+  items.forEach(function (item) {
+    item.link.addEventListener('click', function (event) {
+      if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      if (window.history && window.history.pushState) {
+        try { window.history.pushState(null, '', item.link.getAttribute('href')); } catch (error) { /* Scrolling still works where history is unavailable. */ }
+      }
+      var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      item.section.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+      scheduleUpdate();
+    });
+  });
+  window.addEventListener('scroll', scheduleUpdate, { passive:true });
+  window.addEventListener('resize', scheduleUpdate);
+  updateActive();
+}());
+</script>

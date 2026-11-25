@@ -1,0 +1,90 @@
+<style>
+.smm-2fa { color:#183554; padding:28px 20px 48px; }
+.smm-2fa *, .smm-2fa *::before, .smm-2fa *::after { box-sizing:border-box; }
+.smm-2fa .paddingbody { display:none; }
+.smm-2fa .container-fluid { max-width:1100px; padding:0; margin:0 auto; }
+.smm-2fa .well { background:#fff; border:1px solid #d9e5f1; border-radius:10px; box-shadow:0 4px 18px rgba(35,71,110,.07); padding:24px; overflow-wrap:anywhere; }
+.smm-2fa h3 { margin:0 0 12px; color:#173756; font-size:22px; font-weight:700; }
+.smm-2fa p { line-height:1.7; }
+.smm-2fa label { display:block; margin-bottom:8px; color:#24435f; font-size:14px; font-weight:600; }
+.smm-2fa .form-group { margin-bottom:18px; }
+.smm-2fa .form-control { width:100%; min-height:48px; padding:10px 12px; border:1px solid #cbdced; border-radius:6px; background:#fff; color:#183554; box-shadow:none; font-size:14px; }
+.smm-2fa textarea.form-control { height:auto; resize:vertical; }
+.smm-2fa .form-control:focus { border-color:#2B3E50; box-shadow:0 0 0 3px rgba(43,62,80,.12); }
+.smm-2fa .help-block:empty { display:none; }
+.smm-2fa button[type=submit], .smm-2fa input[type=submit] { min-height:44px; padding:11px 19px; background:#2B3E50; border:1px solid #2B3E50; border-radius:6px; color:#fff; font-weight:600; }
+.smm-2fa button[type=submit]:hover, .smm-2fa button[type=submit]:focus { background:#1D2E3E; }
+.smm-2fa .titcket-title { color:#173756; font-size:20px; font-weight:700; line-height:1.4; padding:0 0 16px; margin-bottom:18px; border-bottom:1px solid #e2ebf4; }
+.smm-2fa img { max-width:100%; height:auto; }
+.smm-2fa a:focus-visible, .smm-2fa button:focus-visible, .smm-2fa input:focus-visible, .smm-2fa textarea:focus-visible { outline:3px solid #78b5e7; outline-offset:2px; }
+@media (max-width:767px) { .smm-2fa { padding:18px 12px 32px; } .smm-2fa .well { padding:18px; } }
+
+.smm-2fa a, .smm-2fa button, .smm-2fa input, .smm-2fa select, .smm-2fa textarea { transition:background-color .16s ease, border-color .16s ease, box-shadow .16s ease, color .16s ease; }
+@media (prefers-reduced-motion:reduce) { .smm-2fa a, .smm-2fa button, .smm-2fa input, .smm-2fa select, .smm-2fa textarea { transition:none; } }
+
+/* Form focus: suppress the theme outline while retaining a visible focus indicator. */
+.smm-2fa input:focus, .smm-2fa select:focus, .smm-2fa textarea:focus { outline:none !important; border-color:#2B3E50 !important; box-shadow:0 0 0 2px rgba(43,62,80,.22) !important; }
+.smm-2fa input:focus-visible, .smm-2fa select:focus-visible, .smm-2fa textarea:focus-visible { outline:none !important; }
+
+/* Keep the pressed state consistent with the page's button design. */
+.smm-2fa button:active, .smm-2fa input[type="submit"]:active, .smm-2fa a.btn:active { box-shadow:none !important; }
+.smm-2fa button[type="submit"]:active, .smm-2fa input[type="submit"]:active, .smm-2fa .btn-primary:active { background-color:#1D2E3E !important; border-color:#1D2E3E !important; color:#fff !important; }
+
+/* Shared theme accent for panel-provided primary actions and table links. */
+.smm-2fa .btn-primary { background-color:#2B3E50 !important; border-color:#2B3E50 !important; color:#fff !important; }
+.smm-2fa .btn-primary:hover, .smm-2fa .btn-primary:focus, .smm-2fa .btn-primary:active { background-color:#1D2E3E !important; border-color:#1D2E3E !important; color:#fff !important; }
+.smm-2fa .table a:not(.btn) { color:#2B3E50; }
+
+/* Match the search field's inset focus style on form fields. */
+.smm-2fa input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]):not([type="hidden"]):focus,
+.smm-2fa textarea:focus, .smm-2fa select:focus { outline:none !important; border-color:#2B3E50 !important; box-shadow:inset 0 0 0 1px #2B3E50 !important; }
+
+/* Consistent readable table text and form controls on desktop and mobile. */
+.smm-2fa table th:not(.service_cat_header), .smm-2fa table td:not(.service_cat_header),
+.smm-2fa table .btn, .smm-2fa input:not([type="hidden"]):not([type="checkbox"]):not([type="radio"]),
+.smm-2fa select, .smm-2fa textarea, .smm-2fa button, .smm-2fa label { font-size:15px !important; }
+
+/* Keep body copy readable across screen sizes. */
+.smm-2fa, .smm-2fa p, .smm-2fa li { font-size:15px !important; }
+
+/* Brighter hover for theme-colored actions; active and disabled states remain distinct. */
+@media (hover:hover) {
+  .smm-2fa button[type="submit"]:hover:not(:active):not(:disabled):not(.disabled):not([aria-disabled="true"]),
+  .smm-2fa input[type="submit"]:hover:not(:active):not(:disabled):not(.disabled):not([aria-disabled="true"]),
+  .smm-2fa .btn-primary:hover:not(:active):not(:disabled):not(.disabled):not([aria-disabled="true"]) { background-color:#405E78 !important; border-color:#405E78 !important; color:#fff !important; }
+}
+</style>
+<div class="smm-2fa">
+		
+		<div class="">
+			<div class="paddingbody"></div>
+			<div class="container-fluid container-fluid-spacious">
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3">
+						<div id="main-page" class="well well-float table-responsive">
+							<div class="">
+								[error_message]
+								<form id="yw0" action="" method="post">
+									<h3>Two-factor authentication</h3>
+									<p>Please check your email and enter the code below.
+</p>
+									<div class="form-group">
+										<label class="control-label" for="two_fa">Code</label>
+										<input class="form-control" name="two_fa" id="two_fa" autocomplete="one-time-code" required type="text">
+										<p class="help-block help-block-error"></p>
+									</div>
+									
+									[panel.csrf_protection]
+
+									<input type="hidden" name="token_verification_post" value="Reset" />
+									<button type="submit" class="btn btn-default">Verify</button>
+								</form>
+							</div>
+						</div>
+						 
+					</div>
+				</div>
+			</div>
+		</div>
+		
+</div>

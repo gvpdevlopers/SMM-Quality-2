@@ -1,0 +1,337 @@
+<style>
+.smm-order-page { color:#183554; padding:28px 20px 48px; }
+.smm-order-page, .smm-order-page *, .smm-order-page *::before, .smm-order-page *::after { box-sizing:border-box; }
+.smm-order-page .smm-order-layout { display:grid !important; grid-template-columns:minmax(0,1.45fr) minmax(0,1fr) !important; gap:24px; align-items:start; width:100% !important; max-width:1320px; margin:0 auto !important; }
+.smm-order-page .smm-order-main, .smm-order-page .smm-order-sidebar { display:grid !important; grid-template-columns:minmax(0,1fr); gap:20px; width:100% !important; min-width:0; margin:0 !important; padding:0 !important; float:none !important; }
+.smm-order-page .smm-order-funds, .smm-order-page .smm-order-form-card, .smm-order-page .smm-order-content { width:100% !important; min-width:0; margin:0 !important; padding:24px !important; background:#fff !important; border:1px solid #d9e5f1 !important; border-radius:10px !important; box-shadow:0 4px 18px rgba(35,71,110,.07); overflow-wrap:anywhere; }
+.smm-order-page .smm-order-funds { display:flex !important; align-items:center; gap:18px; flex-wrap:wrap; }
+.smm-order-page .smm-order-wallet { display:flex; align-items:center; justify-content:center; width:52px; height:52px; flex:0 0 52px; border-radius:8px; background:#eaf3fc; color:#2B3E50; font-size:22px; }
+.smm-order-page .smm-order-funds-copy { min-width:0; flex:1 1 140px; }
+.smm-order-page .smm-order-funds-copy span { display:block; color:#617891; font-size:14px !important; font-weight:700; letter-spacing:normal; }
+.smm-order-page .smm-order-funds-copy strong { display:block; color:#153558; font-size:24px; overflow-wrap:anywhere; }
+.smm-order-page .smm-order-funds-actions { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+.smm-order-page .smm-order-currency { position:relative; }
+.smm-order-page .smm-order-currency ul.navbar-nav { display:block !important; float:none !important; margin:0 !important; padding:0 !important; list-style:none; }
+.smm-order-page .smm-order-currency ul.navbar-nav > li { display:block !important; float:none !important; position:relative; margin:0 !important; }
+.smm-order-page .smm-order-currency .dropdown-toggle { display:inline-flex; align-items:center; gap:6px; min-height:44px; padding:10px 13px; border:1px solid #cbdced; border-radius:6px; background:#f4f8fc; color:#24435f; }
+.smm-order-page .smm-order-add-funds, .smm-order-page .smm-order-form-card button[type=submit] { display:inline-block; min-height:44px; padding:10px 17px; border:1px solid #2B3E50 !important; border-radius:6px !important; background:#2B3E50 !important; color:#fff !important; font-weight:600; text-align:center; text-decoration:none; }
+.smm-order-page .smm-order-add-funds:hover, .smm-order-page .smm-order-form-card button[type=submit]:hover { background:#1D2E3E !important; }
+.smm-order-page .smm-order-form-card h1 { margin:0 0 22px; color:#173756; font-size:21px; font-weight:700; }
+.smm-order-page .smm-order-form-card .form-group { margin-bottom:18px; }
+.smm-order-page .smm-order-form-card label { color:#24435f; font-size:14px; font-weight:600; margin-bottom:7px; }
+.smm-order-page .smm-order-form-card .form-control { width:100%; min-height:46px; border:1px solid #cbdced !important; border-radius:6px; box-shadow:none; color:#183554; background-color:#fff; font-size:14px; }
+.smm-order-page .smm-order-form-card textarea.form-control { height:auto; }
+.smm-order-page .smm-order-form-card .form-control:focus { border-color:#2B3E50 !important; box-shadow:0 0 0 3px rgba(43,62,80,.12); }
+.smm-order-page .smm-order-form-card .description { border:1px solid #dce8f4; border-radius:7px; background:#f5f9fd; padding:15px; overflow-wrap:anywhere; }
+.smm-order-page .smm-order-form-card .min-max { color:#607993; }
+.smm-order-page .smm-order-form-card #order_charge .input-group-addon { border-color:#cbdced; background:#f3f7fb; color:#24435f; }
+.smm-order-page .smm-order-form-card button[type=submit] { width:100%; }
+.smm-order-page .smm-order-content:empty { display:none; }
+.smm-order-page a:focus-visible, .smm-order-page button:focus-visible, .smm-order-page input:focus-visible, .smm-order-page select:focus-visible, .smm-order-page textarea:focus-visible { outline:3px solid #78b5e7; outline-offset:2px; }
+@media (max-width:900px) { .smm-order-page .smm-order-layout { grid-template-columns:minmax(0,1fr) !important; gap:16px; } }
+@media (max-width:480px) { .smm-order-page { padding:18px 12px 32px; } .smm-order-page .smm-order-funds, .smm-order-page .smm-order-form-card, .smm-order-page .smm-order-content { padding:16px !important; } .smm-order-page .smm-order-funds-actions { width:100%; } }
+
+/* Form focus: suppress the theme outline while retaining a visible focus indicator. */
+.smm-order-page input:focus, .smm-order-page select:focus, .smm-order-page textarea:focus { outline:none !important; border-color:#2B3E50 !important; box-shadow:0 0 0 2px rgba(43,62,80,.22) !important; }
+.smm-order-page input:focus-visible, .smm-order-page select:focus-visible, .smm-order-page textarea:focus-visible { outline:none !important; }
+
+/* Keep the pressed state consistent with the page's button design. */
+.smm-order-page button:active, .smm-order-page input[type="submit"]:active, .smm-order-page a.btn:active { box-shadow:none !important; }
+.smm-order-page button[type="submit"]:active, .smm-order-page input[type="submit"]:active, .smm-order-page .btn-primary:active { background-color:#1D2E3E !important; border-color:#1D2E3E !important; color:#fff !important; }
+
+/* Funds controls: override the shared theme while retaining the panel's dropdown behavior. */
+.smm-order-page .smm-order-funds .smm-order-currency .dropdown-toggle {
+  display:inline-flex !important; align-items:center !important; justify-content:center !important; gap:8px !important;
+  min-height:46px !important; padding:10px 14px !important; border:1px solid #b9cfe1 !important;
+  border-radius:7px !important; background:#fff !important; color:#24435f !important;
+  font-size:14px !important; font-weight:600 !important; line-height:1.4 !important; text-decoration:none !important;
+  box-shadow:none !important; white-space:nowrap;
+}
+.smm-order-page .smm-order-funds .smm-order-currency .dropdown-toggle:hover,
+.smm-order-page .smm-order-funds .smm-order-currency .dropdown-toggle:focus,
+.smm-order-page .smm-order-funds .smm-order-currency .dropdown-toggle:active,
+.smm-order-page .smm-order-funds .smm-order-currency .open > .dropdown-toggle {
+  background:#f1f6fb !important; color:#24435f !important; border-color:#84a9ca !important;
+}
+.smm-order-page .smm-order-funds a.smm-order-add-funds,
+.smm-order-page .smm-order-form-card button[type="submit"] {
+  display:inline-flex !important; align-items:center !important; justify-content:center !important; gap:8px !important;
+  min-height:46px !important; padding:10px 17px !important; border:1px solid #2B3E50 !important;
+  border-radius:7px !important; background:#2B3E50 !important; color:#fff !important;
+  font-size:14px !important; font-weight:700 !important; line-height:1.4 !important; text-decoration:none !important;
+  box-shadow:none !important;
+}
+.smm-order-page .smm-order-funds a.smm-order-add-funds:hover,
+.smm-order-page .smm-order-funds a.smm-order-add-funds:focus,
+.smm-order-page .smm-order-funds a.smm-order-add-funds:active,
+.smm-order-page .smm-order-form-card button[type="submit"]:hover,
+.smm-order-page .smm-order-form-card button[type="submit"]:focus,
+.smm-order-page .smm-order-form-card button[type="submit"]:active {
+  background:#1D2E3E !important; border-color:#1D2E3E !important; color:#fff !important;
+}
+.smm-order-page .smm-order-funds a.smm-order-add-funds i { color:inherit !important; }
+
+/* Keep the panel's currency menu positioned above nearby cards without moving the funds controls. */
+.smm-order-page .smm-order-funds { position:relative; z-index:5; overflow:visible !important; }
+.smm-order-page .smm-order-funds-actions, .smm-order-page .smm-order-currency { min-width:0; }
+.smm-order-page .smm-order-currency .dropdown-menu {
+  position:absolute !important; top:100% !important; left:0; right:auto; z-index:1050 !important; float:none !important;
+  min-width:150px; max-width:calc(100vw - 48px); margin:6px 0 0 !important; padding:6px !important;
+  border:1px solid #d4e2ef !important; border-radius:8px !important; background:#fff !important;
+  box-shadow:0 8px 20px rgba(24,53,84,.16) !important;
+}
+.smm-order-page .smm-order-currency .dropdown-menu > li > a { display:block; padding:9px 12px !important; border-radius:5px; background:transparent; color:#24435f !important; text-decoration:none; }
+.smm-order-page .smm-order-currency .dropdown-menu > li > a:hover,
+.smm-order-page .smm-order-currency .dropdown-menu > li > a:focus { background:#eaf3fb !important; color:#2B3E50 !important; }
+.smm-order-page .smm-order-currency .dropdown-menu > li.active, .smm-order-page .smm-order-currency .dropdown-menu > li.active:hover { background:transparent !important; }
+.smm-order-page .smm-order-currency .dropdown-menu > li.active > a, .smm-order-page .smm-order-currency .dropdown-menu > li.active > a:hover, .smm-order-page .smm-order-currency .dropdown-menu > li.active > a:focus { background:#e4f0fb !important; color:#24435f !important; font-weight:700 !important; }
+@media (max-width:480px) {
+  .smm-order-page .smm-order-funds-actions { display:flex !important; flex-wrap:nowrap !important; align-items:center; }
+  .smm-order-page .smm-order-currency { flex:0 0 auto; }
+  .smm-order-page .smm-order-funds a.smm-order-add-funds { flex:1 1 auto; min-width:0; }
+  .smm-order-page .smm-order-currency .dropdown-menu { left:0 !important; right:auto !important; }
+}
+/* Style only the panel's successful-order notice; error alerts remain unchanged. */
+.smm-order-page .addorder_message_wrapper.alert-success {
+  position:relative; margin:0 0 20px; padding:20px 44px 20px 20px !important;
+  border:1px solid #b8dec9 !important; border-radius:8px !important;
+  background:#eff9f3 !important; color:#214d35 !important; overflow-wrap:anywhere;
+}
+.smm-order-page .addorder_message_wrapper.alert-success .addorder_message_success { color:#214d35 !important; font-size:14px; line-height:1.7; }
+.smm-order-page .addorder_message_wrapper.alert-success h2 { margin:0 0 10px; color:#173f2c !important; font-size:20px; line-height:1.35; }
+.smm-order-page .addorder_message_wrapper.alert-success .close { position:absolute; top:12px; right:14px; color:#315e43 !important; opacity:1; }
+
+/* Shared theme accent for panel-provided primary actions and table links. */
+.smm-order-page .btn-primary { background-color:#2B3E50 !important; border-color:#2B3E50 !important; color:#fff !important; }
+.smm-order-page .btn-primary:hover, .smm-order-page .btn-primary:focus, .smm-order-page .btn-primary:active { background-color:#1D2E3E !important; border-color:#1D2E3E !important; color:#fff !important; }
+.smm-order-page .table a:not(.btn) { color:#2B3E50; }
+
+/* Match the search field's inset focus style on form fields. */
+.smm-order-page input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]):not([type="hidden"]):focus,
+.smm-order-page textarea:focus, .smm-order-page select:focus { outline:none !important; border-color:#2B3E50 !important; box-shadow:inset 0 0 0 1px #2B3E50 !important; }
+/* Keep the native select behavior with a comfortably inset arrow. */
+.smm-order-page select.form-control:not([multiple]):not([size]):not(.smm-ticket-select-native) { appearance:none; -webkit-appearance:none; padding-right:40px !important; background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%232B3E50%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22m6%209%206%206%206-6%22%2F%3E%3C%2Fsvg%3E") !important; background-repeat:no-repeat !important; background-position:right 14px center !important; background-size:16px 16px !important; }
+@media (forced-colors:active) { .smm-order-page select.form-control:not([multiple]):not([size]):not(.smm-ticket-select-native) { appearance:auto; -webkit-appearance:auto; background-image:none !important; } }
+
+/* Consistent readable table text and form controls on desktop and mobile. */
+.smm-order-page table th:not(.service_cat_header), .smm-order-page table td:not(.service_cat_header),
+.smm-order-page table .btn, .smm-order-page input:not([type="hidden"]):not([type="checkbox"]):not([type="radio"]),
+.smm-order-page select, .smm-order-page textarea, .smm-order-page button, .smm-order-page label { font-size:15px !important; }
+
+/* Keep body copy readable across screen sizes. */
+.smm-order-page, .smm-order-page p, .smm-order-page li { font-size:15px !important; }
+.smm-order-page .addorder_message_wrapper.alert-success .addorder_message_success, .smm-order-page .smm-order-currency .dropdown-toggle, .smm-order-page .smm-order-funds a.smm-order-add-funds { font-size:15px !important; }
+
+/* Brighter hover for theme-colored actions; active and disabled states remain distinct. */
+@media (hover:hover) {
+  .smm-order-page button[type="submit"]:hover:not(:active):not(:disabled):not(.disabled):not([aria-disabled="true"]),
+  .smm-order-page input[type="submit"]:hover:not(:active):not(:disabled):not(.disabled):not([aria-disabled="true"]),
+  .smm-order-page .btn-primary:hover:not(:active):not(:disabled):not(.disabled):not([aria-disabled="true"]),
+  .smm-order-page .smm-order-funds a.smm-order-add-funds:hover:not(:active):not(:disabled):not(.disabled):not([aria-disabled="true"]),
+  .smm-order-page .smm-order-form-card button[type="submit"]:hover:not(:active):not(:disabled):not(.disabled):not([aria-disabled="true"]) { background-color:#405E78 !important; border-color:#405E78 !important; color:#fff !important; }
+}
+</style>
+<script>
+  gtag('event', 'conversion', {
+      'send_to': 'AW-16707476495/gT9CCMGhjoIaEI-4354-',
+      'value': 1.0,
+      'currency': 'INR'
+  });
+</script>
+<div class="smm-order-page">
+  <div class="smm-order-layout">
+    <div class="smm-order-main">
+      [rentalpanel.refferal.code]
+      <div class="well well-float table-responsive" style="display:none;">[addorder.top-content]</div>
+      <section id="main-page" class="smm-order-funds" aria-label="Available funds">
+        <span class="smm-order-wallet" aria-hidden="true"><i class="fas fa-wallet"></i></span>
+        <div class="smm-order-funds-copy"><span>AVAILABLE FUNDS</span><strong>[panel.currency.symbol] [user.available_funds]</strong></div>
+        <div class="smm-order-funds-actions"><div class="smm-order-currency">[panel.currency_nav_drop_down]</div><a href="/addfunds" class="smm-order-add-funds"><i class="fas fa-plus-circle" aria-hidden="true"></i> Add Funds</a></div>
+      </section>
+      <section id="main-page" class="smm-order-form-card" aria-label="New Order">
+        [error_message]
+        <form method="post" action="">
+                                    <div class="form-hidden form-group" >
+                                        <label class="control-label" for="orderCategory">[addorder.form.category]</label>
+                                        <select name="category" id="orderCategory" class="custom-select w-full form-control">
+                                            [addorder.form.category.list]
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" for="OrderService">[addorder.form.service]</label>
+                                        <select name="service_id" onchange="addon_details(event)" id="OrderService" class="form-control custom-select w-full">
+                                            [addorder.form.services.list]
+                                        </select>
+                                    </div>
+                                    <div id="orders_type_order_13" class="description_div" >
+                                        <div class="form-group" id="description_style" >
+                                            <label class="control-label" for="description">[addorder.form.description]</label>
+                                            <div class="panel-body border-solid border-rounded description" id="description" ></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="order_link">
+                                      <label class="control-label" for="link">[addorder.form.link]</label>
+                                      <input class="form-control" id="link" name="order_url" type="text">
+                                    </div>
+                                    <div id="addon">
+                                        <div class="form-group" id="have_comment" style="display:none;" >
+                                            <label for="service_comments">[addorder.form.comments]</label>
+                                            <textarea name="comments" id="service_comments" class="form-control" rows="6" placeholder="1 comment per line" style="width: 100%;"></textarea>
+                                        </div>
+                                        
+                                        <div class="form-group" id="order_quantity" style="display:none" >
+                                          <label class="control-label" for="order_count">[addorder.form.amount]</label>
+                                          <input class="form-control" id="order_count" name="order_amount" type="text" >
+                                          <small class="help-block min-max" id="small_min_max_div">Min: <span class="min_amount_span"></span> - Max: <span class="max_amount_span"></span></small>
+                                        </div>
+                                        
+                                        <div class="form-group" id="have_username" style="display:none;" >
+                                            <label for="service_usernames">[addorder.form.usernames]</label>
+                                            <textarea name="usernames" id="service_usernames" class="form-control" rows="6" placeholder="1 username per line" style="width: 100%; height: 30%;"></textarea>
+                                        </div>
+                                        
+                                        <div class="form-group" id="have_hashtag" style="display:none;" >
+                                            <label for="service_hashtags">[addorder.form.hashtags]</label>
+                                            <textarea name="hashtags" id="service_hashtags" class="form-control" rows="6" placeholder="1 hashtag per line" style="width: 100%; height: 30%;"></textarea>
+                                        </div>
+                                        
+                                        <div class="form-group" id="have_media" style="display:none;" >
+                                            <label for="service_medias">[addorder.form.medias]</label>
+                                            <textarea name="medias" id="service_medias" class="form-control" rows="6" placeholder="1 Media per line" style="width: 100%; height: 30%;"></textarea>
+                                        </div>
+                                        
+                                        <div class="form-group" id="order_posts" style="display:none;" >
+                                          <label class="control-label" for="total_posts">[addorder.form.newposts]</label>
+                                          <input class="form-control" id="total_posts" name="total_posts" type="text" >
+                                        </div>
+                                        
+                                        <div class="form-group fields" id="order_min" style="display:none;" >
+                                            <label class="control-label" for="order_count_extra">[addorder.form.newposts.quantity]</label>
+                                            <div class="row">
+                                                <div class="col-xs-6" id='have_min' style="display:none;">
+                                                    <input class="form-control" id="order_count_extra" name="min_amount" value="" placeholder="[addorder.form.min]" type="text">
+                                                </div>
+
+                                                <div class="col-xs-6" id='have_max' style="display:none;">
+                                                    <input class="form-control" id="order_count_extra" name="max_amount" value="" placeholder="[addorder.form.max]" type="text">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        <div id="dripfeed" style="display:none;" >
+                                            <div class="form-group fields" id="order_check">
+                                                <label class="control-label has-depends " for="field-orderform-fields-check">
+                                                <input name="drip_feed_check" onclick="drip_feed_css()" value="1" id="field-orderform-fields-check" type="checkbox">[addorder.form.dripfeed]</label>
+                                                <div class="depend-fields" id="dripfeed-options" data-depend="field-orderform-fields-check">
+                                                    <div class="form-group">
+                                                        <label class="control-label" for="field-orderform-fields-runs">[addorder.form.runs]</label>
+                                                        <input class="form-control" name="runs" value="" id="field-orderform-fields-runs" type="text">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label" for="field-orderform-fields-interval">[addorder.form.interval]</label>
+                                                        <input class="form-control" name="interval" value="" id="field-orderform-fields-interval" placeholder="30-45 min (recommended)" type="text">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label" for="field-orderform-fields-total-quantity">[addorder.form.total_quantity]</label>
+                                                        <input class="form-control" name="total_quantity" value="" id="field-orderform-fields-total-quantity" readonly="" type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        <div class="form-group fields" id="order_delay" style="display:none;" >
+                                            <div class="row">
+                                                <div class="col-xs-6">
+                                                    <label class="control-label" for="field-orderform-fields-delay">[addorder.form.delay]</label>
+                                                    <select class="form-control" name="delay" id="field-orderform-fields-delay">
+                                                        <option value="0">No delay</option>
+                                                        <option value="300">5 minutes</option>
+                                                        <option value="600">10 minutes</option>
+                                                        <option value="900">15 minutes</option>
+                                                        <option value="1800">30 minutes</option>
+                                                        <option value="3600">60 minutes</option>
+                                                        <option value="5400">90 minutes</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-xs-6">
+                                                    <label for="field-orderform-fields-expiry">[addorder.form.expiry]</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control datetime" name="expiry" value="" id="field-orderform-fields-expiry" type="text">
+                                                        <span class="input-group-btn">
+                                                            <button class="btn btn-default clear-datetime" aria-label="Clear expiry date" onclick="remove_date()" type="button" data-rel="#field-orderform-fields-expiry"><span class="fa fa-trash-o"></span></button>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="order_charge">
+                                      <label class="control-label" for="charge">[addorder.form.charge]</label>
+                                      <div class="input-group">
+                                        <span class="input-group-addon">[panel.currency.symbol]</span>
+                                        <input class="form-control" id="charge" name="charge" disabled type="text">
+                                      </div>
+                                    </div>
+                                    [panel.csrf_protection]
+                                    <input type="hidden" name="place_order" value="place_order">
+                                    <button type="submit" class="btn btn-primary" name="place_order">[addorder.form.submit_button]</button>
+                                </form>
+      </section>
+    </div>
+    <aside class="smm-order-sidebar" aria-label="Panel updates">
+      <div id="main-page" class="smm-order-content">[addorder.middle-content]</div>
+      <div id="main-page" class="smm-order-content">[addorder.bottom-content]</div>
+    </aside>
+  </div>
+  [addorder.javascript-assets]
+</div>
+<script>
+if( '[user.username]' == 'demoaccount' ){
+	window.location.href = "https://sq.karanchelani.com/";
+}
+</script>
+<script>
+(function () {
+    function fixServiceDropdown() {
+        const service = document.getElementById('OrderService');
+
+        if (!service) return;
+
+        if (window.jQuery && jQuery(service).data('selectpicker')) {
+            jQuery(service).selectpicker('destroy');
+        }
+
+        service.classList.remove('selectpicker');
+
+        const wrapper = service.closest('.bootstrap-select');
+
+        if (wrapper) {
+            wrapper.parentNode.insertBefore(service, wrapper);
+            wrapper.remove();
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', fixServiceDropdown);
+
+    const observer = new MutationObserver(function () {
+        fixServiceDropdown();
+    });
+
+    function startObserver() {
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+
+        fixServiceDropdown();
+    }
+
+    if (document.body) {
+        startObserver();
+    } else {
+        document.addEventListener('DOMContentLoaded', startObserver);
+    }
+})();
+</script>

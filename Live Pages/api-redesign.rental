@@ -1,0 +1,300 @@
+<style>
+.smm-api { --api-ink:#183554; --api-border:#d9e5f1; color:var(--api-ink); padding:28px 20px 48px; }
+.smm-api *, .smm-api *::before, .smm-api *::after { box-sizing:border-box; }
+.smm-api-layout { max-width:1320px; margin:0 auto; display:grid; grid-template-columns:210px minmax(0,1fr); gap:24px; align-items:start; }
+.smm-api-nav { position:sticky; top:20px; padding:12px; background:#fff; border:1px solid var(--api-border); border-radius:10px; box-shadow:0 4px 18px rgba(35,71,110,.07); }
+.smm-api-nav a { display:block; padding:10px 12px; color:#284d70; border-radius:6px; font-size:14px; text-decoration:none; }
+.smm-api-nav a:hover, .smm-api-nav a:focus { background:#edf5fc; color:#126cb5; }
+.smm-api-main { min-width:0; }
+.smm-api-main .paddingbody { display:none; }
+.smm-api-main .container-fluid { width:100%; padding:0; }
+.smm-api-main .row { margin:0; }
+.smm-api-main .col-md-6 { width:100%; float:none; margin:0; padding:0; }
+.smm-api-main #main-page { padding:24px; background:#fff; border:1px solid var(--api-border); border-radius:10px; box-shadow:0 4px 18px rgba(35,71,110,.07); overflow-x:auto; }
+.smm-api h2 { margin:0 0 22px; color:#173756; font-size:22px; font-weight:700; }
+.smm-api h4 { margin:30px 0 14px; color:#173756; font-size:18px; scroll-margin-top:20px; }
+.smm-api .table { width:100%; margin-bottom:18px; border-collapse:collapse; }
+.smm-api .table th, .smm-api .table td { border:1px solid #dce7f2; padding:11px 13px; line-height:1.55; vertical-align:top; overflow-wrap:anywhere; }
+.smm-api .table th { background:#f1f6fc; color:#24435f; }
+.smm-api .width-40 { width:40%; }
+.smm-api pre { max-width:100%; padding:15px; border:1px solid #dce7f2; border-radius:6px; background:#f5f8fc; color:#24435f; overflow:auto; white-space:pre; }
+.smm-api select.form-control { max-width:100%; min-height:42px; border:1px solid #cbdced; border-radius:6px; }
+.smm-api a:focus-visible, .smm-api select:focus-visible { outline:3px solid #78b5e7; outline-offset:2px; }
+@media (max-width:900px) { .smm-api-layout { grid-template-columns:minmax(0,1fr); gap:16px; } .smm-api-nav { position:static; display:flex; flex-wrap:wrap; gap:3px; } }
+@media (max-width:480px) { .smm-api { padding:18px 12px 32px; } .smm-api-main #main-page { padding:18px; } .smm-api .table th, .smm-api .table td { padding:9px; font-size:13px; } }
+
+.smm-api a, .smm-api button, .smm-api input, .smm-api select, .smm-api textarea { transition:background-color .16s ease, border-color .16s ease, box-shadow .16s ease, color .16s ease; }
+@media (prefers-reduced-motion:reduce) { .smm-api a, .smm-api button, .smm-api input, .smm-api select, .smm-api textarea { transition:none; } }
+</style>
+<div class="smm-api"><div class="smm-api-layout">
+<nav class="smm-api-nav" aria-label="API sections">
+<a href="#smm-api-overview">Overview</a><a href="#smm-api-add-order">Add Order</a><a href="#smm-api-services">Services List</a><a href="#smm-api-status">Order Status</a><a href="#smm-api-multiple-status">Multiple Order Status</a><a href="#smm-api-balance">Balance</a><a href="#smm-api-refill">Refill</a><a href="#smm-api-cancel">Cancel</a>
+</nav><div class="smm-api-main" id="smm-api-overview">
+	<div class="paddingbody"></div>
+	
+	<div class="container-fluid container-fluid-spacious">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div id="main-page" class="well well-float table-responsive">
+					<div class="">
+						<h2 class="m-b-md">API Docs</h2>
+						<table class="table table-bordered">
+								<tbody>
+									<tr>
+										<td class="width-40">HTTP Method</td>
+										<td>POST</td>
+									</tr>
+									<tr>
+										<td>API URL</td>
+										<td>
+											<strong>[panel.url]/[api-docs.api-url]</strong>
+										</td>
+									</tr>
+							
+									<tr>
+										<td>API KEY</td>
+										<td><strong>[user.api_key]</strong></td>
+									</tr>
+									
+									<tr>
+										<td>Response format</td>
+										<td>JSON</td>
+									</tr>
+								</tbody>
+						</table>
+						<h4 id="smm-api-add-order" class="m-t-md"><strong>Add order</strong></h4>
+						<p>
+						</p>
+						<form class="form-inline">
+							<div class="form-group">
+								<select class="form-control input-sm" id="service_type" aria-label="Service type">
+									<option value="0" selected="selected">Default</option>
+								</select>
+							</div>
+						</form>
+						<p></p>
+						
+						<div id="type_0" style="">
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th class="width-40">Parameters</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>[api-docs.key]</td>
+										<td>Your API key</td>
+									</tr>
+									<tr>
+										<td>[api-docs.action]</td>
+										<td>add</td>
+									</tr>
+									<tr>
+										<td>[api-docs.service]</td>
+										<td>Service ID</td>
+									</tr>
+									<tr>
+										<td>[api-docs.url]</td>
+										<td>Link to page</td>
+									</tr>
+									<tr>
+										<td>[api-docs.quantity]</td>
+										<td>Needed quantity</td>
+									</tr>
+									<tr>
+										<td>[api-docs.comments]</td>
+										<td>Comments list (encoded)</td>
+									</tr>
+									<tr>
+										<td>[api-docs.runs]</td>
+										<td>Runs to deliver</td>
+									</tr>
+									<tr>
+										<td>[api-docs.interval]</td>
+										<td>Interval in minutes</td>
+									</tr>
+									
+								</tbody>
+							</table>
+						</div>
+						<p><strong>Example success response</strong></p>
+						<pre>[api-docs.add-order.success]</pre>
+						<p><strong>Example error response</strong></p>
+						<pre>{
+	"error": "incorrect service type"
+}
+</pre>
+						
+						<h4 id="smm-api-services" class="m-t-md"><strong>Services List</strong></h4>
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th class="width-40">Parameters</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>[api-docs.key]</td>
+										<td>Your API key</td>
+									</tr>
+									<tr>
+										<td>[api-docs.action]</td>
+										<td>services</td>
+									</tr>
+								</tbody>
+							</table>
+							<p><strong>Example response</strong></p>
+							<pre>[api-docs.services.success]</pre>
+							
+							<h4 id="smm-api-status" class="m-t-md"><strong>Order status</strong></h4>
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th class="width-40">Parameters</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>[api-docs.key]</td>
+										<td>Your API key</td>
+									</tr>
+									<tr>
+										<td>[api-docs.action]</td>
+										<td>status</td>
+									</tr>
+									<tr>
+										<td>[api-docs.status.order]</td>
+										<td>Order ID</td>
+									</tr>
+								</tbody>
+							</table>
+							<p><strong>Example response</strong></p>
+							<pre>[api-docs.status.success]</pre>
+							
+							<h4 id="smm-api-multiple-status" class="m-t-md"><strong>Multiple Order status</strong></h4>
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th class="width-40">Parameters</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>[api-docs.key]</td>
+										<td>Your API key</td>
+									</tr>
+									<tr>
+										<td>[api-docs.action]</td>
+										<td>[api-docs.mass-status.action]</td>
+									</tr>
+									<tr>
+										<td>[api-docs.mass-status.orders]</td>
+										<td>Order IDs separated by comma(100 orders at once)</td>
+									</tr>
+								</tbody>
+							</table>
+							<p><strong>Example response</strong></p>
+							<pre>[api-docs.mass-status.success]</pre>
+							
+							<h4 id="smm-api-balance" class="m-t-md"><strong>Balance</strong></h4>
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th class="width-40">Parameters</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>[api-docs.key]</td>
+										<td>Your API key</td>
+									</tr>
+									<tr>
+										<td>[api-docs.action]</td>
+										<td>balance</td>
+									</tr>
+								</tbody>
+							</table>
+							<p><strong>Example response</strong></p>
+							<pre>{
+	"balance": 10000,
+	"currency": "USD"
+}
+</pre>				
+						
+						<h4 id="smm-api-refill" class="m-t-md"><strong>Refill</strong></h4>
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th class="width-40">Parameters</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>[api-docs.key]</td>
+										<td>Your API key</td>
+									</tr>
+									<tr>
+										<td>[api-docs.action]</td>
+										<td>refill</td>
+									</tr>
+									<tr>
+										<td>[api-docs.status.order]</td>
+										<td>Order ID</td>
+									</tr>
+								</tbody>
+							</table>
+							<p><strong>Example response</strong></p>
+							<pre>{
+	"status": "Success",
+	"message": "Your order successfully added for refill. Thank you for patience."
+}
+</pre>
+							
+							<h4 id="smm-api-cancel" class="m-t-md"><strong>Cancel</strong></h4>
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th class="width-40">Parameters</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>[api-docs.key]</td>
+										<td>Your API key</td>
+									</tr>
+									<tr>
+										<td>[api-docs.action]</td>
+										<td>cancel</td>
+									</tr>
+									<tr>
+										<td>[api-docs.status.order]</td>
+										<td>Order ID</td>
+									</tr>
+								</tbody>
+							</table>
+							<p><strong>Example response</strong></p>
+							<pre>{
+	"status": "Success",
+	"message": "Your order was successfully marked for cancellation. Thank you for patience."
+}
+</pre>
+						
+						<a href="[panel.url]/api.zip" class="btn btn-default m-t" target="_blank" rel="noopener noreferrer">Example of PHP code</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	
+	
+</div></div></div>
